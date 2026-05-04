@@ -1,37 +1,13 @@
 {
   "env": {
-    "NEXT_PUBLIC_SITE_URL": {
-      "description": "The site URL",
-      "value": "https://liveinportmoody.com"
-    },
-    "NEXT_PUBLIC_PUBLIC_EMAIL": {
-      "description": "Public contact email",
-      "value": "paul@liveinportmoody.com"
-    },
-    "NEXT_PUBLIC_PUBLIC_PHONE": {
-      "description": "Public phone number",
-      "value": "604-XXX-XXXX"
-    },
-    "NEXT_PUBLIC_BROKERAGE_NAME": {
-      "description": "Brokerage name",
-      "value": "TBD"
-    },
-    "NEXT_PUBLIC_BROKERAGE_ADDRESS": {
-      "description": "Brokerage address",
-      "value": "TBD"
-    },
-    "NEXT_PUBLIC_GA4_ID": {
-      "description": "Google Analytics 4 ID",
-      "value": ""
-    },
-    "NEXT_PUBLIC_CLARITY_ID": {
-      "description": "Microsoft Clarity ID",
-      "value": ""
-    },
-    "CRM_MODE": {
-      "description": "CRM adapter mode: 'mock' or 'ghl'",
-      "value": "mock"
-    }
+    "NEXT_PUBLIC_SITE_URL": "https://liveinportmoody.com",
+    "NEXT_PUBLIC_PUBLIC_EMAIL": "paul@liveinportmoody.com",
+    "NEXT_PUBLIC_PUBLIC_PHONE": "604-XXX-XXXX",
+    "NEXT_PUBLIC_BROKERAGE_NAME": "TBD",
+    "NEXT_PUBLIC_BROKERAGE_ADDRESS": "TBD",
+    "NEXT_PUBLIC_GA4_ID": "",
+    "NEXT_PUBLIC_CLARITY_ID": "",
+    "CRM_MODE": "mock"
   },
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
