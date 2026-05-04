@@ -1,41 +1,55 @@
 # Live in Port Moody
 
-Welcome to the liveinportmoody.com website repository. This is the central hub for information about living and investing in Port Moody, BC.
+Phase 1 release for LiveInPortMoody.com, built with Next.js App Router, TypeScript, Tailwind CSS, custom React components, a lead API, attribution capture, and a mock-or-real GoHighLevel adapter.
 
-## Project Structure
+## Run Locally
 
-```
-liveinportmoody.com/
-├── src/
-│   ├── assets/
-│   │   ├── images/       # Image files (logos, photos, etc.)
-│   │   ├── css/          # Stylesheets
-│   │   └── js/           # JavaScript files
-│   ├── components/       # Reusable components
-│   ├── pages/            # Page templates
-│   └── index.html        # Main entry point
-├── docs/                 # Documentation
-├── .gitignore
-└── README.md
+Use Node 22 LTS or newer.
+
+```bash
+npm install
+npm run dev
 ```
 
-## Getting Started
+The local site runs at `http://127.0.0.1:3000` when started with:
 
-### Prerequisites
-- Git
-- Node.js (if using build tools)
-- A code editor (VS Code, etc.)
+```bash
+npm run dev -- --hostname 127.0.0.1 --port 3000
+```
 
-### Installation
+## Checks
 
-1. Clone the repository
-2. Install dependencies (if applicable)
-3. Start development server
+```bash
+npm run typecheck
+npm run build
+```
 
-## Contributing
+## Environment
 
-Please create a branch for your changes and submit a pull request.
+Copy `.env.example` to `.env.local` and fill in confirmed values. `CRM_MODE=mock` is the Phase 1 default. Use `CRM_MODE=ghl` only after GHL location, token, pipeline, stage, and custom-field mapping decisions are confirmed.
 
-## License
+## Phase 1 Scope
 
-TBD
+Routes included:
+
+- `/`
+- `/buy`
+- `/sell`
+- `/move-to-port-moody`
+- `/market`
+- `/resources`
+- `/about`
+- `/contact`
+- `/privacy`
+- `/terms`
+- `/sitemap.xml`
+- `/robots.txt`
+
+Not included in Phase 1: IDX, listings, neighbourhood pages, building pages, Suter Brook guide, development tracker, map tools, lead scoring, Payload CMS, blog system, fake stats, or fake market data.
+
+## TODO Before Public Launch
+
+- Final brokerage name, address, phone, email, and compliance language.
+- Final privacy, terms, real estate disclaimer, cookie, email consent, and SMS consent copy.
+- Real GoHighLevel IDs, fields, pipeline/stage IDs, test workflow, and notification recipients.
+- Final bios, approved credibility items, portraits, and hero media.

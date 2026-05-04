@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Port Moody coastal placeholder">
+  <rect width="1600" height="1000" fill="#12302F"/>
+  <path d="M0 640c190-70 360-82 520-36 190 55 357 47 503-24 178-86 370-86 577 1v419H0z" fill="#1F4A3D"/>
+  <path d="M0 735c212-40 416-36 612 12 247 61 451 51 612-30 112-56 237-75 376-57v340H0z" fill="#7FAEA3" opacity=".72"/>
+  <path d="M0 806c261 39 513 32 756-22 288-65 569-55 844 29v187H0z" fill="#F3EFE7"/>
+  <circle cx="1225" cy="214" r="88" fill="#B77946" opacity=".72"/>
+</svg>
