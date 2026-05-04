@@ -144,20 +144,33 @@ When you're ready to connect real GoHighLevel CRM:
 
 ## Quick Reference
 
-### Access Vercel Project
-```bash
-export VERCEL_TOKEN="<ROTATED>"
-vercel ls
-vercel inspect liveinportmoody-9ami5vhff-paul-1527s-projects.vercel.app
-```
-
-### Redeploy
+### Safe Deployment (Credentials from AWS Secrets Manager)
 ```bash
 cd /Users/paulbennett/projects/liveinportmoody.com
-export VERCEL_TOKEN="..."
-git push origin main  # Auto-deploys when GitHub integration is active
-# OR
-vercel --prod
+
+# Preview deploy
+./scripts/deploy.sh
+
+# Production deploy (careful!)
+./scripts/deploy.sh --prod
+```
+
+This script automatically retrieves the Vercel token from AWS Secrets Manager.
+
+### Manual Access (Not Recommended)
+If you need direct access to credentials:
+```bash
+# Retrieve Vercel token from Secrets Manager
+aws secretsmanager get-secret-value \
+  --secret-id liveinportmoody/vercel-token \
+  --region us-west-2 \
+  --query SecretString \
+  --output text
+
+# View all secrets
+aws secretsmanager list-secrets \
+  --region us-west-2 \
+  --filters "Key=name,Values=liveinportmoody"
 ```
 
 ### Check Route 53

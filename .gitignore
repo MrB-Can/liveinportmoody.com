@@ -9,10 +9,21 @@ dist/
 build/
 out/
 
-# Environment variables
+# Environment variables - NEVER commit
 .env
 .env.local
 .env.*.local
+.env.production
+.env.production.local
+
+# Credentials & Secrets - NEVER commit
+# All credentials are stored in AWS Secrets Manager
+.aws-credentials
+*.pem
+*.key
+*.secret
+credentials.json
+~/.aws/
 
 # IDE/Editor files
 .vscode/
