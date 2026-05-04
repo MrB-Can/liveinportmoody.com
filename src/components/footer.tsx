@@ -34,14 +34,14 @@ export function Footer() {
           <div className="mt-6 space-y-2 text-sm text-mist">
             <p>{siteConfig.brokerageName}</p>
             <p>{siteConfig.brokerageAddress}</p>
-            <p>TODO: final brokerage compliance language.</p>
-            <p>TODO: social links.</p>
+            <p>Licensed real estate services provided through {siteConfig.brokerageName}.</p>
+            <p>Social profiles will be published when official Live in Port Moody channels are active.</p>
           </div>
         </div>
       </div>
       <div className="border-t border-white/15">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-mist md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. Real estate disclaimer TODO before launch.</p>
+          <p>© {new Date().getFullYear()} {siteConfig.name}. General information only. Not legal, financial, tax, lending, inspection, or appraisal advice.</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white">Privacy</Link>
             <Link href="/terms" className="hover:text-white">Terms</Link>

@@ -8,6 +8,7 @@ import { z } from "zod";
 import { trackFormStart, trackFormSubmit } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
 import { formTypes, leadTypes } from "@/lib/crm/types";
+import { siteConfig } from "@/lib/site";
 
 const formSchema = z.object({
   name: z.string().trim().min(2, "Enter your name."),
@@ -125,11 +126,11 @@ export function LeadForm({
         </label>
         <label className="flex gap-3 text-sm leading-6 text-slateText">
           <input className="mt-1 h-4 w-4" type="checkbox" {...register("consentToContact")} />
-          You may contact me about this request. TODO: final consent language required before launch.
+          I consent to {siteConfig.name} contacting me about this request by email or phone using the information I provided. I can withdraw consent at any time.
         </label>
         <label className="flex gap-3 text-sm leading-6 text-slateText">
           <input className="mt-1 h-4 w-4" type="checkbox" {...register("consentToSms")} />
-          I consent to SMS follow-up if I provided a phone number. TODO: final SMS consent language required.
+          I consent to SMS follow-up if I provided a phone number. Message and data rates may apply. Reply STOP to opt out.
         </label>
       </div>
 

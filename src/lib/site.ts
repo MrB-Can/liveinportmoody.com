@@ -9,6 +9,9 @@ export const siteConfig = {
   brokerageName: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "eXp Realty",
   brokerageAddress: process.env.NEXT_PUBLIC_BROKERAGE_ADDRESS || "#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5",
   ogImage: "/og-placeholder.jpg",
+  privacyContactName: "Live in Port Moody",
+  legalBusinessName: "Live in Port Moody",
+  realtors: "Leilani Fong, Personal Real Estate Corporation and Paul Bennett",
 };
 
 export const navItems = [
