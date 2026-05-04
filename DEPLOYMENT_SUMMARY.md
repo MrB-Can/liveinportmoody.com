@@ -1,211 +1,129 @@
-# Live in Port Moody — Deployment Summary
+# Live in Port Moody Deployment Summary
 
-**Deployment Date:** May 4, 2026  
-**Status:** ✅ **LIVE ON VERCEL**
+Updated: May 4, 2026
 
----
+## Current Publish State
 
-## What's Live Right Now
+The app is intentionally behind a coming-soon gate for public launch.
 
-Your website is **live and accessible** at:
+- `COMING_SOON_ENABLED=true` rewrites public pages to `/coming-soon`.
+- `/api/lead` remains available for the coming-soon form.
+- Static assets, `/robots.txt`, and `/sitemap.xml` remain available.
+- Set `COMING_SOON_ENABLED=false` only when the full Phase 1 site should be visible.
 
-```
-https://liveinportmoodycom.vercel.app
-```
+## Repository
 
-All Phase 1 routes are working:
-- ✅ Homepage
-- ✅ /buy, /sell, /move-to-port-moody
-- ✅ /market, /resources
-- ✅ /about, /contact
-- ✅ /privacy, /terms
-- ✅ /api/lead (form submissions to mock CRM)
-- ✅ /robots.txt, /sitemap.xml
-- ✅ 404 page
+- GitHub repo: `https://github.com/MrB-Can/liveinportmoody.com`
+- Branch: `main`
+- Framework: Next.js App Router, TypeScript, Tailwind CSS
+- Node target: use Node 22 LTS or newer
 
----
+## Production Environment Variables
 
-## Infrastructure Set Up
+Set these in the deployment host. Do not commit real secrets.
 
-### 1. **Vercel Hosting** ✅
-- **Project:** paul-1527s-projects/liveinportmoody.com
-- **Framework:** Next.js 15.5.15
-- **Status:** READY
-- **Build Time:** 57 seconds
-- **Dashboard:** https://vercel.com/paul-1527s-projects/liveinportmoody.com
-
-### 2. **Route 53 DNS** ✅
-- **Hosted Zone:** Z01603651DTA1T4BOHLGQ
-- **Domain:** liveinportmoody.com
-- **Status:** Ready for custom domain
-- **Nameservers:** 
-  ```
-  ns-1233.awsdns-26.org
-  ns-465.awsdns-58.com
-  ns-763.awsdns-31.net
-  ns-1908.awsdns-46.co.uk
-  ```
-
-### 3. **AWS S3 Storage** ✅
-- **Media Bucket:** `liveinportmoody-media` (versioning enabled)
-- **Backups Bucket:** `liveinportmoody-backups` (versioning enabled)
-- **Ready for:** hero images, videos, form exports
-
-### 4. **AWS SES Email** ✅
-- **Verified Email:** paul@liveinportmoody.com
-- **Ready for:** transactional emails, lead confirmations
-
-### 5. **Git & GitHub** ✅
-- **Repository:** https://github.com/MrB-Can/liveinportmoody.com
-- **Last Commit:** a162a1d (Vercel config & Next.js setup)
-- **Auto-deploys:** Ready (GitHub integration pending)
-
----
-
-## Environment Configuration
-
-**Set in Vercel (automatically):**
-```
+```bash
 NEXT_PUBLIC_SITE_URL=https://liveinportmoody.com
-NEXT_PUBLIC_PUBLIC_EMAIL=paul@liveinportmoody.com
-NEXT_PUBLIC_PUBLIC_PHONE=604-XXX-XXXX
-NEXT_PUBLIC_BROKERAGE_NAME=TBD
-NEXT_PUBLIC_BROKERAGE_ADDRESS=TBD
-NEXT_PUBLIC_GA4_ID=(empty - add when ready)
-NEXT_PUBLIC_CLARITY_ID=(empty - add when ready)
-CRM_MODE=mock
+NEXT_PUBLIC_PUBLIC_EMAIL=team@liveinportmoody.com
+NEXT_PUBLIC_PUBLIC_PHONE=604-757-1553
+NEXT_PUBLIC_BROKERAGE_NAME=eXp Realty
+NEXT_PUBLIC_BROKERAGE_ADDRESS=#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5
+NEXT_PUBLIC_GA4_ID=
+NEXT_PUBLIC_CLARITY_ID=
+
+COMING_SOON_ENABLED=true
+CRM_MODE=ghl
+
+GHL_LOCATION_ID=fHjjIdFt8tYWey5Tprtk
+GHL_PIPELINE_ID=OyeKdcp3l7t8CVFxzaJm
+GHL_STAGE_ID=532c95f4-7a55-474d-aca4-6043e3cc65da
+GHL_PIPELINE_NAME=Warm Lead Nurture
+GHL_STAGE_NAME=New Lead
+GHL_OWNER_BUYER_USER_ID=e7dvKFEKd0LifrYXiazI
+GHL_OWNER_SELLER_USER_ID=xoT8gluxK7akggiHgDNv
+
+GHL_API_TOKEN_SECRET_ID=liveinportmoody/ghl-api-token
+GHL_API_TOKEN_SECRET_KEY=api_key
+AWS_REGION=us-west-2
 ```
 
----
+## Secrets
 
-## Next Steps (To Go Live with Custom Domain)
+The GHL LeadConnector token is stored in AWS Secrets Manager:
 
-### 1. **Update Domain Registrar** (24–48 hours)
-At your domain registrar (GoDaddy, Namecheap, etc.), update the **nameservers** to:
-```
-ns-1233.awsdns-26.org
-ns-465.awsdns-58.com
-ns-763.awsdns-31.net
-ns-1908.awsdns-46.co.uk
+```text
+Secret name: liveinportmoody/ghl-api-token
+Region: us-west-2
+JSON key: api_key
 ```
 
-### 2. **Update Vercel Project Settings** (5 minutes)
-- Go to https://vercel.com/paul-1527s-projects/liveinportmoody.com/settings
-- Add custom domain: `liveinportmoody.com`
-- Vercel will auto-create SSL certificate
+The deployment runtime needs permission to read that secret. Local fallback variables `GHL_API_TOKEN` and `GHL_API_KEY` exist for development only and should not be used in production if AWS secret access is available.
 
-### 3. **Update Environment Variables** (5 minutes)
-Update in Vercel project settings:
-- `NEXT_PUBLIC_BROKERAGE_NAME` → Your actual brokerage
-- `NEXT_PUBLIC_BROKERAGE_ADDRESS` → Your office address
-- `NEXT_PUBLIC_PUBLIC_PHONE` → Your actual phone number
-- `NEXT_PUBLIC_GA4_ID` → Your GA4 tracking ID (optional)
-- `NEXT_PUBLIC_CLARITY_ID` → Your Clarity ID (optional)
+## GHL Routing
 
-### 4. **Test Live Form** (5 minutes)
-Submit a test lead via the contact form at https://liveinportmoodycom.vercel.app/contact
+Real GHL mode is enabled with `CRM_MODE=ghl`.
 
----
+- Pipeline: `Warm Lead Nurture`
+- Stage: `New Lead`
+- Buyer opportunities assign to Paul Bennett.
+- Seller opportunities assign to Leilani Fong.
+- Lead tags include `source:liveinportmoody`, intent tags, engagement tag, and form tag.
 
-## What's Working
+Verified live tests:
 
-- ✅ All Phase 1 pages render correctly
-- ✅ Lead form captures data to mock CRM
-- ✅ Attribution tracking (first/last landing page, UTM params, etc.)
-- ✅ Analytics hooks ready (GA4, Clarity)
-- ✅ SEO metadata on every page
-- ✅ Sitemap and robots.txt auto-generated
-- ✅ 404 page user-friendly
-- ✅ Mobile layout responsive
-- ✅ Build times fast (~1 minute)
+- Buyer test opportunity: `HcpQ8vD0O5RqHUZhbyQ2`
+- Seller test opportunity: `F4DiYSFrIUZGWxPtRkX8`
 
----
+These test records can be deleted from GHL.
 
-## Phase 2 Readiness
+## Build Commands
 
-When you're ready to connect real GoHighLevel CRM:
-
-1. Get GHL location, token, pipeline, stage IDs
-2. Store in AWS Secrets Manager
-3. Update environment variables
-4. Change `CRM_MODE` from `mock` to `ghl`
-5. Test lead routing end-to-end
-
----
-
-## Documentation
-
-- **Full Deployment Record:** `/Users/paulbennett/Projects/aws-infrastructure/projects/liveinportmoody-website-DEPLOYMENT.md`
-- **Infrastructure Guide:** `/Users/paulbennett/Projects/aws-infrastructure/projects/liveinportmoody-website.md`
-- **AWS Setup:** Route 53, S3, SES all documented
-- **Phase 1 QA Report:** Completed (all checks passed)
-
----
-
-## Quick Reference
-
-### Safe Deployment (Credentials from AWS Secrets Manager)
 ```bash
-cd /Users/paulbennett/projects/liveinportmoody.com
-
-# Preview deploy
-./scripts/deploy.sh
-
-# Production deploy (careful!)
-./scripts/deploy.sh --prod
+npm install
+npm run typecheck
+npm run build
 ```
 
-This script automatically retrieves the Vercel token from AWS Secrets Manager.
+Start local dev:
 
-### Manual Access (Not Recommended)
-If you need direct access to credentials:
 ```bash
-# Retrieve Vercel token from Secrets Manager
-aws secretsmanager get-secret-value \
-  --secret-id liveinportmoody/vercel-token \
-  --region us-west-2 \
-  --query SecretString \
-  --output text
-
-# View all secrets
-aws secretsmanager list-secrets \
-  --region us-west-2 \
-  --filters "Key=name,Values=liveinportmoody"
+npm run dev -- --hostname 127.0.0.1 --port 3000
 ```
 
-### Check Route 53
-```bash
-aws route53 list-hosted-zones-by-name --query "HostedZones[?Name=='liveinportmoody.com.']"
-aws route53 list-resource-record-sets --hosted-zone-id Z01603651DTA1T4BOHLGQ
-```
+## Verified
 
-### Check S3 Buckets
-```bash
-aws s3 ls | grep liveinportmoody
-aws s3api get-bucket-versioning --bucket liveinportmoody-media
-```
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- `/` rewrites to `/coming-soon` when `COMING_SOON_ENABLED=true`.
+- `/api/lead` creates contacts and opportunities in GHL using the AWS-stored token.
+- Buyer assignment and seller assignment have been verified in GHL.
+- No raw GHL token appears in tracked files.
 
----
+## Phase 1 Routes
 
-## Cost Estimate (Monthly)
+The full Phase 1 routes exist but are gated while coming soon is enabled:
 
-| Service | Cost | Notes |
-|---|---|---|
-| Vercel | $0–20 | Free tier for Phase 1 |
-| Route 53 | $0.50 | Hosted zone + queries |
-| S3 | ~$0.10 | Storage + requests |
-| SES | ~$0.10 | <1000 emails/month |
-| **Total** | **~$1** | Phase 1 is essentially free |
+- `/`
+- `/buy`
+- `/sell`
+- `/move-to-port-moody`
+- `/market`
+- `/resources`
+- `/about`
+- `/contact`
+- `/privacy`
+- `/terms`
+- `/coming-soon`
+- `/sitemap.xml`
+- `/robots.txt`
 
----
+Not included: IDX, listings, neighbourhood pages, building pages, Suter Brook guide, development tracker, map tools, blog system, fake stats, or fake market data.
 
-## Support
+## Before Removing Coming Soon
 
-- **Vercel Docs:** https://vercel.com/docs
-- **Next.js Docs:** https://nextjs.org/docs
-- **AWS Route 53 Docs:** https://docs.aws.amazon.com/route53
-- **Deployment Issues:** Check `/Users/paulbennett/Projects/aws-infrastructure/projects/liveinportmoody-website-DEPLOYMENT.md` troubleshooting section
-
----
-
-**Summary:** Your website is live and ready. Just update your domain registrar's nameservers, add the custom domain in Vercel, and you're fully operational with your own domain. The infrastructure is scalable and ready for Phase 2.
+- Final legal/privacy/terms/SMS/cookie language.
+- Final brokerage compliance language.
+- Final bios and approved credibility claims.
+- Real photography/video to replace generated placeholders.
+- GA4 and Clarity IDs if desired.
+- Delete GHL test records listed above.
