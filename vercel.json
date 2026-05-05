@@ -1,13 +1,13 @@
 {
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://liveinportmoody.com",
-    "NEXT_PUBLIC_PUBLIC_EMAIL": "paul@liveinportmoody.com",
-    "NEXT_PUBLIC_PUBLIC_PHONE": "604-XXX-XXXX",
-    "NEXT_PUBLIC_BROKERAGE_NAME": "TBD",
-    "NEXT_PUBLIC_BROKERAGE_ADDRESS": "TBD",
-    "NEXT_PUBLIC_GA4_ID": "",
-    "NEXT_PUBLIC_CLARITY_ID": "",
-    "CRM_MODE": "mock"
+    "NEXT_PUBLIC_PUBLIC_EMAIL": "team@liveinportmoody.com",
+    "NEXT_PUBLIC_PUBLIC_PHONE": "604-757-1553",
+    "NEXT_PUBLIC_BROKERAGE_NAME": "eXp Realty",
+    "NEXT_PUBLIC_BROKERAGE_ADDRESS": "#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5",
+    "NEXT_PUBLIC_GA4_ID": "G-2D5FTS1HRT",
+    "NEXT_PUBLIC_CLARITY_ID": "wmgcfh2z2w",
+    "CRM_MODE": "ghl"
   },
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
