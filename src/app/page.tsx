@@ -27,6 +27,7 @@ export default function HomePage() {
         subtitle="Neighbourhood insight, seller strategy, buyer guidance, local video, and market context from Leilani Fong, Personal Real Estate Corporation and Paul Bennett."
         primaryCta={{ label: "Explore Port Moody", href: "#paths" }}
         secondaryCta={{ label: "Ask a local real estate question", href: "#ask" }}
+        imageSrc="/hero-home.webp"
       />
       <Section eyebrow="Start here" title="What are you trying to do?" tone="white">
         <div id="paths" className="grid gap-4 md:grid-cols-3">
