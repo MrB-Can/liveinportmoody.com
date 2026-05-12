@@ -15,7 +15,7 @@ export default function ComingSoonPage() {
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{
           backgroundImage:
-            "linear-gradient(90deg,rgba(18,48,47,0.96),rgba(18,48,47,0.78) 48%,rgba(18,48,47,0.35)),url('/port-moody-hero-placeholder.png')",
+            "linear-gradient(90deg,rgba(18,48,47,0.96),rgba(18,48,47,0.78) 48%,rgba(18,48,47,0.35)),url('/hero-home.webp')",
         }}
       />
       <div className="mx-auto grid min-h-screen max-w-6xl items-center px-5 py-10">

@@ -9,7 +9,7 @@ type ImageHeroProps = {
   imageSrc?: string;
 };
 
-export function ImageHero({ eyebrow, title, subtitle, primaryCta, secondaryCta, imageSrc = "/port-moody-hero-placeholder.png" }: ImageHeroProps) {
+export function ImageHero({ eyebrow, title, subtitle, primaryCta, secondaryCta, imageSrc = "/hero-home.webp" }: ImageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-deepInlet text-white">
       <div
