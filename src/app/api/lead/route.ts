@@ -11,7 +11,43 @@ const intentTagMap = {
   resource: "intent:local-question",
 };
 
+// Sliding-window rate limiter — persists within a warm Vercel instance.
+// Limit: 3 submissions per IP per 15 minutes.
+const WINDOW_MS = 15 * 60 * 1000;
+const MAX_PER_WINDOW = 3;
+const ipLog = new Map<string, number[]>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const recent = (ipLog.get(ip) ?? []).filter(t => now - t < WINDOW_MS);
+  if (recent.length >= MAX_PER_WINDOW) return true; // limited
+  recent.push(now);
+  ipLog.set(ip, recent);
+  // Prevent unbounded memory growth on sustained traffic
+  if (ipLog.size > 20_000) {
+    for (const [key, times] of ipLog) {
+      if (times.every(t => now - t >= WINDOW_MS)) ipLog.delete(key);
+    }
+  }
+  return false;
+}
+
+function getClientIP(request: Request): string {
+  return (
+    (request.headers as Headers).get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown"
+  );
+}
+
 export async function POST(request: Request) {
+  const ip = getClientIP(request);
+  if (ip !== "unknown" && checkRateLimit(ip)) {
+    return NextResponse.json(
+      { ok: false, message: "Too many requests. Please try again later." },
+      { status: 429 },
+    );
+  }
+
   const body = await request.json().catch(() => null);
   const parsed = leadInputSchema.safeParse(body);
 
