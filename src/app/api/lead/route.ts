@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   const parsed = leadInputSchema.safeParse(body);
 
   if (!parsed.success) {
-    return NextResponse.json({ ok: false, errors: parsed.error.flatten().fieldErrors }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
   }
 
   const input = parsed.data;
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     const { opportunityId } = await crm.createOrUpdateOpportunity({ ...input, tags, contactId });
     await crm.applyTags(contactId, tags);
 
-    return NextResponse.json({ ok: true, contactId, opportunityId });
+    return NextResponse.json({ ok: true });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ ok: false, message: "Lead submission failed." }, { status: 500 });

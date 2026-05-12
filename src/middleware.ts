@@ -4,15 +4,26 @@ import { NextResponse } from "next/server";
 const publicFilePattern = /\.(.*)$/;
 const PREVIEW_COOKIE = "__lipm_preview";
 
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return result === 0;
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const comingSoonEnabled = process.env.COMING_SOON_ENABLED !== "false";
   const previewKey = process.env.PREVIEW_KEY;
 
+  if (!previewKey) return NextResponse.next();
+
   // Handle /preview?key=... — set cookie and redirect to home
   if (pathname === "/preview") {
-    const key = request.nextUrl.searchParams.get("key");
-    if (previewKey && key === previewKey) {
+    const key = request.nextUrl.searchParams.get("key") ?? "";
+    if (timingSafeEqual(key, previewKey)) {
       const res = NextResponse.redirect(new URL("/", request.url));
       res.cookies.set(PREVIEW_COOKIE, previewKey, {
         httpOnly: true,
@@ -28,7 +39,8 @@ export function middleware(request: NextRequest) {
   if (!comingSoonEnabled) return NextResponse.next();
 
   // Allow through if the user has the preview cookie
-  if (request.cookies.get(PREVIEW_COOKIE)?.value === previewKey) {
+  const cookieVal = request.cookies.get(PREVIEW_COOKIE)?.value ?? "";
+  if (timingSafeEqual(cookieVal, previewKey)) {
     return NextResponse.next();
   }
 
