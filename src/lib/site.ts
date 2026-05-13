@@ -19,6 +19,7 @@ export const navItems = [
   { label: "Sell", href: "/sell" },
   { label: "Move Here", href: "/move-to-port-moody" },
   { label: "Market", href: "/market" },
+  { label: "Blog", href: "/blog" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
