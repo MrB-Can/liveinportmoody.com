@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getPostBySlug, generateStaticParams as getParams } from "@/lib/blog";
 import { LeadForm } from "@/components/lead-form";
 import { createMetadata } from "@/lib/seo";
@@ -60,7 +61,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         prose-strong:text-charcoal
         prose-li:text-slateText prose-p:text-slateText
         prose-table:text-sm">
-        <MDXRemote source={post.content} />
+        <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </article>
 
       {/* Tags */}
