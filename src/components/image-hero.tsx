@@ -15,7 +15,7 @@ export function ImageHero({ eyebrow, title, subtitle, primaryCta, secondaryCta, 
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(90deg,rgba(18,48,47,0.96),rgba(18,48,47,0.76) 42%,rgba(18,48,47,0.24)),url('${imageSrc}')`,
+          backgroundImage: `linear-gradient(to right,rgba(18,48,47,0.92) 0%,rgba(18,48,47,0.72) 45%,rgba(18,48,47,0.18) 100%),url('${imageSrc}')`,
         }}
       />
       <div className="mx-auto grid min-h-[70vh] max-w-6xl content-center px-5 py-20 sm:min-h-[620px]">

@@ -18,7 +18,22 @@ export function middleware(request: NextRequest) {
   const comingSoonEnabled = process.env.COMING_SOON_ENABLED !== "false";
   const previewKey = process.env.PREVIEW_KEY;
 
-  if (!previewKey) return NextResponse.next();
+  if (!previewKey) {
+    // No preview key configured — enforce coming-soon but allow no preview access
+    if (!comingSoonEnabled) return NextResponse.next();
+    if (
+      pathname === "/coming-soon" ||
+      pathname.startsWith("/api/") ||
+      pathname.startsWith("/_next/") ||
+      pathname === "/robots.txt" ||
+      pathname === "/sitemap.xml" ||
+      publicFilePattern.test(pathname)
+    ) return NextResponse.next();
+    const url = request.nextUrl.clone();
+    url.pathname = "/coming-soon";
+    url.search = "";
+    return NextResponse.rewrite(url);
+  }
 
   // Handle /preview?key=... — set cookie and redirect to home
   if (pathname === "/preview") {
