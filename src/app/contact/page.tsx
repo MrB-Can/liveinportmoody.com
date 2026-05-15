@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
-      <ImageHero imageSrc="/hero-contact.png" title="Ask a Port Moody real estate question." subtitle="No pressure. Tell us what you are trying to figure out and we will point you in the right direction." primaryCta={{ label: "Send a question", href: "#contact-form" }} />
+      <ImageHero imageSrc="/images/phase1/port-moody-forest-path.jpg" imageAlt="Forest trail in Port Moody with sunlight filtering through trees." title="Ask a Port Moody real estate question." subtitle="No pressure. Tell us what you are trying to figure out and we will point you in the right direction." primaryCta={{ label: "Send a question", href: "#contact-form" }} />
       <Section title="Contact form" tone="sand">
         <div id="contact-form" className="max-w-2xl">
           <LeadForm formType="ask-question" leadType="local-question" ctaLabel="Send question" title="What are you trying to figure out?" />

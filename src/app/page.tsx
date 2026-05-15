@@ -1,4 +1,5 @@
 import { CTAButton } from "@/components/cta-button";
+import { ContextImage } from "@/components/context-image";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { MarketSnapshot } from "@/components/market-snapshot";
@@ -27,7 +28,9 @@ export default function HomePage() {
         subtitle="Neighbourhood insight, seller strategy, buyer guidance, local video, and market context from Leilani Fong, Personal Real Estate Corporation and Paul Bennett."
         primaryCta={{ label: "Explore Port Moody", href: "#paths" }}
         secondaryCta={{ label: "Ask a local real estate question", href: "#ask" }}
-        imageSrc="/hero-home.webp"
+        imageSrc="/images/hero/port-moody-hero-original.jpg"
+        imageAlt="Calm view across Burrard Inlet in Port Moody with forested mountains, still water, and tree branches framing the shoreline."
+        homeSizing
       />
       <Section eyebrow="Start here" title="What are you trying to do?" tone="white">
         <div id="paths" className="grid gap-4 md:grid-cols-3">
@@ -40,7 +43,9 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
-      <Section title="Why Port Moody?" intro="Port Moody combines waterfront access, forest trails, village-style condo areas, family neighbourhoods, breweries, SkyTrain, and fast access to the rest of Metro Vancouver. The right choice depends on how you actually live." />
+      <Section title="Why Port Moody?" intro="Port Moody combines waterfront access, forest trails, village-style condo areas, family neighbourhoods, breweries, SkyTrain, and fast access to the rest of Metro Vancouver. The right choice depends on how you actually live.">
+        <ContextImage src="/images/phase1/port-moody-forest-path.jpg" alt="Forest trail in Port Moody with sunlight filtering through trees." />
+      </Section>
       <Section title="Port Moody market snapshot" intro="Phase 1 uses clear placeholders until verified monthly commentary is ready. No fake market numbers are included." tone="white">
         <MarketSnapshot />
       </Section>
@@ -50,7 +55,9 @@ export default function HomePage() {
       <Section title="Buying in Port Moody" intro="The right property depends on micro-market, commute, strata health, parking, slope, schools, future development, and resale demand." tone="white">
         <CTAButton href="/buy">Learn about buying</CTAButton>
       </Section>
-      <Section title="Coming next: deeper local guides" intro="Suter Brook, Newport Village, Klahanie, Moody Centre, and Heritage Mountain guides are planned next. They are not part of Phase 1 and are not linked yet." />
+      <Section title="Coming next: deeper local guides" intro="Suter Brook, Newport Village, Klahanie, Moody Centre, and Heritage Mountain guides are planned next. They are not part of Phase 1 and are not linked yet.">
+        <ContextImage src="/images/phase1/port-moody-community-building.jpg" alt="Community building in Port Moody surrounded by trees on a sunny day." />
+      </Section>
       <Section title="Meet Leilani and Paul" tone="white">
         <div className="grid gap-5 md:grid-cols-2">
           <TeamMemberCard name="Leilani Fong, Personal Real Estate Corporation" role="Listing strategy and negotiation" note="TODO: final bio, brokerage facts, and production claims required before launch." focus={["Seller confidence", "Pricing judgment", "Transaction experience", "Offer situations"]} />

@@ -1,4 +1,5 @@
 import { FAQAccordion } from "@/components/faq-accordion";
+import { ContextImage } from "@/components/context-image";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
@@ -17,8 +18,8 @@ const mistakes = ["Treating all Port Moody condos as equivalent.", "Ignoring str
 export default function BuyPage() {
   return (
     <>
-      <ImageHero imageSrc="/hero-buy.png" title="Buying in Port Moody starts with understanding the micro-markets." subtitle="Suter Brook, Newport Village, Klahanie, Moody Centre, Heritage Mountain, College Park, and the waterfront all solve different problems for different buyers." primaryCta={{ label: "Get buyer guidance", href: "#buyer-form" }} secondaryCta={{ label: "Tell us what you are looking for", href: "#buyer-form" }} />
-      <Section title="The Port Moody buyer decision map" tone="white"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{decisionMap.map((item) => <div key={item} className="rounded-md border border-softBorder bg-mist p-4 text-sm font-medium text-charcoal">{item}</div>)}</div></Section>
+      <ImageHero imageSrc="/images/phase1/port-moody-hillside-homes.jpg" imageAlt="Port Moody hillside homes framed by trees with the distant skyline in the background." title="Buying in Port Moody starts with understanding the micro-markets." subtitle="Suter Brook, Newport Village, Klahanie, Moody Centre, Heritage Mountain, College Park, and the waterfront all solve different problems for different buyers." primaryCta={{ label: "Get buyer guidance", href: "#buyer-form" }} secondaryCta={{ label: "Tell us what you are looking for", href: "#buyer-form" }} />
+      <Section title="The Port Moody buyer decision map" tone="white"><div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]"><ContextImage src="/images/phase1/port-moody-regional-view.jpg" alt="View from Port Moody toward the Metro Vancouver skyline with trees and hillside homes in the foreground." /><div className="grid gap-3 sm:grid-cols-2">{decisionMap.map((item) => <div key={item} className="rounded-md border border-softBorder bg-mist p-4 text-sm font-medium text-charcoal">{item}</div>)}</div></div></Section>
       <Section title="Buyer paths"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{paths.map((item) => <div key={item} className="rounded-md bg-white p-4 text-sm font-semibold text-deepInlet shadow-sm">{item}</div>)}</div></Section>
       <Section title="Common buyer mistakes" tone="white"><ul className="grid gap-3 md:grid-cols-2">{mistakes.map((item) => <li key={item} className="rounded-md border border-softBorder p-4 text-sm text-slateText">{item}</li>)}</ul></Section>
       <Section title="Buyer shortlist form" tone="sand"><div id="buyer-form" className="max-w-2xl"><LeadForm formType="buyer-shortlist" leadType="buyer" ctaLabel="Get buyer guidance" title="Tell us what you are looking for" messageLabel="Property type, budget range, timeline, and where you are moving from" /></div></Section>

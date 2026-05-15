@@ -1,3 +1,4 @@
+import { ContextImage } from "@/components/context-image";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { MarketSnapshot } from "@/components/market-snapshot";
@@ -13,8 +14,10 @@ export const metadata = createMetadata({
 export default function MarketPage() {
   return (
     <>
-      <ImageHero imageSrc="/hero-market.png" title="Port Moody market notes without the generic spin." subtitle="Monthly context for detached homes, townhomes, condos, buyer demand, seller conditions, and neighbourhood-level differences." primaryCta={{ label: "Get monthly market notes", href: "#market-form" }} secondaryCta={{ label: "Ask about your property type", href: "#market-form" }} />
+      <ImageHero imageSrc="/images/hero/port-moody-hero-original.jpg" imageAlt="Calm view across Burrard Inlet in Port Moody with forested mountains, still water, and tree branches framing the shoreline." title="Port Moody market notes without the generic spin." subtitle="Monthly context for detached homes, townhomes, condos, buyer demand, seller conditions, and neighbourhood-level differences." primaryCta={{ label: "Get monthly market notes", href: "#market-form" }} secondaryCta={{ label: "Ask about your property type", href: "#market-form" }} />
       <Section title="Current market summary placeholder" intro="The first monthly Port Moody market note will be published here after launch. This page intentionally avoids fake market numbers." tone="white"><MarketSnapshot /></Section>
+      <Section title="Regional context" intro="Port Moody sits between inlet, hillside, transit, and regional commute patterns. Market notes should be interpreted by property type and location, not as one blended city average."><ContextImage src="/images/phase1/port-moody-regional-view.jpg" alt="View from Port Moody toward the Metro Vancouver skyline with trees and hillside homes in the foreground." /></Section>
+      <Section title="Detached and hillside context" intro="Detached and hillside properties can behave differently from village-area condos and townhomes. This section is reserved for context, not placeholder statistics." tone="white"><ContextImage src="/images/phase1/port-moody-hillside-homes.jpg" alt="Port Moody hillside homes framed by trees with the distant skyline in the background." /></Section>
       <Section title="Detached notes placeholder" intro="Detached commentary will be added after verified market review." />
       <Section title="Townhome notes placeholder" intro="Townhome commentary will be added after verified market review." tone="white" />
       <Section title="Condo notes placeholder" intro="Condo commentary will be added after verified market review." />
