@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
-import { navItems, siteConfig } from "@/lib/site";
+import { navItems, footerLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -19,7 +19,7 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">Explore</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">Main</p>
           <nav className="grid gap-2 text-sm text-mist">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="hover:text-white">
@@ -29,14 +29,14 @@ export function Footer() {
           </nav>
         </div>
         <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">Newsletter</p>
-          <p className="text-sm leading-6 text-mist">Port Moody market notes and local updates. Signup form routes through the Resources page.</p>
-          <div className="mt-6 space-y-2 text-sm text-mist">
-            <p>{siteConfig.brokerageName}</p>
-            <p>{siteConfig.brokerageAddress}</p>
-            <p>Licensed real estate services provided through {siteConfig.brokerageName}.</p>
-            <p>Social profiles will be published when official Live in Port Moody channels are active.</p>
-          </div>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">More</p>
+          <nav className="grid gap-2 text-sm text-mist">
+            {footerLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
       <div className="border-t border-white/15">

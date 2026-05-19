@@ -17,12 +17,17 @@ export const siteConfig = {
 export const navItems = [
   { label: "Buy", href: "/buy" },
   { label: "Sell", href: "/sell" },
-  { label: "Move Here", href: "/move-to-port-moody" },
+  { label: "Listings", href: "/buy" },
   { label: "Market", href: "/market" },
-  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
+export const footerLinks = [
+  { label: "Move to Port Moody", href: "/move-to-port-moody" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ];
 
 export const phaseOneRoutes = [
