@@ -32,6 +32,7 @@ type LeadFormProps = {
   messageLabel?: string;
   messagePlaceholder?: string;
   phoneOptional?: boolean;
+  tags?: string[];
 };
 
 export function LeadForm({
@@ -44,6 +45,7 @@ export function LeadForm({
   messageLabel = "What are you trying to figure out?",
   messagePlaceholder = "Share the property type, area, timeline, or question you have.",
   phoneOptional = true,
+  tags,
 }: LeadFormProps) {
   const pathname = usePathname();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -77,6 +79,7 @@ export function LeadForm({
         pagePath: pathname,
         ctaLabel,
         resourceName,
+        tags,
         attribution: getAttribution(),
       }),
     });

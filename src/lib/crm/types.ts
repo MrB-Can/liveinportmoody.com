@@ -8,6 +8,8 @@ export const formTypes = [
   "relocation-guide",
   "market-notes",
   "resource-download",
+  "complex-inquiry",
+  "complex-value-opinion",
 ] as const;
 
 export const leadInputSchema = z.object({
