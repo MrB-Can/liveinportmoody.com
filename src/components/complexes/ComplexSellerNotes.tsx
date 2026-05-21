@@ -6,13 +6,14 @@ type SellerNotesData = {
 
 type ComplexSellerNotesProps = {
   notes: SellerNotesData;
+  complexName: string;
 };
 
-export function ComplexSellerNotes({ notes }: ComplexSellerNotesProps) {
+export function ComplexSellerNotes({ notes, complexName }: ComplexSellerNotesProps) {
   return (
     <div className="space-y-8">
       <section>
-        <h2 className="font-heading text-2xl text-deepInlet">If You Own at Treetops</h2>
+        <h2 className="font-heading text-2xl text-deepInlet">If You Own at {complexName}</h2>
         <p className="mt-2 text-sm text-slateText">Context for sellers considering the market and selling strategy.</p>
       </section>
 

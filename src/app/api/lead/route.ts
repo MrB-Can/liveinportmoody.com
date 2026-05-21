@@ -74,7 +74,7 @@ export async function POST(request: Request) {
   try {
     const crm = getCRMAdapter();
     const { contactId } = await crm.upsertContact({ ...input, tags });
-    const { opportunityId } = await crm.createOrUpdateOpportunity({ ...input, tags, contactId });
+    await crm.createOrUpdateOpportunity({ ...input, tags, contactId });
     await crm.applyTags(contactId, tags);
 
     return NextResponse.json({ ok: true });

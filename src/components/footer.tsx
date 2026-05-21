@@ -1,11 +1,30 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
-import { navItems, footerLinks, siteConfig } from "@/lib/site";
+import { footerLinks, siteConfig } from "@/lib/site";
+
+const footerGroups = [
+  {
+    title: "Explore",
+    links: footerLinks.filter((item) =>
+      ["Explore Port Moody", "Neighbourhoods", "Townhouse Complexes", "Condo Buildings", "Listings"].includes(item.label),
+    ),
+  },
+  {
+    title: "Resources",
+    links: footerLinks.filter((item) =>
+      ["Market", "Move to Port Moody", "Buy", "Sell", "Resources", "Ask a Question"].includes(item.label),
+    ),
+  },
+  {
+    title: "Company",
+    links: footerLinks.filter((item) => ["About", "Privacy", "Terms"].includes(item.label)),
+  },
+];
 
 export function Footer() {
   return (
     <footer className="bg-deepInlet text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_2fr]">
         <div>
           <Wordmark variant="light" />
           <p className="mt-4 max-w-md text-sm leading-6 text-mist">
@@ -18,25 +37,19 @@ export function Footer() {
             <p>{siteConfig.publicEmail}</p>
           </div>
         </div>
-        <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">Main</p>
-          <nav className="grid gap-2 text-sm text-mist">
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="hover:text-white">
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-        <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">More</p>
-          <nav className="grid gap-2 text-sm text-mist">
-            {footerLinks.map((item) => (
-              <Link key={item.href} href={item.href} className="hover:text-white">
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+        <div className="grid gap-8 sm:grid-cols-3">
+          {footerGroups.map((group) => (
+            <div key={group.title}>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">{group.title}</p>
+              <nav className="grid gap-2 text-sm text-mist">
+                {group.links.map((item) => (
+                  <Link key={item.href + item.label} href={item.href} className="hover:text-white">
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          ))}
         </div>
       </div>
       <div className="border-t border-white/15">

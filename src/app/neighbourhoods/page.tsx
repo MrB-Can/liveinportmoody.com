@@ -1,0 +1,182 @@
+import Link from "next/link";
+import { createMetadata } from "@/lib/seo";
+import { neighbourhoods } from "@/data/neighbourhoods";
+import { LeadForm } from "@/components/lead-form";
+import { CTAButton } from "@/components/cta-button";
+import { Badge } from "@/components/ui/badge";
+import { VerificationNote } from "@/components/ui/verification-note";
+import { StartWithWhatMatters } from "@/components/neighbourhoods/start-with-what-matters";
+import { NeighbourhoodMapPlaceholder } from "@/components/neighbourhoods/neighbourhood-map-placeholder";
+import { NeighbourhoodComparisonTable } from "@/components/neighbourhoods/neighbourhood-comparison-table";
+import { FilterChips } from "@/components/neighbourhoods/filter-chips";
+import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
+
+export const metadata = createMetadata({
+  title: "Port Moody Neighbourhood Guide",
+  description: "Compare Port Moody neighbourhoods by lifestyle, housing type, walkability, schools, transit, parks, development, and buyer fit.",
+  path: "/neighbourhoods",
+});
+
+const faqItems = [
+  {
+    question: "What is the most walkable neighbourhood in Port Moody?",
+    answer:
+      "Moody Centre and Newport Village are the most walkable neighbourhoods, with excellent access to shops, cafes, restaurants, and transit. Suter Brook and Klahanie offer moderate walkability. Heritage Mountain and other hillside areas prioritize space and nature over daily walkability.",
+  },
+  {
+    question: "What are the best Port Moody areas for families?",
+    answer:
+      "Heritage Mountain, College Park, Klahanie, and Glenayre are popular family neighbourhoods with parks, schools, and community feel. Heritage Mountain offers trail access and established townhouse communities. College Park and Glenayre are quieter and more detached-home focused.",
+  },
+  {
+    question: "Where are most Port Moody condos?",
+    answer:
+      "Suter Brook, Newport Village, Klahanie, and Moody Centre have the most condo inventory. Newport Village and Moody Centre offer the most walkability. Klahanie provides a balance of central location and established community feel.",
+  },
+  {
+    question: "Where are most Port Moody townhomes?",
+    answer:
+      "Heritage Mountain, Klahanie, College Park, and Heritage Woods have the most townhouse complexes. Heritage Mountain offers established townhouse communities like Treetops with trail access and community amenities.",
+  },
+  {
+    question: "Which Port Moody areas feel quieter?",
+    answer:
+      "Heritage Mountain, Glenayre, College Park, and Pleasantside feel quieter and more residential. These areas prioritize green space, trails, and established character over walkability and density.",
+  },
+  {
+    question: "How do I choose between Suter Brook, Newport Village, and Klahanie?",
+    answer:
+      "Suter Brook is a growing mixed-use area good for first-time buyers. Newport Village is the most walkable and modern but at higher price points. Klahanie offers the most balance of walkability, schools, and housing variety. Your choice depends on whether you want density, lifestyle, or established community feel.",
+  },
+];
+
+const standardVerificationNote =
+  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
+
+export default function NeighbourhoodsPage() {
+  const liveNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "live");
+  const comingSoonNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "coming-soon");
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-mist to-white px-5 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl">
+          <h1 className="font-heading text-4xl md:text-5xl text-deepInlet">
+            Find the Port Moody neighbourhood that actually fits your life.
+          </h1>
+          <p className="mt-4 text-lg text-slateText mb-2">
+            Port Moody is small, but its neighbourhoods are very different. Walkable condo areas, family townhouse communities, hillside detached homes, and quiet established streets all attract different buyers and come with different trade-offs.
+          </p>
+          <p className="text-slateText">Use this guide to compare lifestyle, housing type, walkability, schools, transit, trails, and buyer fit.</p>
+          <div className="mt-8 flex gap-3 flex-col sm:flex-row sm:flex-wrap">
+            <CTAButton href="#neighbourhood-guidance">Find my best-fit area</CTAButton>
+            <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Start with what matters */}
+      <StartWithWhatMatters />
+
+      {/* Map placeholder */}
+      <NeighbourhoodMapPlaceholder />
+
+      {/* Comparison table */}
+      <NeighbourhoodComparisonTable />
+
+      <section className="mx-auto max-w-4xl px-5">
+        <VerificationNote note={standardVerificationNote} />
+      </section>
+
+      {/* Filter chips */}
+      <FilterChips />
+
+      {/* Neighbourhood card grid */}
+      <section id="neighbourhood-guidance" className="mx-auto max-w-4xl px-5 py-12">
+        <h2 className="font-heading text-2xl text-deepInlet mb-6">Explore all neighbourhoods</h2>
+        <div className="grid gap-6">
+          {liveNeighbourhoods.map((neighbourhood) => (
+            <Link
+              key={neighbourhood.slug}
+              href={`/neighbourhoods/${neighbourhood.slug}`}
+              className="block rounded-lg border border-softBorder bg-white p-6 hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
+                    <Badge tone="forest">Guide live</Badge>
+                  </div>
+                  <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
+                  <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText mb-3">
+                    <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
+                    <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
+                  </div>
+                  <p className="text-xs text-forest font-medium">{neighbourhood.developmentChange}</p>
+                </div>
+                <svg className="w-5 h-5 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          ))}
+
+          {comingSoonNeighbourhoods.length > 0 && (
+            <>
+              <h2 className="font-heading text-2xl text-deepInlet mt-8 mb-6">Coming soon</h2>
+              {comingSoonNeighbourhoods.map((neighbourhood) => (
+                <div key={neighbourhood.slug} className="rounded-lg border border-softBorder bg-mist p-6 opacity-60">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
+                        <Badge tone="slate">Preview</Badge>
+                      </div>
+                      <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
+                      <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText">
+                        <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
+                        <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+      </section>
+
+      {/* Guidance CTA */}
+      <section className="mx-auto max-w-4xl px-5 py-12">
+        <div className="rounded-lg border border-softBorder bg-sand p-8">
+          <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure which neighbourhood fits you?</h2>
+          <p className="text-slateText mb-6">
+            Tell us about your lifestyle, work location, budget range, property type, and must-haves. We will point you toward the areas that make the most sense.
+          </p>
+          <div className="max-w-md">
+            <LeadForm
+              formType="ask-question"
+              leadType="buyer"
+              ctaLabel="Get neighbourhood guidance"
+              title="Which neighbourhoods fit?"
+              messageLabel="Tell us about your lifestyle, work location, and property preferences."
+              resourceName="Port Moody neighbourhood guidance"
+              tags={[
+                "source:liveinportmoody",
+                "intent:neighbourhood-guidance",
+                "lead_type:buyer",
+                "neighbourhood_name:Port Moody",
+                "neighbourhood_slug:port-moody",
+                "area:port-moody",
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <NeighbourhoodFAQ items={faqItems} />
+    </>
+  );
+}

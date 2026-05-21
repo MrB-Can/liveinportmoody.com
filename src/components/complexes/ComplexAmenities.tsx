@@ -1,3 +1,5 @@
+import { PlaceholderImageBlock } from "@/components/ui/placeholder-image-block";
+
 type ComplexAmenitiesProps = {
   amenities: string[];
 };
@@ -6,8 +8,12 @@ export function ComplexAmenities({ amenities }: ComplexAmenitiesProps) {
   return (
     <div>
       <h2 className="font-heading text-2xl text-deepInlet">Amenities & Features</h2>
-      <div className="mt-4 h-48 rounded-lg bg-gradient-to-br from-mist to-seaGlass/20" aria-label="Amenity facility image placeholder" />
-      <p className="mt-2 text-xs text-slateText">Image placeholder: Amenity/recreation facility. Replace with professional photo.</p>
+      <div className="mt-4">
+        <PlaceholderImageBlock
+          label="Amenity or recreation facility"
+          caption="Replace with a professional photo of the amenity or recreation facility."
+        />
+      </div>
 
       <ul className="mt-8 space-y-3">
         {amenities.map((amenity) => (

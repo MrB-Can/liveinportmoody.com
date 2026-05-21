@@ -11,20 +11,19 @@ type TeamMemberCardProps = {
 export function TeamMemberCard({ name, role, focus, note, photoSrc }: TeamMemberCardProps) {
   return (
     <article className="rounded-lg border border-softBorder bg-white p-6 shadow-sm">
-      <div className="mb-5 relative aspect-[4/3] overflow-hidden rounded-md bg-[linear-gradient(135deg,#F3EFE7,#D9DED8)]" aria-label={`${name} portrait${photoSrc ? "" : " placeholder"}`}>
+      <div className="mb-5 relative aspect-[4/5] overflow-hidden rounded-md bg-[linear-gradient(135deg,#F3EFE7,#D9DED8)]" aria-label={`${name} portrait${photoSrc ? "" : " placeholder"}`}>
         {photoSrc ? (
           <Image
             src={photoSrc}
             alt={`${name} portrait`}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : (
-          <div className="absolute inset-0 grid place-items-center">
-            <div className="grid h-24 w-24 place-items-center rounded-full bg-white/70 text-sm font-semibold uppercase tracking-[0.18em] text-forest">
-              Photo
-            </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-forest">Photo</div>
+            <div className="mt-1 text-xs text-forest">coming soon</div>
           </div>
         )}
       </div>

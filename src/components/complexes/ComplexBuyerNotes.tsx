@@ -13,7 +13,7 @@ export function ComplexBuyerNotes({ notes }: ComplexBuyerNotesProps) {
     <div className="space-y-8">
       <section>
         <h2 className="font-heading text-2xl text-deepInlet">What to Know Before Buying</h2>
-        <p className="mt-2 text-sm text-slateText">An honest assessment of what makes Treetops appealing and what trade-offs to consider.</p>
+        <p className="mt-2 text-sm text-slateText">An honest assessment of strengths and trade-offs to consider before buying.</p>
       </section>
 
       <div>

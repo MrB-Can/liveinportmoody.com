@@ -27,6 +27,12 @@ export function middleware(request: NextRequest) {
       pathname.startsWith("/_next/") ||
       pathname === "/robots.txt" ||
       pathname === "/sitemap.xml" ||
+      pathname === "/explore" ||
+      pathname === "/about" ||
+      pathname.startsWith("/neighbourhoods") ||
+      pathname.startsWith("/complexes") ||
+      pathname.startsWith("/buildings") ||
+      pathname === "/listings" ||
       publicFilePattern.test(pathname)
     ) return NextResponse.next();
     const url = request.nextUrl.clone();
@@ -65,6 +71,12 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/_next/") ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
+    pathname === "/explore" ||
+    pathname === "/about" ||
+    pathname.startsWith("/neighbourhoods") ||
+    pathname.startsWith("/complexes") ||
+    pathname.startsWith("/buildings") ||
+    pathname === "/listings" ||
     publicFilePattern.test(pathname)
   ) {
     return NextResponse.next();

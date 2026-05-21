@@ -1,72 +1,362 @@
 import { CTAButton } from "@/components/cta-button";
-import { ContextImage } from "@/components/context-image";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
-import { MarketSnapshot } from "@/components/market-snapshot";
 import { Section } from "@/components/section";
-import { TeamMemberCard } from "@/components/team-member-card";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "Port Moody Real Estate Intelligence",
-  description: "Port Moody real estate guidance, neighbourhood insight, seller strategy, buyer education, and local market context from Leilani Fong, Personal Real Estate Corporation and Paul Bennett.",
+  title: "Port Moody Real Estate Decision Engine",
+  description:
+    "Local guides, market context, listings, and practical real estate advice for buying, selling, and comparing homes in Port Moody.",
   path: "/",
 });
 
-const pathCards = [
-  ["I want to buy in Port Moody", "Understand the trade-offs between walkability, transit, schools, strata risk, property type, and resale demand.", "/buy"],
-  ["I am thinking of selling", "Get practical positioning around value, timing, preparation, media, buyer demand, and negotiation.", "/sell"],
-  ["I might move here", "Start with lifestyle, commute, schools, trails, density, and what each part of Port Moody feels like.", "/move-to-port-moody"],
+const decisionCards = [
+  {
+    title: "Move to Port Moody",
+    copy: "Understand lifestyle, commute, schools, trails, density, and neighbourhood trade-offs.",
+    cta: "Explore life here",
+    href: "/explore",
+  },
+  {
+    title: "Buy in Port Moody",
+    copy: "Find the right neighbourhood, property type, building, or complex before you write an offer.",
+    cta: "Start buying research",
+    href: "/buy",
+  },
+  {
+    title: "Sell in Port Moody",
+    copy: "Position your home around what buyers actually value here.",
+    cta: "Plan my sale",
+    href: "/sell",
+  },
+  {
+    title: "Compare neighbourhoods",
+    copy: "See which areas fit walkability, schools, trails, transit, space, and budget.",
+    cta: "Compare areas",
+    href: "/neighbourhoods",
+  },
+  {
+    title: "Research buildings and complexes",
+    copy: "Review condo buildings and townhouse complexes before you commit.",
+    cta: "Research homes",
+    href: "/complexes",
+  },
+  {
+    title: "See current listings",
+    copy: "Search active MLS Reciprocity listings and ask for local context.",
+    cta: "View listings",
+    href: "/listings",
+  },
 ];
+
+const glanceTiles = [
+  "Waterfront lifestyle",
+  "SkyTrain access",
+  "Forest trails",
+  "Family neighbourhoods",
+  "Village-style condo areas",
+  "Limited land supply",
+];
+
+const areaCards = [
+  {
+    name: "Suter Brook",
+    bestFor: "Walkable condo living",
+    housing: "Condos and townhomes",
+    tradeoff: "More density and strata review required",
+  },
+  {
+    name: "Newport Village",
+    bestFor: "Village convenience",
+    housing: "Condos and nearby townhomes",
+    tradeoff: "Older buildings vary by strata health",
+  },
+  {
+    name: "Klahanie",
+    bestFor: "Amenities and inlet access",
+    housing: "Condos and townhomes",
+    tradeoff: "Buyer demand can be competitive",
+  },
+  {
+    name: "Moody Centre",
+    bestFor: "Transit and redevelopment context",
+    housing: "Condos, townhomes, and detached pockets",
+    tradeoff: "Change and construction need watching",
+  },
+  {
+    name: "Heritage Mountain",
+    bestFor: "Space and family streets",
+    housing: "Detached homes and townhomes",
+    tradeoff: "Less walkable to daily retail",
+  },
+  {
+    name: "College Park",
+    bestFor: "Access to SFU and commuter routes",
+    housing: "Detached homes and townhomes",
+    tradeoff: "Slope and renovation needs vary",
+  },
+  {
+    name: "Glenayre",
+    bestFor: "Quiet residential feel",
+    housing: "Detached homes",
+    tradeoff: "Inventory is often limited",
+  },
+  {
+    name: "Pleasantside",
+    bestFor: "North shore lifestyle",
+    housing: "Detached homes and townhomes",
+    tradeoff: "Fewer services within a short walk",
+  },
+  {
+    name: "Ioco / North Shore",
+    bestFor: "Privacy and nature access",
+    housing: "Detached homes",
+    tradeoff: "Longer drive times to SkyTrain",
+  },
+  {
+    name: "Barber Street",
+    bestFor: "Waterfront and character streets",
+    housing: "Detached homes",
+    tradeoff: "Lot, slope, and condition matter heavily",
+  },
+];
+
+const marketCards = [
+  {
+    title: "Detached homes",
+    copy: "Limited supply, land value, renovation potential, lot characteristics, slope, privacy, and condition matter heavily.",
+  },
+  {
+    title: "Townhomes",
+    copy: "Family demand, strata condition, parking, outdoor space, layout, and school-area fit drive competition.",
+  },
+  {
+    title: "Condos",
+    copy: "Walkability, building age, strata fees, amenities, reputation, and SkyTrain proximity matter.",
+  },
+  {
+    title: "Strata risk",
+    copy: "Review depreciation reports, insurance, bylaws, minutes, strata fees, and upcoming capital projects.",
+  },
+];
+
+const buyingSteps = ["Choose area", "Compare property type", "Review building or strata", "Offer with confidence"];
+const sellingSteps = ["Price strategy", "Prep and positioning", "Media and launch", "Negotiation and follow-up"];
+
+function StepList({ title, steps }: { title: string; steps: string[] }) {
+  return (
+    <article className="rounded-lg border border-softBorder bg-white p-6">
+      <h3 className="font-heading text-2xl text-deepInlet">{title}</h3>
+      <ol className="mt-5 grid gap-3">
+        {steps.map((step, index) => (
+          <li key={step} className="flex items-center gap-3 rounded-md bg-mist px-4 py-3 text-sm font-semibold text-charcoal">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-deepInlet text-white">{index + 1}</span>
+            {step}
+          </li>
+        ))}
+      </ol>
+    </article>
+  );
+}
 
 export default function HomePage() {
   return (
     <>
       <ImageHero
         eyebrow="Live in Port Moody"
-        title="Port Moody real estate intelligence from people who live it."
-        subtitle="Neighbourhood insight, seller strategy, buyer guidance, local video, and market context from Leilani Fong, Personal Real Estate Corporation and Paul Bennett."
-        primaryCta={{ label: "Explore Port Moody", href: "#paths" }}
-        secondaryCta={{ label: "Ask a local real estate question", href: "#ask" }}
+        title="Make clearer Port Moody real estate decisions."
+        subtitle="Local guides, market context, listings, and practical real estate advice from people who live and work in Port Moody."
+        primaryCta={{ label: "Start with the decision hub", href: "#decision-hub" }}
+        secondaryCta={{ label: "Ask a local question", href: "#ask" }}
         imageSrc="/images/hero/port-moody-hero-original.jpg"
         imageAlt="Calm view across Burrard Inlet in Port Moody with forested mountains, still water, and tree branches framing the shoreline."
         homeSizing
       />
-      <Section eyebrow="Start here" title="What are you trying to do?" tone="white">
-        <div id="paths" className="grid gap-4 md:grid-cols-3">
-          {pathCards.map(([title, copy, href]) => (
-            <article key={title} className="rounded-lg border border-softBorder bg-mist p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slateText">{copy}</p>
-              <div className="mt-5"><CTAButton href={href} variant="secondary">Continue</CTAButton></div>
+
+      <Section eyebrow="Start here" title="What are you trying to figure out?" tone="white">
+        <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {decisionCards.map((card) => (
+            <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">
+                  {card.cta}
+                </CTAButton>
+              </div>
             </article>
           ))}
         </div>
       </Section>
-      <Section title="Why Port Moody?" intro="Port Moody combines waterfront access, forest trails, village-style condo areas, family neighbourhoods, breweries, SkyTrain, and fast access to the rest of Metro Vancouver. The right choice depends on how you actually live.">
-        <ContextImage src="/images/phase1/port-moody-forest-path.jpg" alt="Forest trail in Port Moody with sunlight filtering through trees." />
-      </Section>
-      <Section title="Port Moody market snapshot" intro="Phase 1 uses clear placeholders until verified monthly commentary is ready. No fake market numbers are included." tone="white">
-        <MarketSnapshot />
-      </Section>
-      <Section title="Selling in Port Moody" intro="A strong listing needs pricing strategy, property preparation, media, local lifestyle positioning, buyer targeting, fast follow-up, and disciplined negotiation.">
-        <CTAButton href="/sell">Learn about selling</CTAButton>
-      </Section>
-      <Section title="Buying in Port Moody" intro="The right property depends on micro-market, commute, strata health, parking, slope, schools, future development, and resale demand." tone="white">
-        <CTAButton href="/buy">Learn about buying</CTAButton>
-      </Section>
-      <Section title="Coming next: deeper local guides" intro="Suter Brook, Newport Village, Klahanie, Moody Centre, and Heritage Mountain guides are planned next. They are not part of Phase 1 and are not linked yet.">
-        <ContextImage src="/images/phase1/port-moody-community-building.jpg" alt="Community building in Port Moody surrounded by trees on a sunny day." />
-      </Section>
-      <Section title="Meet Leilani and Paul" tone="white">
-        <div className="grid gap-5 md:grid-cols-2">
-          <TeamMemberCard name="Leilani Fong, Personal Real Estate Corporation" role="Listing strategy and negotiation" note="Leilani brings nearly two decades of real estate expertise to every client interaction. A top 2% producer with eXp Realty and a 2x ICON Agent, she has successfully guided over $500 million in residential transactions across Vancouver, Coquitlam, Burnaby, and Port Moody. Known for her exceptional negotiation skills and client-centric approach, Leilani specializes in residential properties, luxury homes, and investment opportunities. Her clients consistently praise her market knowledge, responsiveness, and unwavering commitment to finding solutions that genuinely serve their interests." focus={["Listing pricing strategy", "Offer negotiation", "Seller preparation", "Market positioning"]} />
-          <TeamMemberCard name="Paul Bennett" role="Licensed realtor, research, media, and local intelligence" note="Paul brings a unique blend of investor experience and data-driven insight to real estate. After years as a residential investor and renovation enthusiast, he recently became licensed and discovered his passion for helping others navigate complex decisions with confidence. He specializes in investment analysis, where he leverages data and market trends to uncover opportunity, and pre-sale purchases, where he conducts rigorous unit and building analysis. His approach is straightforward—provide the detailed information and analysis you need to feel confident in your decision, then make it easy and enjoyable to work together." focus={["Investment property analysis", "Pre-sale building evaluation", "Market research and analysis", "Buyer decision clarity"]} photoSrc="/images/team/paul.jpeg" />
+
+      <Section
+        title="Port Moody at a glance"
+        intro="Port Moody is not one market. Newport Village, Suter Brook, Klahanie, Heritage Mountain, College Park, Glenayre, and the north shore areas attract different buyers and behave differently."
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {glanceTiles.map((tile) => (
+            <div key={tile} className="rounded-lg border border-softBorder bg-white px-5 py-4 font-semibold text-deepInlet">
+              {tile}
+            </div>
+          ))}
         </div>
       </Section>
+
+      <Section title="Neighbourhood/map preview" tone="white">
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-lg border border-softBorder bg-mist p-6">
+            <div className="grid min-h-[360px] gap-3 sm:grid-cols-2">
+              {["North Shore", "Heritage Mountain", "Moody Centre", "Newport / Suter Brook", "Klahanie", "College Park"].map((area) => (
+                <div key={area} className="grid place-items-center rounded-md border border-seaGlass bg-white px-4 py-6 text-center text-sm font-semibold text-deepInlet">
+                  {area}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
+            <h3 className="font-heading text-3xl">Compare areas before you compare homes.</h3>
+            <p className="mt-4 text-sm leading-6 text-mist">
+              The same budget can mean a walkable condo, a hillside townhouse, an older detached home, or a quieter north shore property. Start with the area logic, then narrow the housing options.
+            </p>
+            <div className="mt-6">
+              <CTAButton href="/neighbourhoods" variant="secondary">
+                Compare neighbourhoods
+              </CTAButton>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Explore Port Moody by area">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {areaCards.map((area) => (
+            <article key={area.name} className="rounded-lg border border-softBorder bg-white p-5">
+              <h3 className="font-heading text-2xl text-deepInlet">{area.name}</h3>
+              <dl className="mt-4 grid gap-3 text-sm leading-6">
+                <div>
+                  <dt className="font-semibold text-charcoal">Best for</dt>
+                  <dd className="text-slateText">{area.bestFor}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-charcoal">Main housing</dt>
+                  <dd className="text-slateText">{area.housing}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-charcoal">Trade-off</dt>
+                  <dd className="text-slateText">{area.tradeoff}</dd>
+                </div>
+              </dl>
+              <div className="mt-5">
+                <CTAButton href="/neighbourhoods" variant="ghost">
+                  View area guide
+                </CTAButton>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        title="Research homes"
+        intro="Use neighbourhood context, building notes, complex research, and live listing conversations together. The goal is to understand what you are buying before the offer deadline."
+        tone="white"
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          <article className="rounded-lg border border-softBorder bg-mist p-6">
+            <h3 className="font-heading text-2xl text-deepInlet">Buildings</h3>
+            <p className="mt-3 text-sm leading-6 text-slateText">Review condo building context, location, strata considerations, and buyer questions.</p>
+            <div className="mt-5">
+              <CTAButton href="/buildings" variant="secondary">Research buildings</CTAButton>
+            </div>
+          </article>
+          <article className="rounded-lg border border-softBorder bg-mist p-6">
+            <h3 className="font-heading text-2xl text-deepInlet">Complexes</h3>
+            <p className="mt-3 text-sm leading-6 text-slateText">Compare townhouse and strata communities by layout, parking, outdoor space, and risk.</p>
+            <div className="mt-5">
+              <CTAButton href="/complexes" variant="secondary">Research complexes</CTAButton>
+            </div>
+          </article>
+          <article className="rounded-lg border border-softBorder bg-mist p-6">
+            <h3 className="font-heading text-2xl text-deepInlet">Listings</h3>
+            <p className="mt-3 text-sm leading-6 text-slateText">Search active MLS Reciprocity listings and ask what local context is missing from the listing page.</p>
+            <p className="mt-3 text-xs leading-5 text-slateText">
+              Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
+            </p>
+            <div className="mt-5">
+              <CTAButton href="/listings" variant="secondary">View listings</CTAButton>
+            </div>
+          </article>
+        </div>
+      </Section>
+
+      <Section title="Market intelligence">
+        <div className="grid gap-4 md:grid-cols-2">
+          {marketCards.map((card) => (
+            <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+              <h3 className="font-heading text-2xl text-deepInlet">{card.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6">
+          <CTAButton href="/market" variant="secondary">
+            Read market guidance
+          </CTAButton>
+        </div>
+      </Section>
+
+      <Section title="Buying and selling guidance" tone="white">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <StepList title="Buying process" steps={buyingSteps} />
+          <StepList title="Selling process" steps={sellingSteps} />
+        </div>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <CTAButton href="/buy" variant="secondary">Buying guidance</CTAButton>
+          <CTAButton href="/sell" variant="secondary">Selling guidance</CTAButton>
+        </div>
+      </Section>
+
+      <Section
+        title="Local real estate advice from Leilani and Paul"
+        intro="Live in Port Moody combines licensed real estate guidance, local research, property analysis, media, and market context to help buyers and sellers make clearer decisions in Port Moody."
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid min-h-[360px] content-center rounded-lg border border-softBorder bg-white p-8 text-center">
+            <p className="font-heading text-3xl text-deepInlet">Team photo coming soon</p>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slateText">
+              Wide local photo of Paul and Leilani together in Port Moody, ideally with waterfront, forest, village, or neighbourhood context.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            <article className="rounded-lg border border-softBorder bg-white p-6">
+              <h3 className="font-heading text-2xl text-deepInlet">Paul Bennett</h3>
+              <p className="mt-1 text-sm font-semibold text-forest">Licensed REALTOR, research, media, and local intelligence</p>
+              <p className="mt-4 text-sm leading-6 text-slateText">
+                Paul focuses on local research, neighbourhood context, property storytelling, digital strategy, photography, video, renovation perspective, and data-informed buyer and seller guidance.
+              </p>
+            </article>
+            <article className="rounded-lg border border-softBorder bg-white p-6">
+              <h3 className="font-heading text-2xl text-deepInlet">Leilani Fong PREC</h3>
+              <p className="mt-1 text-sm font-semibold text-forest">Listing strategy, pricing, negotiation, and client representation</p>
+              <p className="mt-4 text-sm leading-6 text-slateText">
+                Leilani brings licensed real estate expertise, seller strategy, pricing judgment, negotiation, and transaction guidance to help clients move through the process with confidence.
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <Section title="Ask a local question" tone="sand">
         <div id="ask" className="max-w-2xl">
-          <LeadForm formType="ask-question" leadType="local-question" ctaLabel="Ask a local question" title="What are you trying to figure out?" />
+          <LeadForm
+            formType="ask-question"
+            leadType="local-question"
+            ctaLabel="Ask a local question"
+            title="What are you trying to figure out?"
+            description="Share the area, building, property type, listing, or decision you are weighing."
+            tags={["source:liveinportmoody", "intent:general-local-question", "area:port-moody"]}
+          />
         </div>
       </Section>
     </>

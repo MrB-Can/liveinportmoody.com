@@ -1,29 +1,493 @@
-import { FAQAccordion } from "@/components/faq-accordion";
-import { ContextImage } from "@/components/context-image";
+import Link from "next/link";
+import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
+import { FAQSection } from "@/components/ui/faq-section";
+import { VerificationNote } from "@/components/ui/verification-note";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "Sell in Port Moody",
-  description: "Seller strategy for Port Moody homeowners focused on pricing, media, positioning, buyer targeting, preparation, and negotiation.",
+  title: "Sell in Port Moody | Seller Strategy and Local Real Estate Positioning",
+  description:
+    "A local guide for selling in Port Moody, including pricing strategy, preparation, media, buyer demand, strata documents, neighbourhood positioning, and micro-market value context.",
   path: "/sell",
 });
 
-const performance = ["Correct pricing band", "Preparation and staging guidance", "Photography and video", "Floorplan and feature writing", "Local lifestyle positioning", "Buyer targeting", "Showing strategy", "Offer management"];
-const highEnd = ["Editorial-level photography", "Cinematic video", "Drone work where legal", "Lifestyle context", "Privacy-aware marketing", "Buyer qualification"];
-const readiness = ["Timeline: 0-3, 3-6, 6-12, or 12+ months", "Property type and approximate area", "Major upgrades and known issues", "Biggest concern", "Need to buy next", "Preference for discreet advice"];
+// ─── data ────────────────────────────────────────────────────────────────────
+
+const positioningCards = [
+  { question: "What does your property compete against?" },
+  { question: "What buyer is most likely to care?" },
+  { question: "What should be fixed or prepared first?" },
+  { question: "What needs to be explained clearly?" },
+  { question: "What media will make the value obvious?" },
+];
+
+const pathCards = [
+  {
+    heading: "I own a townhouse",
+    body: "Townhouse buyers care about layout, garage, storage, outdoor space, strata documents, exterior maintenance, fees, and family function.",
+    cta: "Build a townhouse selling plan",
+    href: "/sell#value-opinion",
+  },
+  {
+    heading: "I own a condo",
+    body: "Condo buyers compare building reputation, fees, amenities, walkability, exposure, parking, storage, and strata history.",
+    cta: "Build a condo selling plan",
+    href: "/sell#value-opinion",
+  },
+  {
+    heading: "I own a detached home",
+    body: "Detached buyers care about land, privacy, renovation quality, suite potential, drainage, roof, trees, slope, and long-term flexibility.",
+    cta: "Build a detached selling plan",
+    href: "/sell#value-opinion",
+  },
+  {
+    heading: "I own in a specific building or complex",
+    body: "Micro-market positioning matters. The right comparison is often the same complex, building, or neighbourhood, not the whole city.",
+    cta: "Ask for micro-market context",
+    href: "/sell#value-opinion",
+  },
+  {
+    heading: "Not sure whether to sell?",
+    body: "Understand likely buyer demand, prep priorities, timing, and trade-offs before committing.",
+    cta: "Talk through your options",
+    href: "/sell#value-opinion",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Assess",
+    body: "Property type, condition, location, buyer pool, competition, and timing.",
+  },
+  {
+    title: "Prepare",
+    body: "Repairs, cleaning, staging, landscaping, strata documents, and visual priorities.",
+  },
+  {
+    title: "Position",
+    body: "Neighbourhood story, buyer fit, pricing strategy, property strengths, and trade-offs.",
+  },
+  {
+    title: "Launch",
+    body: "Photography, video, copy, MLS, social, local distribution, and buyer follow-up.",
+  },
+  {
+    title: "Negotiate",
+    body: "Offer review, terms, subjects, dates, risk, leverage, and backup strategy.",
+  },
+];
+
+const buyerValues = [
+  {
+    type: "Condos",
+    items: [
+      "Walkability and daily convenience",
+      "Building reputation and age",
+      "Strata fees and what they cover",
+      "Parking and storage allocation",
+      "Views, light, and exposure",
+      "Amenities and common areas",
+      "SkyTrain and transit access",
+      "Noise and privacy",
+    ],
+  },
+  {
+    type: "Townhouses",
+    items: [
+      "Layout and functional square footage",
+      "Garage and storage capacity",
+      "Outdoor space and privacy",
+      "Family function and bedroom count",
+      "Strata condition and reserve fund",
+      "Visitor parking availability",
+      "Schools and trail access",
+      "Renovation level and condition",
+    ],
+  },
+  {
+    type: "Detached",
+    items: [
+      "Lot size, shape, and privacy",
+      "Condition and renovation level",
+      "Renovation potential",
+      "Suite flexibility and legality",
+      "Yard and outdoor usability",
+      "Tree management and drainage",
+      "Slope, access, and grade",
+      "Neighbourhood and street feel",
+    ],
+  },
+];
+
+const allSellerChecklist = [
+  "Clean, declutter, and repair obvious defects",
+  "Improve lighting throughout",
+  "Address odours and moisture issues",
+  "Gather all relevant documents",
+  "Prepare utility and maintenance history",
+  "Review title and permits where relevant",
+  "Prepare property disclosure information",
+];
+
+const strataSellerChecklist = [
+  "Order strata documents early",
+  "Review Form B for accuracy",
+  "Confirm depreciation report is current",
+  "Review minutes for anything buyers will ask about",
+  "Confirm bylaws, rental restrictions, and pet rules",
+  "Confirm insurance certificate and deductibles",
+  "Confirm parking and storage details",
+  "Note strata fees, special levies, and scheduled work",
+  "Document any renovation approvals",
+];
+
+const detachedSellerChecklist = [
+  "Inspect and address roof, gutters, and drainage",
+  "Clean and tidy all exterior landscaping",
+  "Repair or refresh decks and railings",
+  "Review retaining walls and slopes",
+  "Freshen exterior paint or siding where needed",
+  "Present basement and suite cleanly",
+  "Gather permits and renovation history",
+  "Address any known tree and yard issues",
+];
+
+const pricingCards = [
+  "Price against true alternatives, not general market averages.",
+  "Explain the micro-market context buyers may not know.",
+  "Reduce buyer uncertainty before they ask questions.",
+  "Launch with complete media, not placeholder photos.",
+  "Prepare strata documents before buyers ask for them.",
+  "Follow up with serious buyers quickly.",
+];
+
+const mediaCards = [
+  { label: "Photography", body: "Show light, space, layout, and condition honestly." },
+  { label: "Video", body: "Demonstrate how the property flows and feels to live in." },
+  { label: "Floor plan", body: "Remove confusion about layout, flow, and room use." },
+  { label: "Neighbourhood context", body: "Connect trail access, walkability, commute, and area lifestyle to the listing." },
+  { label: "Building or complex explanation", body: "Help buyers understand the strata, amenities, and reputation." },
+  { label: "Feature callouts", body: "Flag parking, storage, outdoor space, and renovation details clearly." },
+  { label: "Buyer objections answered", body: "Address the predictable concerns before buyers need to ask." },
+];
+
+const complexOwnerCards = [
+  {
+    label: "Own in a condo building?",
+    copy: "Your value is shaped by building reputation, strata health, fees, amenities, and unit position — not just market averages.",
+    href: "/buildings",
+    cta: "Research condo buildings",
+  },
+  {
+    label: "Own in a townhouse complex?",
+    copy: "Comparable sales, strata condition, exterior status, and complex reputation all affect your positioning.",
+    href: "/complexes",
+    cta: "Research townhouse complexes",
+  },
+  {
+    label: "Own in Heritage Mountain?",
+    copy: "Heritage Mountain has a distinct buyer pool, trail appeal, and family-oriented positioning that affects how to market effectively.",
+    href: "/neighbourhoods/heritage-mountain",
+    cta: "Heritage Mountain guide",
+  },
+  {
+    label: "Own at Treetops?",
+    copy: "Get a value opinion and market perspective specific to Treetops at 101 Parkside Drive.",
+    href: "/complexes/treetops-101-parkside-drive",
+    cta: "Treetops complex guide",
+  },
+];
+
+const faqs = [
+  {
+    question: "What should I do before selling in Port Moody?",
+    answer:
+      "Before listing, address obvious repairs, gather strata documents (for condos and townhouses), prepare a disclosure statement, and get a practical value opinion that considers your specific neighbourhood and property type — not just broad market averages.",
+  },
+  {
+    question: "How do I know what my Port Moody property is worth?",
+    answer:
+      "A useful value opinion looks at current active competition, recent sales context, your property type and condition, strata situation if applicable, and how buyers in your neighbourhood are making decisions. We don't publish automated valuations — ask for a practical human opinion.",
+  },
+  {
+    question: "Should I prepare strata documents before listing?",
+    answer:
+      "Yes. Having documents ready reduces buyer uncertainty and avoids delays during subject removal. Buyers for condos and townhomes will ask for Form B, minutes, the depreciation report, bylaws, insurance, and strata fees before writing or removing subjects.",
+  },
+  {
+    question: "What matters most when selling a townhouse or condo?",
+    answer:
+      "Pricing against real alternatives, documenting the strata situation clearly, explaining parking and storage, showing the unit and layout well, and positioning the neighbourhood and building context for the specific buyer pool.",
+  },
+  {
+    question: "How do you position a property differently by neighbourhood?",
+    answer:
+      "Heritage Mountain, Suter Brook, Newport Village, and Klahanie each attract different buyers with different priorities. A Heritage Mountain townhouse is positioned around trail access, family function, and space. A Suter Brook condo is positioned around walkability and convenience. The marketing and messaging differ accordingly.",
+  },
+  {
+    question: "Can I ask about selling in a specific building or complex?",
+    answer:
+      "Yes. Send the building name, complex, or address and we can discuss micro-market positioning, what recent buyers in that area have prioritized, and what preparation and pricing strategy makes sense.",
+  },
+];
+
+// ─── inline components ────────────────────────────────────────────────────────
+
+function ProcessStep({ step, title, body }: { step: number; title: string; body: string }) {
+  return (
+    <div className="flex gap-4 sm:gap-5">
+      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-deepInlet text-sm font-bold text-white">
+        {step}
+      </div>
+      <div className="pt-0.5">
+        <p className="font-semibold text-deepInlet">{title}</p>
+        <p className="mt-1 text-sm leading-6 text-slateText">{body}</p>
+      </div>
+    </div>
+  );
+}
+
+function CheckGroup({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div>
+      <p className="mb-3 font-semibold text-deepInlet">{title}</p>
+      <ul className="space-y-2">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2.5 text-sm text-slateText">
+            <span className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border border-softBorder" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// ─── page ─────────────────────────────────────────────────────────────────────
 
 export default function SellPage() {
   return (
     <>
-      <ImageHero imageSrc="/images/phase1/port-moody-residential-greenery.jpg" imageAlt="Port Moody residential homes partly framed by mature green trees." title="Sell your Port Moody home with local positioning, stronger media, and sharper strategy." subtitle="A good listing does more than appear on MLS. It explains the property, the neighbourhood, the lifestyle, the buyer pool, and the value clearly." primaryCta={{ label: "Get a practical home value opinion", href: "#value-form" }} secondaryCta={{ label: "See how we position Port Moody homes", href: "#positioning" }} />
-      <Section title="What makes a Port Moody listing perform?" tone="white"><div id="positioning" className="grid gap-6 lg:grid-cols-[1fr_1.15fr]"><ContextImage src="/images/phase1/port-moody-hillside-homes.jpg" alt="Port Moody hillside homes framed by trees with the distant skyline in the background." /><div className="grid gap-3 sm:grid-cols-2">{performance.map((item) => <div key={item} className="rounded-md border border-softBorder bg-mist p-4 text-sm font-medium text-charcoal">{item}</div>)}</div></div></Section>
-      <Section title="High-end Port Moody listings"><div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]"><ContextImage src="/images/phase1/port-moody-residential-detail.jpg" alt="Residential Port Moody home exterior framed by trees and greenery." /><div className="grid gap-3 md:grid-cols-2">{highEnd.map((item) => <div key={item} className="rounded-md bg-white p-4 text-sm font-semibold text-deepInlet shadow-sm">{item}</div>)}</div></div></Section>
-      <Section title="Seller readiness checklist, static only" tone="white"><ul className="grid gap-3 md:grid-cols-2">{readiness.map((item) => <li key={item} className="rounded-md border border-softBorder p-4 text-sm text-slateText">{item}</li>)}</ul></Section>
-      <Section title="Home value opinion form" tone="sand"><div id="value-form" className="max-w-2xl"><LeadForm formType="home-value" leadType="seller" ctaLabel="Get a home value opinion" title="Ask for a practical value opinion" messageLabel="Approximate address, property type, timeline, and what you want to understand" /></div></Section>
-      <Section title="FAQ" tone="white"><FAQAccordion items={[{ question: "Is this an automated valuation?", answer: "No. Phase 1 routes the request for a practical human opinion, not an automated guess." }, { question: "Is there a seller readiness calculator?", answer: "No. Phase 1 includes only a static checklist." }]} /></Section>
+      {/* 1. Hero */}
+      <ImageHero
+        eyebrow="Port Moody seller strategy"
+        title="Sell in Port Moody with stronger positioning."
+        subtitle="Selling in Port Moody is not just about putting a home on MLS. The strongest listings connect price, preparation, media, neighbourhood context, property condition, buyer demand, and the specific trade-offs buyers are weighing."
+        primaryCta={{ label: "Build a selling plan", href: "/sell#value-opinion" }}
+        secondaryCta={{ label: "Request a value opinion", href: "/sell#value-opinion" }}
+        imageSrc="/hero-sell.png"
+        imageAlt="Port Moody residential homes surrounded by mature trees."
+      />
+
+      {/* 2. Start with positioning */}
+      <Section
+        eyebrow="Before you list"
+        title="Start with positioning, not just price."
+        intro="The right price matters, but buyers also need to understand why the property fits. In Port Moody, that may mean walkability, trails, schools, storage, parking, strata health, outdoor space, views, renovation quality, or neighbourhood lifestyle."
+        tone="white"
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {positioningCards.map((card) => (
+            <div
+              key={card.question}
+              className="rounded-lg border border-softBorder bg-mist px-4 py-4 text-sm font-semibold text-deepInlet"
+            >
+              {card.question}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3. Seller path cards */}
+      <Section
+        eyebrow="What are you selling?"
+        title="Choose your seller path."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {pathCards.map((card) => (
+            <article key={card.heading} className="flex flex-col rounded-lg border border-softBorder bg-white p-6">
+              <h2 className="font-heading text-xl text-deepInlet">{card.heading}</h2>
+              <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.body}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">{card.cta}</CTAButton>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* 4. Selling process */}
+      <Section
+        eyebrow="A smarter selling sequence"
+        title="A smarter Port Moody selling process."
+        tone="white"
+      >
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
+          <div className="space-y-7">
+            {processSteps.map((s, i) => (
+              <ProcessStep key={s.title} step={i + 1} title={s.title} body={s.body} />
+            ))}
+          </div>
+          <div className="flex flex-col justify-center gap-3 lg:min-w-48">
+            <CTAButton href="/sell#value-opinion">Request a selling plan</CTAButton>
+            <CTAButton href="/market" variant="secondary">Understand the market</CTAButton>
+          </div>
+        </div>
+      </Section>
+
+      {/* 5. What buyers value by property type */}
+      <Section
+        eyebrow="Know your buyer"
+        title="What Port Moody buyers tend to value."
+        intro="Understanding what buyers prioritise by property type helps you prepare, price, and position more effectively."
+      >
+        <div className="grid gap-5 lg:grid-cols-3">
+          {buyerValues.map((pv) => (
+            <div key={pv.type} className="rounded-lg border border-softBorder bg-white p-6">
+              <p className="font-heading text-2xl text-deepInlet">{pv.type}</p>
+              <ul className="mt-4 space-y-2">
+                {pv.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-slateText">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-seaGlass" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* 6. Preparation checklist */}
+      <Section
+        eyebrow="Before you list"
+        title="Seller preparation checklist."
+        tone="white"
+      >
+        <div className="grid gap-8 md:grid-cols-3">
+          <CheckGroup title="All properties" items={allSellerChecklist} />
+          <CheckGroup title="Condos and townhouses" items={strataSellerChecklist} />
+          <CheckGroup title="Detached homes" items={detachedSellerChecklist} />
+        </div>
+        <div className="mt-8">
+          <VerificationNote note="This checklist is for general orientation. Consult qualified professionals for legal, financial, and inspection-related matters specific to your property." />
+        </div>
+      </Section>
+
+      {/* 7. Pricing and launch */}
+      <Section
+        eyebrow="Pricing strategy"
+        title="Pricing is not just a number."
+        intro="The best pricing strategy depends on property type, active competition, condition, buyer demand, recent context, and how easy it is for buyers to understand the value. We don't publish automated valuations."
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {pricingCards.map((card) => (
+            <div key={card} className="rounded-lg border border-softBorder bg-white p-5 text-sm text-slateText">
+              {card}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8">
+          <CTAButton href="/sell#value-opinion">Request a value opinion</CTAButton>
+        </div>
+      </Section>
+
+      {/* 8. Media and storytelling */}
+      <Section
+        eyebrow="Media and storytelling"
+        title="Media should make the decision easier."
+        intro="Strong media shows not just the rooms, but how the property lives: layout, light, privacy, outdoor space, parking, storage, building context, neighbourhood access, and trade-offs."
+        tone="white"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {mediaCards.map((card) => (
+            <div key={card.label} className="rounded-lg border border-softBorder bg-mist p-5">
+              <p className="font-semibold text-deepInlet">{card.label}</p>
+              <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* 9. Complex / building owner section */}
+      <Section
+        eyebrow="Micro-market positioning"
+        title="Own in a Port Moody building or complex?"
+        intro="If you own in a specific condo building or townhouse complex, your value is shaped by more than the general Port Moody market. Buyers compare your unit against the same building, similar complexes, current inventory, strata documents, fees, condition, layout, exposure, parking, and recent context."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {complexOwnerCards.map((card) => (
+            <div key={card.label} className="flex flex-col rounded-lg border border-softBorder bg-white p-5">
+              <p className="font-semibold text-deepInlet">{card.label}</p>
+              <p className="mt-2 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
+              <Link
+                href={card.href}
+                className="mt-4 inline-flex text-xs font-semibold text-forest hover:underline"
+              >
+                {card.cta} →
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div id="value-opinion" className="mt-10 max-w-2xl rounded-lg border border-softBorder bg-mist p-6">
+          <h2 className="mb-1 font-heading text-2xl text-deepInlet">Request a micro-market value opinion</h2>
+          <p className="mb-6 text-sm text-slateText">
+            Tell us your property type, address or complex, timeline, and what you want to understand. We&apos;ll respond personally.
+          </p>
+          <LeadForm
+            formType="home-value"
+            leadType="seller"
+            ctaLabel="Request value opinion"
+            title=""
+            messageLabel="Approximate address, property type, timeline, and what you want to understand"
+            tags={[
+                "source:liveinportmoody",
+                "intent:seller",
+                "intent:seller-micro-market-value",
+                "lead_type:seller",
+                "area:port-moody",
+            ]}
+          />
+        </div>
+      </Section>
+
+      {/* 10. FAQ */}
+      <Section tone="white">
+        <FAQSection
+          title="Seller questions"
+          intro="Common questions from Port Moody sellers."
+          items={faqs}
+        />
+      </Section>
+
+      {/* 11. Final CTA */}
+      <Section tone="sand">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-heading text-3xl text-deepInlet">Ready to plan your Port Moody sale?</h2>
+          <p className="mt-3 text-slateText">
+            Share your situation and we&apos;ll help you think through timing, preparation, and positioning.
+          </p>
+          <div className="mt-8">
+            <LeadForm
+              formType="home-value"
+              leadType="seller"
+              ctaLabel="Start seller conversation"
+              title=""
+              messageLabel="Property type, area, timeline, and what you're trying to figure out"
+              tags={[
+                "source:liveinportmoody",
+                "intent:seller",
+                "intent:seller-micro-market-value",
+                "lead_type:seller",
+                "area:port-moody",
+              ]}
+            />
+          </div>
+        </div>
+      </Section>
     </>
   );
 }

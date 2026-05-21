@@ -26,23 +26,24 @@ type ComplexListingsCTAProps = {
 };
 
 export function ComplexListingsCTA({ leadData }: ComplexListingsCTAProps) {
+  const name = leadData.buyerCTA.complexName;
   return (
     <div className="space-y-8">
       <section>
-        <h2 className="font-heading text-2xl text-deepInlet">Interested in Treetops?</h2>
-        <p className="mt-2 text-slateText">Whether you're looking to buy or thinking about selling, get in touch.</p>
+        <h2 className="font-heading text-2xl text-deepInlet">Interested in {name}?</h2>
+        <p className="mt-2 text-slateText">Whether you&apos;re looking to buy or thinking about selling, get in touch.</p>
       </section>
 
       <div className="grid gap-8 md:grid-cols-2">
         <div className="rounded-lg border border-softBorder bg-mist p-6">
-          <h3 className="font-semibold text-deepInlet">Looking to buy?</h3>
-          <p className="mt-2 text-sm text-slateText">Learn about available Treetops units and get local market insight.</p>
+          <h3 className="font-semibold text-deepInlet">Looking to buy at {name}?</h3>
+          <p className="mt-2 text-sm text-slateText">Learn about available units and get local market insight.</p>
           <div className="mt-4">
             <LeadForm
               formType="complex-inquiry"
               leadType="buyer"
               ctaLabel={leadData.buyerCTA.label}
-              title="Ask about Treetops"
+              title={`Ask about ${name}`}
               messageLabel="Tell us what you're looking for in a townhome"
               tags={leadData.buyerCTA.tags}
             />
@@ -50,7 +51,7 @@ export function ComplexListingsCTA({ leadData }: ComplexListingsCTAProps) {
         </div>
 
         <div className="rounded-lg border border-softBorder bg-seaGlass/10 p-6">
-          <h3 className="font-semibold text-deepInlet">Do you own at Treetops?</h3>
+          <h3 className="font-semibold text-deepInlet">Do you own at {name}?</h3>
           <p className="mt-2 text-sm text-slateText">Get a value opinion and market perspective from Leilani and Paul.</p>
           <div className="mt-4">
             <LeadForm
