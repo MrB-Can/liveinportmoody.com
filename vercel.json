@@ -7,7 +7,8 @@
     "NEXT_PUBLIC_BROKERAGE_ADDRESS": "#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5",
     "NEXT_PUBLIC_GA4_ID": "G-2D5FTS1HRT",
     "NEXT_PUBLIC_CLARITY_ID": "wmgcfh2z2w",
-    "CRM_MODE": "ghl"
+    "CRM_MODE": "ghl",
+    "COMING_SOON_ENABLED": "false"
   },
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
