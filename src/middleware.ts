@@ -13,28 +13,39 @@ function timingSafeEqual(a: string, b: string): boolean {
   return result === 0;
 }
 
+function isAllowed(pathname: string): boolean {
+  return (
+    pathname === "/" ||
+    pathname === "/coming-soon" ||
+    pathname === "/explore" ||
+    pathname === "/about" ||
+    pathname === "/buy" ||
+    pathname === "/sell" ||
+    pathname === "/contact" ||
+    pathname === "/market" ||
+    pathname === "/move-to-port-moody" ||
+    pathname === "/resources" ||
+    pathname === "/listings" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname.startsWith("/api/") ||
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/neighbourhoods") ||
+    pathname.startsWith("/complexes") ||
+    pathname.startsWith("/buildings") ||
+    pathname.startsWith("/blog") ||
+    publicFilePattern.test(pathname)
+  );
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const comingSoonEnabled = process.env.COMING_SOON_ENABLED !== "false";
   const previewKey = process.env.PREVIEW_KEY;
 
   if (!previewKey) {
-    // No preview key configured — enforce coming-soon but allow no preview access
     if (!comingSoonEnabled) return NextResponse.next();
-    if (
-      pathname === "/coming-soon" ||
-      pathname.startsWith("/api/") ||
-      pathname.startsWith("/_next/") ||
-      pathname === "/robots.txt" ||
-      pathname === "/sitemap.xml" ||
-      pathname === "/explore" ||
-      pathname === "/about" ||
-      pathname.startsWith("/neighbourhoods") ||
-      pathname.startsWith("/complexes") ||
-      pathname.startsWith("/buildings") ||
-      pathname === "/listings" ||
-      publicFilePattern.test(pathname)
-    ) return NextResponse.next();
+    if (isAllowed(pathname)) return NextResponse.next();
     const url = request.nextUrl.clone();
     url.pathname = "/coming-soon";
     url.search = "";
@@ -65,22 +76,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (
-    pathname === "/coming-soon" ||
-    pathname.startsWith("/api/") ||
-    pathname.startsWith("/_next/") ||
-    pathname === "/robots.txt" ||
-    pathname === "/sitemap.xml" ||
-    pathname === "/explore" ||
-    pathname === "/about" ||
-    pathname.startsWith("/neighbourhoods") ||
-    pathname.startsWith("/complexes") ||
-    pathname.startsWith("/buildings") ||
-    pathname === "/listings" ||
-    publicFilePattern.test(pathname)
-  ) {
-    return NextResponse.next();
-  }
+  if (isAllowed(pathname)) return NextResponse.next();
 
   const url = request.nextUrl.clone();
   url.pathname = "/coming-soon";
