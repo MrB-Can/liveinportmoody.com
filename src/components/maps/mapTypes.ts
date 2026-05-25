@@ -1,4 +1,5 @@
 export type MapPointKind = "neighbourhood" | "complex" | "building";
+export type MapCategory = "residential" | "village" | "waterfront" | "nearby";
 
 export type MapPoint = {
   id: string;
@@ -7,6 +8,9 @@ export type MapPoint = {
   latitude: number;
   longitude: number;
   isApproximate: boolean;
+  priority?: 1 | 2 | 3;
+  category?: MapCategory;
+  labelOffset?: [number, number];
   hasGuide?: boolean;
   fitSummary?: string;
   housingType?: string;
@@ -24,6 +28,7 @@ export type PortMoodyMapProps = {
   initialZoom?: number;
   className?: string;
   showLegend?: boolean;
+  showCategoryLegend?: boolean;
 };
 
 export type MapConfig = PortMoodyMapProps & { styleUrl: string };

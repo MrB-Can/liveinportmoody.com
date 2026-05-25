@@ -7,13 +7,21 @@ type PageSeo = {
   path: string;
 };
 
-export function createMetadata({ title, description, path }: PageSeo): Metadata {
+type CreateMetadataOptions = {
+  robots?: { index?: boolean; follow?: boolean };
+};
+
+export function createMetadata(
+  { title, description, path }: PageSeo,
+  options?: CreateMetadataOptions
+): Metadata {
   const url = new URL(path, siteConfig.url).toString();
   const fullTitle = `${title} | ${siteConfig.name}`;
 
   return {
     title,
     description,
+    robots: options?.robots,
     alternates: { canonical: url },
     openGraph: {
       title: fullTitle,

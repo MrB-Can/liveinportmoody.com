@@ -1,7 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Deploy script for liveinportmoody.com
 # Retrieves credentials from AWS Secrets Manager and deploys to Vercel
 # Usage: ./scripts/deploy.sh [--prod|--preview]
+#
+# WARNING: This script runs lint and build automatically before deploying.
+# If you need to skip those checks, run vercel deploy directly — but you
+# should have a very good reason for doing so.
+# See docs/deployment-notes.md for the full deploy checklist.
 
 set -euo pipefail
 
@@ -90,6 +95,13 @@ else
     DEPLOY_FLAGS=""
     log "Preview deployment (not affecting production)"
 fi
+
+# Run lint and build before deploying
+log "Running lint..."
+npm run lint || error "Lint failed. Fix lint errors before deploying."
+
+log "Running build..."
+npm run build || error "Build failed. Fix build errors before deploying."
 
 # Get current commit info
 COMMIT_SHA=$(git rev-parse --short HEAD)

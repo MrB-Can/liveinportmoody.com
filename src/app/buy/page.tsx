@@ -113,7 +113,7 @@ const areas = [
     bestFor: "Transit-oriented living, evolving area with mixed housing options near SkyTrain.",
     housing: "Condos, older townhomes, some detached.",
     tradeOff: "Area is changing; understand nearby development context and buyer demand before committing.",
-    href: "/neighbourhoods",
+    href: "/neighbourhoods/moody-centre",
   },
   {
     name: "Heritage Mountain",
@@ -121,6 +121,13 @@ const areas = [
     housing: "Townhomes and detached homes.",
     tradeOff: "Car-dependent for most errands; slopes affect access and drainage for some properties.",
     href: "/neighbourhoods/heritage-mountain",
+  },
+  {
+    name: "Heritage Woods",
+    bestFor: "Newer detached homes and townhouses on a hillside setting with trail access.",
+    housing: "Detached homes and townhomes.",
+    tradeOff: "Car-dependent; limited walkability and transit.",
+    href: "/neighbourhoods/heritage-woods",
   },
   {
     name: "College Park",
@@ -134,7 +141,7 @@ const areas = [
     bestFor: "Quieter detached-home pocket with established neighbourhood feel.",
     housing: "Primarily detached.",
     tradeOff: "Limited walkability; most daily errands require driving.",
-    href: "/neighbourhoods",
+    href: "/neighbourhoods/glenayre",
   },
   {
     name: "Pleasantside / Ioco / Barber Street",

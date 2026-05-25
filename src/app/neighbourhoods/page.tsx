@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 import { neighbourhoods } from "@/data/neighbourhoods";
+import type { MapCategory } from "@/components/maps/mapTypes";
 import { LeadForm } from "@/components/lead-form";
 import { CTAButton } from "@/components/cta-button";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +12,13 @@ import { neighbourhoodMapPoints } from "@/data/mapPoints";
 import { NeighbourhoodComparisonTable } from "@/components/neighbourhoods/neighbourhood-comparison-table";
 import { FilterChips } from "@/components/neighbourhoods/filter-chips";
 import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
+
+const CATEGORY_BADGE: Record<MapCategory, { tone: "forest" | "blue" | "sea" | "sand"; label: string }> = {
+  residential: { tone: "forest", label: "Residential / hillside" },
+  village: { tone: "blue", label: "Village / walkable centre" },
+  waterfront: { tone: "sea", label: "Waterfront / north shore" },
+  nearby: { tone: "sand", label: "Nearby community" },
+};
 
 export const metadata = createMetadata({
   title: "Port Moody Neighbourhood Guide",
@@ -56,6 +64,7 @@ const standardVerificationNote =
 
 export default function NeighbourhoodsPage() {
   const liveNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "live");
+  const previewNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "preview");
   const comingSoonNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "coming-soon");
 
   return (
@@ -83,7 +92,15 @@ export default function NeighbourhoodsPage() {
       {/* Map section */}
       <section className="mx-auto max-w-4xl px-5 py-12">
         <h2 className="mb-4 font-heading text-2xl text-deepInlet">Port Moody neighbourhood map</h2>
-        <PortMoodyMap points={neighbourhoodMapPoints} showLegend={false} />
+        <PortMoodyMap
+          points={neighbourhoodMapPoints}
+          showLegend={false}
+          showCategoryLegend={true}
+          className="h-[440px] md:h-[520px] rounded-lg"
+        />
+        <p className="mt-2 text-xs text-slateText/70">
+          Map locations are approximate and intended for orientation only.
+        </p>
       </section>
 
       {/* Comparison table */}
@@ -108,9 +125,14 @@ export default function NeighbourhoodsPage() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
                     <Badge tone="forest">Guide live</Badge>
+                    {neighbourhood.category && (
+                      <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
+                        {CATEGORY_BADGE[neighbourhood.category].label}
+                      </Badge>
+                    )}
                   </div>
                   <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
                   <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText mb-3">
@@ -126,6 +148,41 @@ export default function NeighbourhoodsPage() {
             </Link>
           ))}
 
+          {previewNeighbourhoods.length > 0 && (
+            <>
+              <h2 className="font-heading text-2xl text-deepInlet mt-8 mb-6">Neighbourhood guide previews</h2>
+              {previewNeighbourhoods.map((neighbourhood) => (
+                <Link
+                  key={neighbourhood.slug}
+                  href={`/neighbourhoods/${neighbourhood.slug}`}
+                  className="block rounded-lg border border-softBorder bg-white p-6 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
+                        <Badge tone="blue">Guide preview</Badge>
+                        {neighbourhood.category && (
+                          <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
+                            {CATEGORY_BADGE[neighbourhood.category].label}
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
+                      <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText">
+                        <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
+                        <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
+                      </div>
+                    </div>
+                    <svg className="w-5 h-5 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              ))}
+            </>
+          )}
+
           {comingSoonNeighbourhoods.length > 0 && (
             <>
               <h2 className="font-heading text-2xl text-deepInlet mt-8 mb-6">Coming soon</h2>
@@ -133,9 +190,14 @@ export default function NeighbourhoodsPage() {
                 <div key={neighbourhood.slug} className="rounded-lg border border-softBorder bg-mist p-6 opacity-60">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
                         <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
                         <Badge tone="slate">Preview</Badge>
+                        {neighbourhood.category && (
+                          <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
+                            {CATEGORY_BADGE[neighbourhood.category].label}
+                          </Badge>
+                        )}
                       </div>
                       <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
                       <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText">

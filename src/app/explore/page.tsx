@@ -117,6 +117,24 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-5xl px-5 pb-8">
+        <p className="text-sm text-slateText mb-3">Neighbourhood guides available:</p>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/neighbourhoods/heritage-mountain" className="text-sm font-semibold text-forest hover:underline">
+            Heritage Mountain <span className="font-normal text-slateText text-xs">(guide live)</span>
+          </Link>
+          <Link href="/neighbourhoods/heritage-woods" className="text-sm font-semibold text-forest hover:underline">
+            Heritage Woods <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+          <Link href="/neighbourhoods/moody-centre" className="text-sm font-semibold text-forest hover:underline">
+            Moody Centre <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+          <Link href="/neighbourhoods/glenayre" className="text-sm font-semibold text-forest hover:underline">
+            Glenayre <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-warmSand px-5 py-12">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 md:grid-cols-[0.8fr_1.4fr]">

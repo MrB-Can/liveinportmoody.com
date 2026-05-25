@@ -157,18 +157,14 @@ export default function ComplexesPage() {
 
       <section className="bg-warmSand px-5 py-12">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Map orientation</p>
-              <h2 className="mt-3 font-heading text-3xl text-deepInlet">Port Moody townhouse complex map</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-slateText">
-                Use this orientation map to understand how the major townhouse pockets relate to Heritage Mountain,
-                Klahanie, Moody Centre, College Park, trails, SkyTrain, and daily amenities.
-              </p>
-              <p className="mt-3 text-xs text-slateText">Map locations are approximate and intended for orientation.</p>
-            </div>
-            <PortMoodyMap points={complexMapPoints} className="min-h-80 rounded-lg" showLegend={false} />
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Map orientation</p>
+          <h2 className="mt-3 font-heading text-3xl text-deepInlet">Port Moody townhouse complex map</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slateText">
+            Use this orientation map to understand how the major townhouse pockets relate to Heritage Mountain,
+            Klahanie, Moody Centre, College Park, trails, SkyTrain, and daily amenities.
+          </p>
+          <p className="mt-3 text-xs text-slateText">Map locations are approximate and intended for orientation.</p>
+          <PortMoodyMap points={complexMapPoints} className="mt-6 h-[360px] md:h-[500px] rounded-lg" showLegend={false} />
         </div>
       </section>
 

@@ -221,6 +221,25 @@ export default function MoveToPortMoodyPage() {
         </div>
       </section>
 
+      {/* Neighbourhood guide links */}
+      <section className="mx-auto max-w-4xl px-5 pb-8">
+        <p className="text-sm text-slateText mb-3">Available neighbourhood guides:</p>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/neighbourhoods/heritage-mountain" className="text-sm font-semibold text-forest hover:underline">
+            Heritage Mountain <span className="font-normal text-slateText text-xs">(guide live)</span>
+          </Link>
+          <Link href="/neighbourhoods/heritage-woods" className="text-sm font-semibold text-forest hover:underline">
+            Heritage Woods <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+          <Link href="/neighbourhoods/moody-centre" className="text-sm font-semibold text-forest hover:underline">
+            Moody Centre <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+          <Link href="/neighbourhoods/glenayre" className="text-sm font-semibold text-forest hover:underline">
+            Glenayre <span className="font-normal text-slateText text-xs">(guide preview)</span>
+          </Link>
+        </div>
+      </section>
+
       {/* Housing Types */}
       <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
         <div className="mx-auto max-w-4xl">

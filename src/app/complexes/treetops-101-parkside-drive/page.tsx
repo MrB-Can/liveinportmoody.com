@@ -310,6 +310,36 @@ export default function TreetopsPage() {
             </p>
           </Section>
 
+          <Section id="location" title="Location and context">
+            <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+              <div>
+                <p className="text-base leading-8 text-slateText">
+                  The location is stronger for green space, schools, and residential quiet than for daily walkability.
+                  Buyers who want cafe, grocery, and SkyTrain convenience may prefer Suter Brook, Newport Village,
+                  Klahanie, or Moody Centre.
+                </p>
+                <div className="mt-5 rounded-lg border border-softBorder bg-white p-5">
+                  <h3 className="font-heading text-xl text-deepInlet">Map-style orientation</h3>
+                  <p className="mt-2 text-sm text-slateText">
+                    Treetops sits in Heritage Mountain, with Heritage Mountain Elementary and Heritage Woods Secondary
+                    nearby by neighbourhood context. Rocky Point Park, Newport Village, Suter Brook, Inlet Centre Station,
+                    Moody Centre Station, and major roads are best treated as short-drive or bus-connection references.
+                  </p>
+                </div>
+              </div>
+              <PortMoodyMap
+                points={[
+                  complexMapPoints.find((p) => p.id === "treetops-101-parkside-drive")!,
+                  neighbourhoodMapPoints.find((p) => p.id === "heritage-mountain")!,
+                ]}
+                initialCenter={[-122.842, 49.295]}
+                initialZoom={13}
+                className="min-h-72 rounded-lg"
+                showLegend={true}
+              />
+            </div>
+          </Section>
+
           <Section id="homes" title="What the homes are like">
             <div className="grid gap-5 md:grid-cols-2">
               {homeCards.map(([title, body]) => (
@@ -341,36 +371,6 @@ export default function TreetopsPage() {
                   <p className="mt-3 text-sm leading-6 text-slateText">{body}</p>
                 </article>
               ))}
-            </div>
-          </Section>
-
-          <Section id="location" title="Location and trade-off">
-            <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-              <div>
-                <p className="text-base leading-8 text-slateText">
-                  The location is stronger for green space, schools, and residential quiet than for daily walkability.
-                  Buyers who want cafe, grocery, and SkyTrain convenience may prefer Suter Brook, Newport Village,
-                  Klahanie, or Moody Centre.
-                </p>
-                <div className="mt-5 rounded-lg border border-softBorder bg-white p-5">
-                  <h3 className="font-heading text-xl text-deepInlet">Map-style orientation</h3>
-                  <p className="mt-2 text-sm text-slateText">
-                    Treetops sits in Heritage Mountain, with Heritage Mountain Elementary and Heritage Woods Secondary
-                    nearby by neighbourhood context. Rocky Point Park, Newport Village, Suter Brook, Inlet Centre Station,
-                    Moody Centre Station, and major roads are best treated as short-drive or bus-connection references.
-                  </p>
-                </div>
-              </div>
-              <PortMoodyMap
-                points={[
-                  complexMapPoints.find((p) => p.id === "treetops-101-parkside-drive")!,
-                  neighbourhoodMapPoints.find((p) => p.id === "heritage-mountain")!,
-                ]}
-                initialCenter={[-122.842, 49.295]}
-                initialZoom={13}
-                className="min-h-72 rounded-lg"
-                showLegend={true}
-              />
             </div>
           </Section>
 

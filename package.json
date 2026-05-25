@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prepare:hero-images": "node scripts/prepare-hero-images.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:secrets": "grep -rn 'GHL_API_TOKEN=\\|access_token=\\|api_key=\\|NEXT_PUBLIC_.*TOKEN\\|NEXT_PUBLIC_.*SECRET\\|NEXT_PUBLIC_.*KEY' --include='*.ts' --include='*.tsx' --include='*.js' src/ | grep -v node_modules || echo 'No secret patterns found in source files'",
+    "deploy:check": "npm run lint && npm run build",
+    "deploy:prod": "npm run lint && npm run build && vercel deploy --prod --force"
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.1041.0",

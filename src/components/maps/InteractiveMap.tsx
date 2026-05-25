@@ -4,13 +4,58 @@ import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MapLegend } from "./MapLegend";
+import { MapCategoryLegend } from "./MapCategoryLegend";
 import { buildPopupHTML } from "./MapMarkerPopup";
-import type { MapConfig } from "@/components/maps/mapTypes";
+import type { MapConfig, MapPoint } from "@/components/maps/mapTypes";
 
 // Root element is owned by MapLibre for transform-based positioning.
 // Never set transform on the root — use an inner child for all hover/visual effects.
 
-function createNeighbourhoodMarker(label: string): HTMLDivElement {
+const CATEGORY_STYLES = {
+  residential: {
+    bg: "rgba(18,48,47,0.10)",
+    border: "rgba(18,48,47,0.35)",
+    text: "#12302F",
+    bgGuide: "rgba(18,48,47,0.20)",
+    borderGuide: "rgba(18,48,47,0.60)",
+  },
+  village: {
+    bg: "rgba(30,84,145,0.10)",
+    border: "rgba(30,84,145,0.38)",
+    text: "#1E5491",
+    bgGuide: "rgba(30,84,145,0.20)",
+    borderGuide: "rgba(30,84,145,0.65)",
+  },
+  waterfront: {
+    bg: "rgba(14,94,106,0.10)",
+    border: "rgba(14,94,106,0.38)",
+    text: "#0E5E6A",
+    bgGuide: "rgba(14,94,106,0.20)",
+    borderGuide: "rgba(14,94,106,0.65)",
+  },
+  nearby: {
+    bg: "rgba(100,70,0,0.08)",
+    border: "rgba(100,70,0,0.30)",
+    text: "#644600",
+    bgGuide: "rgba(100,70,0,0.16)",
+    borderGuide: "rgba(100,70,0,0.55)",
+  },
+} as const;
+
+const DEFAULT_STYLES = {
+  bg: "rgba(18,48,47,0.10)",
+  border: "rgba(18,48,47,0.35)",
+  text: "#12302F",
+  bgGuide: "rgba(18,48,47,0.20)",
+  borderGuide: "rgba(18,48,47,0.60)",
+};
+
+function createNeighbourhoodMarker(point: MapPoint): HTMLDivElement {
+  const styles = point.category ? CATEGORY_STYLES[point.category] : DEFAULT_STYLES;
+  const bg = point.hasGuide ? styles.bgGuide : styles.bg;
+  const border = point.hasGuide ? styles.borderGuide : styles.border;
+  const borderWidth = point.hasGuide ? "1.5px" : "1px";
+
   const root = document.createElement("div");
   root.style.cssText = "cursor:pointer";
 
@@ -19,24 +64,24 @@ function createNeighbourhoodMarker(label: string): HTMLDivElement {
     "display:inline-flex",
     "align-items:center",
     "padding:4px 10px",
-    "background:rgba(18,48,47,0.10)",
-    "border:1px solid rgba(18,48,47,0.35)",
+    `background:${bg}`,
+    `border:${borderWidth} solid ${border}`,
     "border-radius:4px",
     "font-size:11px",
     "font-weight:700",
     "font-family:system-ui,-apple-system,sans-serif",
-    "color:#12302F",
+    `color:${styles.text}`,
     "white-space:nowrap",
     "user-select:none",
     "transition:opacity 0.15s,box-shadow 0.15s",
     "box-shadow:0 1px 3px rgba(0,0,0,0.10)",
     "line-height:1.4",
   ].join(";");
-  inner.textContent = label;
+  inner.textContent = point.label;
 
   root.addEventListener("mouseenter", () => {
     inner.style.opacity = "0.75";
-    inner.style.boxShadow = "0 2px 6px rgba(18,48,47,0.25)";
+    inner.style.boxShadow = `0 2px 6px ${styles.text}40`;
   });
   root.addEventListener("mouseleave", () => {
     inner.style.opacity = "1";
@@ -124,7 +169,7 @@ function createBuildingMarker(): HTMLDivElement {
 export function InteractiveMap(config: MapConfig) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const { points, initialCenter, initialZoom, showLegend, styleUrl, className } = config;
+  const { points, initialCenter, initialZoom, showLegend, showCategoryLegend, styleUrl, className } = config;
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -139,14 +184,20 @@ export function InteractiveMap(config: MapConfig) {
 
     mapRef.current = map;
 
+    const priority2Roots: HTMLDivElement[] = [];
+
     map.on("load", () => {
       points.forEach((point) => {
         let markerEl: HTMLDivElement;
 
         if (point.kind === "neighbourhood") {
-          markerEl = createNeighbourhoodMarker(point.label);
+          markerEl = createNeighbourhoodMarker(point);
           markerEl.setAttribute("role", "button");
           markerEl.setAttribute("aria-label", `${point.label} neighbourhood area`);
+          if (point.priority === 2) {
+            markerEl.style.display = map.getZoom() >= 12 ? "" : "none";
+            priority2Roots.push(markerEl);
+          }
         } else if (point.kind === "complex") {
           markerEl = createComplexMarker(point.label);
           markerEl.setAttribute("role", "button");
@@ -163,7 +214,11 @@ export function InteractiveMap(config: MapConfig) {
 
         const anchor = point.kind === "neighbourhood" ? "bottom" : "center";
 
-        new maplibregl.Marker({ element: markerEl, anchor })
+        new maplibregl.Marker({
+          element: markerEl,
+          anchor,
+          ...(point.labelOffset ? { offset: point.labelOffset } : {}),
+        })
           .setLngLat([point.longitude, point.latitude])
           .setPopup(popup)
           .addTo(map);
@@ -177,11 +232,14 @@ export function InteractiveMap(config: MapConfig) {
         map.fitBounds(bounds, { padding: 60 });
       }
 
-      map.addControl(
-        new maplibregl.AttributionControl({
-          customAttribution: "Map locations are approximate and intended for orientation.",
-        })
-      );
+      map.addControl(new maplibregl.AttributionControl());
+    });
+
+    map.on("zoom", () => {
+      const show = map.getZoom() >= 12;
+      priority2Roots.forEach((el) => {
+        el.style.display = show ? "" : "none";
+      });
     });
 
     return () => {
@@ -194,8 +252,9 @@ export function InteractiveMap(config: MapConfig) {
 
   return (
     <div className={`relative w-full overflow-hidden rounded-lg bg-mist ${className || "min-h-80"}`}>
-      <div ref={containerRef} className="w-full min-h-80" />
+      <div ref={containerRef} className="w-full h-full min-h-80" />
       {showLegend && <MapLegend points={points} />}
+      {showCategoryLegend && <MapCategoryLegend points={points} />}
     </div>
   );
 }

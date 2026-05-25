@@ -81,7 +81,7 @@ export default function BuildingsPage() {
       </Section>
 
       <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation.">
-        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} />
+        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[360px] md:h-[480px] rounded-lg" />
       </Section>
 
       <Section title="Building previews" intro="These are preview-level research cards, not full building guides. They are designed to help you ask better questions before reviewing a listing or writing an offer." tone="white">

@@ -11,9 +11,10 @@ type ScoringBar = {
 type QuickFactsWithBarsProps = {
   facts: QuickFact[];
   scoringBars: ScoringBar[];
+  neighbourhoodName?: string;
 };
 
-export function QuickFactsWithBars({ facts, scoringBars }: QuickFactsWithBarsProps) {
+export function QuickFactsWithBars({ facts, scoringBars, neighbourhoodName = "this neighbourhood" }: QuickFactsWithBarsProps) {
   return (
     <section className="space-y-8">
       {/* Basic facts */}
@@ -31,7 +32,7 @@ export function QuickFactsWithBars({ facts, scoringBars }: QuickFactsWithBarsPro
 
       {/* Scoring bars */}
       <div>
-        <h3 className="font-heading text-xl text-deepInlet mb-6">How Heritage Mountain scores</h3>
+        <h3 className="font-heading text-xl text-deepInlet mb-6">How {neighbourhoodName} scores</h3>
         <div className="space-y-4">
           {scoringBars.map((bar) => (
             <div key={bar.label}>
