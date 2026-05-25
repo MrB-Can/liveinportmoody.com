@@ -92,7 +92,7 @@ export function InteractiveMap(config: MapConfig) {
 
   return (
     <div className={`relative w-full overflow-hidden rounded-lg bg-mist ${className || 'min-h-80'}`}>
-      <div ref={containerRef} className="w-full h-full" />
+      <div ref={containerRef} className="w-full min-h-80" />
       {showLegend && <MapLegend points={points} />}
     </div>
   );
