@@ -12,7 +12,7 @@ export function createMetadata({ title, description, path }: PageSeo): Metadata 
   const fullTitle = `${title} | ${siteConfig.name}`;
 
   return {
-    title: fullTitle,
+    title,
     description,
     alternates: { canonical: url },
     openGraph: {
