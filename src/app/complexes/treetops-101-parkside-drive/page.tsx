@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { TreetopsInquiryForm } from "@/components/complexes/TreetopsInquiryForm";
 import { createMetadata } from "@/lib/seo";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { neighbourhoodMapPoints, complexMapPoints } from "@/data/mapPoints";
 
 export const metadata = createMetadata({
   title: "Treetops 101 Parkside Drive Port Moody | Townhouse Complex Guide",
@@ -359,17 +361,16 @@ export default function TreetopsPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative min-h-72 overflow-hidden rounded-lg border border-softBorder bg-gradient-to-br from-seaGlass/40 via-mist to-white p-5">
-                {["Treetops", "Heritage Mountain", "Schools", "Rocky Point", "Newport Village", "Suter Brook", "Inlet Centre", "Moody Centre"].map((pin, index) => (
-                  <span
-                    key={pin}
-                    className="absolute rounded-full bg-deepInlet px-2.5 py-1 text-xs font-semibold text-white"
-                    style={{ left: `${12 + ((index * 17) % 68)}%`, top: `${15 + ((index * 19) % 62)}%` }}
-                  >
-                    {pin}
-                  </span>
-                ))}
-              </div>
+              <PortMoodyMap
+                points={[
+                  complexMapPoints.find((p) => p.id === "treetops-101-parkside-drive")!,
+                  neighbourhoodMapPoints.find((p) => p.id === "heritage-mountain")!,
+                ]}
+                initialCenter={[-122.842, 49.295]}
+                initialZoom={13}
+                className="min-h-72 rounded-lg"
+                showLegend={true}
+              />
             </div>
           </Section>
 

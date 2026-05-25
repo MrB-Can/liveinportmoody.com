@@ -6,7 +6,8 @@ import { CTAButton } from "@/components/cta-button";
 import { Badge } from "@/components/ui/badge";
 import { VerificationNote } from "@/components/ui/verification-note";
 import { StartWithWhatMatters } from "@/components/neighbourhoods/start-with-what-matters";
-import { NeighbourhoodMapPlaceholder } from "@/components/neighbourhoods/neighbourhood-map-placeholder";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { neighbourhoodMapPoints } from "@/data/mapPoints";
 import { NeighbourhoodComparisonTable } from "@/components/neighbourhoods/neighbourhood-comparison-table";
 import { FilterChips } from "@/components/neighbourhoods/filter-chips";
 import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
@@ -79,8 +80,11 @@ export default function NeighbourhoodsPage() {
       {/* Start with what matters */}
       <StartWithWhatMatters />
 
-      {/* Map placeholder */}
-      <NeighbourhoodMapPlaceholder />
+      {/* Map section */}
+      <section className="mx-auto max-w-4xl px-5 py-12">
+        <h2 className="mb-4 font-heading text-2xl text-deepInlet">Port Moody neighbourhood map</h2>
+        <PortMoodyMap points={neighbourhoodMapPoints} showLegend={false} />
+      </section>
 
       {/* Comparison table */}
       <NeighbourhoodComparisonTable />

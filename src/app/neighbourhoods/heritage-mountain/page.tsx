@@ -5,7 +5,8 @@ import { LeadForm } from "@/components/lead-form";
 import { Badge } from "@/components/ui/badge";
 import { QuickFactsWithBars } from "@/components/neighbourhoods/quick-facts-with-bars";
 import { FitCards } from "@/components/neighbourhoods/fit-cards";
-import { NeighbourhoodMapPlaceholder } from "@/components/neighbourhoods/neighbourhood-map-placeholder";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { neighbourhoodMapPoints, complexMapPoints } from "@/data/mapPoints";
 import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
 import { Trees, GraduationCap, TrainFront, AlertCircle } from "lucide-react";
 
@@ -122,7 +123,16 @@ export default function HeritageM() {
           <p className="text-slateText mb-8">
             Heritage Mountain sits above the more walkable inlet-side areas of Port Moody. It is more residential and hillside-oriented, with stronger trail and park access but less daily walkability than Newport Village, Suter Brook, Klahanie, or Moody Centre.
           </p>
-          <NeighbourhoodMapPlaceholder />
+          <PortMoodyMap
+            points={[
+              neighbourhoodMapPoints.find((p) => p.id === "heritage-mountain")!,
+              complexMapPoints.find((p) => p.id === "treetops-101-parkside-drive")!,
+              complexMapPoints.find((p) => p.id === "discovery-ridge")!,
+            ]}
+            initialCenter={[-122.847, 49.298]}
+            initialZoom={13}
+            showLegend={true}
+          />
         </section>
 
         {/* Housing types */}

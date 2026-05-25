@@ -3,7 +3,8 @@ import { FAQAccordion } from "@/components/faq-accordion";
 import { BuildingComparisonTable } from "@/components/buildings/BuildingComparisonTable";
 import { BuildingFilterChips } from "@/components/buildings/BuildingFilterChips";
 import { BuildingInquiryForm } from "@/components/buildings/BuildingInquiryForm";
-import { BuildingMapPlaceholder } from "@/components/buildings/BuildingMapPlaceholder";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { buildingMapPoints, neighbourhoodMapPoints } from "@/data/mapPoints";
 import { BuildingPreviewCard } from "@/components/buildings/BuildingPreviewCard";
 import { CondoDecisionGuide } from "@/components/buildings/CondoDecisionGuide";
 import { CTAButton } from "@/components/cta-button";
@@ -79,8 +80,8 @@ export default function BuildingsPage() {
         <BuildingFilterChips />
       </Section>
 
-      <Section>
-        <BuildingMapPlaceholder />
+      <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation.">
+        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} />
       </Section>
 
       <Section title="Building previews" intro="These are preview-level research cards, not full building guides. They are designed to help you ask better questions before reviewing a listing or writing an offer." tone="white">

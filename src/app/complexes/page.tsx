@@ -2,6 +2,8 @@ import Link from "next/link";
 import { LeadForm } from "@/components/lead-form";
 import { complexes, complexNeighbourhoodGroups } from "@/data/complexes";
 import { createMetadata } from "@/lib/seo";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { complexMapPoints } from "@/data/mapPoints";
 
 export const metadata = createMetadata({
   title: "Port Moody Townhouse Complexes",
@@ -165,27 +167,7 @@ export default function ComplexesPage() {
               </p>
               <p className="mt-3 text-xs text-slateText">Map locations are approximate and intended for orientation.</p>
             </div>
-            <div className="relative min-h-80 overflow-hidden rounded-lg border border-softBorder bg-gradient-to-br from-seaGlass/40 via-mist to-white p-5">
-              <div className="absolute left-5 top-6 h-24 w-40 rounded-full border border-forest/30 bg-forest/10" />
-              <div className="absolute bottom-8 right-8 h-24 w-44 rounded-full border border-emphasis/30 bg-emphasis/10" />
-              <div className="absolute inset-x-8 top-1/2 h-1 -rotate-12 rounded-full bg-white/80" />
-              {complexes.map((complex, index) => (
-                <div
-                  key={complex.slug}
-                  className="absolute rounded-full bg-deepInlet px-3 py-1 text-xs font-semibold text-white shadow-soft"
-                  style={{
-                    left: `${14 + ((index * 19) % 64)}%`,
-                    top: `${18 + ((index * 17) % 58)}%`,
-                  }}
-                >
-                  <span className="mr-1 text-seaGlass">•</span>
-                  {complex.name}
-                </div>
-              ))}
-              <div className="absolute bottom-5 left-5 rounded-md bg-white/85 px-3 py-2 text-xs text-slateText">
-                Future additions: Heritage Woods, Brewers Row, Moody Centre, and other Port Moody townhouse pockets.
-              </div>
-            </div>
+            <PortMoodyMap points={complexMapPoints} className="min-h-80 rounded-lg" showLegend={false} />
           </div>
         </div>
       </section>

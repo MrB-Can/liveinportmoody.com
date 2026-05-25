@@ -41,3 +41,26 @@ textarea {
   background: #7faea3;
   color: #12302f;
 }
+
+/* MapLibre GL overrides */
+.maplibregl-popup-content {
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 24px rgba(18, 48, 47, 0.15);
+  font-family: var(--font-body);
+}
+
+.maplibregl-popup-close-button {
+  font-size: 1.1rem;
+  color: #4e5a57;
+  padding: 4px 8px;
+}
+
+.maplibregl-ctrl-group {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.maplibregl-attribution-control {
+  font-size: 0.65rem;
+}
