@@ -7,9 +7,15 @@ import { MapLegend } from "./MapLegend";
 import { buildPopupHTML } from "./MapMarkerPopup";
 import type { MapConfig } from "@/components/maps/mapTypes";
 
+// Root element is owned by MapLibre for transform-based positioning.
+// Never set transform on the root — use an inner child for all hover/visual effects.
+
 function createNeighbourhoodMarker(label: string): HTMLDivElement {
-  const el = document.createElement("div");
-  el.style.cssText = [
+  const root = document.createElement("div");
+  root.style.cssText = "cursor:pointer";
+
+  const inner = document.createElement("div");
+  inner.style.cssText = [
     "display:inline-flex",
     "align-items:center",
     "padding:4px 10px",
@@ -21,24 +27,41 @@ function createNeighbourhoodMarker(label: string): HTMLDivElement {
     "font-family:system-ui,-apple-system,sans-serif",
     "color:#12302F",
     "white-space:nowrap",
-    "cursor:pointer",
     "user-select:none",
-    "transition:opacity 0.15s,transform 0.15s",
+    "transition:opacity 0.15s,box-shadow 0.15s",
     "box-shadow:0 1px 3px rgba(0,0,0,0.10)",
     "line-height:1.4",
   ].join(";");
-  el.textContent = label;
-  return el;
+  inner.textContent = label;
+
+  root.addEventListener("mouseenter", () => {
+    inner.style.opacity = "0.75";
+    inner.style.boxShadow = "0 2px 6px rgba(18,48,47,0.25)";
+  });
+  root.addEventListener("mouseleave", () => {
+    inner.style.opacity = "1";
+    inner.style.boxShadow = "0 1px 3px rgba(0,0,0,0.10)";
+  });
+
+  root.appendChild(inner);
+  return root;
 }
 
 function createComplexMarker(label: string): HTMLDivElement {
-  const el = document.createElement("div");
-  el.style.cssText =
-    "display:flex;flex-direction:column;align-items:center;cursor:pointer;gap:3px;transition:opacity 0.15s,transform 0.15s";
+  const root = document.createElement("div");
+  root.style.cssText = "display:flex;flex-direction:column;align-items:center;cursor:pointer;gap:3px";
 
   const dot = document.createElement("div");
-  dot.style.cssText =
-    "width:10px;height:10px;border-radius:50%;background:#1F4A3D;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);flex-shrink:0";
+  dot.style.cssText = [
+    "width:10px",
+    "height:10px",
+    "border-radius:50%",
+    "background:#1F4A3D",
+    "border:2px solid white",
+    "box-shadow:0 1px 4px rgba(0,0,0,0.3)",
+    "flex-shrink:0",
+    "transition:box-shadow 0.15s",
+  ].join(";");
 
   const nameEl = document.createElement("div");
   nameEl.style.cssText = [
@@ -52,19 +75,50 @@ function createComplexMarker(label: string): HTMLDivElement {
     "white-space:nowrap",
     "box-shadow:0 1px 3px rgba(0,0,0,0.15)",
     "line-height:1.5",
+    "transition:opacity 0.15s",
   ].join(";");
   nameEl.textContent = label;
 
-  el.appendChild(dot);
-  el.appendChild(nameEl);
-  return el;
+  root.addEventListener("mouseenter", () => {
+    dot.style.boxShadow = "0 2px 7px rgba(31,74,61,0.45)";
+    nameEl.style.opacity = "0.8";
+  });
+  root.addEventListener("mouseleave", () => {
+    dot.style.boxShadow = "0 1px 4px rgba(0,0,0,0.3)";
+    nameEl.style.opacity = "1";
+  });
+
+  root.appendChild(dot);
+  root.appendChild(nameEl);
+  return root;
 }
 
 function createBuildingMarker(): HTMLDivElement {
-  const el = document.createElement("div");
-  el.style.cssText =
-    "width:8px;height:8px;border-radius:50%;background:#7FAEA3;border:1.5px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.25);cursor:pointer;transition:opacity 0.15s,transform 0.15s";
-  return el;
+  const root = document.createElement("div");
+  root.style.cssText = "width:8px;height:8px;cursor:pointer";
+
+  const dot = document.createElement("div");
+  dot.style.cssText = [
+    "width:8px",
+    "height:8px",
+    "border-radius:50%",
+    "background:#7FAEA3",
+    "border:1.5px solid white",
+    "box-shadow:0 1px 3px rgba(0,0,0,0.25)",
+    "transition:transform 0.15s,opacity 0.15s",
+  ].join(";");
+
+  root.addEventListener("mouseenter", () => {
+    dot.style.transform = "scale(1.8)";
+    dot.style.opacity = "0.85";
+  });
+  root.addEventListener("mouseleave", () => {
+    dot.style.transform = "scale(1)";
+    dot.style.opacity = "1";
+  });
+
+  root.appendChild(dot);
+  return root;
 }
 
 export function InteractiveMap(config: MapConfig) {
@@ -102,15 +156,6 @@ export function InteractiveMap(config: MapConfig) {
           markerEl.setAttribute("role", "button");
           markerEl.setAttribute("aria-label", `${point.label} building marker`);
         }
-
-        markerEl.addEventListener("mouseenter", () => {
-          markerEl.style.opacity = "0.8";
-          markerEl.style.transform = "scale(1.08)";
-        });
-        markerEl.addEventListener("mouseleave", () => {
-          markerEl.style.opacity = "1";
-          markerEl.style.transform = "scale(1)";
-        });
 
         const popup = new maplibregl.Popup({ offset: 12, maxWidth: "260px" }).setHTML(
           buildPopupHTML(point)
