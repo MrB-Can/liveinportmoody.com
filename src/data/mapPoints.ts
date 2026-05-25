@@ -1,6 +1,5 @@
 import type { MapPoint } from "@/components/maps/mapTypes";
 
-// Neighbourhood map points (all approximate, based on existing neighbourhood coordinates)
 export const neighbourhoodMapPoints: MapPoint[] = [
   {
     id: "heritage-mountain",
@@ -9,6 +8,12 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.293,
     longitude: -122.837,
     isApproximate: true,
+    hasGuide: true,
+    fitSummary: "Hillside, family-oriented area with townhomes, detached homes, and trail access.",
+    housingType: "Townhomes and detached homes.",
+    tradeOff: "Less walkable than Newport Village, Suter Brook, Klahanie, or Moody Centre.",
+    href: "/neighbourhoods/heritage-mountain",
+    ctaLabel: "View Heritage Mountain guide",
   },
   {
     id: "suter-brook",
@@ -17,6 +22,11 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.282,
     longitude: -122.828,
     isApproximate: true,
+    fitSummary: "Walkable waterfront village popular with first-time buyers and commuters.",
+    housingType: "Condos and townhomes.",
+    tradeOff: "Busier feel near Rocky Point; limited parking.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "newport-village",
@@ -25,6 +35,11 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.283,
     longitude: -122.824,
     isApproximate: true,
+    fitSummary: "Port Moody's most walkable address, with a compact village feel along the Inlet.",
+    housingType: "Condos and mixed-use residential.",
+    tradeOff: "Premium pricing and limited greenspace.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "klahanie",
@@ -33,6 +48,11 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.276,
     longitude: -122.824,
     isApproximate: true,
+    fitSummary: "Established community with waterfront parks, trails, and a marina nearby.",
+    housingType: "Townhomes and condos.",
+    tradeOff: "Older inventory with some strata fee considerations.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "moody-centre",
@@ -41,6 +61,24 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.279,
     longitude: -122.849,
     isApproximate: true,
+    fitSummary: "Urban SkyTrain-connected hub, best for transit-first commuters.",
+    housingType: "Condos and new high-rise residential.",
+    tradeOff: "Less greenspace; ongoing development activity.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
+  },
+  {
+    id: "heritage-woods",
+    label: "Heritage Woods",
+    kind: "neighbourhood",
+    latitude: 49.300,
+    longitude: -122.820,
+    isApproximate: true,
+    fitSummary: "Newer hillside development with larger lots, quiet streets, and trail access.",
+    housingType: "Detached homes and townhomes.",
+    tradeOff: "Car-dependent; limited walkability and transit access.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "college-park",
@@ -49,6 +87,11 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.262,
     longitude: -122.869,
     isApproximate: true,
+    fitSummary: "Established quiet neighbourhood near SFU and Douglas College.",
+    housingType: "Detached homes.",
+    tradeOff: "Limited walkable amenities; further from the Inlet waterfront.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "glenayre",
@@ -57,6 +100,11 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.263,
     longitude: -122.892,
     isApproximate: true,
+    fitSummary: "Mature residential area near the Coquitlam border with a relaxed suburban feel.",
+    housingType: "Detached homes.",
+    tradeOff: "Closer to Coquitlam than Port Moody's core amenities.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "pleasantside",
@@ -65,18 +113,53 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     latitude: 49.303,
     longitude: -122.875,
     isApproximate: true,
+    fitSummary: "Quiet hillside residential area between the mountains and the north shore.",
+    housingType: "Detached homes.",
+    tradeOff: "Limited transit and walkable amenities.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
   {
     id: "ioco-barber",
-    label: "Ioco/Barber",
+    label: "Ioco / North Shore",
     kind: "neighbourhood",
     latitude: 49.306,
     longitude: -122.891,
     isApproximate: true,
+    fitSummary: "Historic waterfront area with a distinctive community character and scenic Inlet views.",
+    housingType: "Detached homes.",
+    tradeOff: "Remote feel, winding roads, and limited day-to-day amenities.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
+  },
+  {
+    id: "barber-street",
+    label: "Barber Street",
+    kind: "neighbourhood",
+    latitude: 49.279,
+    longitude: -122.860,
+    isApproximate: true,
+    fitSummary: "Established west Port Moody neighbourhood with easy Barnet Highway access.",
+    housingType: "Detached homes and some townhomes.",
+    tradeOff: "Older inventory with limited walkable amenities.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
+  },
+  {
+    id: "seaview",
+    label: "Seaview",
+    kind: "neighbourhood",
+    latitude: 49.308,
+    longitude: -122.862,
+    isApproximate: true,
+    fitSummary: "Quiet north-shore residential area with access to Sasamat Lake and forest trails.",
+    housingType: "Detached homes.",
+    tradeOff: "Most car-dependent neighbourhood; furthest from SkyTrain.",
+    href: "/neighbourhoods",
+    ctaLabel: "Compare neighbourhoods",
   },
 ];
 
-// Complex map points
 export const complexMapPoints: MapPoint[] = [
   {
     id: "treetops-101-parkside-drive",
@@ -123,7 +206,6 @@ export const complexMapPoints: MapPoint[] = [
   },
 ];
 
-// Building map points (all approximate, using neighbourhood centroids with staggered offsets)
 export const buildingMapPoints: MapPoint[] = [
   // Suter Brook area buildings
   {

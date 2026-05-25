@@ -26,10 +26,28 @@ export function MapLegend({ points }: MapLegendProps) {
           .filter((item) => kinds.has(item.kind))
           .map((item) => (
             <div key={item.kind} className="flex items-center gap-2">
-              <div
-                className="h-3 w-3 rounded-full"
-                style={{ backgroundColor: item.color }}
-              />
+              {item.kind === "neighbourhood" ? (
+                <div
+                  style={{
+                    background: "rgba(18,48,47,0.10)",
+                    border: "1px solid rgba(18,48,47,0.35)",
+                    borderRadius: "4px",
+                    padding: "1px 7px",
+                    fontSize: "9px",
+                    fontWeight: 600,
+                    color: "#12302F",
+                    whiteSpace: "nowrap",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  Area
+                </div>
+              ) : (
+                <div
+                  className="h-3 w-3 rounded-full"
+                  style={{ backgroundColor: item.color }}
+                />
+              )}
               <span className="text-xs text-slateText">{item.label}</span>
             </div>
           ))}

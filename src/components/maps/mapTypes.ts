@@ -7,6 +7,10 @@ export type MapPoint = {
   latitude: number;
   longitude: number;
   isApproximate: boolean;
+  hasGuide?: boolean;
+  fitSummary?: string;
+  housingType?: string;
+  tradeOff?: string;
   description?: string;
   href?: string;
   ctaLabel?: string;
