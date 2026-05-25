@@ -25,13 +25,13 @@ export default function ContactPage() {
           />
         </div>
       </Section>
-      <Section title="Contact methods placeholder" tone="white">
+      <Section title="Contact methods" tone="white">
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-lg border border-softBorder bg-mist p-5"><p className="font-semibold text-deepInlet">Phone</p><p className="mt-2 text-sm text-slateText">{siteConfig.publicPhone}</p></div>
           <div className="rounded-lg border border-softBorder bg-mist p-5"><p className="font-semibold text-deepInlet">Email</p><p className="mt-2 text-sm text-slateText">{siteConfig.publicEmail}</p></div>
         </div>
       </Section>
-      <Section title="Buyer/seller/relocation routing explanation" intro="Form submissions include form type, lead type, page path, CTA label, tags, and attribution fields so GHL can route buyer, seller, relocation, market, and local-question inquiries." />
+      <Section title="How your question is handled" intro="Your message is reviewed by context so the right follow-up can focus on buying, selling, relocation, market questions, listings, or local Port Moody guidance." />
     </>
   );
 }
