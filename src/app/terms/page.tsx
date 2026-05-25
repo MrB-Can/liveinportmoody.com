@@ -37,7 +37,7 @@ export default function TermsPage() {
 
           <div className="space-y-3">
             <h2 className="font-heading text-2xl text-deepInlet">Listings, valuations, and market comments</h2>
-            <p>Phase 1 does not provide IDX listings, listing search, or automated valuations. Any value opinion, market comment, or property guidance provided after a form submission is contextual and may require additional property-specific review before it can be relied on.</p>
+            <p>The site may provide active listing access through approved MLS Reciprocity tools where available, but it does not publish sold data or automated valuations. Any value opinion, market comment, or property guidance provided after a form submission is contextual and may require additional property-specific review before it can be relied on.</p>
           </div>
 
           <div className="space-y-3">

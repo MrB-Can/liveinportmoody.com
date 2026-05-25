@@ -3,7 +3,7 @@ export function MarketSnapshot() {
     ["Detached homes", "First Port Moody detached note will be published after launch."],
     ["Townhomes", "Townhome context will focus on supply, condition, and buyer competition."],
     ["Condos", "Condo notes will separate walkable village areas from broader Port Moody inventory."],
-    ["Direction", "No fake market numbers are shown in Phase 1."],
+    ["Direction", "No fake market numbers are shown."],
   ];
 
   return (
