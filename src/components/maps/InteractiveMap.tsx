@@ -10,7 +10,7 @@ import type { MapConfig } from "@/components/maps/mapTypes";
 export function InteractiveMap(config: MapConfig) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const { points, initialCenter, initialZoom, showLegend, styleUrl } = config;
+  const { points, initialCenter, initialZoom, showLegend, styleUrl, className } = config;
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -91,8 +91,8 @@ export function InteractiveMap(config: MapConfig) {
   }, [points, initialCenter, initialZoom, styleUrl]);
 
   return (
-    <div className="relative w-full rounded-lg overflow-hidden bg-mist">
-      <div ref={containerRef} className="w-full h-80" />
+    <div className={`relative w-full overflow-hidden rounded-lg bg-mist ${className || 'min-h-80'}`}>
+      <div ref={containerRef} className="w-full h-full" />
       {showLegend && <MapLegend points={points} />}
     </div>
   );
