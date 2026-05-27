@@ -1,4 +1,5 @@
 type SectionProps = {
+  id?: string;
   eyebrow?: string;
   title?: string;
   intro?: string;
@@ -13,9 +14,9 @@ const tones = {
   inlet: "bg-deepInlet text-white",
 };
 
-export function Section({ eyebrow, title, intro, children, tone = "mist" }: SectionProps) {
+export function Section({ id, eyebrow, title, intro, children, tone = "mist" }: SectionProps) {
   return (
-    <section className={`${tones[tone]} py-14 sm:py-18`}>
+    <section id={id} className={`${tones[tone]} py-14 sm:py-18`}>
       <div className="mx-auto w-full max-w-6xl px-5">
         {(eyebrow || title || intro) && (
           <div className="mb-8 max-w-3xl">

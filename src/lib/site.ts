@@ -14,14 +14,66 @@ export const siteConfig = {
   realtors: "Leilani Fong, Personal Real Estate Corporation and Paul Bennett",
 };
 
-export const navItems = [
+export const headerAssetTodo = {
+  item: "Facebook-aligned logo/header asset",
+  status: "pending_approved_asset",
+  note: "Do not replace the current header or logo artwork until an approved Facebook-aligned asset is available.",
+} as const;
+
+export type NavDropdownItem = { label: string; href: string; badge?: string };
+export type NavGroup = { title?: string; items: NavDropdownItem[] };
+export type NavItem = {
+  label: string;
+  href: string;
+  submenu?: boolean;
+  groups?: NavGroup[];
+};
+
+export const navItems: NavItem[] = [
   { label: "Explore", href: "/explore", submenu: true },
-  { label: "Neighbourhoods", href: "/neighbourhoods" },
-  { label: "Complexes & Buildings", href: "/complexes" },
+  {
+    label: "Neighbourhoods",
+    href: "/neighbourhoods",
+    groups: [
+      {
+        title: "Neighbourhood guides",
+        items: [
+          { label: "All neighbourhoods", href: "/neighbourhoods" },
+          { label: "Heritage Mountain", href: "/neighbourhoods/heritage-mountain", badge: "Guide" },
+          { label: "Heritage Woods", href: "/neighbourhoods/heritage-woods", badge: "Preview" },
+          { label: "Moody Centre", href: "/neighbourhoods/moody-centre", badge: "Preview" },
+          { label: "Glenayre", href: "/neighbourhoods/glenayre", badge: "Preview" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Buildings & Complexes",
+    href: "/complexes",
+    groups: [
+      {
+        title: "Townhouse complexes",
+        items: [
+          { label: "All complexes", href: "/complexes" },
+          { label: "Treetops", href: "/complexes/treetops-101-parkside-drive", badge: "Guide" },
+          { label: "Discovery Ridge", href: "/complexes/discovery-ridge", badge: "Preview" },
+          { label: "Aria Townhomes", href: "/complexes/aria-townhomes", badge: "Preview" },
+          { label: "Klahanie Townhomes", href: "/complexes/klahanie-townhomes", badge: "Preview" },
+          { label: "College Park Townhomes", href: "/complexes/college-park-townhomes", badge: "Preview" },
+        ],
+      },
+      {
+        title: "Condo buildings",
+        items: [
+          { label: "All buildings", href: "/buildings" },
+        ],
+      },
+    ],
+  },
   { label: "Listings", href: "/listings" },
-  { label: "Market", href: "/market" },
   { label: "Buy", href: "/buy" },
   { label: "Sell", href: "/sell" },
+  { label: "Resources", href: "/resources" },
 ];
 
 export const exploreItems = [
@@ -103,24 +155,87 @@ export const exploreItems = [
     description: "Find checklists, local questions, relocation prompts, and market-note signup.",
     group: "Resources",
   },
+  {
+    label: "Presales",
+    href: "/presales",
+    description: "Research Port Moody presales and new builds with verification-first buyer guidance.",
+    group: "Resources",
+  },
+  {
+    label: "Local Businesses",
+    href: "/local-businesses",
+    description: "Future hub for verified local business, lifestyle, and community group features.",
+    group: "Local Life",
+  },
+  {
+    label: "Events",
+    href: "/events",
+    description: "Future hub for verified Port Moody community, seasonal, family, and real estate events.",
+    group: "Local Life",
+  },
+  {
+    label: "Testimonials",
+    href: "/testimonials",
+    description: "Approved public reviews and client stories will be added without invented testimonials.",
+    group: "Resources",
+  },
+  {
+    label: "Accolades",
+    href: "/accolades",
+    description: "Approved recognition, community involvement, and professional background.",
+    group: "Resources",
+  },
 ];
 
-export const footerLinks = [
-  { label: "Explore Port Moody", href: "/explore" },
-  { label: "Neighbourhoods", href: "/neighbourhoods" },
-  { label: "Townhouse Complexes", href: "/complexes" },
-  { label: "Condo Buildings", href: "/buildings" },
-  { label: "Listings", href: "/listings" },
-  { label: "Market", href: "/market" },
-  { label: "Move to Port Moody", href: "/move-to-port-moody" },
-  { label: "Buy", href: "/buy" },
-  { label: "Sell", href: "/sell" },
-  { label: "Resources", href: "/resources" },
-  { label: "About", href: "/about" },
-  { label: "Ask a Question", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+export type SocialLink = { label: string; platform: string; href: string };
+export const socialLinks: SocialLink[] = [
+  { label: "Instagram", platform: "instagram", href: "#" },
+  { label: "YouTube", platform: "youtube", href: "#" },
+  { label: "Facebook", platform: "facebook", href: "#" },
 ];
+
+export type FooterLinkItem = { label: string; href: string };
+export type FooterGroup = { title: string; links: FooterLinkItem[] };
+
+export const footerGroups: FooterGroup[] = [
+  {
+    title: "City & Community",
+    links: [
+      { label: "Explore Port Moody", href: "/explore" },
+      { label: "Living in Port Moody", href: "/move-to-port-moody" },
+      { label: "Market", href: "/market" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Property",
+    links: [
+      { label: "Neighbourhoods", href: "/neighbourhoods" },
+      { label: "Townhouse Complexes", href: "/complexes" },
+      { label: "Condo Buildings", href: "/buildings" },
+      { label: "Listings", href: "/listings" },
+    ],
+  },
+  {
+    title: "Help",
+    links: [
+      { label: "Buy", href: "/buy" },
+      { label: "Sell", href: "/sell" },
+      { label: "Resources", href: "/resources" },
+      { label: "Ask a Question", href: "/contact" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
+  },
+];
+
+export const footerLinks = footerGroups.flatMap((g) => g.links);
 
 export const phaseOneRoutes = [
   "/",

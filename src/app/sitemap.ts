@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { phaseOneRoutes, siteConfig } from "@/lib/site";
+import { buildings } from "@/data/buildings";
 import { neighbourhoodGuides } from "@/data/neighbourhoodGuides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,5 +23,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...phaseOneEntries, ...neighbourhoodEntries];
+  const buildingEntries: MetadataRoute.Sitemap = buildings
+    .filter((building) => building.guideStatus === "guide-live")
+    .map((building) => ({
+      url: new URL(`/buildings/${building.slug}`, siteConfig.url).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+
+  return [...phaseOneEntries, ...neighbourhoodEntries, ...buildingEntries];
 }

@@ -20,10 +20,16 @@ function isAllowed(pathname: string): boolean {
     pathname === "/explore" ||
     pathname === "/about" ||
     pathname === "/buy" ||
+    pathname === "/buyer-guide" ||
     pathname === "/sell" ||
+    pathname === "/seller-guide" ||
     pathname === "/contact" ||
+    pathname === "/faq" ||
+    pathname === "/first-time-home-buyers" ||
+    pathname === "/generational-wealth-real-estate" ||
     pathname === "/market" ||
     pathname === "/move-to-port-moody" ||
+    pathname === "/request-recent-sales" ||
     pathname === "/resources" ||
     pathname === "/listings" ||
     pathname === "/robots.txt" ||

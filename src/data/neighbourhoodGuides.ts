@@ -199,7 +199,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     listingsConfig: {
       mode: "gvr_area_search",
-      disclosure: "GVR area search limited to active listings; verify neighbourhood designation with realtor"
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
     },
 
     photoStatus: "complete",
@@ -241,38 +241,26 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     areaType: "port_moody_neighbourhood",
     status: "preview",
 
-    shortSummary: "Newer neighbourhood development with mixed housing types, parks, and growing community character.",
-    intro: "Heritage Woods is a developing Port Moody neighbourhood featuring newer construction, diverse housing options, and accessible parks. It appeals to buyers seeking newer homes in a neighbourhood with growing amenities and character. The community continues to evolve while offering schools nearby and outdoor recreation. Verify school catchments for your specific address with SD43.",
+    shortSummary: "Newer hillside neighbourhood with detached homes, quiet streets, and trail access.",
+    intro: "Heritage Woods is a newer Port Moody hillside neighbourhood featuring detached homes and some townhomes on quiet residential streets with access to the regional trail network. It appeals to buyers seeking newer construction, space, and a quieter setting. This guide is a neighbourhood preview — information is being expanded.",
 
-    bestFor: ["New construction buyers", "Growing families", "Modern home seekers", "Value-conscious buyers"],
-    housingTypes: ["Detached homes", "Townhouses", "Some condos"],
+    bestFor: ["New construction buyers", "Growing families", "Quiet settings", "Trail access"],
+    housingTypes: ["Detached homes", "Townhouses"],
     tradeOffs: [
-      "Ongoing development and construction activity",
-      "Neighbourhood character still establishing",
-      "Some amenities still developing"
+      "Car-dependent for most daily errands",
+      "Limited daily walkability",
+      "Limited transit access compared to central areas",
+      "Verify school assignment by exact address with SD43"
     ],
 
-    schools: [
-      {
-        name: "Glenayre Elementary",
-        type: "elementary",
-        catchmentNote: "Some homes in the area may be associated with this school; verify exact address with SD43 School Locator",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      }
-    ],
-    schoolVerificationNote: "School assignment and catchments vary by specific property address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any school assignment.",
+    schools: [],
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any school assignment.",
 
     parks: [
       {
         name: "Port Moody Parks Network",
-        features: ["Community parks", "Playgrounds", "Recreation areas"],
-        distance: "Within neighbourhood and nearby"
-      },
-      {
-        name: "Moody Park",
-        features: ["Athletic fields", "Trails", "Picnic areas"],
-        distance: "Nearby"
+        features: ["Community parks", "Trail access", "Recreation areas"],
+        distance: "Within and adjacent to neighbourhood"
       }
     ],
 
@@ -281,62 +269,51 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
         name: "Port Moody trail system",
         type: "multi-use",
         difficulty: "easy"
-      },
-      {
-        name: "Neighbourhood pedestrian paths",
-        type: "walking",
-        difficulty: "easy"
       }
     ],
 
-    transitAndAccess: "Bus access via local TransLink routes. Transit connectivity developing with neighbourhood growth. Verify specific transit options for exact address.",
-    walkabilityNotes: "Walkability increasing as neighbourhood matures. Local parks and trails accessible by foot from most locations. Car helpful for shopping and services outside immediate area.",
+    transitAndAccess: "Bus access via local TransLink routes. Car helpful for most errands and shopping. Verify specific transit options for your exact address.",
+    walkabilityNotes: "Limited daily walkability. Most residents drive for groceries and services. Trail and park access on foot from many locations.",
 
     buyerNotes: [
-      "Review new home warranty coverage and builder reputation",
-      "Check property location relative to schools and transit",
-      "Verify property taxes and assess future development plans",
-      "Ensure parking, storage, and outdoor space meet needs",
-      "Consider proximity to parks and outdoor recreation"
+      "Verify school assignment with SD43 for the specific address before relying on any catchment assumption",
+      "Review home condition, age, and any updates or renovation history",
+      "Check parking, storage, and outdoor space for the specific property",
+      "Assess commute routes toward central Port Moody, Coquitlam, and other destinations"
     ],
 
     sellerNotes: [
-      "Highlight modern finishes, energy efficiency, and construction quality",
-      "Emphasize newer homes, nearby schools, and accessible parks",
-      "Market to first-time buyers and growing families",
-      "Showcase community amenities and transit development"
+      "Highlight newer construction, quiet streets, and trail access",
+      "Emphasize space, privacy, and established neighbourhood character",
+      "Market to families and buyers prioritizing space over walkability",
+      "Use cautious school language and direct buyers to SD43 verification"
     ],
 
     relatedComplexes: [],
     relatedBuildings: [],
 
     listingsConfig: {
-      mode: "gvr_area_search",
-      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.",
-      notes: "New construction homes available; check builder information"
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
     },
 
     photoStatus: "not_started",
     mapLabel: "Heritage Woods",
     seoTitle: "Heritage Woods Port Moody Neighbourhood Guide",
-    seoDescription: "Heritage Woods Port Moody neighbourhood guide featuring newer construction, schools, parks, and growing community amenities.",
+    seoDescription: "Heritage Woods Port Moody neighbourhood guide preview featuring newer homes, quiet streets, and trail access.",
 
     faq: [
       {
         question: "What schools serve Heritage Woods?",
-        answer: "School assignments for Heritage Woods vary by specific address. Some homes may be associated with Glenayre Elementary through School District 43. Verify exact school assignments for your specific address using the SD43 school locator at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx before making assumptions about school placement."
-      },
-      {
-        question: "What parks and outdoor recreation are nearby?",
-        answer: "The neighbourhood has access to Port Moody's park system including community parks, playgrounds, and multi-use trails. Moody Park nearby offers athletic fields, trails, and picnic areas. For current parks and recreation programs, check the City of Port Moody parks page at https://www.portmoody.ca/parks-recreation-and-environment/parks/"
+        answer: "School assignment varies by exact address. Use the SD43 School Locator at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx or contact SD43 directly to verify the specific assignment for your address before making any school-related assumptions."
       },
       {
         question: "Is Heritage Woods walkable?",
-        answer: "Walkability is increasing as the neighbourhood matures. Local parks and trails are accessible by foot. Shopping and dining typically require a car or transit for most locations. Verify specific walkability for your address by checking proximity to shops, transit, and services."
+        answer: "Heritage Woods has limited daily walkability. Most residents drive for shopping and services. Trail and park access is available on foot from many locations. Verify specific walkability for your address."
       },
       {
-        question: "What are the main considerations for buying a newer home in Heritage Woods?",
-        answer: "Check new home warranty coverage, builder reputation, and property taxes. Verify exact school assignments and transit connections for your address. Ensure parking, storage, and outdoor space meet your needs. Consider future development and neighbourhood changes as the community grows."
+        question: "What should buyers check in Heritage Woods?",
+        answer: "Review home condition, age, and update history. Verify school assignment with SD43 for your specific address. Check commute routes, transit access, and parking. Assess trail access and outdoor space for the specific property."
       }
     ],
     latitude: 49.31,
@@ -348,87 +325,55 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "mountain-meadows",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "A smaller northeast Port Moody residential area with school-area context, nearby parks to verify, and access toward both Port Moody and Coquitlam amenities.",
-    intro: "Mountain Meadows is a northeast Port Moody residential area often researched by buyers comparing Noons Creek, Heritage Mountain, and nearby Coquitlam-edge options. It can appeal to households looking for a quieter residential setting, but exact school assignment, park access, transit options, traffic patterns, and walkability should be verified by address.",
+    shortSummary: "Established hillside residential neighbourhood with detached homes and quiet streets.",
+    intro: "Mountain Meadows is a Port Moody residential neighbourhood with established detached homes on hillside streets, mature trees, and a quieter suburban character. It appeals to buyers seeking space and privacy in a more established setting. This guide is a neighbourhood preview — information is being expanded.",
 
-    bestFor: ["Families verifying schools by address", "Quiet residential buyers", "Northeast Port Moody access", "Coquitlam-edge convenience"],
-    housingTypes: ["Detached homes", "Some townhouses or strata options to verify", "Residential streets with varied property ages"],
+    bestFor: ["Established homes", "Quiet residential living", "Families", "Privacy seekers"],
+    housingTypes: ["Detached homes", "Some townhomes"],
     tradeOffs: [
-      "School-area convenience must be verified by exact address",
-      "Possible school traffic or peak-hour activity near busier streets",
-      "Less immediate commercial convenience than central Port Moody nodes",
-      "Transit, slope, and walkability vary by specific street"
+      "Car-dependent for most errands and services",
+      "Hillside grade and drainage matter by property",
+      "Limited daily walkability",
+      "Verify school assignment by exact address"
     ],
 
-    schools: [
-      {
-        name: "Mountain Meadows Elementary",
-        type: "elementary",
-        catchmentNote: "Some homes may be associated with this school; school assignment varies by exact address and must be verified with SD43.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      },
-      {
-        name: "Heritage Woods Secondary",
-        type: "secondary",
-        catchmentNote: "Some northeast Port Moody addresses may be associated with this school; verify exact address with SD43 before relying on any assignment.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      },
-      {
-        name: "Port Moody Secondary",
-        type: "secondary",
-        catchmentNote: "Some Port Moody addresses may be associated with this school; verify exact address with SD43 before relying on any assignment.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      }
-    ],
-    schoolVerificationNote: "School assignment varies by exact address. Use the SD43 School Locator or contact SD43 directly before relying on any elementary, middle, secondary, program, or capacity assumption.",
+    schools: [],
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any assignment.",
 
     parks: [
       {
-        name: "Mountain Meadows Field",
-        features: ["Sports field context to verify", "School-area recreation context", "City source check required"],
-        distance: "Nearby for some addresses; verify exact access"
-      },
-      {
-        name: "Northeast Port Moody parks",
-        features: ["Community parks to verify", "Neighbourhood recreation access", "Family recreation context"],
-        distance: "Varies by address"
+        name: "Port Moody Parks Network",
+        features: ["Community parks", "Neighbourhood green spaces"],
+        distance: "Within and adjacent to neighbourhood"
       }
     ],
+
     trails: [
       {
-        name: "Noons Creek and northeast Port Moody trail context",
+        name: "Local neighbourhood paths",
         type: "walking",
-        difficulty: "easy"
-      },
-      {
-        name: "Broader Port Moody trail network access",
-        type: "multi-use",
         difficulty: "easy"
       }
     ],
 
-    transitAndAccess: "Transit and road access should be checked by exact address. Some buyers may value the northeast Port Moody position for access toward both Port Moody and nearby Coquitlam amenities, but routes and convenience vary by street.",
-    walkabilityNotes: "Walkability is address-specific. Some homes may have useful access to school-area or recreation destinations, while other streets may be more car-dependent. Verify walking routes, grade, crossings, and transit stops for the property.",
+    transitAndAccess: "Local TransLink bus routes available; car helpful for most daily errands. Verify transit access for your specific address.",
+    walkabilityNotes: "Limited daily walkability. Most residents drive for groceries, shopping, and services. Residential streets and nearby parks accessible on foot.",
 
     buyerNotes: [
-      "Verify elementary, middle, and secondary school assignment with SD43 for the exact address",
-      "Check school traffic, street position, parking, and driveway usability at the specific property",
-      "Compare access to Noons Creek, Heritage Mountain, and nearby Coquitlam services based on daily routines",
-      "Verify nearby parks, fields, and trails through City of Port Moody sources before relying on specific amenities",
-      "Assess slope, walkability, transit, and commute routes by street rather than by neighbourhood name"
+      "Assess hillside factors: drainage, retaining walls, driveway grade, and winter practicality",
+      "Review home condition, roof, foundation, electrical, and any renovation history",
+      "Verify school assignment with SD43 for the specific address",
+      "Check commute routes and transit access based on your daily routine",
+      "Confirm parking and outdoor space for the specific property"
     ],
 
     sellerNotes: [
-      "Position around quiet residential feel and practical northeast Port Moody access when supported by the property",
-      "Use cautious school-area language and point buyers to SD43 verification for exact assignment",
-      "Highlight verified property strengths such as layout, yard usability, parking, updates, storage, and street position",
-      "If relevant, address school traffic, access, or parking honestly in showing preparation",
-      "Use verified park and recreation proximity rather than broad amenity claims"
+      "Highlight established neighbourhood character, mature trees, and quiet streets",
+      "Emphasize lot size, privacy, and any home improvements or updates",
+      "Market to family buyers and those seeking a quieter residential setting",
+      "Use cautious school language; direct buyers to SD43 verification"
     ],
 
     relatedComplexes: [],
@@ -436,35 +381,26 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     listingsConfig: {
       mode: "fallback",
-      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.",
-      notes: "Use fallback listing support until a filtered MLS Reciprocity URL is verified for Mountain Meadows."
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
     },
 
     photoStatus: "not_started",
     mapLabel: "Mountain Meadows",
     seoTitle: "Mountain Meadows Port Moody Neighbourhood Guide",
-    seoDescription: "A cautious local guide to Mountain Meadows in Port Moody, including housing types, school verification notes, parks, trails, access, buyer notes, and seller notes.",
+    seoDescription: "Mountain Meadows Port Moody neighbourhood guide preview featuring established homes, quiet hillside streets, and residential character.",
 
     faq: [
       {
-        question: "Is Mountain Meadows mainly a family neighbourhood?",
-        answer: "Mountain Meadows may appeal to families because of its residential setting and school-area context, but fit depends on exact address, housing type, school verification, traffic patterns, and daily routes."
+        question: "What type of housing is in Mountain Meadows?",
+        answer: "Mountain Meadows primarily has detached homes on hillside streets, with some townhomes in parts of the area. Home age and condition vary; review any property carefully before purchasing."
+      },
+      {
+        question: "Is Mountain Meadows walkable?",
+        answer: "Mountain Meadows has limited daily walkability. Most residents drive for groceries, shopping, and services. Residential streets are accessible on foot; urban convenience requires a car."
       },
       {
         question: "Which schools serve Mountain Meadows?",
-        answer: "School assignment varies by exact address. Some homes may be associated with Mountain Meadows Elementary or nearby SD43 secondary schools, but elementary, middle, and secondary assignment should be verified directly with SD43 before relying on any school assumption."
-      },
-      {
-        question: "What parks or recreation should buyers verify?",
-        answer: "Buyers should verify Mountain Meadows Field, nearby parks, and trail access through City of Port Moody sources. Amenities, field status, access, and walking routes can change or vary by address."
-      },
-      {
-        question: "How should buyers compare Mountain Meadows with Heritage Mountain or Noons Creek?",
-        answer: "Compare street grade, lot usability, age and condition, school verification, commute routes, traffic patterns, and access to shops, parks, and recreation. The best fit depends on the exact property and daily routine."
-      },
-      {
-        question: "What should sellers emphasize in Mountain Meadows?",
-        answer: "Sellers should emphasize verified property strengths such as layout, yard, parking, updates, storage, and practical access. School and recreation claims should be worded cautiously and verified through SD43 or City sources."
+        answer: "School assignment varies by exact address. Verify specific elementary, middle, and secondary school assignments with SD43 at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx before making any school-related assumptions."
       }
     ],
     latitude: 49.32,
@@ -479,7 +415,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Downtown Port Moody with urban living, waterfront access, walkable streets, and vibrant community spaces.",
-    intro: "Moody Centre (also called Port Moody Centre) is the downtown core of Port Moody, featuring walkable streets, local shops, restaurants, waterfront parks, and vibrant community gathering spaces. It appeals to urban-lifestyle seekers, downsizers, and active buyers looking for convenience, walkability, and proximity to community events.",
+    intro: "Moody Centre (also called Port Moody Centre) is the downtown core of Port Moody, featuring walkable streets, local shops, restaurants, waterfront parks, and vibrant community gathering spaces. It appeals to urban-lifestyle seekers, downsizers, and active buyers looking for convenience, walkability, and proximity to community events. This guide is a neighbourhood preview — information is being expanded.",
 
     bestFor: ["Urban lifestyle", "Downsizers", "Walkability seekers", "Active/social buyers", "Professionals"],
     housingTypes: ["Condos", "Townhouses", "Apartments", "Mixed-use residential"],
@@ -487,11 +423,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Higher density and urban activity",
       "Parking more limited and may have fees",
       "Less private outdoor space in condo units",
-      "More street noise and activity than residential areas"
+      "More street noise and activity than residential areas",
+      "Downtown is actively revitalizing; verify construction context near your address"
     ],
 
     schools: [],
-    schoolVerificationNote: "Downtown catchments in Port Moody can be complex and vary significantly by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify exact school assignment for your property address before relying on any school assumption.",
+    schoolVerificationNote: "Downtown catchments in Port Moody can vary significantly by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify exact school assignment for your property address before relying on any school assumption.",
 
     parks: [
       {
@@ -527,51 +464,42 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Parking varies by building: may be limited, included, or available at additional cost",
       "Urban noise and activity higher than residential neighbourhoods; verify acceptable noise levels",
       "Verify building amenities: elevators, security, outdoor space, lounge areas",
-      "Downtown is actively revitalizing; verify current construction activity and timelines for your building"
+      "Downtown is actively revitalizing; verify current construction activity near your building"
     ],
 
     sellerNotes: [
       "Highlight exceptional walkability and no-car lifestyle appeal",
       "Emphasize waterfront access, parks, and community gathering spaces",
       "Market transit convenience and easy access to shopping and dining",
-      "Position downtown living for downsizers, young professionals, and active lifestyle buyers",
-      "Feature renovated and modern condo options for property updates"
+      "Position downtown living for downsizers, young professionals, and active lifestyle buyers"
     ],
 
     relatedComplexes: [],
     relatedBuildings: [],
 
     listingsConfig: {
-      mode: "gvr_area_search",
+      mode: "fallback",
       disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.",
-      notes: "Condo and townhouse inventory varies; some buildings newer, some heritage/renovation opportunities"
+      notes: "Condo and townhouse inventory varies; some buildings newer, some older with renovation opportunities"
     },
 
     photoStatus: "not_started",
     mapLabel: "Moody Centre",
     seoTitle: "Moody Centre Port Moody Neighbourhood Guide",
-    seoDescription: "Moody Centre downtown Port Moody neighbourhood guide featuring walkability, waterfront parks, transit access, and urban amenities.",
+    seoDescription: "Moody Centre downtown Port Moody neighbourhood guide preview featuring walkability, waterfront parks, transit access, and urban amenities.",
 
     faq: [
       {
         question: "What schools serve Moody Centre?",
-        answer: "Downtown school catchments are complex and vary significantly by specific address. Port Moody uses School District 43. Use the SD43 School Locator to verify exact school assignments for your specific property address: https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
+        answer: "Downtown school catchments vary significantly by specific address. Use the SD43 School Locator to verify exact school assignments for your specific property address: https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
       },
       {
         question: "How walkable is Moody Centre?",
-        answer: "Moody Centre has high walkability. Shops, restaurants, cafes, and services are accessible on foot. Waterfront parks and trails are nearby. Most residents can meet daily needs without a car, though some may prefer a vehicle for weekend trips outside downtown."
-      },
-      {
-        question: "What parks and outdoor recreation are in Moody Centre?",
-        answer: "Port Moody Waterfront Parks offer waterfront access, walking paths, and community gathering spaces. Moody Park nearby has athletic fields, trails, and picnic areas. For current park hours, programs, and amenities, visit https://www.portmoody.ca/parks-recreation-and-environment/parks/"
+        answer: "Moody Centre has high walkability. Shops, restaurants, cafes, and services are accessible on foot. Waterfront parks and trails are nearby. Most residents can meet daily needs without a car."
       },
       {
         question: "What should condo buyers know about Moody Centre?",
         answer: "Review strata documents thoroughly: monthly fees, reserve funds, special assessments, and bylaws. Verify parking availability and cost. Visit the building at different times to assess noise and activity levels. Check amenities, security, and outdoor space. Consider that downtown living includes urban activity and construction periods during revitalization."
-      },
-      {
-        question: "How is the downtown revitalization affecting Moody Centre?",
-        answer: "Port Moody's downtown is actively revitalizing with new condos, shops, restaurants, and community spaces. This means new amenities are being added but also periods of construction activity. Verify current development plans and timelines affecting your specific address with the City of Port Moody."
       }
     ],
     latitude: 49.3,
@@ -586,14 +514,15 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Quiet residential neighbourhood with detached homes, mature trees, parks, and peaceful family-focused character.",
-    intro: "Glenayre is a quiet, established Port Moody neighbourhood characterised by detached homes on varied lot sizes, mature trees, and community calm. It appeals to families and buyers prioritizing privacy, space, established character, and proximity to schools and parks over urban walkability.",
+    intro: "Glenayre is a quiet, established Port Moody neighbourhood characterised by detached homes on varied lot sizes, mature trees, and community calm. It appeals to families and buyers prioritizing privacy, space, established character, and proximity to schools and parks over urban walkability. This guide is a neighbourhood preview — information is being expanded.",
 
     bestFor: ["Families with children", "Quiet living", "Privacy seekers", "Established community"],
     housingTypes: ["Detached homes", "Some townhouses", "Varied lot sizes"],
     tradeOffs: [
       "Limited daily walkability",
       "Car-dependent for shopping and services",
-      "Limited evening/night transit options"
+      "Limited evening/night transit options",
+      "Verify school assignment by exact address"
     ],
 
     schools: [
@@ -605,7 +534,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
         verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
       }
     ],
-    schoolVerificationNote: "School assignment and catchments vary by specific property address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any school assignment.",
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any assignment.",
 
     parks: [
       {
@@ -633,15 +562,15 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       }
     ],
 
-    transitAndAccess: "Local TransLink routes available; car helpful for daily errands and services. Some areas closer to transit connections than others. Verify specific transit access for your address.",
-    walkabilityNotes: "Limited daily walkability. Most residents drive for shopping, dining, and services. Better for walking trails and community parks than urban convenience. Quiet residential streets encourage walking within neighbourhood.",
+    transitAndAccess: "Local TransLink routes available; car helpful for daily errands and services. Verify specific transit access for your address.",
+    walkabilityNotes: "Limited daily walkability. Most residents drive for shopping, dining, and services. Quiet residential streets and nearby parks accessible on foot.",
 
     buyerNotes: [
       "Lot size and condition vary significantly; assess individual property carefully",
       "Tree preservation and property character important to neighbourhood appeal",
       "Review home condition: structure, roof, foundation, and any updates needed",
       "Verify exact school catchment and program access for your specific address",
-      "Consider commute implications if car-dependent; assess local transit for your needs"
+      "Consider commute implications; check local transit for your needs"
     ],
 
     sellerNotes: [
@@ -656,7 +585,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     relatedBuildings: [],
 
     listingsConfig: {
-      mode: "gvr_area_search",
+      mode: "fallback",
       disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.",
       notes: "Detached homes vary in age and condition; many well-established with mature landscaping"
     },
@@ -664,28 +593,20 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     photoStatus: "not_started",
     mapLabel: "Glenayre",
     seoTitle: "Glenayre Port Moody Neighbourhood Guide",
-    seoDescription: "Glenayre Port Moody neighbourhood guide featuring quiet residential living, detached homes, parks, and family-friendly character.",
+    seoDescription: "Glenayre Port Moody neighbourhood guide preview featuring quiet residential living, detached homes, parks, and family-friendly character.",
 
     faq: [
       {
         question: "What schools serve Glenayre?",
-        answer: "School assignments vary by specific address. Some homes may be associated with Glenayre Elementary through School District 43. Some homes may be in different catchments or qualify for alternate schools. Verify exact school assignment and program access for your specific address using the SD43 school locator at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
+        answer: "School assignments vary by specific address. Some homes may be associated with Glenayre Elementary through School District 43. Verify exact school assignment and program access for your specific address using the SD43 school locator at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
       },
       {
         question: "Is Glenayre a good neighbourhood for families?",
-        answer: "Yes. Glenayre appeals to families with its quiet streets, nearby schools and parks, and established community character. The main trade-off is lower walkability, so families typically drive for shopping and services. Verify school assignments for your specific address with SD43 School Locator."
-      },
-      {
-        question: "What parks and outdoor recreation are in Glenayre?",
-        answer: "The Port Moody Parks System includes community parks and playgrounds within the neighbourhood. Trail access connects to the broader Port Moody trail network for walking and recreation. For current park hours, programs, and facilities, visit https://www.portmoody.ca/parks-recreation-and-environment/parks/"
+        answer: "Yes. Glenayre appeals to families with its quiet streets, nearby schools and parks, and established community character. The main trade-off is lower walkability, so families typically drive for shopping and services. Verify school assignments for your specific address with SD43."
       },
       {
         question: "How walkable is Glenayre for daily living?",
-        answer: "Glenayre has limited daily walkability for shopping and services. Most residents drive for groceries, dining, and shopping. The neighbourhood is better for recreational walking along neighbourhood streets and trails. Walking trails and parks are accessible by foot; urban convenience requires a car or transit."
-      },
-      {
-        question: "What should home buyers watch for in Glenayre?",
-        answer: "Lot size, home condition, roof and foundation status, and any needed renovations are important. Mature trees and property character add value. Verify exact school assignments for your address. Check local transit options if car-dependent commuting is a concern. Properties vary in age and updates; assess individual homes carefully."
+        answer: "Glenayre has limited daily walkability for shopping and services. Most residents drive for groceries, dining, and shopping. Trail and park access is available on foot; urban convenience requires a car."
       }
     ],
     latitude: 49.32,
@@ -697,13 +618,13 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "college-park",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
-    status: "draft",
+    status: "preview",
 
     shortSummary: "A quieter west-side Port Moody neighbourhood with hillside streets, established housing, and access toward Barnet Highway, Burnaby, and SFU.",
-    intro: "College Park is a west-side Port Moody residential neighbourhood often researched by buyers who want a quieter setting with access toward Barnet Highway, Burnaby, and SFU. It can offer established housing and recreation access, but slope, driveway grade, walkability, transit, park amenities, and school assignment should be checked by exact address.",
+    intro: "College Park is a west-side Port Moody residential neighbourhood often researched by buyers who want a quieter setting with access toward Barnet Highway, Burnaby, and SFU. It offers established housing and recreation access, but slope, driveway grade, walkability, transit, park amenities, and school assignment should be checked by exact address. This guide is a neighbourhood preview — information is being expanded.",
 
     bestFor: ["West-side Port Moody access", "Quieter residential buyers", "Hillside-home researchers", "Buyers comparing Burnaby/SFU routes"],
-    housingTypes: ["Detached homes", "Townhouses", "Some apartment or strata options to verify", "Established residential properties"],
+    housingTypes: ["Detached homes", "Townhouses", "Established residential properties"],
     tradeOffs: [
       "Hillside streets, driveway grade, and drainage can matter by property",
       "Less central village-style walkability than Moody Centre or Newport/Suter Brook",
@@ -711,49 +632,17 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Established housing may require renovation, maintenance, or strata due diligence"
     ],
 
-    schools: [
-      {
-        name: "Seaview Community School",
-        type: "elementary",
-        catchmentNote: "Some homes may be associated with this school; school assignment varies by exact address and must be verified with SD43.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      },
-      {
-        name: "Heritage Woods Secondary",
-        type: "secondary",
-        catchmentNote: "Some Port Moody addresses may be associated with this school; verify exact address with SD43 before relying on any assignment.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      },
-      {
-        name: "Port Moody Secondary",
-        type: "secondary",
-        catchmentNote: "Some Port Moody addresses may be associated with this school; verify exact address with SD43 before relying on any assignment.",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
-      }
-    ],
+    schools: [],
     schoolVerificationNote: "School assignment varies by exact address. Use the SD43 School Locator or contact SD43 directly before relying on any elementary, middle, secondary, program, or capacity assumption.",
 
     parks: [
       {
         name: "Westhill-area recreation",
-        features: ["Park and recreation context to verify", "Seasonal pool context to verify", "Sports box context to verify"],
+        features: ["Park and recreation context to verify", "Family recreation areas"],
         distance: "Nearby for some addresses; verify exact access"
-      },
-      {
-        name: "Seaview-area parks",
-        features: ["Neighbourhood park context", "Family recreation context", "Amenities to verify through City sources"],
-        distance: "Varies by address"
       }
     ],
     trails: [
-      {
-        name: "Alfred Howe Greenway context",
-        type: "walking",
-        difficulty: "easy"
-      },
       {
         name: "West-side Port Moody trail connections",
         type: "multi-use",
@@ -762,22 +651,20 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     ],
 
     transitAndAccess: "College Park access should be checked by exact address. Some buyers may value west-side access toward Barnet Highway, Burnaby, and SFU, but transit, road convenience, grade, and daily routes vary by street.",
-    walkabilityNotes: "Walkability is address-specific. Some streets may have useful access to parks, transit, or local routes, while hillside grade and distance from shops can make other locations more car-dependent.",
+    walkabilityNotes: "Walkability is address-specific. Some streets may have useful access to parks or transit, while hillside grade and distance from shops can make other locations more car-dependent.",
 
     buyerNotes: [
-      "Verify elementary, middle, and secondary school assignment with SD43 for the exact address",
-      "Assess hillside factors such as drainage, retaining walls, stairs, driveway grade, and winter practicality",
-      "Check road and transit routes toward Barnet Highway, Burnaby, SFU, and central Port Moody based on daily routines",
-      "Verify Westhill, Seaview, and nearby park amenities through City of Port Moody sources",
+      "Verify school assignment with SD43 for the exact address before relying on any catchment assumption",
+      "Assess hillside factors: drainage, retaining walls, stairs, driveway grade, and winter practicality",
+      "Check road and transit routes toward Barnet Highway, Burnaby, SFU, and central Port Moody",
       "Review age, condition, updates, strata documents, and long-term maintenance for the specific property"
     ],
 
     sellerNotes: [
       "Position around quiet residential setting, west-side access, and verified recreation proximity",
-      "Highlight property-specific strengths such as views, lot usability, parking, storage, updates, exposure, and outdoor space",
-      "Address hillside due diligence proactively where relevant: drainage, retaining walls, grade, roof, and exterior condition",
-      "Use cautious school language and direct buyers to SD43 verification for exact assignment",
-      "Avoid overstating walkability, views, school placement, or future redevelopment unless verified"
+      "Highlight property-specific strengths: views, lot usability, parking, storage, updates, outdoor space",
+      "Address hillside due diligence proactively where relevant: drainage, retaining walls, grade",
+      "Use cautious school language and direct buyers to SD43 verification"
     ],
 
     relatedComplexes: [],
@@ -785,35 +672,26 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     listingsConfig: {
       mode: "fallback",
-      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.",
-      notes: "Use fallback listing support until a filtered MLS Reciprocity URL is verified for College Park."
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
     },
 
     photoStatus: "not_started",
     mapLabel: "College Park",
     seoTitle: "College Park Port Moody Neighbourhood Guide",
-    seoDescription: "A cautious local guide to College Park in Port Moody, including west-side access, housing types, school verification notes, parks, trails, buyer notes, and seller notes.",
+    seoDescription: "College Park Port Moody neighbourhood guide preview featuring west-side access, established housing, hillside streets, and buyer notes.",
 
     faq: [
       {
         question: "Is College Park walkable?",
-        answer: "Walkability depends on the exact address and destination. Some streets may have useful access to parks, transit, or local routes, while grade and distance from shops can make other locations more car-dependent."
+        answer: "Walkability depends on the exact address and destination. Some streets may have useful access to parks or transit, while grade and distance from shops can make other locations more car-dependent."
       },
       {
         question: "Which schools serve College Park?",
-        answer: "School assignment varies by exact address. Some homes may be associated with nearby SD43 schools, but elementary, middle, and secondary assignment should be verified directly with SD43 before relying on any school assumption."
-      },
-      {
-        question: "What should buyers inspect carefully in College Park?",
-        answer: "For hillside or established homes, buyers should review drainage, retaining walls, driveway grade, stairs, exterior condition, roof age, updates, parking, and long-term maintenance. Strata properties also require document and bylaw review."
+        answer: "School assignment varies by exact address. Verify with SD43 before relying on any school assumption."
       },
       {
         question: "Who is College Park a good fit for?",
-        answer: "College Park may fit buyers who want a quieter west-side Port Moody setting and who value access toward Barnet Highway, Burnaby, or SFU. The fit should be checked against school verification, commute routes, hillside comfort, and daily walkability."
-      },
-      {
-        question: "How should sellers position a College Park home?",
-        answer: "Sellers should emphasize verified property strengths such as lot usability, views if present, parking, storage, updates, and west-side access. School, park, trail, and walkability claims should be checked against official sources and worded cautiously."
+        answer: "College Park may fit buyers who want a quieter west-side Port Moody setting with access toward Barnet Highway, Burnaby, or SFU. The fit should be checked against school verification, commute routes, hillside comfort, and daily walkability."
       }
     ],
     latitude: 49.34,
@@ -821,162 +699,91 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
   },
 
   {
-    name: "North Shore / Ioco / Pleasantside",
-    slug: "north-shore-ioco-pleasantside",
-    municipality: "Port Moody",
-    areaType: "port_moody_neighbourhood",
-    status: "draft",
-
-    shortSummary: "Historic waterfront and industrial neighbourhood undergoing urban revitalization.",
-    intro: "The North Shore, Ioco, and Pleasantside area represents Port Moody's historic waterfront and industrial character, currently undergoing urban revitalization. It appeals to buyers interested in developing neighbourhoods, waterfront access, and emerging urban renewal opportunities.",
-
-    bestFor: ["Developers", "Urban explorers", "Value seekers", "Waterfront access"],
-    housingTypes: ["Older detached homes", "Mixed commercial/residential", "New development"],
-    tradeOffs: [
-      "Historical industrial character",
-      "Active development and construction",
-      "Varied amenities during transition"
-    ],
-
-    schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
-
-    parks: [
-      {
-        name: "Waterfront access",
-        features: ["Waterfront parks", "Future community spaces"]
-      }
-    ],
-
-    trails: [],
-
-    transitAndAccess: "Improving transit access; near waterfront connectivity",
-    walkabilityNotes: "Developing walkability as revitalization progresses",
-
-    buyerNotes: [
-      "Monitor development plans and timelines",
-      "Assess property condition and improvement needs",
-      "Consider appreciation potential during revitalization",
-      "Verify environmental clearances if applicable"
-    ],
-
-    sellerNotes: [
-      "Highlight development opportunities",
-      "Emphasize waterfront and revitalization potential",
-      "Market timing important during transition"
-    ],
-
-    relatedComplexes: [],
-    relatedBuildings: [],
-
-    listingsConfig: {
-      mode: "gvr_area_search"
-    },
-
-    photoStatus: "not_started",
-    mapLabel: "North Shore / Ioco",
-    seoTitle: "North Shore, Ioco, and Pleasantside Port Moody Guide",
-    seoDescription: "North Shore, Ioco, and Pleasantside neighbourhood guide featuring waterfront access and urban revitalization.",
-
-    faq: [],
-    latitude: 49.31,
-    longitude: -122.8
-  },
-
-  {
-    name: "Barber Street",
-    slug: "barber-street",
-    municipality: "Port Moody",
-    areaType: "port_moody_neighbourhood",
-    status: "draft",
-
-    shortSummary: "Historic neighbourhood with industrial character, waterfront proximity, and revitalization potential.",
-    intro: "Barber Street represents Port Moody's historic character with industrial heritage, waterfront proximity, and active revitalization. It appeals to buyers interested in urban renewal, character homes, and emerging neighbourhood development.",
-
-    bestFor: ["Developers", "Character home seekers", "Value investors", "Waterfront proximity"],
-    housingTypes: ["Historic homes", "Mixed-use properties", "Development potential"],
-    tradeOffs: [
-      "Industrial heritage and ongoing activity",
-      "Renovation requirements for historic properties",
-      "Neighbourhood in transition"
-    ],
-
-    schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
-
-    parks: [],
-    trails: [],
-
-    transitAndAccess: "Transit improving; waterfront access nearby",
-    walkabilityNotes: "Developing; varies by specific location",
-
-    buyerNotes: [
-      "Historic homes may need renovation investment",
-      "Review heritage designations if applicable",
-      "Monitor revitalization timelines",
-      "Assess location relative to industrial areas"
-    ],
-
-    sellerNotes: [
-      "Highlight character and history",
-      "Emphasize development potential and revitalization",
-      "Market to renovation and investment buyers"
-    ],
-
-    relatedComplexes: [],
-    relatedBuildings: [],
-
-    listingsConfig: {
-      mode: "gvr_area_search"
-    },
-
-    photoStatus: "not_started",
-    mapLabel: "Barber Street",
-    seoTitle: "Barber Street Port Moody Neighbourhood Guide",
-    seoDescription: "Barber Street neighbourhood guide featuring historic character, waterfront proximity, and revitalization potential.",
-
-    faq: [],
-    latitude: 49.32,
-    longitude: -122.79
-  },
-
-  // Placeholder neighbourhoods for future development
-  {
     name: "Suter Brook",
     slug: "suter-brook",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "Growing neighbourhood with newer developments and developing amenities.",
-    intro: "Suter Brook is a growing Port Moody neighbourhood with newer developments, diverse housing, and developing community amenities. Coming soon.",
+    shortSummary: "Walkable village area near Rocky Point with condos, townhomes, and central Port Moody access.",
+    intro: "Suter Brook is one of Port Moody's most central and walkable areas, clustered near Rocky Point Park and the inlet. It offers a mix of condo buildings and townhomes with access to shops, cafes, and transit. It's popular with first-time buyers, commuters, and buyers prioritizing walkability. This guide is a neighbourhood preview — information is being expanded.",
 
-    bestFor: ["First-time buyers", "New construction", "Growing families"],
-    housingTypes: ["Townhouses", "Condos", "Detached homes"],
-    tradeOffs: ["Active development", "Developing community"],
+    bestFor: ["Walkability", "First-time buyers", "Commuters", "Lock-and-leave lifestyle"],
+    housingTypes: ["Condos", "Townhomes", "Mixed-use residential"],
+    tradeOffs: [
+      "Busier and denser feel than residential areas",
+      "Strata fees apply to all condo and townhome purchases; vary by building",
+      "Parking can be limited; verify per unit",
+      "Some buildings are older; review mechanical and envelope condition",
+      "Noise and activity higher than hillside areas"
+    ],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
-    parks: [],
-    trails: [],
-    transitAndAccess: "Good transit access",
-    walkabilityNotes: "Developing walkability",
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
 
-    buyerNotes: [],
-    sellerNotes: [],
+    parks: [
+      {
+        name: "Rocky Point Park",
+        features: ["Waterfront access", "Walking trails", "Picnic areas", "Community spaces"],
+        distance: "Walking distance from most addresses"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Shoreline Trail",
+        type: "walking",
+        difficulty: "easy"
+      }
+    ],
+
+    transitAndAccess: "Good transit access including TransLink bus routes. Near Moody Centre and Inlet Centre SkyTrain stations. Walkable to many daily needs including shops, services, and restaurants.",
+    walkabilityNotes: "High walkability for daily errands and lifestyle. Rocky Point Park, shops, cafes, and transit all within reasonable walking distance for most addresses. One of Port Moody's most convenient areas for car-free or car-light living.",
+
+    buyerNotes: [
+      "Review strata documents for each building: fees, depreciation report, reserve fund, bylaws, and any pending levies",
+      "Building age varies; some condos are older and may have envelope, mechanical, or elevator considerations",
+      "Parking and storage allocation vary by unit; confirm for the specific property",
+      "Noise levels can be higher near commercial areas and roads; visit at different times of day",
+      "Verify school assignment with SD43 for the specific address"
+    ],
+
+    sellerNotes: [
+      "Highlight walkability, Rocky Point access, and transit proximity for urban-lifestyle buyers",
+      "Emphasize central Port Moody location and proximity to amenities",
+      "Feature recent building upgrades or strata improvements where applicable",
+      "Market to commuters, first-time buyers, and downsizers"
+    ],
+
     relatedComplexes: [],
     relatedBuildings: [],
 
-    listingsConfig: { mode: "none" },
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
 
     photoStatus: "not_started",
     mapLabel: "Suter Brook",
     seoTitle: "Suter Brook Port Moody Neighbourhood Guide",
-    seoDescription: "Suter Brook neighbourhood guide coming soon.",
+    seoDescription: "Suter Brook Port Moody neighbourhood guide preview featuring walkability, condos, townhomes, Rocky Point access, and buyer notes.",
 
-    faq: [],
-    latitude: 49.32,
-    longitude: -122.84
+    faq: [
+      {
+        question: "How walkable is Suter Brook?",
+        answer: "Suter Brook is one of Port Moody's most walkable areas. Shops, cafes, Rocky Point Park, and transit are accessible on foot from most addresses. It suits buyers who want car-light or car-free urban living."
+      },
+      {
+        question: "What should condo buyers check in Suter Brook?",
+        answer: "Review strata fees, depreciation reports, reserve fund balances, bylaws, and any pending levies. Building age varies; some are older and may have mechanical or envelope considerations. Confirm parking and storage for the specific unit."
+      },
+      {
+        question: "Which schools serve Suter Brook?",
+        answer: "School assignment varies by exact address. Verify with SD43 before relying on any school assumption."
+      }
+    ],
+    latitude: 49.282,
+    longitude: -122.828
   },
 
   {
@@ -984,37 +791,87 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "newport-village",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "Waterfront-adjacent neighbourhood with modern condos, townhouses, and walkable amenities.",
-    intro: "Newport Village is a waterfront-adjacent Port Moody neighbourhood featuring modern condos, townhouses, and walkable lifestyle amenities. Coming soon.",
+    shortSummary: "Port Moody's most walkable area, adjacent to Rocky Point Park with condos, restaurants, and inlet views.",
+    intro: "Newport Village is Port Moody's most walkable and lifestyle-focused neighbourhood, set along the inlet near Rocky Point Park. It offers condos and some older townhomes with easy access to restaurants, shops, the waterfront, and transit. It tends to carry premium pricing relative to other Port Moody areas. This guide is a neighbourhood preview — information is being expanded.",
 
-    bestFor: ["Lifestyle seekers", "Condo buyers", "Walkability focused"],
-    housingTypes: ["Condos", "Townhouses", "Some detached homes"],
-    tradeOffs: ["Urban density", "Higher pricing"],
+    bestFor: ["Walkability", "Waterfront lifestyle", "Downsizers", "Urban convenience"],
+    housingTypes: ["Condos", "Mixed-use residential", "Some older townhomes"],
+    tradeOffs: [
+      "Premium pricing relative to other Port Moody areas",
+      "Limited greenspace outside of Rocky Point",
+      "Some buildings are older; review mechanical and envelope condition carefully",
+      "Strata fees apply; vary by building and amenity level",
+      "Parking can be limited; confirm for the specific unit"
+    ],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
-    parks: [{ name: "Waterfront parks", features: ["Waterfront", "Promenade"] }],
-    trails: [{ name: "Waterfront paths", type: "walking", difficulty: "easy" }],
-    transitAndAccess: "Excellent transit access",
-    walkabilityNotes: "High walkability to shops and restaurants",
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
 
-    buyerNotes: [],
-    sellerNotes: [],
+    parks: [
+      {
+        name: "Rocky Point Park",
+        features: ["Waterfront access", "Walking trails", "Events and community spaces", "Picnic areas"],
+        distance: "Walking distance"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Shoreline Trail",
+        type: "walking",
+        difficulty: "easy"
+      }
+    ],
+
+    transitAndAccess: "Excellent transit access. Near Moody Centre SkyTrain station and TransLink bus routes. Walkable to most daily needs. Car optional for many residents.",
+    walkabilityNotes: "Highest walkability in Port Moody. Restaurants, cafes, shops, and Rocky Point Park are accessible on foot. Transit is close. Most daily needs accessible without a car.",
+
+    buyerNotes: [
+      "Some buildings are older; review envelope condition, mechanical systems, and elevator status carefully",
+      "Verify strata fees, reserve funds, bylaws, depreciation report, and any outstanding levies before writing",
+      "Parking and storage allocation vary by unit; confirm for the specific property",
+      "Premium pricing means careful comparison of value, condition, and strata health is important",
+      "Verify school assignment with SD43 for the specific address"
+    ],
+
+    sellerNotes: [
+      "Highlight walkability, waterfront access, and lifestyle appeal — this is the strongest sell",
+      "Emphasize Rocky Point Park proximity and restaurants within walking distance",
+      "Feature building condition and any recent upgrades to justify pricing",
+      "Market to lifestyle-focused buyers, downsizers, and urban professionals"
+    ],
+
     relatedComplexes: [],
     relatedBuildings: [],
 
-    listingsConfig: { mode: "none" },
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
 
     photoStatus: "not_started",
     mapLabel: "Newport Village",
     seoTitle: "Newport Village Port Moody Neighbourhood Guide",
-    seoDescription: "Newport Village neighbourhood guide coming soon.",
+    seoDescription: "Newport Village Port Moody neighbourhood guide preview featuring walkability, waterfront access, condos, and Rocky Point Park.",
 
-    faq: [],
-    latitude: 49.33,
-    longitude: -122.81
+    faq: [
+      {
+        question: "How walkable is Newport Village?",
+        answer: "Newport Village is Port Moody's most walkable neighbourhood. Restaurants, cafes, shops, Rocky Point Park, and transit are all accessible on foot. It suits buyers who want to minimize car dependence."
+      },
+      {
+        question: "What should buyers know about building condition in Newport Village?",
+        answer: "Some buildings in Newport Village are older. Review the strata depreciation report, reserve fund balance, and any envelope or mechanical work history. Confirm elevator condition and strata fees for the specific building before making a decision."
+      },
+      {
+        question: "Why is Newport Village priced higher than other Port Moody areas?",
+        answer: "Newport Village tends to carry a premium due to its walkability, waterfront access, and Rocky Point Park proximity. Buyers should compare that premium against the condition and strata health of the specific building."
+      }
+    ],
+    latitude: 49.283,
+    longitude: -122.824
   },
 
   {
@@ -1022,37 +879,261 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "klahanie",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "Family-oriented neighbourhood with parks, schools, and established community feel.",
-    intro: "Klahanie is a family-oriented Port Moody neighbourhood featuring parks, schools, and established community character. Coming soon.",
+    shortSummary: "Established Port Moody community with condos, townhomes, parks, and access to the waterfront.",
+    intro: "Klahanie is an established Port Moody neighbourhood with a mix of condos and townhomes, good access to parks, trails, and the waterfront, and moderate walkability. It offers a balanced option between central village areas and quieter hillside neighbourhoods. This guide is a neighbourhood preview — information is being expanded.",
 
-    bestFor: ["Families with children", "School proximity", "Community-focused"],
-    housingTypes: ["Detached homes", "Townhouses", "Some condos"],
-    tradeOffs: [],
+    bestFor: ["Condos and townhomes", "Waterfront and trail access", "Established community feel", "Moderate walkability"],
+    housingTypes: ["Condos", "Townhomes", "Some detached homes"],
+    tradeOffs: [
+      "Mix of building ages; strata condition varies significantly",
+      "Strata fees apply; review depreciation reports and reserve funds",
+      "Some buildings require careful mechanical and envelope review",
+      "Parking and storage vary by unit; confirm for the specific property"
+    ],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
-    parks: [{ name: "Community parks", features: ["Recreation areas"] }],
-    trails: [],
-    transitAndAccess: "Good transit access to schools",
-    walkabilityNotes: "Moderate walkability",
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
 
-    buyerNotes: [],
-    sellerNotes: [],
+    parks: [
+      {
+        name: "Rocky Point Park area",
+        features: ["Waterfront access", "Walking trails", "Community spaces"],
+        distance: "Accessible from many Klahanie addresses"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Inlet trail connections",
+        type: "walking",
+        difficulty: "easy"
+      }
+    ],
+
+    transitAndAccess: "Good transit access via TransLink. Near Moody Centre and Inlet Centre SkyTrain stations. Walkable to some amenities; car useful for others.",
+    walkabilityNotes: "Moderate walkability. Some daily needs accessible on foot; other errands require a car or transit. Better for lifestyle access to parks and waterfront than for urban daily convenience.",
+
+    buyerNotes: [
+      "Building age varies; some condos and townhomes are older and require careful strata review",
+      "Review depreciation report, reserve fund balance, strata fees, bylaws, and pending levies",
+      "Parking and storage allocation vary by unit; confirm for the specific property",
+      "Compare buildings and complexes carefully — strata health varies significantly",
+      "Verify school assignment with SD43 for the specific address"
+    ],
+
+    sellerNotes: [
+      "Highlight waterfront and park access, community character, and established setting",
+      "Emphasize strata health and building condition if strong",
+      "Market to buyers who want a central Port Moody lifestyle without maximum urban density",
+      "Be transparent about building age and strata context"
+    ],
+
     relatedComplexes: [],
     relatedBuildings: [],
 
-    listingsConfig: { mode: "none" },
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
 
     photoStatus: "not_started",
     mapLabel: "Klahanie",
     seoTitle: "Klahanie Port Moody Neighbourhood Guide",
-    seoDescription: "Klahanie neighbourhood guide coming soon.",
+    seoDescription: "Klahanie Port Moody neighbourhood guide preview featuring condos, townhomes, waterfront access, and established community character.",
 
-    faq: [],
-    latitude: 49.31,
-    longitude: -122.83
+    faq: [
+      {
+        question: "What type of housing is in Klahanie?",
+        answer: "Klahanie has a mix of condos, townhomes, and some detached homes. Building age and strata condition vary; compare specific buildings and complexes carefully before purchasing."
+      },
+      {
+        question: "What should strata buyers check in Klahanie?",
+        answer: "Review the depreciation report, reserve fund balance, strata fees, bylaws, and any pending levies for each specific building or complex. Some properties are older and require careful mechanical and envelope review."
+      },
+      {
+        question: "Which schools serve Klahanie?",
+        answer: "School assignment varies by exact address. Verify with SD43 before relying on any school assumption."
+      }
+    ],
+    latitude: 49.276,
+    longitude: -122.824
+  },
+
+  {
+    name: "Ioco / North Shore",
+    slug: "ioco-north-shore",
+    municipality: "Port Moody",
+    areaType: "port_moody_neighbourhood",
+    status: "preview",
+
+    shortSummary: "A distinctive waterfront area on Port Moody's north shore with scenic Inlet views and a quiet, car-dependent character.",
+    intro: "The Ioco and north shore area is one of Port Moody's most distinctive and scenic pockets, with winding roads, Burrard Inlet views, detached homes, and a strong sense of separation from the more urban core. It appeals to buyers who value privacy, character, and a quieter lifestyle over daily walkability and transit access. This guide is a neighbourhood preview — information is being expanded.",
+
+    bestFor: ["Privacy seekers", "Waterfront character", "Quiet residential living", "Nature-oriented buyers"],
+    housingTypes: ["Detached homes", "Established residential properties"],
+    tradeOffs: [
+      "Very car-dependent; limited transit access",
+      "Winding roads can be a consideration in winter or with mobility needs",
+      "Further from central Port Moody amenities, SkyTrain, and services",
+      "Limited daily walkable services",
+      "Verify school assignment by exact address"
+    ],
+
+    schools: [],
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
+
+    parks: [
+      {
+        name: "Port Moody waterfront and north shore access",
+        features: ["Inlet views", "Waterfront character", "Quiet residential setting"],
+        distance: "Varies by address"
+      }
+    ],
+
+    trails: [
+      {
+        name: "North shore area paths",
+        type: "walking",
+        difficulty: "moderate"
+      }
+    ],
+
+    transitAndAccess: "Limited transit access. Car essential for most daily errands, shopping, and services. Access involves winding roads; verify road conditions and access for specific addresses.",
+    walkabilityNotes: "Very limited walkability for daily needs. The area's appeal is its scenic character and privacy rather than urban convenience. Most residents drive for all errands and services.",
+
+    buyerNotes: [
+      "Car access and road conditions should be assessed for the specific property and route",
+      "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
+      "Verify school assignment with SD43 for the exact address",
+      "Assess commute implications given distance from SkyTrain and central Port Moody",
+      "Verify utility access, septic or sewer status, and services for the specific property"
+    ],
+
+    sellerNotes: [
+      "Highlight scenic character, privacy, inlet views, and the distinctive nature of the area",
+      "Be transparent about car dependence and distance from urban amenities",
+      "Market to buyers seeking privacy, character, and a quieter lifestyle",
+      "Use cautious school language and direct buyers to SD43 verification"
+    ],
+
+    relatedComplexes: [],
+    relatedBuildings: [],
+
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
+
+    photoStatus: "not_started",
+    mapLabel: "Ioco / North Shore",
+    seoTitle: "Ioco North Shore Port Moody Neighbourhood Guide",
+    seoDescription: "Ioco and North Shore Port Moody neighbourhood guide preview featuring waterfront character, scenic views, quiet living, and buyer notes.",
+
+    faq: [
+      {
+        question: "Is the Ioco / North Shore area walkable?",
+        answer: "No. The area is very car-dependent. There is limited transit and the roads are winding. Most residents drive for all daily needs. The appeal is privacy, character, and scenic surroundings rather than urban convenience."
+      },
+      {
+        question: "What should buyers check when buying in Ioco or the north shore?",
+        answer: "Review road access conditions, home condition, roof, drainage, and any utility or service considerations for the specific property. Verify school assignment with SD43. Assess commute implications given the distance from SkyTrain and central Port Moody."
+      },
+      {
+        question: "Who is this area a good fit for?",
+        answer: "The Ioco and north shore area suits buyers who strongly value privacy, scenic surroundings, and a quieter lifestyle, and who are comfortable with car dependence and distance from urban services."
+      }
+    ],
+    latitude: 49.306,
+    longitude: -122.891
+  },
+
+  {
+    name: "Barber Street",
+    slug: "barber-street",
+    municipality: "Port Moody",
+    areaType: "port_moody_neighbourhood",
+    status: "preview",
+
+    shortSummary: "West Port Moody established residential area with detached homes and Barnet Highway access.",
+    intro: "Barber Street is a west Port Moody residential area characterized by established detached homes on quiet streets, with relatively convenient access to Barnet Highway, Burnaby, and regional routes. It appeals to buyers who want a quieter residential setting without the hillside complexity of College Park or the remoteness of the north shore areas. This guide is a neighbourhood preview — information is being expanded.",
+
+    bestFor: ["Established residential buyers", "West-side access", "Quieter streets", "Detached home buyers"],
+    housingTypes: ["Detached homes", "Some townhomes"],
+    tradeOffs: [
+      "Limited daily walkability; most errands require a car",
+      "Older housing stock; review condition and renovation history",
+      "Limited walkable amenities",
+      "Verify school assignment by exact address"
+    ],
+
+    schools: [],
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
+
+    parks: [
+      {
+        name: "Local neighbourhood parks",
+        features: ["Community green spaces", "Nearby recreation access"],
+        distance: "Varies by address"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Local walking paths",
+        type: "walking",
+        difficulty: "easy"
+      }
+    ],
+
+    transitAndAccess: "Local TransLink bus routes available; car useful for most daily needs. Convenient Barnet Highway access for commuting toward Burnaby and Vancouver or SFU.",
+    walkabilityNotes: "Limited daily walkability. Most residents drive for groceries, shopping, and services. Convenient road access toward Barnet Highway is a practical strength for car-commuting households.",
+
+    buyerNotes: [
+      "Review home condition: roof, foundation, drainage, exterior, plumbing, and any renovation history",
+      "Older housing stock is common; assess condition carefully before purchasing",
+      "Verify school assignment with SD43 for the specific address",
+      "Check commute routes toward Barnet Highway, Burnaby, and central Port Moody",
+      "Confirm parking and outdoor space for the specific property"
+    ],
+
+    sellerNotes: [
+      "Highlight Barnet Highway access and west-side commute convenience",
+      "Emphasize quiet residential streets and established neighbourhood character",
+      "Feature property-specific strengths: lot size, updates, parking, outdoor space",
+      "Use cautious school language and direct buyers to SD43 verification"
+    ],
+
+    relatedComplexes: [],
+    relatedBuildings: [],
+
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
+
+    photoStatus: "not_started",
+    mapLabel: "Barber Street",
+    seoTitle: "Barber Street Port Moody Neighbourhood Guide",
+    seoDescription: "Barber Street Port Moody neighbourhood guide preview featuring established detached homes, west-side access, and buyer notes.",
+
+    faq: [
+      {
+        question: "Who is Barber Street a good fit for?",
+        answer: "Barber Street suits buyers who want a quieter west Port Moody residential setting with convenient Barnet Highway access. It may appeal to car-commuting households going toward Burnaby, SFU, or Vancouver."
+      },
+      {
+        question: "What should buyers check in Barber Street?",
+        answer: "Review home condition carefully, especially for older properties: roof, foundation, drainage, plumbing, electrical, and any renovation history. Verify school assignment with SD43 for the specific address."
+      },
+      {
+        question: "Is Barber Street walkable?",
+        answer: "No. Barber Street has limited daily walkability. Most residents drive for errands and services. The practical appeal is Barnet Highway access and established residential character rather than walkability."
+      }
+    ],
+    latitude: 49.279,
+    longitude: -122.860
   },
 
   {
@@ -1060,21 +1141,110 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "seaview",
     municipality: "Port Moody",
     areaType: "port_moody_neighbourhood",
+    status: "preview",
+
+    shortSummary: "Quiet north-shore Port Moody neighbourhood with detached homes, forest access, and a very car-dependent character.",
+    intro: "Seaview is one of Port Moody's quietest and most car-dependent neighbourhoods, situated on the north shore with access to Sasamat Lake, forest trails, and a peaceful residential setting. It appeals to buyers who strongly value nature access, privacy, and quiet over urban convenience. This guide is a neighbourhood preview — information is being expanded.",
+
+    bestFor: ["Nature-oriented buyers", "Privacy", "Forest trail access", "Quiet residential living"],
+    housingTypes: ["Detached homes"],
+    tradeOffs: [
+      "Very car-dependent; no meaningful walkable amenities",
+      "Furthest from SkyTrain of Port Moody's residential areas",
+      "Limited transit access",
+      "Distance from central Port Moody services and shopping",
+      "Verify school assignment by exact address"
+    ],
+
+    schools: [],
+    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
+
+    parks: [
+      {
+        name: "Sasamat Lake and regional parks",
+        features: ["Lake access", "Forest trails", "Nature-based recreation"],
+        distance: "Near for many addresses"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Forest and regional trail network",
+        type: "hiking",
+        difficulty: "moderate"
+      }
+    ],
+
+    transitAndAccess: "Very limited transit access. Car essential for all daily errands, shopping, and services. Distance from SkyTrain stations requires driving or a long bus connection.",
+    walkabilityNotes: "Not walkable for daily needs. The area's appeal is nature access, Sasamat Lake, forest trails, and privacy — not urban convenience. All residents drive for errands.",
+
+    buyerNotes: [
+      "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
+      "Assess commute implications carefully given distance from SkyTrain and central services",
+      "Verify school assignment with SD43 for the specific address",
+      "Check utility access, road conditions, and any service considerations for the property",
+      "Sasamat Lake and trail access are the primary lifestyle advantages; verify access for your address"
+    ],
+
+    sellerNotes: [
+      "Highlight Sasamat Lake access, forest trails, privacy, and nature-based lifestyle",
+      "Be transparent about car dependence and distance from SkyTrain and urban services",
+      "Market to nature-oriented buyers who are comfortable with the lifestyle trade-offs",
+      "Emphasize property-specific strengths: lot, privacy, views, outdoor space"
+    ],
+
+    relatedComplexes: [],
+    relatedBuildings: [],
+
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
+
+    photoStatus: "not_started",
+    mapLabel: "Seaview",
+    seoTitle: "Seaview Port Moody Neighbourhood Guide",
+    seoDescription: "Seaview Port Moody neighbourhood guide preview featuring quiet north-shore living, Sasamat Lake access, forest trails, and buyer notes.",
+
+    faq: [
+      {
+        question: "Who is Seaview a good fit for?",
+        answer: "Seaview suits buyers who strongly value nature access, privacy, Sasamat Lake, and forest trails, and who are comfortable being very car-dependent with limited transit access."
+      },
+      {
+        question: "How far is Seaview from SkyTrain?",
+        answer: "Seaview is Port Moody's furthest residential area from SkyTrain. All residents drive for commuting. The exact drive time to SkyTrain stations depends on your specific address and route."
+      },
+      {
+        question: "What should buyers check in Seaview?",
+        answer: "Review home condition carefully. Check road access, utility services, and commute implications. Verify school assignment with SD43 for the specific address."
+      }
+    ],
+    latitude: 49.308,
+    longitude: -122.862
+  },
+
+  // Keep this draft — slug does not match any active sprint target route
+  {
+    name: "North Shore / Ioco / Pleasantside",
+    slug: "north-shore-ioco-pleasantside",
+    municipality: "Port Moody",
+    areaType: "port_moody_neighbourhood",
     status: "draft",
 
-    shortSummary: "Neighbourhood with waterfront or water-view characteristics. Coming soon.",
-    intro: "Seaview neighbourhood coming soon.",
+    shortSummary: "Combined north shore, Ioco, and Pleasantside area context.",
+    intro: "Combined area context for north shore, Ioco, and Pleasantside. This entry is retained for reference; see individual area guides for active routes.",
 
     bestFor: [],
-    housingTypes: [],
+    housingTypes: ["Detached homes"],
     tradeOffs: [],
 
     schools: [],
     schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
     parks: [],
     trails: [],
-    transitAndAccess: "",
-    walkabilityNotes: "",
+    transitAndAccess: "Varies by specific address",
+    walkabilityNotes: "Varies by specific address",
 
     buyerNotes: [],
     sellerNotes: [],
@@ -1084,13 +1254,13 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     listingsConfig: { mode: "none" },
 
     photoStatus: "not_started",
-    mapLabel: "Seaview",
-    seoTitle: "Seaview Port Moody Neighbourhood Guide",
-    seoDescription: "Seaview neighbourhood guide coming soon.",
+    mapLabel: "North Shore / Ioco",
+    seoTitle: "North Shore Port Moody Area Guide",
+    seoDescription: "North shore, Ioco, and Pleasantside area guide for Port Moody.",
 
     faq: [],
-    latitude: 49.3,
-    longitude: -122.8
+    latitude: 49.31,
+    longitude: -122.88
   },
 
   // =============================================================================
@@ -1102,51 +1272,87 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "anmore",
     municipality: "Anmore",
     areaType: "nearby_community",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "Rural nearby community with larger lot homes and quiet, established character.",
-    intro: "Anmore is a rural neighbouring community offering larger lot homes, quiet established character, and forest setting. It appeals to buyers seeking more land, privacy, and rural character outside the Port Moody core. Coming soon.",
+    shortSummary: "A quiet rural municipality adjacent to Port Moody with larger lots, acreage, and forest setting.",
+    intro: "Anmore is a separate rural municipality adjacent to Port Moody, offering larger lots, acreage properties, and a forested setting. It is sometimes considered by Port Moody buyers who want more land, privacy, and rural character. Anmore operates as its own municipality with separate property taxes, bylaws, and services from the City of Port Moody. This guide is a nearby community preview — information is being expanded.",
 
-    bestFor: ["Privacy seekers", "Larger lot buyers", "Rural lifestyle", "Commuters"],
-    housingTypes: ["Detached homes on larger lots", "Some acreage"],
+    bestFor: ["Larger lots and acreage", "Privacy seekers", "Rural lifestyle", "Forest setting"],
+    housingTypes: ["Detached homes on larger lots", "Some acreage properties"],
     tradeOffs: [
-      "Car-dependent",
-      "Limited local amenities",
-      "School access varies",
-      "Longer commute to Port Moody"
+      "Separate municipality — taxes, bylaws, and services differ from Port Moody",
+      "Very car-dependent; no transit and no walkable services",
+      "School district may differ from Port Moody SD43; verify for your address",
+      "Longer commute to Port Moody core, SkyTrain, and regional services",
+      "Limited local amenities; most services require driving to Port Moody or Coquitlam"
     ],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with appropriate school district for Anmore.",
-    parks: [],
-    trails: [],
-    transitAndAccess: "Car-dependent; limited transit",
-    walkabilityNotes: "Not walkable; rural setting",
+    schoolVerificationNote: "Anmore is a separate municipality. School district assignment may differ from Port Moody SD43. Verify school assignment by exact address before making any assumptions.",
+
+    parks: [
+      {
+        name: "Regional park and trail access",
+        features: ["Forest trails", "Nature access", "Regional park connections"],
+        distance: "Varies by property"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Regional trail connections",
+        type: "hiking",
+        difficulty: "moderate"
+      }
+    ],
+
+    transitAndAccess: "No local transit. Car essential for all errands, services, and commuting. Access to Port Moody core, SkyTrain, and regional services requires driving.",
+    walkabilityNotes: "Not walkable. Anmore has no local shops, services, or transit. All residents drive for everything. This is a rural setting where the appeal is land, privacy, and nature rather than any form of urban convenience.",
 
     buyerNotes: [
-      "Lot size and property condition important",
-      "Verify school districts separately from Port Moody SD43",
-      "Consider commute implications"
+      "Anmore is a separate municipality — verify taxes, bylaws, and applicable regulations separately from Port Moody",
+      "School assignment may differ from Port Moody SD43; verify for your specific address",
+      "Assess commute implications carefully given distance from SkyTrain and Port Moody core",
+      "Review property access, road conditions, septic or sewer status, and utility services",
+      "Larger lots and acreage require property-specific inspection of land, drainage, and condition"
     ],
 
     sellerNotes: [
-      "Highlight privacy and larger lots",
-      "Emphasize rural/nature setting"
+      "Highlight land size, privacy, forest setting, and nature access",
+      "Be transparent about car dependence, separate municipality status, and distance from services",
+      "Market to buyers who specifically want rural acreage and privacy",
+      "Use cautious school language; direct buyers to verify the applicable school district"
     ],
 
     relatedComplexes: [],
     relatedBuildings: [],
 
-    listingsConfig: { mode: "none" },
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
 
     photoStatus: "not_started",
     mapLabel: "Anmore",
     seoTitle: "Anmore Nearby Community Guide",
-    seoDescription: "Anmore nearby community guide featuring rural character, larger properties, and privacy.",
+    seoDescription: "Anmore nearby community guide preview — a rural municipality adjacent to Port Moody with larger lots, acreage, and forest setting.",
 
-    faq: [],
-    latitude: 49.32,
-    longitude: -122.9
+    faq: [
+      {
+        question: "Is Anmore part of Port Moody?",
+        answer: "No. Anmore is a separate municipality adjacent to Port Moody. It has its own municipal government, property taxes, bylaws, and services. Buyers should verify all municipal regulations separately from Port Moody."
+      },
+      {
+        question: "Which school district serves Anmore?",
+        answer: "School district assignment in Anmore may differ from Port Moody's SD43. Verify the applicable school district and exact school assignment for your specific address before making any school-related assumptions."
+      },
+      {
+        question: "Who is Anmore a good fit for?",
+        answer: "Anmore suits buyers who specifically want larger lots or acreage, forest setting, privacy, and rural character, and who are comfortable being very car-dependent with no local services."
+      }
+    ],
+    latitude: 49.333,
+    longitude: -122.840
   },
 
   {
@@ -1154,52 +1360,87 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     slug: "belcarra",
     municipality: "Belcarra",
     areaType: "nearby_community",
-    status: "draft",
+    status: "preview",
 
-    shortSummary: "Rural waterfront nearby community with forest, water access, and quiet character.",
-    intro: "Belcarra is a rural neighbouring community featuring forest setting, waterfront/water-access characteristics, and quiet established character. It appeals to buyers seeking nature connection, privacy, and a retreat-like setting. Coming soon.",
+    shortSummary: "A very small, remote municipality adjacent to Port Moody near Belcarra Regional Park with waterfront character.",
+    intro: "Belcarra is an extremely small, quiet, and remote municipality adjacent to Port Moody and Belcarra Regional Park, offering detached homes with a waterfront and forest character. It is occasionally considered by Port Moody buyers who want maximum privacy and nature access. Belcarra is a separate municipality with its own taxes and services, and has almost no local amenities. This guide is a nearby community preview — information is being expanded.",
 
-    bestFor: ["Nature seekers", "Privacy buyers", "Waterfront access", "Established buyers"],
+    bestFor: ["Maximum privacy", "Waterfront and nature character", "Remote living", "Belcarra Regional Park access"],
     housingTypes: ["Detached homes", "Some waterfront properties"],
     tradeOffs: [
-      "Very car-dependent",
-      "Limited local services",
-      "Longer commute",
-      "School access outside community"
+      "Separate and very small municipality — minimal local services",
+      "Extremely car-dependent; no transit",
+      "No local shops, restaurants, or daily services within Belcarra",
+      "School district differs from Port Moody SD43; verify for your address",
+      "Very long commute to SkyTrain and urban services"
     ],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with appropriate school district for Belcarra.",
-    parks: [{ name: "Natural areas", features: ["Forest", "Water access"] }],
-    trails: [{ name: "Natural trails", type: "walking", difficulty: "moderate" }],
-    transitAndAccess: "No local transit; car essential",
-    walkabilityNotes: "Not walkable; nature-based setting",
+    schoolVerificationNote: "Belcarra is a separate municipality. School district assignment differs from Port Moody SD43. Verify school assignment by exact address before making any assumptions.",
+
+    parks: [
+      {
+        name: "Belcarra Regional Park",
+        features: ["Waterfront access", "Forest trails", "Picnic areas", "Nature-based recreation"],
+        distance: "Adjacent to community"
+      }
+    ],
+
+    trails: [
+      {
+        name: "Regional park trails",
+        type: "hiking",
+        difficulty: "moderate"
+      }
+    ],
+
+    transitAndAccess: "No local transit. Car essential for all needs. All services, shopping, and commuting require driving to Port Moody or Coquitlam.",
+    walkabilityNotes: "Not walkable. There are no local services within Belcarra. All residents drive for everything. The appeal is nature, Belcarra Regional Park, and privacy.",
 
     buyerNotes: [
-      "Property access and road conditions important",
-      "Verify utilities and services",
-      "Consider extreme isolation for some properties",
-      "Environmental and water access features valuable"
+      "Belcarra is a separate municipality — verify taxes, bylaws, and regulations independently",
+      "School assignment differs from Port Moody SD43; verify for your specific address",
+      "Assess commute implications carefully; SkyTrain and urban services require significant driving",
+      "Review property access, utilities, septic status, and road conditions for the specific property",
+      "Very few properties become available; verify current condition and maintenance carefully"
     ],
 
     sellerNotes: [
-      "Highlight privacy and waterfront/nature access",
-      "Emphasize retreat-like character"
+      "Highlight park access, waterfront character, privacy, and the retreat-like setting",
+      "Be transparent about the lack of local services, car dependence, and separate municipality status",
+      "Market to a narrow range of buyers specifically seeking remote privacy and nature",
+      "Use cautious school language; direct buyers to verify the applicable school district"
     ],
 
     relatedComplexes: [],
     relatedBuildings: [],
 
-    listingsConfig: { mode: "none" },
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
 
     photoStatus: "not_started",
     mapLabel: "Belcarra",
     seoTitle: "Belcarra Nearby Community Guide",
-    seoDescription: "Belcarra nearby community guide featuring waterfront access, nature, and rural privacy.",
+    seoDescription: "Belcarra nearby community guide preview — a remote municipality adjacent to Port Moody near Belcarra Regional Park with waterfront character.",
 
-    faq: [],
-    latitude: 49.35,
-    longitude: -122.88
+    faq: [
+      {
+        question: "Is Belcarra part of Port Moody?",
+        answer: "No. Belcarra is a separate and very small municipality adjacent to Port Moody. It has its own government, taxes, and bylaws. Buyers should verify all municipal regulations separately."
+      },
+      {
+        question: "Which school district serves Belcarra?",
+        answer: "Belcarra has its own school district assignment separate from Port Moody SD43. Verify the applicable school district and exact assignment for your specific address before making any assumptions."
+      },
+      {
+        question: "Who is Belcarra a good fit for?",
+        answer: "Belcarra suits a very narrow range of buyers who specifically want maximum privacy, Belcarra Regional Park access, waterfront character, and remote living, and who are completely comfortable with car dependence and no local services."
+      }
+    ],
+    latitude: 49.317,
+    longitude: -122.905
   }
 ];
 
@@ -1216,9 +1457,4 @@ export function getPublishedGuides(): NeighbourhoodGuide[] {
 // Utility to get all Port Moody neighbourhoods
 export function getPortMoodyNeighbourhoods(): NeighbourhoodGuide[] {
   return neighbourhoodGuides.filter(guide => guide.areaType === "port_moody_neighbourhood");
-}
-
-// Utility to get all nearby communities
-export function getNearbyCommunitiesGuides(): NeighbourhoodGuide[] {
-  return neighbourhoodGuides.filter(guide => guide.areaType === "nearby_community");
 }

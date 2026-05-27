@@ -1,25 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
-import { footerLinks, siteConfig } from "@/lib/site";
-
-const footerGroups = [
-  {
-    title: "Explore",
-    links: footerLinks.filter((item) =>
-      ["Explore Port Moody", "Neighbourhoods", "Townhouse Complexes", "Condo Buildings", "Listings"].includes(item.label),
-    ),
-  },
-  {
-    title: "Resources",
-    links: footerLinks.filter((item) =>
-      ["Market", "Move to Port Moody", "Buy", "Sell", "Resources", "Ask a Question"].includes(item.label),
-    ),
-  },
-  {
-    title: "Company",
-    links: footerLinks.filter((item) => ["About", "Privacy", "Terms"].includes(item.label)),
-  },
-];
+import { footerGroups, socialLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -36,8 +17,20 @@ export function Footer() {
             <p>{siteConfig.publicPhone}</p>
             <p>{siteConfig.publicEmail}</p>
           </div>
+          <div className="mt-6 flex gap-4">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.platform}
+                href={social.href}
+                className="text-sm text-mist hover:text-white"
+                aria-label={social.label}
+              >
+                {social.label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {footerGroups.map((group) => (
             <div key={group.title}>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">{group.title}</p>

@@ -62,8 +62,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Established quiet neighbourhood near SFU and Douglas College.",
     housingType: "Detached homes.",
     tradeOff: "Limited walkable amenities; further from the Inlet waterfront.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/college-park",
+    ctaLabel: "See College Park guide preview",
   },
   {
     id: "glenayre",
@@ -93,8 +93,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Historic waterfront area with a distinctive community character and scenic Inlet views.",
     housingType: "Detached homes.",
     tradeOff: "Remote feel, winding roads, and limited day-to-day amenities.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/ioco-north-shore",
+    ctaLabel: "See Ioco / North Shore guide preview",
   },
   // Priority 2 — micro-areas, appear at zoom >= 12
   {
@@ -110,8 +110,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Walkable waterfront village popular with first-time buyers and commuters.",
     housingType: "Condos and townhomes.",
     tradeOff: "Busier feel near Rocky Point; limited parking.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/suter-brook",
+    ctaLabel: "See Suter Brook guide preview",
   },
   {
     id: "newport-village",
@@ -126,8 +126,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Port Moody's most walkable address, with a compact village feel along the Inlet.",
     housingType: "Condos and mixed-use residential.",
     tradeOff: "Premium pricing and limited greenspace.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/newport-village",
+    ctaLabel: "See Newport Village guide preview",
   },
   {
     id: "klahanie",
@@ -142,8 +142,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Established community with waterfront parks, trails, and a marina nearby.",
     housingType: "Townhomes and condos.",
     tradeOff: "Older inventory with some strata fee considerations.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/klahanie",
+    ctaLabel: "See Klahanie guide preview",
   },
   {
     id: "pleasantside",
@@ -173,8 +173,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Established west Port Moody neighbourhood with easy Barnet Highway access.",
     housingType: "Detached homes and some townhomes.",
     tradeOff: "Older inventory with limited walkable amenities.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/barber-street",
+    ctaLabel: "See Barber Street guide preview",
   },
   {
     id: "seaview",
@@ -188,8 +188,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Quiet north-shore residential area with access to Sasamat Lake and forest trails.",
     housingType: "Detached homes.",
     tradeOff: "Most car-dependent neighbourhood; furthest from SkyTrain.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/seaview",
+    ctaLabel: "See Seaview guide preview",
   },
   // Nearby communities — orientation context only
   {
@@ -204,8 +204,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Quiet rural municipality adjacent to Port Moody, with acreage properties and trail access.",
     housingType: "Detached homes and acreage.",
     tradeOff: "Very car-dependent; separate municipality with its own regulations.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/anmore",
+    ctaLabel: "See Anmore guide preview",
   },
   {
     id: "belcarra",
@@ -219,8 +219,8 @@ export const neighbourhoodMapPoints: MapPoint[] = [
     fitSummary: "Small village community next to Belcarra Regional Park, with waterfront character.",
     housingType: "Detached homes.",
     tradeOff: "Extremely car-dependent; very limited services and transit.",
-    href: "/neighbourhoods",
-    ctaLabel: "Compare neighbourhoods",
+    href: "/neighbourhoods/belcarra",
+    ctaLabel: "See Belcarra guide preview",
   },
 ];
 
@@ -243,6 +243,8 @@ export const complexMapPoints: MapPoint[] = [
     latitude: 49.297,
     longitude: -122.843,
     isApproximate: true,
+    href: "/complexes/discovery-ridge",
+    ctaLabel: "See guide preview",
   },
   {
     id: "aria-townhomes",
@@ -251,6 +253,8 @@ export const complexMapPoints: MapPoint[] = [
     latitude: 49.28,
     longitude: -122.833,
     isApproximate: true,
+    href: "/complexes/aria-townhomes",
+    ctaLabel: "See guide preview",
   },
   {
     id: "klahanie-townhomes",
@@ -259,6 +263,8 @@ export const complexMapPoints: MapPoint[] = [
     latitude: 49.2765,
     longitude: -122.8235,
     isApproximate: true,
+    href: "/complexes/klahanie-townhomes",
+    ctaLabel: "See guide preview",
   },
   {
     id: "college-park-townhomes",
@@ -267,6 +273,8 @@ export const complexMapPoints: MapPoint[] = [
     latitude: 49.263,
     longitude: -122.865,
     isApproximate: true,
+    href: "/complexes/college-park-townhomes",
+    ctaLabel: "See guide preview",
   },
 ];
 

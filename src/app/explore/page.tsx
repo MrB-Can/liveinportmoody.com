@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Map, Building2, House, LayoutList } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { SocialFeedPlaceholder } from "@/components/social-feed-placeholder";
 import { createMetadata } from "@/lib/seo";
 import { exploreItems } from "@/lib/site";
 
@@ -186,6 +187,8 @@ export default function ExplorePage() {
           </div>
         </div>
       </section>
+
+      <SocialFeedPlaceholder />
     </>
   );
 }

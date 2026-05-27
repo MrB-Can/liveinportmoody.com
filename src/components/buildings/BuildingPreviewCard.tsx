@@ -23,8 +23,8 @@ export function BuildingPreviewCard({ building }: { building: PortMoodyBuilding 
         </div>
       </div>
       <div className="mt-6">
-        <CTAButton href={`#ask-building-${building.slug}`} variant="secondary">
-          Ask about {building.name}
+        <CTAButton href={`/buildings/${building.slug}`} variant="secondary">
+          Open preview
         </CTAButton>
       </div>
     </article>
