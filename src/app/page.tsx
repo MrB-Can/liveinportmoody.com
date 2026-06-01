@@ -3,6 +3,7 @@ import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Port Moody Real Estate Decision Engine",
@@ -292,7 +293,7 @@ export default function HomePage() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-deepInlet">Verified accolades</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">Recognition and reviews being confirmed from verified sources.</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">Reviews and recognition published from verified sources.</p>
               </div>
             </div>
           </div>
@@ -363,7 +364,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section title="Neighbourhood/map preview" tone="white">
+      <Section title="Find the right Port Moody neighbourhood" tone="white">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
             <div className="grid min-h-[360px] gap-3 sm:grid-cols-2">
@@ -548,7 +549,26 @@ export default function HomePage() {
       </Section>
 
       <Section title="Ask a local question" tone="sand">
-        <div id="ask" className="max-w-2xl">
+        <div id="ask" className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+          <div>
+            <p className="text-base leading-7 text-slateText">
+              Ask about a property, neighbourhood, listing, building, or decision you are weighing. Paul and Leilani respond with local context — not a sales pitch.
+            </p>
+            <dl className="mt-8 grid gap-5 text-sm">
+              <div>
+                <dt className="font-semibold text-deepInlet">Phone</dt>
+                <dd className="mt-1 text-slateText">{siteConfig.publicPhone}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-deepInlet">Email</dt>
+                <dd className="mt-1 text-slateText">{siteConfig.publicEmail}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-deepInlet">Office</dt>
+                <dd className="mt-1 text-slateText">eXp Realty, Port Moody BC</dd>
+              </div>
+            </dl>
+          </div>
           <LeadForm
             formType="ask-question"
             leadType="local-question"
