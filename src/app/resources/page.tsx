@@ -97,7 +97,7 @@ const researchResources: ResourceCard[] = [
 const localLifeResources: ResourceCard[] = [
   {
     title: "Local Businesses",
-    description: "Port Moody local business and community features — verified listings being added for restaurants, services, and neighbourhood staples.",
+    description: "Local cafes, breweries, services, and community groups that shape daily life in Port Moody. Nominate a business or explore what is featured.",
     cta: "Explore businesses",
     href: "/local-businesses",
   },

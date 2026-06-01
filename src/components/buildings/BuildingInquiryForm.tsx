@@ -20,47 +20,51 @@ export function BuildingInquiryForm({ buildings }: { buildings: PortMoodyBuildin
     const building = buildings.find((item) => item.slug === buildingSlug);
     const question = String(form.get("question") || "");
 
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        formType: "ask-question",
-        leadType: "buyer",
-        name: String(form.get("name") || ""),
-        email: String(form.get("email") || ""),
-        phone: String(form.get("phone") || ""),
-        message: [
-          "intent:building-inquiry",
-          `building_name: ${building?.name || "General Port Moody condo building"}`,
-          `building_slug: ${building?.slug || "general"}`,
-          `neighbourhood_slug: ${building?.neighbourhoodSlug || "port-moody"}`,
-          `Question: ${question}`,
-        ].join("\n"),
-        pagePath: "/buildings",
-        ctaLabel: "Ask about a condo building",
-        resourceName: building?.name || "Port Moody condo building inquiry",
-        consentToContact: form.get("consentToContact") === "on",
-        tags: [
-          "source:liveinportmoody",
-          "intent:buyer",
-          "intent:building-inquiry",
-          "lead_type:buyer",
-          "property:condo",
-          "area:port-moody",
-          ...(building ? [`building:${building.slug}`, `building_name:${building.name}`, `neighbourhood_slug:${building.neighbourhoodSlug}`] : []),
-        ],
-      }),
-    });
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "ask-question",
+          leadType: "buyer",
+          name: String(form.get("name") || ""),
+          email: String(form.get("email") || ""),
+          phone: String(form.get("phone") || ""),
+          message: [
+            "intent:building-inquiry",
+            `building_name: ${building?.name || "General Port Moody condo building"}`,
+            `building_slug: ${building?.slug || "general"}`,
+            `neighbourhood_slug: ${building?.neighbourhoodSlug || "port-moody"}`,
+            `Question: ${question}`,
+          ].join("\n"),
+          pagePath: "/buildings",
+          ctaLabel: "Ask about a condo building",
+          resourceName: building?.name || "Port Moody condo building inquiry",
+          consentToContact: form.get("consentToContact") === "on",
+          tags: [
+            "source:liveinportmoody",
+            "intent:buyer",
+            "intent:building-inquiry",
+            "lead_type:buyer",
+            "property:condo",
+            "area:port-moody",
+            ...(building ? [`building:${building.slug}`, `building_name:${building.name}`, `neighbourhood_slug:${building.neighbourhoodSlug}`] : []),
+          ],
+        }),
+      });
 
-    setIsSubmitting(false);
+      if (response.ok) {
+        setStatus("success");
+        event.currentTarget.reset();
+        return;
+      }
 
-    if (response.ok) {
-      setStatus("success");
-      event.currentTarget.reset();
-      return;
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setStatus("error");
   }
 
   return (

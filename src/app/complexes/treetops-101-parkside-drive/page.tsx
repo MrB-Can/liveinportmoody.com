@@ -234,7 +234,7 @@ export default function TreetopsPage() {
                 <li>Amenity building and recreation area</li>
               </ul>
             </div>
-            <p className="mt-2 text-xs text-slateText">Placeholder only. No listing or competitor photos are used.</p>
+            <p className="mt-2 text-xs text-slateText">Photos coming soon. No listing or competitor images are used.</p>
           </div>
         </div>
       </section>

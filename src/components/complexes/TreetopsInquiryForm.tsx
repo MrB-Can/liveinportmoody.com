@@ -48,53 +48,57 @@ export function TreetopsInquiryForm() {
     const selected = intentOptions.find((option) => option.label === selectedLabel) ?? intentOptions[0];
     const message = String(formData.get("message") || "");
 
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: String(formData.get("name") || ""),
-        email: String(formData.get("email") || ""),
-        phone: String(formData.get("phone") || ""),
-        message: [
-          `Help type: ${selected.label}`,
-          "complex_name: Treetops",
-          "complex_address: 101 Parkside Drive",
-          "neighbourhood_slug: heritage-mountain",
-          "property_type: townhouse",
-          "",
-          message,
-        ].join("\n"),
-        formType: selected.intent === "complex-owner-value" ? "complex-value-opinion" : "complex-inquiry",
-        leadType: selected.leadType,
-        pagePath: pathname,
-        ctaLabel: selected.label,
-        consentToContact: formData.get("consentToContact") === "on",
-        consentToSms: formData.get("consentToSms") === "on",
-        honeypot: String(formData.get("website") || ""),
-        tags: [
-          "source:liveinportmoody",
-          "complex:treetops-101-parkside-drive",
-          "complex_name:Treetops",
-          "complex_address:101 Parkside Drive",
-          "neighbourhood_slug:heritage-mountain",
-          "property:townhouse",
-          "property_type:townhouse",
-          `lead_type:${selected.leadType}`,
-          `intent:${selected.intent}`,
-        ],
-        attribution: getAttribution(),
-      }),
-    });
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: String(formData.get("name") || ""),
+          email: String(formData.get("email") || ""),
+          phone: String(formData.get("phone") || ""),
+          message: [
+            `Help type: ${selected.label}`,
+            "complex_name: Treetops",
+            "complex_address: 101 Parkside Drive",
+            "neighbourhood_slug: heritage-mountain",
+            "property_type: townhouse",
+            "",
+            message,
+          ].join("\n"),
+          formType: selected.intent === "complex-owner-value" ? "complex-value-opinion" : "complex-inquiry",
+          leadType: selected.leadType,
+          pagePath: pathname,
+          ctaLabel: selected.label,
+          consentToContact: formData.get("consentToContact") === "on",
+          consentToSms: formData.get("consentToSms") === "on",
+          honeypot: String(formData.get("website") || ""),
+          tags: [
+            "source:liveinportmoody",
+            "complex:treetops-101-parkside-drive",
+            "complex_name:Treetops",
+            "complex_address:101 Parkside Drive",
+            "neighbourhood_slug:heritage-mountain",
+            "property:townhouse",
+            "property_type:townhouse",
+            `lead_type:${selected.leadType}`,
+            `intent:${selected.intent}`,
+          ],
+          attribution: getAttribution(),
+        }),
+      });
 
-    setIsSubmitting(false);
+      if (response.ok) {
+        setStatus("success");
+        event.currentTarget.reset();
+        return;
+      }
 
-    if (response.ok) {
-      setStatus("success");
-      event.currentTarget.reset();
-      return;
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setStatus("error");
   }
 
   return (

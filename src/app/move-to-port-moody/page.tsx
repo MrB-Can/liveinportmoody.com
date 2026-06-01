@@ -351,7 +351,7 @@ export default function MoveToPortMoodyPage() {
           </Link>
           <Link href="/local-businesses" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
             <p className="font-semibold text-deepInlet">Local businesses</p>
-            <p className="mt-2 text-sm text-slateText">Port Moody local business features — restaurants, services, and community staples being added as they are verified.</p>
+            <p className="mt-2 text-sm text-slateText">Local cafes, breweries, services, and community groups that shape daily life. Nominate a business or browse what is featured.</p>
             <p className="mt-3 text-xs font-semibold text-forest">Explore businesses →</p>
           </Link>
           <Link href="/events" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
