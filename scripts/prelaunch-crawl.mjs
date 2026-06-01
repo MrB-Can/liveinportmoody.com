@@ -166,10 +166,10 @@ const KNOWN_ROUTES = new Set([
   "/complexes/college-park-townhomes",
   "/buildings/the-grande", "/buildings/50-electronic-ave",
   "/buildings/aria-1", "/buildings/aria-2", "/buildings/aria-3",
-  "/buildings/klahanie-buildings", "/buildings/newport-buildings",
-  "/buildings/suter-brook-towers", "/buildings/moody-centre-buildings",
-  "/buildings/inlet-centre-buildings", "/buildings/brewers-row",
-  "/buildings/westhill-buildings",
+  "/buildings/klahanie-buildings", "/buildings/suter-brook-buildings",
+  "/buildings/newport-village-buildings", "/buildings/platform",
+  "/buildings/george", "/buildings/sonrisa", "/buildings/the-tides",
+  "/buildings/nahanni", "/buildings/libra",
   "/preview",
 ]);
 
@@ -266,8 +266,9 @@ for (const { path, label } of ALL_PAGES.slice(0, 22)) { // core pages only for l
       }
     }
 
-    // Check internal paths that look like routes but aren't in known set
-    const pathPart = href.split("?")[0];
+    // Check internal paths that look like routes but aren't in known set.
+    // Strip #fragment before checking — /buy#section is a valid link to /buy.
+    const pathPart = href.split("?")[0].split("#")[0];
     if (pathPart.startsWith("/") && !pathPart.startsWith("/api/") &&
         !pathPart.startsWith("/_") && !KNOWN_ROUTES.has(pathPart) &&
         !pathPart.match(/\.(xml|txt|js|css|png|jpg|ico)$/)) {
@@ -488,11 +489,13 @@ sec("6 — SITEMAP AND ROBOTS SPOT CHECK");
     if (buildingUrls.length === 0) ok("No /buildings/ URLs in sitemap");
     else bad("Building URLs in sitemap", buildingUrls.slice(0, 2).join(", "));
 
-    // Note: buyer/seller guide not in sitemap (lead pages added after phase 1)
+    // buyer-guide and seller-guide should be in sitemap (added to phaseOneRoutes in Sprint 25O)
     const hasBuyerGuide = urls.some(u => u.includes("/buyer-guide"));
     const hasSellerGuide = urls.some(u => u.includes("/seller-guide"));
-    if (!hasBuyerGuide) wn("buyer-guide not in sitemap", "consider adding to phaseOneRoutes — page is now indexable");
-    if (!hasSellerGuide) wn("seller-guide not in sitemap", "consider adding to phaseOneRoutes — page is now indexable");
+    if (hasBuyerGuide) ok("buyer-guide in sitemap");
+    else wn("buyer-guide not in sitemap", "add to phaseOneRoutes in src/lib/site.ts");
+    if (hasSellerGuide) ok("seller-guide in sitemap");
+    else wn("seller-guide not in sitemap", "add to phaseOneRoutes in src/lib/site.ts");
   }
 }
 

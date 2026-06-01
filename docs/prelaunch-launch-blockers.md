@@ -3,7 +3,7 @@
 Last updated: 2026-05-31
 Deployed commit: c4921db (Sprint 25G)
 Smoke result: ✅ 71 passed | 0 warnings | 0 failed
-Crawl result: ✅ 86 passed | 20 warnings | 0 failures (Sprint 25L)
+Crawl result (Sprint 25O, pre-deploy): ✅ 90 passed | 5 warnings | 0 failures
 
 ---
 
@@ -33,9 +33,8 @@ These are not launch blockers but reduce trust, coverage, or conversion quality:
 | OG social preview image | Currently generic. Should use branded image for sharing. | Medium |
 | MLS Reciprocity search URL | `/listings` degrades to CTA if `NEXT_PUBLIC_GVR_RECIPROCITY_SEARCH_URL` is unset. | Medium — listings search won't work until configured |
 | Submit sitemap to Google Search Console | Sitemap exists and is clean. Manual submission needed. | Do within 48h of launch |
-| Add buyer-guide and seller-guide to sitemap | Both pages are indexable but not in `phaseOneRoutes`. Add to `src/app/sitemap.ts`. | Low — adds SEO coverage for lead pages |
-| Fix anchor links on Explore/Buy/Sell pages | `#schools`, `#trails`, `#transit`, `#property-type`, `#buyer-due-diligence`, `#ask-about-a-listing`, `#value-opinion` point to sections without matching anchor IDs. | Low — links don't 404 but don't scroll |
-| ListingSupportForm honeypot | `/listings` form has no honeypot field (unlike LeadForm). Not a blocker while gated. | Low — add before heavy traffic |
+| Deploy Sprint 25O sitemap fix | buyer-guide and seller-guide added to `phaseOneRoutes` in code — will appear in sitemap after next deploy. | Deploy when ready |
+| Fix anchor links on Explore/Buy/Sell pages | `#schools`, `#trails`, `#transit` on Explore link to sections that don't yet have IDs. Buy/Sell anchors are already correct in code. | Low — links don't 404 but Explore ones don't scroll |
 | Neighbourhood guide photos | 13 neighbourhood guides exist as previews. Photo content is the primary gap. | Ongoing — can launch without; publish as ready |
 | Publish remaining neighbourhood guides | Only Heritage Mountain is status "published". Others are "preview" with noindex. | Ongoing — publish one at a time as content is ready |
 | Publish remaining complex guides | Only Treetops is "guide-live". Others are preview. | Ongoing |

@@ -259,7 +259,7 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Commute and Transit */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
+      <section id="transit" className="mx-auto max-w-4xl px-5 py-12">
         <h2 className="font-heading text-2xl text-deepInlet mb-3">Commute and transit reality</h2>
         <p className="text-slateText mb-6">
           Port Moody has SkyTrain access, bus routes, major roads, and regional connections, but daily convenience depends heavily on the neighbourhood. Suter Brook, Newport Village, Klahanie, and Moody Centre feel very different from Heritage Mountain, College Park, Glenayre, Pleasantside, or Ioco.
@@ -275,7 +275,7 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Schools and Family */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
+      <section id="schools" className="mx-auto max-w-4xl px-5 py-12 bg-mist">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Schools and family considerations</h2>
           <p className="text-slateText mb-6">
@@ -292,7 +292,7 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Parks, Trails, and Lifestyle */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
+      <section id="trails" className="mx-auto max-w-4xl px-5 py-12">
         <h2 className="font-heading text-2xl text-deepInlet mb-3">Parks, trails, water, and village life</h2>
         <div className="grid gap-4 md:grid-cols-2 mb-6">
           {parksTrailsCards.map((card) => (

@@ -282,4 +282,6 @@ export const phaseOneRoutes = [
   "/contact",
   "/privacy",
   "/terms",
+  "/buyer-guide",
+  "/seller-guide",
 ];

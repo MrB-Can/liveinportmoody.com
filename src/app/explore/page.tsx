@@ -54,7 +54,7 @@ const guideSections = [
   },
   {
     title: "Schools",
-    href: "/resources#schools",
+    href: "/move-to-port-moody#schools",
     body: "Use school context carefully as one part of the broader neighbourhood and commute decision.",
   },
   {

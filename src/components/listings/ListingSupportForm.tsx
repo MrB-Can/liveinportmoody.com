@@ -28,6 +28,7 @@ export function ListingSupportForm() {
     const listingUrl = String(form.get("listingUrl") || "");
     const listingAddress = String(form.get("listingAddress") || "");
     const question = String(form.get("question") || "");
+    const honeypot = String(form.get("honeypot") || "");
 
     try {
       const response = await fetch("/api/lead", {
@@ -39,6 +40,7 @@ export function ListingSupportForm() {
           name: String(form.get("name") || ""),
           email: String(form.get("email") || ""),
           phone: String(form.get("phone") || ""),
+          honeypot: honeypot || undefined,
           message: [
             "Listing support request",
             "intent:listing-search-support",
@@ -123,6 +125,10 @@ export function ListingSupportForm() {
         <label className="flex gap-3 text-sm leading-6 text-slateText">
           <input name="consentToContact" className="mt-1 h-4 w-4" type="checkbox" defaultChecked />
           I consent to Live in Port Moody contacting me about this request by email or phone.
+        </label>
+        <label className="hidden">
+          Leave this field blank
+          <input name="honeypot" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
       <button
