@@ -21,8 +21,8 @@ const CATEGORY_BADGE: Record<MapCategory, { tone: "forest" | "blue" | "sea" | "s
 };
 
 export const metadata = createMetadata({
-  title: "Port Moody Neighbourhood Guide",
-  description: "Compare Port Moody neighbourhoods by lifestyle, housing type, walkability, schools, transit, parks, development, and buyer fit.",
+  title: "Port Moody Neighbourhoods and Communities Guide",
+  description: "Compare Port Moody neighbourhoods and nearby communities by lifestyle, housing type, walkability, schools, transit, trails, and buyer fit.",
   path: "/neighbourhoods",
 });
 
@@ -73,15 +73,16 @@ export default function NeighbourhoodsPage() {
       <section className="bg-gradient-to-b from-mist to-white px-5 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
           <h1 className="font-heading text-4xl md:text-5xl text-deepInlet">
-            Find the Port Moody neighbourhood that actually fits your life.
+            Find the Port Moody neighbourhood or nearby community that actually fits your life.
           </h1>
           <p className="mt-4 text-lg text-slateText mb-2">
             Port Moody is small, but its neighbourhoods are very different. Walkable condo areas, family townhouse communities, hillside detached homes, and quiet established streets all attract different buyers and come with different trade-offs.
           </p>
-          <p className="text-slateText">Use this guide to compare lifestyle, housing type, walkability, schools, transit, trails, and buyer fit.</p>
+          <p className="text-slateText">Use this guide to compare lifestyle, housing type, walkability, transit, trails, and buyer fit. School assumptions should always be verified by exact address before relying on them.</p>
           <div className="mt-8 flex gap-3 flex-col sm:flex-row sm:flex-wrap">
             <CTAButton href="#neighbourhood-guidance">Find my best-fit area</CTAButton>
             <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
+            <CTAButton href="/local-life" variant="ghost">Explore local life</CTAButton>
           </div>
         </div>
       </section>

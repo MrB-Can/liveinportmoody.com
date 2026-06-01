@@ -19,7 +19,7 @@ const topicCards = [
   { label: "Presales and new builds", href: "/presales" },
   { label: "Recent sales context", href: "/request-recent-sales" },
   { label: "Buyer or seller guide request", href: "/buyer-guide" },
-  { label: "Local business or event suggestion", href: "/local-businesses" },
+  { label: "Local business or event suggestion", href: "/featured-businesses" },
 ];
 
 export default function ContactPage() {
@@ -93,7 +93,7 @@ export default function ContactPage() {
             "Listing questions get neighbourhood and building context",
             "Strata questions get document review guidance",
             "Relocation questions get area-fit and lifestyle context",
-            "Market questions get current local context without fake stats",
+            "Market questions get current local context without unsupported stats",
           ].map((item) => (
             <div key={item} className="rounded-lg border border-softBorder bg-white px-5 py-4 text-sm text-slateText">
               {item}

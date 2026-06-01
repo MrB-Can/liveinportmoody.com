@@ -11,16 +11,20 @@ export const metadata = createMetadata({
 
 const eventGroups = [
   {
-    title: "Community events",
-    body: "Civic gatherings, community fundraisers, public Port Moody activities, arts, recreation, and events that help residents connect with the city.",
+    title: "Family",
+    body: "Family-friendly events are useful for buyers comparing routines, weekends, schools, parks, and community fit.",
   },
   {
-    title: "Seasonal events",
-    body: "Spring, summer, fall, and winter events can help people understand how Port Moody changes through the year.",
+    title: "Outdoors",
+    body: "Outdoor events can help people understand waterfront, park, recreation, and seasonal lifestyle patterns after details are verified.",
   },
   {
-    title: "Family events",
-    body: "Kid-friendly and family-oriented events are useful for buyers comparing routines, weekends, schools, parks, and community fit.",
+    title: "Markets",
+    body: "Markets and seasonal gatherings can shape local routines when host, date, location, and public source details are confirmed.",
+  },
+  {
+    title: "Arts and culture",
+    body: "Arts, culture, civic, and community gatherings can be included when the organizer and public event details are confirmed.",
   },
   {
     title: "Real estate and community events",
@@ -49,7 +53,8 @@ export default function EventsPage() {
             Current dates and event details will be listed only after they are checked.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="/contact">Suggest a Port Moody event</CTAButton>
+            <CTAButton href="#suggest-event">Suggest a Port Moody event</CTAButton>
+            <CTAButton href="/local-life" variant="secondary">Explore Local Life</CTAButton>
             <CTAButton href="/explore" variant="ghost">Explore Port Moody</CTAButton>
           </div>
         </div>
