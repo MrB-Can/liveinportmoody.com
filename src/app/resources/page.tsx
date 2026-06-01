@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { createMetadata } from "@/lib/seo";
 import { CTAButton } from "@/components/cta-button";
+import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
+import { Section } from "@/components/section";
+import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "Port Moody Real Estate Resources | Buyer, Seller, Strata and Neighbourhood Guides",
@@ -9,77 +11,129 @@ export const metadata = createMetadata({
   path: "/resources",
 });
 
-const categoryCards = [
+type ResourceCard = { title: string; description: string; cta: string; href: string };
+
+const buyingResources: ResourceCard[] = [
   {
-    title: "Buyer resources",
-    description: "Guides for neighbourhood selection, property types, listings, strata documents, and offer preparation.",
+    title: "Buyer Guide",
+    description: "Request the Port Moody buyer guide. Covers neighbourhood selection, property types, strata documents, offer preparation, and common mistakes.",
+    cta: "Request the buyer guide",
+    href: "/buyer-guide",
   },
   {
-    title: "Seller resources",
-    description: "Preparation, pricing, media, positioning, and micro-market value context.",
+    title: "First-Time Buyers",
+    description: "Step-by-step guidance for first-time home buyers in Port Moody — process, closing costs, strata basics, and area fit.",
+    cta: "Start here",
+    href: "/first-time-home-buyers",
   },
   {
-    title: "Strata resources",
-    description: "Form B, minutes, depreciation reports, insurance, bylaws, fees, pets, rentals, parking, and storage.",
+    title: "Active Listings",
+    description: "Search active Port Moody listings through MLS Reciprocity and ask for local context on buildings, complexes, and neighbourhoods.",
+    cta: "View listings",
+    href: "/listings",
   },
   {
-    title: "Neighbourhood resources",
-    description: "Compare areas by lifestyle, housing, walkability, schools, transit, trails, and trade-offs.",
-  },
-  {
-    title: "Moving resources",
-    description: "Port Moody relocation, commute, schools, trails, village areas, and property type decisions.",
-  },
-  {
-    title: "Market resources",
-    description: "Local qualitative market context, active listings, buyer demand, and property-type considerations.",
+    title: "Request Recent Sales Context",
+    description: "Request comparable sales context where permitted. Sold data availability depends on applicable rules and professional context.",
+    cta: "Request context",
+    href: "/request-recent-sales",
   },
 ];
 
-const featuredResources = [
+const sellingResources: ResourceCard[] = [
   {
-    title: "Buyer Decision Checklist",
-    cta: "Read buyer checklist",
-    link: "/buy",
+    title: "Seller Guide",
+    description: "Request the Port Moody seller guide. Covers preparation, pricing, positioning, media, and launch planning for your specific property type.",
+    cta: "Request the seller guide",
+    href: "/seller-guide",
   },
   {
-    title: "Seller Prep Checklist",
-    cta: "Read seller checklist",
-    link: "/sell",
+    title: "Request Recent Sales Context",
+    description: "Ask for recent sales context to understand how your property compares to recent activity in your neighbourhood or building.",
+    cta: "Request context",
+    href: "/request-recent-sales",
   },
   {
-    title: "Strata Review Notes",
-    cta: "Review strata basics",
-    link: "#strata-section",
+    title: "Testimonials",
+    description: "Approved client stories and reviews from buyers and sellers who worked with Paul and Leilani in Port Moody.",
+    cta: "View testimonials",
+    href: "/testimonials",
   },
   {
-    title: "Moving to Port Moody Starter Guide",
-    cta: "Start relocation guide",
-    link: "/move-to-port-moody",
+    title: "Accolades",
+    description: "Verified recognition, community involvement, and professional background of Leilani Fong PREC and Paul Bennett.",
+    cta: "View accolades",
+    href: "/accolades",
   },
+];
+
+const researchResources: ResourceCard[] = [
   {
-    title: "Port Moody Neighbourhood Comparison",
+    title: "Neighbourhood Guides",
+    description: "Compare Port Moody neighbourhoods by lifestyle, housing type, walkability, schools, transit, trails, and buyer trade-offs.",
     cta: "Compare neighbourhoods",
-    link: "/neighbourhoods",
+    href: "/neighbourhoods",
   },
   {
-    title: "Townhouse Complex Research Guide",
-    cta: "Research townhouse complexes",
-    link: "/complexes",
+    title: "Condo Buildings",
+    description: "Review condo buildings by location, age, strata considerations, walkability, transit access, and buyer fit.",
+    cta: "Research buildings",
+    href: "/buildings",
   },
   {
-    title: "Condo Building Research Guide",
-    cta: "Research condo buildings",
-    link: "/buildings",
+    title: "Townhouse Complexes",
+    description: "Compare townhouse complexes by neighbourhood, layout, parking, outdoor space, strata health, and buyer considerations.",
+    cta: "Research complexes",
+    href: "/complexes",
   },
   {
-    title: "Market Context Guide",
-    cta: "View market context",
-    link: "/market",
+    title: "Moving to Port Moody",
+    description: "A practical guide to Port Moody lifestyle, commute, schools, trails, housing types, neighbourhoods, and relocation decisions.",
+    cta: "Relocation guide",
+    href: "/move-to-port-moody",
   },
 ];
 
-const strataContextCards = [
+const localLifeResources: ResourceCard[] = [
+  {
+    title: "Local Businesses",
+    description: "Port Moody local business and community features — verified listings being added for restaurants, services, and neighbourhood staples.",
+    cta: "Explore businesses",
+    href: "/local-businesses",
+  },
+  {
+    title: "Events",
+    description: "Community, seasonal, family, and real estate events in Port Moody — added only after dates and details are verified.",
+    cta: "View events",
+    href: "/events",
+  },
+  {
+    title: "Presales and New Builds",
+    description: "Get notified about verified Port Moody presale and new-build projects when there is current context worth reviewing.",
+    cta: "Get presale updates",
+    href: "/presales",
+  },
+  {
+    title: "FAQ",
+    description: "Straight answers to common Port Moody real estate questions about buying, selling, strata, neighbourhoods, and the market.",
+    cta: "View FAQ",
+    href: "/faq",
+  },
+  {
+    title: "Generational Wealth",
+    description: "Long-term real estate thinking — family help, rental decisions, cash flow, taxes, leverage, and planning for future generations.",
+    cta: "Learn more",
+    href: "/generational-wealth-real-estate",
+  },
+  {
+    title: "Market Context",
+    description: "Qualitative Port Moody market context by property type. Understand buyer demand and active listing landscape without fake statistics.",
+    cta: "View market context",
+    href: "/market",
+  },
+];
+
+const strataItems = [
   "Form B",
   "Strata minutes",
   "Depreciation report",
@@ -91,7 +145,7 @@ const strataContextCards = [
   "Special levies and capital projects",
 ];
 
-const faqItems = [
+const faqs = [
   {
     question: "What should I read before buying in Port Moody?",
     answer:
@@ -110,7 +164,7 @@ const faqItems = [
   {
     question: "How do I compare neighbourhoods?",
     answer:
-      "Use the neighbourhood comparison tool to see areas side by side by lifestyle, housing type, walkability, schools, transit, trails, and trade-offs. Then dive into detailed neighbourhood guides.",
+      "Use the neighbourhood guides to compare areas side by side by lifestyle, housing type, walkability, schools, transit, trails, and trade-offs. Then dive into detailed neighbourhood guides.",
   },
   {
     question: "Can I ask about a specific listing, building, or complex?",
@@ -124,173 +178,162 @@ const faqItems = [
   },
 ];
 
+function ResourceGroup({ resources }: { resources: ResourceCard[] }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {resources.map((r) => (
+        <article key={r.href} className="flex flex-col rounded-lg border border-softBorder bg-white p-6">
+          <h3 className="font-heading text-xl text-deepInlet">{r.title}</h3>
+          <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{r.description}</p>
+          <div className="mt-5">
+            <CTAButton href={r.href} variant="secondary">{r.cta}</CTAButton>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function ResourcesPage() {
   return (
     <>
-      {/* Hero */}
       <section className="bg-gradient-to-b from-mist to-white px-5 py-12 md:py-16">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Resource library</p>
           <h1 className="font-heading text-4xl md:text-5xl text-deepInlet">Port Moody real estate resources</h1>
-          <p className="mt-4 text-lg text-slateText mb-2">
-            Practical guides, checklists, and local research tools for buying, selling, moving, comparing neighbourhoods, reviewing strata documents, and understanding Port Moody real estate decisions.
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
+            Practical guides, checklists, and local research for buying, selling, moving, comparing neighbourhoods, reviewing strata documents, and understanding Port Moody real estate.
           </p>
           <div className="mt-8 flex gap-3 flex-col sm:flex-row sm:flex-wrap">
-            <CTAButton href="#resource-categories">Browse resources</CTAButton>
-            <CTAButton href="#ask-a-question" variant="ghost">Ask a local question</CTAButton>
+            <CTAButton href="#buying">Buying resources</CTAButton>
+            <CTAButton href="#selling" variant="secondary">Selling resources</CTAButton>
+            <CTAButton href="#ask-a-question" variant="ghost">Ask a question</CTAButton>
           </div>
         </div>
       </section>
 
-      {/* Resource Categories */}
-      <section id="resource-categories" className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-6">Resource categories</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {categoryCards.map((card) => (
-            <div key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
-              <h3 className="font-semibold text-deepInlet mb-2">{card.title}</h3>
-              <p className="text-sm text-slateText">{card.description}</p>
+      <Section
+        id="buying"
+        eyebrow="Buying in Port Moody"
+        title="Buyer resources"
+        intro="Guides for neighbourhood selection, property types, listings, strata document review, and offer preparation."
+        tone="white"
+      >
+        <ResourceGroup resources={buyingResources} />
+      </Section>
+
+      <Section
+        id="selling"
+        eyebrow="Selling in Port Moody"
+        title="Seller resources"
+        intro="Preparation guides, pricing context, media planning, and micro-market value analysis for your Port Moody property."
+      >
+        <ResourceGroup resources={sellingResources} />
+      </Section>
+
+      <Section
+        eyebrow="Research and compare"
+        title="Research Port Moody"
+        intro="Neighbourhood guides, building and complex research, market context, and relocation planning."
+        tone="white"
+      >
+        <ResourceGroup resources={researchResources} />
+      </Section>
+
+      <Section
+        eyebrow="More resources"
+        title="Local life and guidance"
+        intro="Local businesses, events, presales, FAQ, generational wealth, and market context."
+      >
+        <ResourceGroup resources={localLifeResources} />
+      </Section>
+
+      <Section
+        id="strata-section"
+        eyebrow="Strata documents"
+        title="Strata documents buyers should understand"
+        intro="For condos and townhouses, the strata can matter as much as the unit. Always verify current documents for the specific property."
+        tone="white"
+      >
+        <div className="grid gap-3 md:grid-cols-3">
+          {strataItems.map((item) => (
+            <div key={item} className="rounded-lg border border-softBorder bg-mist px-5 py-4 text-sm font-semibold text-deepInlet">
+              {item}
             </div>
           ))}
         </div>
-      </section>
+        <div className="mt-6">
+          <CTAButton href="#ask-a-question" variant="secondary">Ask about a strata document</CTAButton>
+        </div>
+      </Section>
 
-      {/* Featured Resources */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-6">Featured resources</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {featuredResources.map((resource) => (
-              <Link
-                key={resource.title}
-                href={resource.link}
-                className="rounded-lg border border-softBorder bg-white p-6 hover:shadow-md transition-shadow"
-              >
-                <h3 className="font-semibold text-deepInlet mb-3">{resource.title}</h3>
-                <span className="text-sm font-semibold text-forest hover:text-deepInlet">{resource.cta} →</span>
-              </Link>
-            ))}
+      <Section
+        id="ask-a-question"
+        eyebrow="Have a question?"
+        title="Ask a local Port Moody question"
+        intro="Ask about a listing, building, complex, neighbourhood, strata document, commute, school area, sale, or move."
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
+            <h3 className="font-heading text-2xl">What can you ask?</h3>
+            <ul className="mt-4 space-y-2 text-sm text-mist">
+              {[
+                "Buying in Port Moody",
+                "Selling in Port Moody",
+                "Neighbourhood guidance",
+                "Building or complex questions",
+                "Strata document review",
+                "Recent sales context",
+                "Presales and new builds",
+                "Relocation planning",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <span className="text-seaGlass">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+          <LeadForm
+            formType="ask-question"
+            leadType="local-question"
+            ctaLabel="Ask a local question"
+            title="Send your question"
+            messageLabel="What would you like to know about Port Moody real estate?"
+            tags={["source:liveinportmoody", "intent:general-local-question", "area:port-moody"]}
+          />
         </div>
-      </section>
+      </Section>
 
-      {/* Buyer Resources Section */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Buyer resources</h2>
-        <p className="text-slateText mb-6">
-          Guides for neighbourhood selection, understanding property types, researching listings, reviewing strata documents for condos and townhouses, and preparing for offers.
-        </p>
-        <Link href="/buy" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-          Read buyer guide
-        </Link>
-      </section>
+      <Section title="Frequently asked questions" tone="white">
+        <FAQAccordion items={faqs} />
+      </Section>
 
-      {/* Seller Resources Section */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Seller resources</h2>
-          <p className="text-slateText mb-6">
-            Preparation guides, pricing discussion context, media planning, buyer positioning strategies, and micro-market value analysis for your Port Moody property.
-          </p>
-          <Link href="/sell" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-            Read seller guide
-          </Link>
-        </div>
-      </section>
-
-      {/* Strata Resources Section */}
-      <section id="strata-section" className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Strata documents buyers should understand</h2>
-        <p className="text-slateText mb-6">
-          For condos and townhouses, the strata can matter as much as the unit. Always verify current documents for the specific property.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2 mb-6">
-          {strataContextCards.map((card) => (
-            <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
-              <p className="text-sm font-semibold text-deepInlet">{card}</p>
+      <Section tone="sand">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-lg border border-softBorder bg-white p-5">
+            <p className="font-semibold text-deepInlet">Not sure where to start?</p>
+            <p className="mt-2 text-sm text-slateText">Use the Explore hub to move between neighbourhoods, buildings, listings, and buyer or seller resources.</p>
+            <div className="mt-4">
+              <Link href="/explore" className="text-sm font-semibold text-forest hover:underline">Explore Port Moody →</Link>
             </div>
-          ))}
-        </div>
-        <CTAButton href="#ask-a-question">Ask about a strata document</CTAButton>
-      </section>
-
-      {/* Neighbourhood Resources Section */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Neighbourhood resources</h2>
-          <p className="text-slateText mb-6">
-            Compare Port Moody areas side by side by lifestyle, housing types, walkability, schools, transit, trails, and trade-offs. Then dive into detailed neighbourhood guides for areas that match your priorities.
-          </p>
-          <Link href="/neighbourhoods" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-            Compare neighbourhoods
-          </Link>
-        </div>
-      </section>
-
-      {/* Moving Resources Section */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Moving to Port Moody resources</h2>
-        <p className="text-slateText mb-6">
-          Understand Port Moody lifestyle, commute patterns, schools, trails, village areas, and how different neighbourhoods compare. Get practical guidance for relocation planning.
-        </p>
-        <Link href="/move-to-port-moody" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-          Start relocation guide
-        </Link>
-      </section>
-
-      {/* Market Resources Section */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Market context resources</h2>
-          <p className="text-slateText mb-6">
-            Qualitative Port Moody market context by property type and neighbourhood. Understand buyer demand, seller positioning strategies, and active listing landscape without fake statistics.
-          </p>
-          <Link href="/market" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-            View market context
-          </Link>
-        </div>
-      </section>
-
-      {/* Ask a Question CTA */}
-      <section id="ask-a-question" className="mx-auto max-w-4xl px-5 py-12">
-        <div className="rounded-lg border border-softBorder bg-sand p-8">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Have a Port Moody question that is not answered here?</h2>
-          <p className="text-slateText mb-6">
-            Ask about a listing, building, complex, neighbourhood, strata document, commute, school area, sale, or move.
-          </p>
-          <div className="max-w-md">
-            <LeadForm
-              formType="ask-question"
-              leadType="local-question"
-              ctaLabel="Ask a local question"
-              title="Ask a Port Moody question"
-              messageLabel="What would you like to know about Port Moody real estate?"
-              tags={["source:liveinportmoody", "intent:general-local-question", "area:port-moody"]}
-            />
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-5">
+            <p className="font-semibold text-deepInlet">Ready to buy?</p>
+            <p className="mt-2 text-sm text-slateText">Use the buyer journey to compare areas, property types, buildings, and listings with local context.</p>
+            <div className="mt-4">
+              <Link href="/buy" className="text-sm font-semibold text-forest hover:underline">Buyer guidance →</Link>
+            </div>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-5">
+            <p className="font-semibold text-deepInlet">Thinking about selling?</p>
+            <p className="mt-2 text-sm text-slateText">Use the seller journey to understand pricing, preparation, positioning, and launch strategy.</p>
+            <div className="mt-4">
+              <Link href="/sell" className="text-sm font-semibold text-forest hover:underline">Seller guidance →</Link>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-2">Frequently asked questions</h2>
-          <p className="text-slateText mb-8">Common questions about Port Moody real estate resources and how to use them.</p>
-
-          <div className="space-y-3">
-            {faqItems.map((item, index) => (
-              <details key={index} className="rounded-lg border border-softBorder overflow-hidden group">
-                <summary className="w-full flex items-center justify-between p-5 hover:bg-white transition-colors text-left cursor-pointer font-semibold text-deepInlet">
-                  {item.question}
-                  <span className="group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div className="px-5 py-4 bg-white/50 border-t border-softBorder">
-                  <p className="text-sm text-slateText leading-6">{item.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      </Section>
     </>
   );
 }

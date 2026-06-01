@@ -330,6 +330,43 @@ export default function MoveToPortMoodyPage() {
         </div>
       </section>
 
+      {/* Next steps */}
+      <section className="mx-auto max-w-4xl px-5 py-12">
+        <h2 className="font-heading text-2xl text-deepInlet mb-6">Next steps for Port Moody movers</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Link href="/buyer-guide" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+            <p className="font-semibold text-deepInlet">Request the buyer guide</p>
+            <p className="mt-2 text-sm text-slateText">Covers neighbourhood selection, property types, strata documents, and offer preparation for Port Moody buyers.</p>
+            <p className="mt-3 text-xs font-semibold text-forest">Request the guide →</p>
+          </Link>
+          <Link href="/first-time-home-buyers" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+            <p className="font-semibold text-deepInlet">First-time buyers</p>
+            <p className="mt-2 text-sm text-slateText">Step-by-step guidance for first-time home buyers in Port Moody — process, costs, strata basics, and area fit.</p>
+            <p className="mt-3 text-xs font-semibold text-forest">Start here →</p>
+          </Link>
+          <Link href="/presales" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+            <p className="font-semibold text-deepInlet">Presales and new builds</p>
+            <p className="mt-2 text-sm text-slateText">Get notified about verified Port Moody presale and new-build projects when there is current context worth reviewing.</p>
+            <p className="mt-3 text-xs font-semibold text-forest">Get updates →</p>
+          </Link>
+          <Link href="/local-businesses" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+            <p className="font-semibold text-deepInlet">Local businesses</p>
+            <p className="mt-2 text-sm text-slateText">Port Moody local business features — restaurants, services, and community staples being added as they are verified.</p>
+            <p className="mt-3 text-xs font-semibold text-forest">Explore businesses →</p>
+          </Link>
+          <Link href="/events" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+            <p className="font-semibold text-deepInlet">Events</p>
+            <p className="mt-2 text-sm text-slateText">Community, seasonal, family, and real estate events in Port Moody — added when dates and details are verified.</p>
+            <p className="mt-3 text-xs font-semibold text-forest">View events →</p>
+          </Link>
+          <Link href="/contact" className="rounded-lg border border-softBorder bg-deepInlet p-5 text-white transition hover:bg-forest">
+            <p className="font-semibold">Ask a local question</p>
+            <p className="mt-2 text-sm text-mist">Ask about a specific area, commute, school, property type, or lifestyle fit. We respond personally.</p>
+            <p className="mt-3 text-xs font-semibold text-seaGlass">Contact Paul and Leilani →</p>
+          </Link>
+        </div>
+      </section>
+
       {/* Relocation CTA */}
       <section id="relocation-guidance" className="mx-auto max-w-4xl px-5 py-12 bg-sand">
         <div className="rounded-lg border border-softBorder bg-white p-8">
