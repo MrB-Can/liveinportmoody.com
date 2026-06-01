@@ -19,8 +19,8 @@ export default function AboutPage() {
       <TeamSection />
       <Section title="How we help sellers" tone="white" intro="Seller work focuses on value, timing, preparation, local positioning, media, buyer targeting, and negotiation." />
       <Section title="How we help buyers" intro="Buyer work focuses on lifestyle fit, property type, strata considerations, commute patterns, future context, and resale risk." />
-      <Section title="Intro video" tone="white"><VideoBlock title="Why we built Live in Port Moody" description="A short local introduction video is planned for this section." /></Section>
-      <Section title="Contact CTA" tone="sand"><CTAButton href="/contact">Ask a Port Moody question</CTAButton></Section>
+      <Section title="Intro video" tone="white"><VideoBlock title="Why we built Live in Port Moody" description="A short video introducing our local approach to Port Moody real estate, research, and client service." /></Section>
+      <Section title="Ask a Port Moody question" tone="sand"><CTAButton href="/contact">Contact Paul and Leilani</CTAButton></Section>
     </>
   );
 }

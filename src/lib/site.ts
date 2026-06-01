@@ -163,7 +163,7 @@ export const exploreItems = [
   {
     label: "Request Recent Sales",
     href: "/request-recent-sales",
-    description: "Get real sold data for the buildings, complexes, and areas you're comparing.",
+    description: "Request comparable sales context for the buildings, complexes, and areas you're comparing.",
     group: "Property Search",
   },
   {

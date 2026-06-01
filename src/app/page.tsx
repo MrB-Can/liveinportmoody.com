@@ -116,25 +116,25 @@ const leadMagnetCards = [
 const communityCards = [
   {
     title: "Local businesses",
-    copy: "Verified local business and community features will help explain daily life in Port Moody without invented listings.",
+    copy: "Local cafes, breweries, fitness, services, and community groups that shape daily life in Port Moody.",
     cta: "Explore businesses",
     href: "/local-businesses",
   },
   {
     title: "Events",
-    copy: "Community, seasonal, family, and real estate events will be added only after dates and hosts are verified.",
+    copy: "Community, seasonal, and family events that help you understand what living in Port Moody feels like.",
     cta: "View events",
     href: "/events",
   },
   {
     title: "Testimonials",
-    copy: "Approved Google reviews and client stories will be added only when the public source or client approval is confirmed.",
-    cta: "View trust page",
+    copy: "Client stories and approved public reviews from buyers, sellers, and relocators who worked with Paul and Leilani.",
+    cta: "View client stories",
     href: "/testimonials",
   },
   {
     title: "Accolades",
-    copy: "Verified recognition, community involvement, and professional background will be added without invented awards or rankings.",
+    copy: "Professional recognition, community involvement, and background for Leilani Fong PREC and Paul Bennett.",
     cta: "View recognition",
     href: "/accolades",
   },
@@ -375,7 +375,7 @@ export default function HomePage() {
 
       <Section
         title="Research homes"
-        intro="Use neighbourhood context, building notes, complex research, and live listing conversations together. The goal is to understand what you are buying before the offer deadline."
+        intro="Use neighbourhood context, building notes, complex research, and active listing conversations together. The goal is to understand what you are buying before the offer deadline."
         tone="white"
       >
         <div className="grid gap-4 md:grid-cols-3">
@@ -464,8 +464,8 @@ export default function HomePage() {
       </Section>
 
       <Section
-        title="Trust and community coverage"
-        intro="Community and trust pages are intentionally conservative until details are verified. Approved testimonials and verified recognition will be added here before public launch."
+        title="Community and local life"
+        intro="Local business features, community events, client stories, and professional recognition — built with verified content only."
         tone="white"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -483,20 +483,20 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section title="Public trust assets in progress" tone="sand">
+      <Section title="Client stories and recognition" tone="sand">
         <div className="rounded-lg border border-softBorder bg-white p-6 md:p-8">
           <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Trust</p>
-              <h2 className="mt-3 font-heading text-3xl text-deepInlet">Verified social proof will be added carefully.</h2>
+              <h2 className="mt-3 font-heading text-3xl text-deepInlet">Client stories and verified recognition.</h2>
             </div>
             <div>
               <p className="text-sm leading-6 text-slateText">
-                Approved testimonials, client stories, Google review links, accolades, and community involvement details will be added only after the source and permission are confirmed.
+                Testimonials, client stories, Google reviews, and professional recognition are published from verified public sources or with client approval. No invented reviews, rankings, or awards.
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <CTAButton href="/testimonials" variant="secondary">View testimonials page</CTAButton>
-                <CTAButton href="/accolades" variant="ghost">View recognition page</CTAButton>
+                <CTAButton href="/testimonials" variant="secondary">View client stories</CTAButton>
+                <CTAButton href="/accolades" variant="ghost">View recognition</CTAButton>
               </div>
             </div>
           </div>

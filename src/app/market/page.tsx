@@ -4,7 +4,7 @@ import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 
 export const metadata = createMetadata({
-  title: "Port Moody Market Intelligence | Live in Port Moody",
+  title: "Port Moody Market Intelligence",
   description: "Local Port Moody real estate market context for buyers, sellers, and owners, including property types, neighbourhoods, strata considerations, buyer demand, and active listing guidance.",
   path: "/market",
 });
