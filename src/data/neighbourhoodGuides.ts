@@ -11,7 +11,7 @@ export type PhotoStatus = "not_started" | "in_progress" | "complete" | "pending_
 export interface SchoolInfo {
   name: string;
   type: "elementary" | "secondary" | "k-12";
-  catchmentNote?: string;
+  assignmentNote?: string;
   district: string;
   verificationLink?: string;
 }
@@ -134,12 +134,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         name: "Glenayre Elementary",
         type: "elementary",
-        catchmentNote: "Some homes may fall within catchment; verify with SD43",
+        assignmentNote: "Some homes may be associated with this school; verify exact address with SD43",
         district: "School District 43 (Port Moody)",
         verificationLink: "https://www.sd43.bc.ca"
       }
     ],
-    schoolVerificationNote: "School catchments change; always verify exact address with SD43 before assuming enrollment.",
+    schoolVerificationNote: "School assignment can change and varies by exact address. Verify with SD43 before assuming enrollment.",
 
     parks: [
       {
@@ -175,7 +175,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Hillside properties need careful assessment of grading, drainage, and water management",
       "Parking and garage usability vary; verify for specific unit",
       "Unit exposure, privacy, and view vary significantly",
-      "Consider proximity to schools but verify catchment separately"
+      "Consider proximity to schools but verify exact address assignment separately"
     ],
 
     sellerNotes: [
@@ -276,7 +276,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     walkabilityNotes: "Limited daily walkability. Most residents drive for groceries and services. Trail and park access on foot from many locations.",
 
     buyerNotes: [
-      "Verify school assignment with SD43 for the specific address before relying on any catchment assumption",
+      "Verify school assignment with SD43 for the specific address before relying on any school assumption",
       "Review home condition, age, and any updates or renovation history",
       "Check parking, storage, and outdoor space for the specific property",
       "Assess commute routes toward central Port Moody, Coquitlam, and other destinations"
@@ -365,7 +365,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Assess hillside factors: drainage, retaining walls, driveway grade, and winter practicality",
       "Review home condition, roof, foundation, electrical, and any renovation history",
       "Verify school assignment with SD43 for the specific address",
-      "Check commute routes and transit access based on your daily routine",
+      "Check daily travel routes and transit access based on your routine",
       "Confirm parking and outdoor space for the specific property"
     ],
 
@@ -373,7 +373,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight established neighbourhood character, mature trees, and quiet streets",
       "Emphasize lot size, privacy, and any home improvements or updates",
       "Market to family buyers and those seeking a quieter residential setting",
-      "Use cautious school language; direct buyers to SD43 verification"
+      "Use cautious school language; direct buyers to SD43 verification",
+      "Prepare clear documentation for renovations, drainage work, retaining walls, or major maintenance where relevant"
     ],
 
     relatedComplexes: [],
@@ -401,6 +402,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Which schools serve Mountain Meadows?",
         answer: "School assignment varies by exact address. Verify specific elementary, middle, and secondary school assignments with SD43 at https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx before making any school-related assumptions."
+      },
+      {
+        question: "What should buyers watch for on hillside streets?",
+        answer: "Buyers should review drainage, retaining walls, driveway grade, stairs, winter access, and parking for the specific property. These factors can matter as much as the home layout."
+      },
+      {
+        question: "How should sellers prepare a Mountain Meadows listing?",
+        answer: "Sellers should document updates, maintenance, drainage work, roof age, and any improvements that reduce buyer uncertainty. Quiet streets, mature trees, privacy, and usable outdoor space are useful positioning points."
       }
     ],
     latitude: 49.32,
@@ -428,7 +437,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     ],
 
     schools: [],
-    schoolVerificationNote: "Downtown catchments in Port Moody can vary significantly by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify exact school assignment for your property address before relying on any school assumption.",
+    schoolVerificationNote: "School assignment in central Port Moody can vary significantly by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify exact school assignment for your property address before relying on any school assumption.",
 
     parks: [
       {
@@ -491,7 +500,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     faq: [
       {
         question: "What schools serve Moody Centre?",
-        answer: "Downtown school catchments vary significantly by specific address. Use the SD43 School Locator to verify exact school assignments for your specific property address: https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
+        answer: "School assignment varies significantly by specific address. Use the SD43 School Locator to verify exact school assignments for your specific property address: https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
       },
       {
         question: "How walkable is Moody Centre?",
@@ -529,7 +538,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         name: "Glenayre Elementary",
         type: "elementary",
-        catchmentNote: "Some homes in the area may be associated with this school; verify exact address with SD43 School Locator",
+        assignmentNote: "Some homes in the area may be associated with this school; verify exact address with SD43 School Locator",
         district: "School District 43 (Port Moody)",
         verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
       }
@@ -569,7 +578,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Lot size and condition vary significantly; assess individual property carefully",
       "Tree preservation and property character important to neighbourhood appeal",
       "Review home condition: structure, roof, foundation, and any updates needed",
-      "Verify exact school catchment and program access for your specific address",
+      "Verify exact school assignment and program access for your specific address",
       "Consider commute implications; check local transit for your needs"
     ],
 
@@ -654,17 +663,19 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     walkabilityNotes: "Walkability is address-specific. Some streets may have useful access to parks or transit, while hillside grade and distance from shops can make other locations more car-dependent.",
 
     buyerNotes: [
-      "Verify school assignment with SD43 for the exact address before relying on any catchment assumption",
+      "Verify school assignment with SD43 for the exact address before relying on any school assumption",
       "Assess hillside factors: drainage, retaining walls, stairs, driveway grade, and winter practicality",
       "Check road and transit routes toward Barnet Highway, Burnaby, SFU, and central Port Moody",
-      "Review age, condition, updates, strata documents, and long-term maintenance for the specific property"
+      "Review age, condition, updates, strata documents, and long-term maintenance for the specific property",
+      "Visit at different times of day to understand road noise, slope, parking, and daily access for the specific street"
     ],
 
     sellerNotes: [
       "Position around quiet residential setting, west-side access, and verified recreation proximity",
       "Highlight property-specific strengths: views, lot usability, parking, storage, updates, outdoor space",
       "Address hillside due diligence proactively where relevant: drainage, retaining walls, grade",
-      "Use cautious school language and direct buyers to SD43 verification"
+      "Use cautious school language and direct buyers to SD43 verification",
+      "Help buyers understand practical access advantages without implying exact travel timing"
     ],
 
     relatedComplexes: [],
@@ -692,6 +703,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Who is College Park a good fit for?",
         answer: "College Park may fit buyers who want a quieter west-side Port Moody setting with access toward Barnet Highway, Burnaby, or SFU. The fit should be checked against school verification, commute routes, hillside comfort, and daily walkability."
+      },
+      {
+        question: "What trade-offs should College Park buyers expect?",
+        answer: "The main trade-offs are hillside streets, address-specific walkability, and older-property due diligence. Buyers should verify driveway grade, drainage, retaining walls, parking, transit options, and daily access for the exact property."
+      },
+      {
+        question: "How should sellers position a College Park home?",
+        answer: "Sellers should focus on property-specific strengths such as updates, parking, storage, usable outdoor space, views, and west-side access. Avoid broad school or commute claims; point buyers to exact-address verification."
       }
     ],
     latitude: 49.34,
@@ -752,7 +771,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight walkability, Rocky Point access, and transit proximity for urban-lifestyle buyers",
       "Emphasize central Port Moody location and proximity to amenities",
       "Feature recent building upgrades or strata improvements where applicable",
-      "Market to commuters, first-time buyers, and downsizers"
+      "Market to commuters, first-time buyers, and downsizers",
+      "Prepare clear parking, storage, strata fee, amenity, and building-work details before launch"
     ],
 
     relatedComplexes: [],
@@ -780,6 +800,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Which schools serve Suter Brook?",
         answer: "School assignment varies by exact address. Verify with SD43 before relying on any school assumption."
+      },
+      {
+        question: "How does Suter Brook compare with hillside Port Moody areas?",
+        answer: "Suter Brook is more walkable and denser than hillside areas. Buyers usually trade some privacy and quiet for access to shops, transit, Rocky Point, and a car-light routine."
+      },
+      {
+        question: "What should sellers highlight in Suter Brook?",
+        answer: "Sellers should highlight walkability, parking and storage details, building amenities, strata health, and any recent building or unit upgrades. Clear strata documentation matters for buyer confidence."
       }
     ],
     latitude: 49.282,
@@ -840,7 +868,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight walkability, waterfront access, and lifestyle appeal — this is the strongest sell",
       "Emphasize Rocky Point Park proximity and restaurants within walking distance",
       "Feature building condition and any recent upgrades to justify pricing",
-      "Market to lifestyle-focused buyers, downsizers, and urban professionals"
+      "Market to lifestyle-focused buyers, downsizers, and urban professionals",
+      "Have strata documents, parking, storage, amenity, and upgrade details ready before buyers compare similar walkable options"
     ],
 
     relatedComplexes: [],
@@ -868,6 +897,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Why is Newport Village priced higher than other Port Moody areas?",
         answer: "Newport Village tends to carry a premium due to its walkability, waterfront access, and Rocky Point Park proximity. Buyers should compare that premium against the condition and strata health of the specific building."
+      },
+      {
+        question: "Is Newport Village a good fit for car-light living?",
+        answer: "Newport Village can work well for a car-light lifestyle because shops, services, parks, and transit are nearby. Buyers should still verify parking, transit routes, building access, and daily routines for the specific address."
+      },
+      {
+        question: "What should sellers prepare in Newport Village?",
+        answer: "Sellers should prepare strata documents, building-work history, parking and storage details, upgrade notes, and lifestyle context. Buyers often compare several walkable buildings closely."
       }
     ],
     latitude: 49.283,
@@ -927,7 +964,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight waterfront and park access, community character, and established setting",
       "Emphasize strata health and building condition if strong",
       "Market to buyers who want a central Port Moody lifestyle without maximum urban density",
-      "Be transparent about building age and strata context"
+      "Be transparent about building age and strata context",
+      "Prepare clear documentation for amenities, parking, storage, strata fees, bylaws, and any recent capital work"
     ],
 
     relatedComplexes: [],
@@ -955,6 +993,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Which schools serve Klahanie?",
         answer: "School assignment varies by exact address. Verify with SD43 before relying on any school assumption."
+      },
+      {
+        question: "How does Klahanie compare with Newport Village or Suter Brook?",
+        answer: "Klahanie can feel more residential while still offering access to parks, waterfront areas, and transit. Buyers should compare building age, strata health, walkability, and the specific daily routine they want."
+      },
+      {
+        question: "What should sellers highlight in Klahanie?",
+        answer: "Sellers should highlight community feel, park and waterfront access, strata health, parking, storage, amenities, and any recent updates. Buyers will often compare several strata options in central Port Moody."
       }
     ],
     latitude: 49.276,
@@ -1007,7 +1053,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Car access and road conditions should be assessed for the specific property and route",
       "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
       "Verify school assignment with SD43 for the exact address",
-      "Assess commute implications given distance from SkyTrain and central Port Moody",
+      "Assess travel routes given distance from SkyTrain and central Port Moody",
       "Verify utility access, septic or sewer status, and services for the specific property"
     ],
 
@@ -1015,7 +1061,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight scenic character, privacy, inlet views, and the distinctive nature of the area",
       "Be transparent about car dependence and distance from urban amenities",
       "Market to buyers seeking privacy, character, and a quieter lifestyle",
-      "Use cautious school language and direct buyers to SD43 verification"
+      "Use cautious school language and direct buyers to SD43 verification",
+      "Prepare clear information on utilities, access, drainage, and property maintenance because buyers will scrutinize practical trade-offs"
     ],
 
     relatedComplexes: [],
@@ -1038,11 +1085,19 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       },
       {
         question: "What should buyers check when buying in Ioco or the north shore?",
-        answer: "Review road access conditions, home condition, roof, drainage, and any utility or service considerations for the specific property. Verify school assignment with SD43. Assess commute implications given the distance from SkyTrain and central Port Moody."
+        answer: "Review road access conditions, home condition, roof, drainage, and any utility or service considerations for the specific property. Verify school assignment with SD43. Assess travel routes given the distance from SkyTrain and central Port Moody."
       },
       {
         question: "Who is this area a good fit for?",
         answer: "The Ioco and north shore area suits buyers who strongly value privacy, scenic surroundings, and a quieter lifestyle, and who are comfortable with car dependence and distance from urban services."
+      },
+      {
+        question: "What practical issues matter in Ioco or the north shore?",
+        answer: "Road access, utilities, drainage, tree cover, service access, and property condition should be reviewed carefully. The lifestyle can be appealing, but it is not a substitute for property-specific due diligence."
+      },
+      {
+        question: "How should sellers position an Ioco or north shore home?",
+        answer: "Sellers should highlight privacy, views, character, and outdoor setting while being transparent about car dependence, access, and distance from central amenities."
       }
     ],
     latitude: 49.306,
@@ -1102,7 +1157,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight Barnet Highway access and west-side commute convenience",
       "Emphasize quiet residential streets and established neighbourhood character",
       "Feature property-specific strengths: lot size, updates, parking, outdoor space",
-      "Use cautious school language and direct buyers to SD43 verification"
+      "Use cautious school language and direct buyers to SD43 verification",
+      "Prepare maintenance, update, and condition details for older homes before launch"
     ],
 
     relatedComplexes: [],
@@ -1130,6 +1186,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Is Barber Street walkable?",
         answer: "No. Barber Street has limited daily walkability. Most residents drive for errands and services. The practical appeal is Barnet Highway access and established residential character rather than walkability."
+      },
+      {
+        question: "How does Barber Street compare with College Park?",
+        answer: "Barber Street may feel less hillside-oriented than some College Park streets, while still offering west-side access. Buyers should compare exact road access, grade, home condition, and daily routes."
+      },
+      {
+        question: "What should sellers prepare in Barber Street?",
+        answer: "Sellers should prepare renovation history, roof and system details, drainage or exterior maintenance notes, parking details, and clear school-verification language."
       }
     ],
     latitude: 49.279,
@@ -1180,7 +1244,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     buyerNotes: [
       "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
-      "Assess commute implications carefully given distance from SkyTrain and central services",
+      "Assess daily travel routes carefully given distance from SkyTrain and central services",
       "Verify school assignment with SD43 for the specific address",
       "Check utility access, road conditions, and any service considerations for the property",
       "Sasamat Lake and trail access are the primary lifestyle advantages; verify access for your address"
@@ -1212,12 +1276,20 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
         answer: "Seaview suits buyers who strongly value nature access, privacy, Sasamat Lake, and forest trails, and who are comfortable being very car-dependent with limited transit access."
       },
       {
-        question: "How far is Seaview from SkyTrain?",
-        answer: "Seaview is Port Moody's furthest residential area from SkyTrain. All residents drive for commuting. The exact drive time to SkyTrain stations depends on your specific address and route."
+        question: "How should buyers think about SkyTrain access from Seaview?",
+        answer: "Seaview is one of Port Moody's least transit-oriented residential areas. Buyers should check the exact route from the property to SkyTrain, work, schools, and daily services before relying on any access assumption."
       },
       {
         question: "What should buyers check in Seaview?",
-        answer: "Review home condition carefully. Check road access, utility services, and commute implications. Verify school assignment with SD43 for the specific address."
+        answer: "Review home condition carefully. Check road access, utility services, daily travel routes, and park or trail access for the exact property. Verify school assignment with SD43 for the specific address."
+      },
+      {
+        question: "What should sellers highlight in Seaview?",
+        answer: "Sellers should highlight privacy, nature access, outdoor space, and property-specific condition while being clear about car dependence and distance from daily services."
+      },
+      {
+        question: "Should buyers verify park and trail details?",
+        answer: "Yes. Park access, trail access, amenities, and conditions can change. Verify current details through the applicable municipal or regional source before relying on a lifestyle assumption."
       }
     ],
     latitude: 49.308,
@@ -1240,7 +1312,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     tradeOffs: [],
 
     schools: [],
-    schoolVerificationNote: "Verify school catchments with SD43 for specific addresses",
+    schoolVerificationNote: "Verify school assignment with SD43 for specific addresses",
     parks: [],
     trails: [],
     transitAndAccess: "Varies by specific address",
@@ -1312,7 +1384,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     buyerNotes: [
       "Anmore is a separate municipality — verify taxes, bylaws, and applicable regulations separately from Port Moody",
       "School assignment may differ from Port Moody SD43; verify for your specific address",
-      "Assess commute implications carefully given distance from SkyTrain and Port Moody core",
+      "Assess daily travel routes carefully given distance from SkyTrain and Port Moody core",
       "Review property access, road conditions, septic or sewer status, and utility services",
       "Larger lots and acreage require property-specific inspection of land, drainage, and condition"
     ],
@@ -1321,7 +1393,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight land size, privacy, forest setting, and nature access",
       "Be transparent about car dependence, separate municipality status, and distance from services",
       "Market to buyers who specifically want rural acreage and privacy",
-      "Use cautious school language; direct buyers to verify the applicable school district"
+      "Use cautious school language; direct buyers to verify the applicable school district",
+      "Prepare clear information on water, septic or sewer, access, bylaws, taxes, and property maintenance before launch"
     ],
 
     relatedComplexes: [],
@@ -1349,6 +1422,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Who is Anmore a good fit for?",
         answer: "Anmore suits buyers who specifically want larger lots or acreage, forest setting, privacy, and rural character, and who are comfortable being very car-dependent with no local services."
+      },
+      {
+        question: "Why do Port Moody-area buyers consider Anmore?",
+        answer: "Some Port Moody-area buyers consider Anmore when they want more land, privacy, or a rural feel while staying near the broader Tri-Cities area. It should still be evaluated as a separate municipality."
+      },
+      {
+        question: "What should buyers verify before considering Anmore?",
+        answer: "Verify municipal bylaws, taxes, services, water, septic or sewer, road access, school district, and daily travel routes for the exact property."
       }
     ],
     latitude: 49.333,
@@ -1400,7 +1481,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     buyerNotes: [
       "Belcarra is a separate municipality — verify taxes, bylaws, and regulations independently",
       "School assignment differs from Port Moody SD43; verify for your specific address",
-      "Assess commute implications carefully; SkyTrain and urban services require significant driving",
+      "Assess daily travel routes carefully; SkyTrain and urban services require significant driving",
       "Review property access, utilities, septic status, and road conditions for the specific property",
       "Very few properties become available; verify current condition and maintenance carefully"
     ],
@@ -1409,7 +1490,8 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Highlight park access, waterfront character, privacy, and the retreat-like setting",
       "Be transparent about the lack of local services, car dependence, and separate municipality status",
       "Market to a narrow range of buyers specifically seeking remote privacy and nature",
-      "Use cautious school language; direct buyers to verify the applicable school district"
+      "Use cautious school language; direct buyers to verify the applicable school district",
+      "Prepare clear information on utilities, access, road conditions, maintenance, and municipal context before launch"
     ],
 
     relatedComplexes: [],
@@ -1437,6 +1519,14 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         question: "Who is Belcarra a good fit for?",
         answer: "Belcarra suits a very narrow range of buyers who specifically want maximum privacy, Belcarra Regional Park access, waterfront character, and remote living, and who are completely comfortable with car dependence and no local services."
+      },
+      {
+        question: "Why do Port Moody-area buyers consider Belcarra?",
+        answer: "Some Port Moody-area buyers consider Belcarra when they want a remote, nature-oriented setting near the broader inlet area. It should be evaluated as a separate municipality, not as a Port Moody neighbourhood."
+      },
+      {
+        question: "What should buyers verify before considering Belcarra?",
+        answer: "Verify municipal bylaws, taxes, services, utilities, road access, school district, park or trail access, and daily travel routes for the exact property."
       }
     ],
     latitude: 49.317,
