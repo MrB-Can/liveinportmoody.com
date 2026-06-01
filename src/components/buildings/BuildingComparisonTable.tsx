@@ -3,8 +3,8 @@ import type { PortMoodyBuilding } from "@/data/buildings";
 
 export function BuildingComparisonTable({ buildings }: { buildings: PortMoodyBuilding[] }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-softBorder bg-white">
-      <table className="min-w-[980px] text-left text-sm">
+    <div className="overflow-x-auto rounded-lg border border-softBorder bg-white shadow-sm">
+      <table className="min-w-[1040px] text-left text-sm">
         <thead className="bg-mist text-xs uppercase tracking-[0.08em] text-deepInlet">
           <tr>
             <th className="px-4 py-3">Building / group</th>

@@ -57,7 +57,7 @@ export function NeighbourhoodGuideTemplate({
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-5 py-12 space-y-16">
+      <div className="mx-auto max-w-4xl space-y-12 px-5 py-10 md:py-12">
         {guide.status === "preview" && (
           <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
             {previewNote}
@@ -65,7 +65,7 @@ export function NeighbourhoodGuideTemplate({
         )}
 
         {/* Verification note */}
-        <p className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
           {standardVerificationNote}
         </p>
 
@@ -85,9 +85,9 @@ export function NeighbourhoodGuideTemplate({
         {guide.bestFor.length > 0 && (
           <section className="space-y-4">
             <h2 className="font-heading text-2xl text-deepInlet">Best For</h2>
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
               {guide.bestFor.map((item, i) => (
-                <div key={i} className="rounded-lg border-l-4 border-forest bg-white p-4">
+                <div key={i} className="p-4">
                   <p className="text-slateText flex items-center gap-2">
                     <span className="text-forest font-bold">✓</span>
                     <span>{item}</span>
@@ -102,9 +102,9 @@ export function NeighbourhoodGuideTemplate({
         {guide.housingTypes.length > 0 && (
           <section className="space-y-4">
             <h2 className="font-heading text-2xl text-deepInlet">Housing Types</h2>
-            <div className="grid gap-3">
+            <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
               {guide.housingTypes.map((type, i) => (
-                <div key={i} className="rounded-lg border border-softBorder bg-mist p-3 text-sm text-slateText">
+                <div key={i} className="p-3 text-sm text-slateText">
                   {type}
                 </div>
               ))}
@@ -119,9 +119,9 @@ export function NeighbourhoodGuideTemplate({
               <AlertCircle className="w-5 h-5 text-amber-600" />
               <h2 className="font-heading text-2xl text-deepInlet">Things to Consider</h2>
             </div>
-            <div className="grid gap-3">
+            <div className="divide-y divide-amber-200 rounded-lg border border-amber-200 bg-amber-50/70">
               {guide.tradeOffs.map((tradeoff, i) => (
-                <div key={i} className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-950">
+                <div key={i} className="p-3 text-sm text-amber-950">
                   {tradeoff}
                 </div>
               ))}
@@ -136,7 +136,7 @@ export function NeighbourhoodGuideTemplate({
             <h2 className="font-heading text-2xl text-deepInlet">Schools</h2>
           </div>
           {guide.schoolVerificationNote && (
-            <p className="rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-950">
+            <p className="border-l-4 border-blue-300 bg-blue-50/70 px-4 py-3 text-sm leading-6 text-blue-950">
               {guide.schoolVerificationNote}
             </p>
           )}
@@ -270,7 +270,7 @@ export function NeighbourhoodGuideTemplate({
           <section className="space-y-4">
             <h2 className="font-heading text-2xl text-deepInlet">Ask about homes in {guide.name}</h2>
             {guide.listingsConfig.disclosure && (
-              <p className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
+              <p className="border-l-4 border-slate-300 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
                 {guide.listingsConfig.disclosure}
               </p>
             )}

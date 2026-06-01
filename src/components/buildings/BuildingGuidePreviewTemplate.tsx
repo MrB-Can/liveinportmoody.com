@@ -2,7 +2,6 @@ import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { Badge } from "@/components/ui/badge";
-import { VerificationNote } from "@/components/ui/verification-note";
 import type { PortMoodyBuilding } from "@/data/buildings";
 
 const disclosure =
@@ -86,9 +85,9 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
       </Section>
 
       <Section title="Building context">
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {knownItems(building).map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-white p-5 text-sm leading-6 text-slateText">
+            <div key={item} className="p-5 text-sm leading-6 text-slateText">
               {item}
             </div>
           ))}
@@ -96,15 +95,17 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
       </Section>
 
       <Section title="What to verify before buying" intro="Use this checklist alongside current listing details, strata documents, professional advice, and direct verification." tone="white">
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-mist md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {verificationItems(building).map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-mist p-5 text-sm leading-6 text-slateText">
+            <div key={item} className="p-5 text-sm leading-6 text-slateText">
               {item}
             </div>
           ))}
         </div>
         <div className="mt-6">
-          <VerificationNote note="No unit counts, strata fees, amenities, bylaws, pet rules, rental rules, school claims, or active listing counts are assumed on this page. Confirm building and unit details before relying on them." />
+          <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+            No unit counts, strata fees, amenities, bylaws, pet rules, rental rules, school claims, or active listing counts are assumed on this page. Confirm building and unit details before relying on them.
+          </p>
         </div>
       </Section>
 

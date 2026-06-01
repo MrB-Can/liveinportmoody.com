@@ -20,9 +20,9 @@ export function QuickFactsWithBars({ facts, scoringBars, neighbourhoodName = "th
       {/* Basic facts */}
       <div>
         <h2 className="font-heading text-2xl text-deepInlet mb-6">Quick facts</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
           {facts.map((fact) => (
-            <div key={fact.label} className="rounded-lg border border-softBorder bg-mist p-4">
+            <div key={fact.label} className="p-4">
               <p className="text-xs uppercase tracking-[0.12em] text-slateText font-semibold">{fact.label}</p>
               <p className="mt-2 text-sm font-semibold text-deepInlet">{fact.value}</p>
             </div>

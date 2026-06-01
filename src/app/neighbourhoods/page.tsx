@@ -91,13 +91,13 @@ export default function NeighbourhoodsPage() {
       <StartWithWhatMatters />
 
       {/* Map section */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
+      <section className="mx-auto max-w-5xl px-5 py-10">
         <h2 className="mb-4 font-heading text-2xl text-deepInlet">Port Moody neighbourhood map</h2>
         <PortMoodyMap
           points={neighbourhoodMapPoints}
           showLegend={false}
           showCategoryLegend={true}
-          className="h-[440px] md:h-[520px] rounded-lg"
+          className="h-[320px] rounded-lg md:h-[420px]"
         />
         <p className="mt-2 text-xs text-slateText/70">
           Map locations are approximate and intended for orientation only.
@@ -117,12 +117,12 @@ export default function NeighbourhoodsPage() {
       {/* Neighbourhood card grid */}
       <section id="neighbourhood-guidance" className="mx-auto max-w-4xl px-5 py-12">
         <h2 className="font-heading text-2xl text-deepInlet mb-6">Explore all neighbourhoods</h2>
-        <div className="grid gap-6">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
           {liveNeighbourhoods.map((neighbourhood) => (
             <Link
               key={neighbourhood.slug}
               href={`/neighbourhoods/${neighbourhood.slug}`}
-              className="block rounded-lg border border-softBorder bg-white p-6 hover:shadow-md transition-shadow"
+              className="block p-6 transition-colors hover:bg-mist/60"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
@@ -151,12 +151,12 @@ export default function NeighbourhoodsPage() {
 
           {previewNeighbourhoods.length > 0 && (
             <>
-              <h2 className="font-heading text-2xl text-deepInlet mt-8 mb-6">Neighbourhood guide previews</h2>
+              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Neighbourhood guide previews</h2>
               {previewNeighbourhoods.map((neighbourhood) => (
                 <Link
                   key={neighbourhood.slug}
                   href={`/neighbourhoods/${neighbourhood.slug}`}
-                  className="block rounded-lg border border-softBorder bg-white p-6 hover:shadow-md transition-shadow"
+                  className="block p-6 transition-colors hover:bg-mist/60"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -186,9 +186,9 @@ export default function NeighbourhoodsPage() {
 
           {comingSoonNeighbourhoods.length > 0 && (
             <>
-              <h2 className="font-heading text-2xl text-deepInlet mt-8 mb-6">Coming soon</h2>
+              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Coming soon</h2>
               {comingSoonNeighbourhoods.map((neighbourhood) => (
-                <div key={neighbourhood.slug} className="rounded-lg border border-softBorder bg-mist p-6 opacity-60">
+                <div key={neighbourhood.slug} className="bg-mist/60 p-6 opacity-75">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">

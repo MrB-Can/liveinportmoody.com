@@ -146,9 +146,9 @@ export default function ComplexesPage() {
       </section>
 
       <Section title="How to use this guide" intro="Port Moody townhouse research works best when you start with the area and lifestyle, then verify strata details before deciding." tone="white">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
           {howToUseCards.map((card) => (
-            <div key={card.heading} className="rounded-lg border border-softBorder bg-mist p-5">
+            <div key={card.heading} className="p-5">
               <p className="font-heading text-lg text-deepInlet">{card.heading}</p>
               <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
             </div>
@@ -177,7 +177,7 @@ export default function ComplexesPage() {
         </div>
       </section>
 
-      <section className="bg-warmSand px-5 py-12">
+      <section className="bg-warmSand px-5 py-10">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Map orientation</p>
           <h2 className="mt-3 font-heading text-3xl text-deepInlet">Port Moody townhouse complex map</h2>
@@ -186,7 +186,7 @@ export default function ComplexesPage() {
             Klahanie, Moody Centre, College Park, trails, SkyTrain, and daily amenities.
           </p>
           <p className="mt-3 text-xs text-slateText">Map locations are approximate and intended for orientation.</p>
-          <PortMoodyMap points={complexMapPoints} className="mt-6 h-[360px] md:h-[500px] rounded-lg" showLegend={false} />
+          <PortMoodyMap points={complexMapPoints} className="mt-5 h-[300px] rounded-lg md:h-[400px]" showLegend={false} />
         </div>
       </section>
 
@@ -199,7 +199,8 @@ export default function ComplexesPage() {
             </p>
           </div>
         </div>
-        <div className="mt-6 overflow-x-auto rounded-lg border border-softBorder bg-white">
+        <p className="mt-4 text-xs text-slateText md:hidden">Swipe sideways to compare all columns.</p>
+        <div className="mt-3 overflow-x-auto rounded-lg border border-softBorder bg-white shadow-sm">
           <table className="min-w-[860px] text-left text-sm">
             <thead className="bg-mist text-xs uppercase tracking-[0.1em] text-slateText">
               <tr>
@@ -233,7 +234,7 @@ export default function ComplexesPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="mt-5 border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
           {standardVerificationNote}
         </p>
       </section>
@@ -248,9 +249,9 @@ export default function ComplexesPage() {
             return (
               <div key={group}>
                 <h3 className="font-heading text-2xl text-deepInlet">{group}</h3>
-                <div className="mt-5 grid gap-5 lg:grid-cols-2">
+                <div className="mt-5 divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
                   {groupComplexes.map((complex) => (
-                    <article key={complex.slug} className="rounded-lg border border-softBorder bg-white p-6 shadow-sm">
+                    <article key={complex.slug} className="p-6">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${statusClass(complex.guideStatusLabel)}`}>
                           {complex.guideStatusLabel}
@@ -271,7 +272,7 @@ export default function ComplexesPage() {
                       </div>
                       <Link
                         href={complex.href ?? "#ask-about-a-complex"}
-                        className="mt-5 inline-flex min-h-11 items-center rounded-md bg-deepInlet px-4 py-2 text-sm font-semibold text-white hover:bg-forest"
+                        className="mt-5 inline-flex text-sm font-semibold text-forest hover:text-deepInlet"
                       >
                         {complex.ctaLabel}
                       </Link>
@@ -287,9 +288,9 @@ export default function ComplexesPage() {
       <section className="bg-mist px-5 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-heading text-3xl text-deepInlet">How to compare Port Moody townhouse complexes</h2>
-          <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
             {decisionCards.map((card) => (
-              <article key={card.title} className="rounded-lg border border-softBorder bg-white p-5">
+              <article key={card.title} className="p-5">
                 <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
               </article>

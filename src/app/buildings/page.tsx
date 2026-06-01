@@ -100,9 +100,9 @@ export default function BuildingsPage() {
       </section>
 
       <Section title="How to use this guide" intro="Port Moody condo building research works best when you start broad and verify specific details before making a decision." tone="white">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
           {howToUseCards.map((card) => (
-            <div key={card.heading} className="rounded-lg border border-softBorder bg-mist p-5">
+            <div key={card.heading} className="p-5">
               <p className="font-heading text-lg text-deepInlet">{card.heading}</p>
               <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
             </div>
@@ -115,7 +115,7 @@ export default function BuildingsPage() {
       </Section>
 
       <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation.">
-        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[360px] md:h-[480px] rounded-lg" />
+        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[300px] rounded-lg md:h-[400px]" />
       </Section>
 
       <Section title="Building guide previews" intro="Use these cards to compare location, buyer fit, and due-diligence questions before reviewing a specific listing or strata package." tone="white">
@@ -134,10 +134,10 @@ export default function BuildingsPage() {
             return (
               <div key={group}>
                 <h3 className="font-heading text-2xl text-deepInlet">{group}</h3>
-                <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                <div className="mt-5 divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
                   {groupBuildings.map((building) => (
-                    <article key={building.slug} className="rounded-lg border border-softBorder bg-white p-5">
-                      <div className="flex items-center gap-2">
+                    <article key={building.slug} className="p-5">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-slateText">Guide preview</span>
                         <span className="text-xs text-slateText">{building.type}</span>
                       </div>
@@ -164,6 +164,7 @@ export default function BuildingsPage() {
       </Section>
 
       <Section title="Port Moody condo building comparison">
+        <p className="mb-3 text-xs text-slateText md:hidden">Swipe sideways to compare all columns.</p>
         <BuildingComparisonTable buildings={buildings} />
         <div className="mt-5">
           <VerificationNote note={standardVerificationNote} />

@@ -75,9 +75,10 @@ export function NeighbourhoodComparisonTable() {
       <h2 className="font-heading text-2xl text-deepInlet mb-2">Compare Port Moody neighbourhoods</h2>
       <p className="text-slateText mb-8">Quick overview of housing, lifestyle, and trade-offs by area.</p>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
+      <p className="mb-3 text-xs text-slateText md:hidden">Swipe sideways to compare all columns.</p>
+      <div className="overflow-x-auto rounded-lg border border-softBorder bg-white shadow-sm">
+        <table className="min-w-[880px] text-sm">
+          <thead className="bg-mist">
             <tr className="border-b border-softBorder">
               <th className="text-left py-3 px-3 font-semibold text-deepInlet">Area</th>
               <th className="text-left py-3 px-3 font-semibold text-deepInlet">Best for</th>

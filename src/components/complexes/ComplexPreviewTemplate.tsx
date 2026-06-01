@@ -83,26 +83,26 @@ export function ComplexPreviewTemplate({
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl space-y-12 px-5 py-12">
+      <div className="mx-auto max-w-6xl space-y-10 px-5 py-10 md:py-12">
         {/* Preview notice */}
         <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
           This is a guide preview. Information is being expanded. Verify all details in current strata documents and with a qualified professional before making any decision.
         </p>
 
         {/* Verification note */}
-        <p className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
           {VERIFICATION_NOTE}
         </p>
 
         {/* Quick summary */}
         <section>
           <h2 className="mb-4 font-heading text-2xl text-deepInlet">About this complex</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border border-softBorder bg-white p-5">
+          <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
+            <div className="p-5">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.1em] text-forest">Best for</p>
               <p className="text-sm leading-6 text-slateText">{bestFor}</p>
             </div>
-            <div className="rounded-lg border border-softBorder bg-white p-5">
+            <div className="p-5">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.1em] text-forest">Setting</p>
               <p className="text-sm leading-6 text-slateText">{setting}</p>
             </div>
@@ -149,9 +149,9 @@ export function ComplexPreviewTemplate({
         {/* Buyer notes */}
         <section>
           <h2 className="mb-4 font-heading text-2xl text-deepInlet">Buyer notes</h2>
-          <div className="grid gap-3">
+          <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
             {buyerNotes.map((note, i) => (
-              <div key={i} className="rounded-lg border border-softBorder bg-white p-4">
+              <div key={i} className="p-4">
                 <p className="flex gap-3 text-sm leading-6 text-slateText">
                   <span className="shrink-0 font-bold text-forest">✓</span>
                   {note}
@@ -164,9 +164,9 @@ export function ComplexPreviewTemplate({
         {/* Seller notes */}
         <section>
           <h2 className="mb-4 font-heading text-2xl text-deepInlet">Seller notes</h2>
-          <div className="grid gap-3">
+          <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-mist">
             {sellerNotes.map((note, i) => (
-              <div key={i} className="rounded-lg border border-softBorder bg-mist p-4">
+              <div key={i} className="p-4">
                 <p className="text-sm leading-6 text-slateText">{note}</p>
               </div>
             ))}

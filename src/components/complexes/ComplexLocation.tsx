@@ -16,14 +16,13 @@ type ComplexLocationProps = {
 
 export function ComplexLocation({ location }: ComplexLocationProps) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <section>
         <h2 className="font-heading text-2xl text-deepInlet">Location & Neighborhood</h2>
         <p className="mt-4 leading-7 text-slateText">{location.neighborhood}</p>
       </section>
 
       <PlaceholderImageBlock
-        height="lg"
         label="Street or neighbourhood context"
         caption="Replace with a professional photo of the street or neighbourhood context."
       />
