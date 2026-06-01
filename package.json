@@ -13,7 +13,8 @@
     "deploy:check": "npm run lint && npm run build",
     "deploy:prod": "npm run lint && npm run build && vercel deploy --prod --force",
     "smoke:prelaunch": "node scripts/prelaunch-smoke.mjs",
-    "smoke:prelaunch:prod": "LIPM_BASE_URL=https://www.liveinportmoody.com node scripts/prelaunch-smoke.mjs"
+    "smoke:prelaunch:prod": "LIPM_BASE_URL=https://www.liveinportmoody.com node scripts/prelaunch-smoke.mjs",
+    "crawl:prelaunch": "node scripts/prelaunch-crawl.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.1041.0",

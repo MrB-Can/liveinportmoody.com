@@ -3,6 +3,7 @@
 Last updated: 2026-05-31
 Deployed commit: c4921db (Sprint 25G)
 Smoke result: ✅ 71 passed | 0 warnings | 0 failed
+Crawl result: ✅ 86 passed | 20 warnings | 0 failures (Sprint 25L)
 
 ---
 
@@ -32,6 +33,9 @@ These are not launch blockers but reduce trust, coverage, or conversion quality:
 | OG social preview image | Currently generic. Should use branded image for sharing. | Medium |
 | MLS Reciprocity search URL | `/listings` degrades to CTA if `NEXT_PUBLIC_GVR_RECIPROCITY_SEARCH_URL` is unset. | Medium — listings search won't work until configured |
 | Submit sitemap to Google Search Console | Sitemap exists and is clean. Manual submission needed. | Do within 48h of launch |
+| Add buyer-guide and seller-guide to sitemap | Both pages are indexable but not in `phaseOneRoutes`. Add to `src/app/sitemap.ts`. | Low — adds SEO coverage for lead pages |
+| Fix anchor links on Explore/Buy/Sell pages | `#schools`, `#trails`, `#transit`, `#property-type`, `#buyer-due-diligence`, `#ask-about-a-listing`, `#value-opinion` point to sections without matching anchor IDs. | Low — links don't 404 but don't scroll |
+| ListingSupportForm honeypot | `/listings` form has no honeypot field (unlike LeadForm). Not a blocker while gated. | Low — add before heavy traffic |
 | Neighbourhood guide photos | 13 neighbourhood guides exist as previews. Photo content is the primary gap. | Ongoing — can launch without; publish as ready |
 | Publish remaining neighbourhood guides | Only Heritage Mountain is status "published". Others are "preview" with noindex. | Ongoing — publish one at a time as content is ready |
 | Publish remaining complex guides | Only Treetops is "guide-live". Others are preview. | Ongoing |
@@ -71,6 +75,30 @@ Sections:
   6 Sitemap safety                  ✅ 11 URLs, www only, no preview leaks
   7 Noindex checks (8 pages)        ✅ preview=noindex, published/lead=indexable
   8 Safety keywords (10 pages)      ✅ no IDX, no sold data, no fake content
+```
+
+## 4b — Last crawl result
+
+```
+Date:     2026-05-31
+Sprint:   25L (add launch readiness crawl and technical audit)
+Command:  npm run crawl:prelaunch
+
+Result:   ✅ PASS — 86 passed | 20 warnings | 0 failures
+
+Sections:
+  1 Metadata (31 pages)             ✅ all titles, descriptions, canonicals, noindex correct
+  2 Internal link analysis (22)     ✅ no broken hrefs — 15 anchor-to-unpublished-section warnings
+  3 Extended safety keywords (12)   ✅ no sold prices, IDX, listing cards, lorem ipsum
+  4 API/form safety (5 tests)       ✅ validation rejects, rate limit fires, honeypot drops
+  5 Static assets (17 files)        ✅ all present — 2 expected content gaps noted
+  6 Sitemap/robots spot check       ✅ 11 URLs, www only, heritage-mountain present
+
+Warnings (not failures):
+  - Anchor links to unpublished sections on Explore, Buildings, Buy, Sell
+  - No Leilani team photo (expected gap)
+  - og-placeholder.jpg not yet replaced (expected gap)
+  - buyer-guide and seller-guide not in sitemap (recommended addition)
 ```
 
 ---
