@@ -465,7 +465,7 @@ export default function SellPage() {
           >
             <p className="font-heading text-lg text-deepInlet">Recently sold</p>
             <p className="mt-3 flex-1 text-sm text-slateText">
-              Explore Port Moody properties sold by our team and understand selling strategies.
+              Understand recent Port Moody sales context and selling strategies.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">See stories →</span>
           </Link>

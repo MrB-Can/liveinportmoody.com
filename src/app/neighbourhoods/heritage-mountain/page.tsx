@@ -83,7 +83,7 @@ export default function HeritageM() {
             { label: "Walkability", value: "Limited for daily errands" },
             { label: "Transit", value: "Bus access, car helpful" },
             { label: "Buyer fit", value: "Families, townhouse buyers, outdoor-focused" },
-            { label: "Watch-out", value: "Hills, strata due diligence, catchment verify" },
+            { label: "Watch-out", value: "Hills, strata due diligence, catchment verification" },
           ]}
           scoringBars={[
             { label: "Walkability", score: 35 },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
@@ -117,7 +118,7 @@ export default function RecentlySoldPage() {
       {/* 5. Related resources */}
       <Section eyebrow="Selling resources" title="Learn about selling in Port Moody">
         <div className="grid gap-4 lg:grid-cols-3">
-          <a
+          <Link
             href="/sell"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
           >
@@ -126,9 +127,9 @@ export default function RecentlySoldPage() {
               Positioning, pricing, preparation, media, and launch strategy.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Read more →</span>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/how-we-do-it"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
           >
@@ -137,9 +138,9 @@ export default function RecentlySoldPage() {
               8-step process from strategy to closing.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/home-evaluation"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
           >
@@ -148,9 +149,9 @@ export default function RecentlySoldPage() {
               Get a property assessment and market positioning.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Request now →</span>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/raving-fans"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
           >
@@ -159,7 +160,7 @@ export default function RecentlySoldPage() {
               Review the future home for approved client stories and verified public review links.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Read stories →</span>
-          </a>
+          </Link>
         </div>
       </Section>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
@@ -215,9 +216,9 @@ export default function HowWeDoItPage() {
               Tell us about your property and we&apos;ll assess your home&apos;s market position and next steps.
             </p>
             <div className="mt-4">
-              <a href="/home-evaluation" className="text-sm font-semibold text-forest hover:underline">
+              <Link href="/home-evaluation" className="text-sm font-semibold text-forest hover:underline">
                 Request evaluation →
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -230,9 +231,9 @@ export default function HowWeDoItPage() {
               We&apos;ll walk through positioning, pricing approach, preparation priorities, and timeline.
             </p>
             <div className="mt-4">
-              <a href="/contact" className="text-sm font-semibold text-forest hover:underline">
+              <Link href="/contact" className="text-sm font-semibold text-forest hover:underline">
                 Contact us →
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -245,9 +246,9 @@ export default function HowWeDoItPage() {
               We handle preparation, launch, showings, negotiation, and closing. You focus on the transition.
             </p>
             <div className="mt-4">
-              <a href="/sell" className="text-sm font-semibold text-forest hover:underline">
+              <Link href="/sell" className="text-sm font-semibold text-forest hover:underline">
                 Learn about selling →
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -257,9 +258,9 @@ export default function HowWeDoItPage() {
               Understand recent Port Moody sales context and comparable market activity for your property type.
             </p>
             <div className="mt-4">
-              <a href="/recently-sold" className="text-sm font-semibold text-forest hover:underline">
+              <Link href="/recently-sold" className="text-sm font-semibold text-forest hover:underline">
                 Explore sold context →
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -269,9 +270,9 @@ export default function HowWeDoItPage() {
               Review the future home for approved client stories and verified public review links.
             </p>
             <div className="mt-4">
-              <a href="/raving-fans" className="text-sm font-semibold text-forest hover:underline">
+              <Link href="/raving-fans" className="text-sm font-semibold text-forest hover:underline">
                 Read stories →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
