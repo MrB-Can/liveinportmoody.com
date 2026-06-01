@@ -236,15 +236,15 @@ export const footerGroups: FooterGroup[] = [
       { label: "Seller Guide", href: "/seller-guide" },
       { label: "Home Evaluation", href: "/home-evaluation" },
       { label: "How We Do It", href: "/how-we-do-it" },
+      { label: "Recently Sold", href: "/recently-sold" },
       { label: "Raving Fans", href: "/raving-fans" },
     ],
   },
   {
     title: "Relocate",
     links: [
-      { label: "Local Life", href: "/local-life" },
+      { label: "Move to Port Moody", href: "/move-to-port-moody" },
       { label: "Neighbourhoods", href: "/neighbourhoods" },
-      { label: "Local Life", href: "/local-life" },
       { label: "Local Insights", href: "/local-insights" },
     ],
   },
@@ -271,7 +271,6 @@ export const footerGroups: FooterGroup[] = [
       { label: "Meet Us", href: "/meet-us" },
       { label: "Accolades", href: "/accolades" },
       { label: "Contact", href: "/contact" },
-      { label: "Local Insights", href: "/local-insights" },
     ],
   },
 ];

@@ -18,8 +18,8 @@ export function NewsletterSignup() {
   if (hiddenPaths.has(pathname)) return null;
 
   return (
-    <section className="border-t border-softBorder bg-mist py-12">
-      <div className="mx-auto grid max-w-6xl gap-8 px-5 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+    <section className="border-t border-softBorder bg-mist py-8">
+      <div className="mx-auto grid max-w-6xl gap-6 px-5 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Local updates</p>
           <h2 className="mt-3 font-heading text-3xl leading-tight text-deepInlet">
