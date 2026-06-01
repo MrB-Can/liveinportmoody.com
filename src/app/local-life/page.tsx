@@ -74,7 +74,7 @@ export default function LocalLifePage() {
       </section>
 
       <Section title="What shapes daily life here" intro="Start with lifestyle fit, then verify exact details for the property, address, school, trail, or event you care about." tone="white">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {localLifeSections.map((item) => (
             <article key={item.title} className="rounded-lg border border-softBorder bg-mist p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{item.title}</h2>

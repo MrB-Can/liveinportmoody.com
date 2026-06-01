@@ -131,7 +131,7 @@ export default function HowWeDoItPage() {
         intro="Our approach focuses on understanding your property, knowing the market, and creating clarity for buyers. Each step builds on the last without turning the sale into a black box."
         tone="white"
       >
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {processSteps.map((step) => (
             <article key={step.title} className="rounded-lg border border-softBorder bg-white p-5 shadow-sm">
               <div className="flex items-start gap-4">

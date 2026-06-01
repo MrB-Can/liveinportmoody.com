@@ -115,7 +115,7 @@ export default function HomeEvaluationPage() {
 
       {/* 4. Evaluation form */}
       <Section id="evaluation-form" eyebrow="Get your evaluation" title="Request a home evaluation" tone="white">
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <p className="text-sm leading-6 text-slateText">
               Share your property details and we&apos;ll get in touch to discuss your home, timeline, and next steps. Your evaluation is tailored to Port Moody&apos;s market and your specific situation.
@@ -145,7 +145,7 @@ export default function HomeEvaluationPage() {
 
       {/* 5. Next steps section */}
       <Section title="After your evaluation">
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 lg:grid-cols-5">
           <Link
             href="/sell"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"

@@ -114,7 +114,7 @@ export default function RecentlySoldPage() {
 
       {/* 5. Related resources */}
       <Section eyebrow="Selling resources" title="Learn about selling in Port Moody">
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 lg:grid-cols-4">
           <Link
             href="/sell"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
