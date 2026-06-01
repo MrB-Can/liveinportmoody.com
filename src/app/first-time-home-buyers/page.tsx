@@ -150,10 +150,14 @@ export default function FirstTimeHomeBuyersPage() {
       <Section id="first-time-guide" title="Get the Port Moody first-time buyer guide" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
-            <h2 className="font-heading text-2xl text-deepInlet">First version guide request</h2>
+            <h2 className="font-heading text-2xl text-deepInlet">Request first-time buyer guidance</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              Request the first-time buyer guide and include what you are trying to buy: condo, townhouse, detached home, neighbourhood, building, or complex.
+              Request the buyer guide and include what you are trying to buy: condo, townhouse, detached home, neighbourhood, building, or complex.
             </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <CTAButton href="/buyer-guide" variant="secondary">Request the buyer guide</CTAButton>
+              <CTAButton href="/listings" variant="ghost">View current listings</CTAButton>
+            </div>
           </div>
           <div id="ask-first-time-question">
             <LeadForm

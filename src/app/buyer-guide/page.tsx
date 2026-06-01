@@ -5,9 +5,9 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata(
   {
-    title: "Port Moody Buyer Guide",
+    title: "Request the Port Moody Buyer Guide",
     description:
-      "Request the Port Moody buyer guide for neighbourhood fit, property types, listings, strata documents, offer preparation, and local buyer decision-making.",
+      "Request the Port Moody buyer guide and ask for local buyer guidance on neighbourhood fit, property types, listings, strata documents, and offer preparation.",
     path: "/buyer-guide",
   },
   { robots: { index: false, follow: true } }
@@ -28,14 +28,16 @@ export default function BuyerGuidePage() {
         <div className="mx-auto max-w-6xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Buyer guide</p>
           <h1 className="max-w-4xl font-heading text-4xl leading-tight text-deepInlet md:text-6xl">
-            Get the Port Moody buyer guide
+            Request the Port Moody Buyer Guide
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slateText">
-            A first-version guide request page for buyers comparing Port Moody neighbourhoods, listings, property types, buildings, complexes, and offer decisions.
+            Join the request list for the Port Moody Buyer Guide and ask for local buyer guidance now while the guide is being prepared.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#request-buyer-guide">Request the guide</CTAButton>
             <CTAButton href="/contact" variant="secondary">Ask a buyer question</CTAButton>
+            <CTAButton href="/buy" variant="ghost">Review buyer resources</CTAButton>
+            <CTAButton href="/listings" variant="ghost">View current listings</CTAButton>
           </div>
         </div>
       </section>
@@ -58,15 +60,18 @@ export default function BuyerGuidePage() {
         </div>
       </Section>
 
-      <Section id="request-buyer-guide" title="Download/request form placeholder" tone="white">
+      <Section id="request-buyer-guide" title="Request the Port Moody Buyer Guide" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request the buyer guide</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              The downloadable version is being prepared. Use this request form for now and include what you are researching.
+              We will send the guide when it is ready. Use this form to join the request list and include what you are researching now.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-slateText">
+              If you need help before the guide is ready, ask for buyer guidance and share the neighbourhood, property type, building, complex, or listing you are comparing.
             </p>
             <div className="mt-5">
-              <CTAButton href="/contact" variant="secondary">Use contact page instead</CTAButton>
+              <CTAButton href="/contact" variant="secondary">Ask for buyer guidance now</CTAButton>
             </div>
           </div>
           <LeadForm

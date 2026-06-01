@@ -14,9 +14,13 @@ function timingSafeEqual(a: string, b: string): boolean {
 }
 
 // Paths that pass through regardless of coming-soon state.
+// /contact must be allowed so the coming-soon page CTAs work for unauthenticated visitors.
 function isAlwaysAllowed(pathname: string): boolean {
   return (
     pathname === "/coming-soon" ||
+    pathname === "/contact" ||
+    pathname === "/privacy" ||
+    pathname === "/terms" ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
     pathname.startsWith("/api/") ||

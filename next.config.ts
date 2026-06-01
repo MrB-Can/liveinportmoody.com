@@ -15,7 +15,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://c.clarity.ms https://api.mapbox.com https://events.mapbox.com https://api.maptiler.com https://tiles.stadiamaps.com https://tiles.openfreemap.org",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com https://www.clarity.ms https://c.clarity.ms https://api.mapbox.com https://events.mapbox.com https://api.maptiler.com https://tiles.stadiamaps.com https://tiles.openfreemap.org",
       "worker-src blob:",
       "frame-src 'none'",
       "object-src 'none'",

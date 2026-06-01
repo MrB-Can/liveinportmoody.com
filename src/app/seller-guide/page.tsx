@@ -5,9 +5,9 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata(
   {
-    title: "Port Moody Seller Guide",
+    title: "Request the Port Moody Seller Guide",
     description:
-      "Request the Port Moody seller guide for preparation, pricing, positioning, media, storytelling, and launch planning.",
+      "Request the Port Moody seller guide and ask for local seller guidance on preparation, pricing, positioning, media, storytelling, and launch planning.",
     path: "/seller-guide",
   },
   { robots: { index: false, follow: true } }
@@ -35,14 +35,16 @@ export default function SellerGuidePage() {
         <div className="mx-auto max-w-6xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Seller guide</p>
           <h1 className="max-w-4xl font-heading text-4xl leading-tight text-deepInlet md:text-6xl">
-            Get the Port Moody seller guide
+            Request the Port Moody Seller Guide
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slateText">
-            A first-version guide request page for sellers planning preparation, pricing, positioning, media, and launch strategy in Port Moody.
+            Join the request list for the Port Moody Seller Guide and ask for local seller guidance now while the guide is being prepared.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#request-seller-guide">Request the guide</CTAButton>
             <CTAButton href="/contact" variant="secondary">Ask a seller question</CTAButton>
+            <CTAButton href="/sell" variant="ghost">Review seller resources</CTAButton>
+            <CTAButton href="/listings" variant="ghost">View current listings</CTAButton>
           </div>
         </div>
       </section>
@@ -79,15 +81,18 @@ export default function SellerGuidePage() {
         </p>
       </Section>
 
-      <Section id="request-seller-guide" title="Download/request form placeholder" tone="white">
+      <Section id="request-seller-guide" title="Request the Port Moody Seller Guide" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request the seller guide</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              The downloadable version is being prepared. Use this request form for now and include the property type or neighbourhood you are considering selling.
+              We will send the guide when it is ready. Use this form to join the request list and include the property type or neighbourhood you are considering selling.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-slateText">
+              If you need help before the guide is ready, ask for seller guidance now and share your timing, property type, or preparation questions.
             </p>
             <div className="mt-5">
-              <CTAButton href="/contact" variant="secondary">Use contact page instead</CTAButton>
+              <CTAButton href="/contact" variant="secondary">Ask for seller guidance now</CTAButton>
             </div>
           </div>
           <LeadForm

@@ -59,6 +59,87 @@ const glanceTiles = [
   "Limited land supply",
 ];
 
+const guideFocusCards = [
+  {
+    title: "Places and property types",
+    copy: "Compare Port Moody neighbourhoods, condo buildings, townhouse complexes, presales, new builds, and current listing context in one local research flow.",
+  },
+  {
+    title: "Community and daily life",
+    copy: "Use local-business, event, school-verification, trail, commute, and village-context pages to understand what living here actually feels like.",
+  },
+  {
+    title: "Decisions over time",
+    copy: "Work through buying, selling, first-time ownership, and longer-term real estate questions without treating every property decision as a quick listing search.",
+  },
+];
+
+const leadMagnetCards = [
+  {
+    title: "Buyer Guide",
+    copy: "Request the buyer guide and ask for help comparing neighbourhoods, property types, buildings, complexes, and offer questions.",
+    cta: "Request the guide",
+    href: "/buyer-guide",
+  },
+  {
+    title: "Seller Guide",
+    copy: "Request the seller guide and ask for help with preparation, pricing, positioning, media, and launch planning.",
+    cta: "Request the guide",
+    href: "/seller-guide",
+  },
+  {
+    title: "First-Time Buyer Guide",
+    copy: "Learn the buying process, closing-cost planning, strata basics, common mistakes, and Port Moody area fit.",
+    cta: "Learn more",
+    href: "/first-time-home-buyers",
+  },
+  {
+    title: "Generational Wealth Guide",
+    copy: "Explore long-term real estate thinking, family help, rental decisions, cash flow, taxes, leverage, and market-cycle risk.",
+    cta: "Ask for help",
+    href: "/generational-wealth-real-estate",
+  },
+  {
+    title: "Recent Sales Context",
+    copy: "Request comparable-sales context where permitted. Sold data availability depends on applicable rules and professional context.",
+    cta: "Request context",
+    href: "/request-recent-sales",
+  },
+  {
+    title: "Presales Updates",
+    copy: "Get notified about verified Port Moody presale and new-build information when there is current context worth reviewing.",
+    cta: "Get notified",
+    href: "/presales",
+  },
+];
+
+const communityCards = [
+  {
+    title: "Local businesses",
+    copy: "Verified local business and community features will help explain daily life in Port Moody without invented listings.",
+    cta: "Explore businesses",
+    href: "/local-businesses",
+  },
+  {
+    title: "Events",
+    copy: "Community, seasonal, family, and real estate events will be added only after dates and hosts are verified.",
+    cta: "View events",
+    href: "/events",
+  },
+  {
+    title: "Testimonials",
+    copy: "Approved Google reviews and client stories will be added only when the public source or client approval is confirmed.",
+    cta: "View trust page",
+    href: "/testimonials",
+  },
+  {
+    title: "Accolades",
+    copy: "Verified recognition, community involvement, and professional background will be added without invented awards or rankings.",
+    cta: "View recognition",
+    href: "/accolades",
+  },
+];
+
 const areaCards = [
   {
     name: "Suter Brook",
@@ -178,6 +259,41 @@ export default function HomePage() {
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
             <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">
+                  {card.cta}
+                </CTAButton>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        title="A Port Moody guide, not just a listing search"
+        intro="LiveInPortMoody.com is being built as a local decision guide for people comparing where to live, what to buy, when to sell, and which questions to verify before they commit."
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          {guideFocusCards.map((card) => (
+            <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.copy}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Guides and requests"
+        title="Start with the right next question"
+        intro="Request a guide, ask for help, get notified, or ask for compliant market context. These pages use request language until guide assets or verified data are ready."
+        tone="white"
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {leadMagnetCards.map((card) => (
+            <article key={card.title} className="flex min-h-56 flex-col rounded-lg border border-softBorder bg-mist p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
               <div className="mt-5">
@@ -323,9 +439,9 @@ export default function HomePage() {
       >
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="grid min-h-[360px] content-center rounded-lg border border-softBorder bg-white p-8 text-center">
-            <p className="font-heading text-3xl text-deepInlet">Team photo coming soon</p>
+            <p className="font-heading text-3xl text-deepInlet">Local guidance, verified over time</p>
             <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slateText">
-              Wide local photo of Paul and Leilani together in Port Moody, ideally with waterfront, forest, village, or neighbourhood context.
+              The site is structured around research, verification, client questions, and local context instead of unsupported claims.
             </p>
           </div>
           <div className="grid gap-4">
@@ -343,6 +459,46 @@ export default function HomePage() {
                 Leilani brings licensed real estate expertise, seller strategy, pricing judgment, negotiation, and transaction guidance to help clients move through the process with confidence.
               </p>
             </article>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Trust and community coverage"
+        intro="Community and trust pages are intentionally conservative until details are verified. Approved testimonials and verified recognition will be added here before public launch."
+        tone="white"
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {communityCards.map((card) => (
+            <article key={card.title} className="flex min-h-56 flex-col rounded-lg border border-softBorder bg-mist p-5">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">
+                  {card.cta}
+                </CTAButton>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Public trust assets in progress" tone="sand">
+        <div className="rounded-lg border border-softBorder bg-white p-6 md:p-8">
+          <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Trust</p>
+              <h2 className="mt-3 font-heading text-3xl text-deepInlet">Verified social proof will be added carefully.</h2>
+            </div>
+            <div>
+              <p className="text-sm leading-6 text-slateText">
+                Approved testimonials, client stories, Google review links, accolades, and community involvement details will be added only after the source and permission are confirmed.
+              </p>
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <CTAButton href="/testimonials" variant="secondary">View testimonials page</CTAButton>
+                <CTAButton href="/accolades" variant="ghost">View recognition page</CTAButton>
+              </div>
+            </div>
           </div>
         </div>
       </Section>

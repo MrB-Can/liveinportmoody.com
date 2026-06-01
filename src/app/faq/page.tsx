@@ -163,6 +163,8 @@ export default function FaqPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/contact">Ask a Port Moody question</CTAButton>
             <CTAButton href="/listings" variant="secondary">View current listings</CTAButton>
+            <CTAButton href="/buy" variant="ghost">Buyer resources</CTAButton>
+            <CTAButton href="/sell" variant="ghost">Seller resources</CTAButton>
           </div>
         </div>
       </section>

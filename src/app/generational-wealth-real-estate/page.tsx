@@ -63,8 +63,10 @@ export default function GenerationalWealthRealEstatePage() {
             This is general education, not legal, tax, or financial advice.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="#generational-guide">Get the generational wealth guide</CTAButton>
+            <CTAButton href="#generational-guide">Request long-term planning guidance</CTAButton>
             <CTAButton href="/contact" variant="secondary">Ask about your long-term real estate plan</CTAButton>
+            <CTAButton href="/buy" variant="ghost">Review buyer resources</CTAButton>
+            <CTAButton href="/sell" variant="ghost">Review seller resources</CTAButton>
           </div>
         </div>
       </section>
@@ -116,14 +118,18 @@ export default function GenerationalWealthRealEstatePage() {
         </div>
       </Section>
 
-      <Section id="generational-guide" title="Get the generational wealth guide" tone="white">
+      <Section id="generational-guide" title="Request Long-Term Real Estate Guidance" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
-            <h2 className="font-heading text-2xl text-deepInlet">Guide request</h2>
+            <h2 className="font-heading text-2xl text-deepInlet">Ask about the decision you are weighing</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              Request the guide and include the decision you are weighing: first-to-second property, helping children buy, keeping a rental, selling, or downsizing.
+              Share the long-term real estate decision you are weighing: first-to-second property, helping children buy, keeping a rental, selling, or downsizing.
             </p>
             <p className="mt-3 text-xs leading-5 text-slateText">This is general education, not legal, tax, or financial advice.</p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <CTAButton href="/contact" variant="secondary">Contact Paul and Leilani</CTAButton>
+              <CTAButton href="/listings" variant="ghost">View current listings</CTAButton>
+            </div>
           </div>
           <div id="long-term-question">
             <LeadForm

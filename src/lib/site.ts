@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Live in Port Moody",
   domain: "liveinportmoody.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://liveinportmoody.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.liveinportmoody.com",
   description:
     "A local real estate and lifestyle resource from Leilani Fong, Personal Real Estate Corporation and Paul Bennett for buyers, sellers, and homeowners in Port Moody, BC.",
   publicEmail: process.env.NEXT_PUBLIC_PUBLIC_EMAIL || "team@liveinportmoody.com",

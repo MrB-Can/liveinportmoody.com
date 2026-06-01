@@ -1,6 +1,6 @@
 {
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://liveinportmoody.com",
+    "NEXT_PUBLIC_SITE_URL": "https://www.liveinportmoody.com",
     "NEXT_PUBLIC_PUBLIC_EMAIL": "team@liveinportmoody.com",
     "NEXT_PUBLIC_PUBLIC_PHONE": "604-757-1553",
     "NEXT_PUBLIC_BROKERAGE_NAME": "eXp Realty",
