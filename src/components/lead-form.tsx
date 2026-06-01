@@ -100,12 +100,12 @@ export function LeadForm({
 
   return (
     <form
-      className="rounded-lg border border-softBorder bg-white p-6 shadow-sm"
+      className="rounded-lg border border-softBorder bg-white p-5 shadow-sm sm:p-6"
       onSubmit={handleSubmit(onSubmit)}
       onFocus={onFocus}
       noValidate
     >
-      {title ? <h3 className="font-heading text-2xl text-deepInlet">{title}</h3> : null}
+      {title ? <h3 className="font-heading text-xl leading-tight text-deepInlet sm:text-2xl">{title}</h3> : null}
       {description ? <p className="mt-2 text-sm leading-6 text-slateText">{description}</p> : null}
 
       <div className="mt-5 grid gap-4">
@@ -125,7 +125,7 @@ export function LeadForm({
         </label>
         <label className="grid gap-2 text-sm font-medium text-charcoal">
           {messageLabel}
-          <textarea className="min-h-28 rounded-md border border-softBorder px-3 py-3" placeholder={messagePlaceholder} {...register("message")} />
+          <textarea className="min-h-24 rounded-md border border-softBorder px-3 py-3" placeholder={messagePlaceholder} {...register("message")} />
         </label>
         <label className="hidden">
           Leave this field blank

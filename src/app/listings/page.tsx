@@ -179,12 +179,17 @@ export default function ListingsPage() {
       </Section>
 
       <Section title="Listing support" tone="white">
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.1fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
             <h2 className="font-heading text-3xl">Get local context before you write.</h2>
             <p className="mt-4 text-sm leading-6 text-mist">
               Send the listing URL or address. We can help you think through neighbourhood fit, building or complex risk, strata documents, pricing context, and the trade-offs that are not obvious online.
             </p>
+            <ul className="mt-5 space-y-2 text-sm leading-6 text-mist">
+              <li>• Active listing questions only</li>
+              <li>• No sold or expired listings shown here</li>
+              <li>• Local context before writing or removing subjects</li>
+            </ul>
           </div>
           <ListingSupportForm />
         </div>

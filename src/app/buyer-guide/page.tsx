@@ -60,8 +60,8 @@ export default function BuyerGuidePage() {
       </Section>
 
       <Section id="request-buyer-guide" title="Request the Port Moody Buyer Guide" tone="white">
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-lg border border-softBorder bg-mist p-6">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_0.85fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request the buyer guide</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               We will send the guide when it is ready. Use this form to join the request list and include what you are researching now.
@@ -69,6 +69,11 @@ export default function BuyerGuidePage() {
             <p className="mt-3 text-sm leading-6 text-slateText">
               If you need help before the guide is ready, ask for buyer guidance and share the neighbourhood, property type, building, complex, or listing you are comparing.
             </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
+              <li>• The area or property type you are comparing</li>
+              <li>• Any listing, building, or complex you want context on</li>
+              <li>• Your timing and main decision question</li>
+            </ul>
             <div className="mt-5">
               <CTAButton href="/contact" variant="secondary">Ask for buyer guidance now</CTAButton>
             </div>

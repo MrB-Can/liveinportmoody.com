@@ -81,8 +81,8 @@ export default function SellerGuidePage() {
       </Section>
 
       <Section id="request-seller-guide" title="Request the Port Moody Seller Guide" tone="white">
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-lg border border-softBorder bg-mist p-6">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_0.85fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request the seller guide</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               We will send the guide when it is ready. Use this form to join the request list and include the property type or neighbourhood you are considering selling.
@@ -90,6 +90,11 @@ export default function SellerGuidePage() {
             <p className="mt-3 text-sm leading-6 text-slateText">
               If you need help before the guide is ready, ask for seller guidance now and share your timing, property type, or preparation questions.
             </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
+              <li>• Property type and neighbourhood or building</li>
+              <li>• Approximate timing and preparation questions</li>
+              <li>• Whether you want guide updates or a value conversation</li>
+            </ul>
             <div className="mt-5 flex flex-col gap-3">
               <CTAButton href="/home-evaluation">Request home evaluation</CTAButton>
               <CTAButton href="/contact" variant="secondary">Ask seller questions</CTAButton>

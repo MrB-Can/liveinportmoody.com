@@ -178,12 +178,17 @@ export default function FirstTimeHomeBuyersPage() {
       </Section>
 
       <Section id="first-time-guide" title="Request First-Time Buyer Guidance" tone="white">
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-lg border border-softBorder bg-mist p-6">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_0.85fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request first-time buyer guidance</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Request the buyer guide and include what you are trying to buy: condo, townhouse, detached home, neighbourhood, building, or complex.
             </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
+              <li>• Budget range and property type you are exploring</li>
+              <li>• Areas, buildings, or complexes on your shortlist</li>
+              <li>• Deposit, closing-cost, or strata questions to clarify</li>
+            </ul>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <CTAButton href="/buyer-guide" variant="secondary">Request the buyer guide</CTAButton>
               <CTAButton href="/listings" variant="ghost">View current listings</CTAButton>

@@ -64,12 +64,17 @@ export default function RequestRecentSalesPage() {
       </Section>
 
       <Section id="recent-sales-request" title="Request Recent Sales Context">
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-lg border border-softBorder bg-white p-6">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_0.85fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-white p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Compliance-safe request</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Tell us the property type, neighbourhood, building, complex, or address range you are researching. We will respond with comparable-sales context where permitted and in the appropriate professional context.
             </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
+              <li>• No sold prices or sold listings are displayed publicly here</li>
+              <li>• Share the area, property type, and decision you are weighing</li>
+              <li>• We can help you understand comparable context where permitted</li>
+            </ul>
             <p className="mt-3 text-xs leading-5 text-slateText">
               Sold data availability depends on applicable rules, permissions, and professional context.
             </p>

@@ -139,12 +139,17 @@ export default function GenerationalWealthRealEstatePage() {
       </Section>
 
       <Section id="generational-guide" title="Request Long-Term Real Estate Guidance" tone="white">
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-          <div className="rounded-lg border border-softBorder bg-mist p-6">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_0.85fr] lg:items-start">
+          <div className="self-start rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Ask about the decision you are weighing</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Share the long-term real estate decision you are weighing: first-to-second property, helping children buy, keeping a rental, selling, or downsizing.
             </p>
+            <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
+              <li>• The property decision and rough timeline</li>
+              <li>• Whether the question is about buying, selling, or holding</li>
+              <li>• Which professionals you still need to confirm advice with</li>
+            </ul>
             <p className="mt-3 text-xs leading-5 text-slateText">This is general education, not legal, tax, or financial advice.</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <CTAButton href="/contact" variant="secondary">Contact Paul and Leilani</CTAButton>
