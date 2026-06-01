@@ -55,9 +55,14 @@ const researchLinks = [
     copy: "Review building-level questions before writing.",
   },
   {
-    title: "Understand the market",
-    href: "/market",
-    copy: "Use local market guidance without relying on fake stats.",
+    title: "Request recent sales context",
+    href: "/request-recent-sales",
+    copy: "Ask for comparable sales context before relying on list price alone.",
+  },
+  {
+    title: "Request the buyer guide",
+    href: "/buyer-guide",
+    copy: "Start with a practical Port Moody buyer guide before you write.",
   },
   {
     title: "Buyer guidance",
@@ -70,7 +75,7 @@ const faqs = [
   {
     question: "Are these active listings?",
     answer:
-      "Yes. Active listings are provided through MLS Reciprocity when the search connection is available. Only active listings are shown.",
+      "Active listings are provided through MLS Reciprocity when the search connection is active. Only active listings are shown — sold and expired listings are not included.",
   },
   {
     question: "Can I see sold listings here?",
@@ -110,7 +115,11 @@ export default function ListingsPage() {
             Search active Port Moody listings through MLS Reciprocity and ask for local context on neighbourhoods, buildings, complexes, strata documents, pricing, and buyer trade-offs.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="#search-active-listings">Search active listings</CTAButton>
+            {reciprocitySearchUrl ? (
+              <CTAButton href="#search-active-listings">Search active listings</CTAButton>
+            ) : (
+              <CTAButton href="#ask-listing">Ask about Port Moody listings</CTAButton>
+            )}
             <CTAButton href="#ask-listing" variant="secondary">Ask about a listing</CTAButton>
           </div>
         </div>
