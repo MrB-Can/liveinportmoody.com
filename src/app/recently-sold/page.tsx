@@ -7,7 +7,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Recently Sold Context | Port Moody",
   description:
-    "Request recent Port Moody sales context where permitted. No public sold data, sold prices, or invented sold stories are displayed.",
+    "Request recent Port Moody sales context where permitted. No public sold data or sold prices are displayed.",
   path: "/recently-sold",
 });
 
@@ -18,7 +18,7 @@ export default function RecentlySoldPage() {
       <ImageHero
         eyebrow="Recently sold"
         title="Request recent Port Moody sales context."
-        subtitle="This page is a safe request path for recent-sales context where permitted. It does not publish sold listings, sold prices, fake results, or invented sold stories."
+        subtitle="Use this page to ask for comparable-sales context where it can be shared appropriately. Public sold listings and sold prices are not displayed here."
         primaryCta={{ label: "Request sales context", href: "#ask-comparable" }}
         secondaryCta={{ label: "Request evaluation", href: "/home-evaluation" }}
         imageSrc="/hero-sell.png"
@@ -31,11 +31,11 @@ export default function RecentlySoldPage() {
         title="How recent sales context is handled."
         tone="white"
       >
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
           <div>
-            <h3 className="font-heading text-lg text-deepInlet">What this page does</h3>
+            <h3 className="font-heading text-xl text-deepInlet">What you can request</h3>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              This is a request page, not a public sold-data display. If you need comparable-sales context, send the property type, area, building, complex, or address and we can respond appropriately.
+              Send the property type, area, building, complex, or address and we can respond with appropriate context for your situation.
             </p>
             <ul className="mt-5 space-y-2">
               {[
@@ -52,26 +52,23 @@ export default function RecentlySoldPage() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-heading text-lg text-deepInlet">Why we do this carefully</h3>
+          <div className="rounded-lg border border-softBorder bg-mist p-5">
+            <h3 className="font-heading text-xl text-deepInlet">Why this is handled carefully</h3>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Recent-sales context can be useful, but it should be handled with the right permissions, professional context, and property-specific review.
             </p>
             <p className="mt-4 text-sm leading-6 text-slateText">
-              We do not show public sold prices, fake sold results, or invented proof points on this page.
+              This page is a request path. It does not publish public sold prices, fake results, or invented proof points.
             </p>
           </div>
         </div>
       </Section>
 
       {/* 3. Current sold stories */}
-      <Section eyebrow="Current status" title="No public sold data is displayed">
-        <div className="rounded-lg border border-softBorder bg-mist p-8 text-center">
-          <p className="text-lg text-deepInlet">
-            Public sold listings and sold prices are not shown here.
-          </p>
-          <p className="mt-4 text-sm leading-6 text-slateText max-w-2xl mx-auto">
-            If you want to understand how a property might position in the Port Moody market, request a home evaluation or recent-sales context and we will respond directly.
+      <Section eyebrow="Current status" title="Sales context is available by request">
+        <div className="rounded-lg border border-softBorder bg-white p-6">
+          <p className="text-sm leading-6 text-slateText">
+            Sold data availability depends on applicable rules and professional context. If you want to understand how a property might position in the Port Moody market, request a home evaluation or recent-sales context and we will respond directly.
           </p>
         </div>
       </Section>
@@ -122,7 +119,7 @@ export default function RecentlySoldPage() {
             href="/sell"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
           >
-            <p className="font-heading text-lg text-deepInlet">Complete seller guide</p>
+            <p className="font-heading text-lg text-deepInlet">Seller strategy</p>
             <p className="mt-2 flex-1 text-sm text-slateText">
               Positioning, pricing, preparation, media, and launch strategy.
             </p>

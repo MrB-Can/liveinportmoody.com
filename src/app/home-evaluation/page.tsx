@@ -128,7 +128,7 @@ export default function HomeEvaluationPage() {
                     "We review your property details",
                     "We research your neighbourhood and comparable sales",
                     "We reach out to discuss and answer questions",
-                    "We send you a detailed evaluation and recommendations",
+                    "We follow up with practical valuation context and next-step recommendations",
                   ].map((step, i) => (
                     <li key={step} className="text-sm text-slateText">
                       <span className="font-semibold text-deepInlet">{i + 1}.</span> {step}
@@ -163,7 +163,7 @@ export default function HomeEvaluationPage() {
           >
             <p className="font-heading text-lg text-deepInlet">How we do it</p>
             <p className="mt-2 flex-1 text-sm text-slateText">
-              Walk through our complete selling process step by step.
+              Walk through our selling process step by step.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
           </Link>

@@ -128,28 +128,30 @@ export default function HowWeDoItPage() {
       <Section
         eyebrow="8-step process"
         title="The Port Moody selling process."
-        intro="Our approach focuses on understanding your property, knowing the market, and creating clarity for buyers. Each step builds on the last."
+        intro="Our approach focuses on understanding your property, knowing the market, and creating clarity for buyers. Each step builds on the last without turning the sale into a black box."
         tone="white"
       >
-        <div className="space-y-12">
+        <div className="grid gap-5 lg:grid-cols-2">
           {processSteps.map((step) => (
-            <div key={step.title} className="grid gap-6 lg:grid-cols-[80px_1fr]">
-              <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-deepInlet text-center">
-                <span className="font-heading text-3xl font-bold text-white">{step.step}</span>
+            <article key={step.title} className="rounded-lg border border-softBorder bg-white p-5 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-deepInlet text-center">
+                  <span className="font-heading text-xl font-bold text-white">{step.step}</span>
+                </div>
+                <div>
+                  <h2 className="font-heading text-xl text-deepInlet">{step.title}</h2>
+                  <p className="mt-1 text-sm text-emphasis">{step.description}</p>
+                </div>
               </div>
-              <div>
-                <h2 className="font-heading text-2xl text-deepInlet">{step.title}</h2>
-                <p className="mt-1 text-sm text-emphasis">{step.description}</p>
-                <ul className="mt-4 space-y-2">
-                  {step.details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-3 text-sm text-slateText">
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-seaGlass" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              <ul className="mt-4 space-y-2">
+                {step.details.map((detail) => (
+                  <li key={detail} className="flex items-start gap-3 text-sm leading-6 text-slateText">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-seaGlass" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </Section>
@@ -259,7 +261,7 @@ export default function HowWeDoItPage() {
             </p>
             <div className="mt-4">
               <Link href="/recently-sold" className="text-sm font-semibold text-forest hover:underline">
-                Explore sold context →
+                Request sales context →
               </Link>
             </div>
           </div>

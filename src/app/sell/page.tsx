@@ -465,9 +465,9 @@ export default function SellPage() {
           >
             <p className="font-heading text-lg text-deepInlet">Recently sold</p>
             <p className="mt-3 flex-1 text-sm text-slateText">
-              Understand recent Port Moody sales context and selling strategies.
+              Request recent Port Moody sales context where it can be shared appropriately.
             </p>
-            <span className="mt-4 text-sm font-semibold text-forest">See stories →</span>
+            <span className="mt-4 text-sm font-semibold text-forest">Request context →</span>
           </Link>
 
           <Link
@@ -476,7 +476,7 @@ export default function SellPage() {
           >
             <p className="font-heading text-lg text-deepInlet">Seller guide</p>
             <p className="mt-3 flex-1 text-sm text-slateText">
-              Request the Port Moody seller guide with comprehensive selling preparation and guidance.
+              Request the Port Moody seller guide and seller preparation guidance.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Request guide →</span>
           </Link>
