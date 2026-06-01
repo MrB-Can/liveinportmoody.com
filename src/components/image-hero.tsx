@@ -10,6 +10,7 @@ type ImageHeroProps = {
   imageSrc?: string;
   imageAlt?: string;
   homeSizing?: boolean;
+  priority?: boolean;
 };
 
 export function ImageHero({
@@ -21,6 +22,7 @@ export function ImageHero({
   imageSrc = "/hero-home.webp",
   imageAlt = "",
   homeSizing = false,
+  priority = false,
 }: ImageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-deepInlet text-white">
@@ -28,7 +30,7 @@ export function ImageHero({
         src={imageSrc}
         alt={imageAlt}
         fill
-        priority={homeSizing}
+        priority={homeSizing || priority}
         sizes="100vw"
         className="-z-20 object-cover object-center"
       />

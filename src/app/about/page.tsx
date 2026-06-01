@@ -42,6 +42,7 @@ export default function AboutPage() {
         subtitle="A local real estate and lifestyle resource built around neighbourhood fit, property due diligence, local intelligence, and better buying and selling decisions."
         primaryCta={{ label: "Meet us", href: "/meet-us" }}
         secondaryCta={{ label: "Contact us", href: "/contact" }}
+        priority
       />
 
       <Section title="Real estate plus local intelligence" tone="white" intro="The site connects buyer and seller decisions with the local context that changes how a property actually works: neighbourhood, building, complex, lifestyle, commute, strata, preparation, and long-term fit." />

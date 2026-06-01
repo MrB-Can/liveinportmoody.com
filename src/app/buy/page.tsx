@@ -341,6 +341,7 @@ export default function BuyPage() {
         secondaryCta={{ label: "View active listings", href: "/listings" }}
         imageSrc="/hero-buy.png"
         imageAlt="Port Moody residential homes framed by mature trees on a hillside."
+        priority
       />
 
       {/* 2. Start with the decision */}
