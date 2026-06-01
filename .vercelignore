@@ -1,0 +1,7 @@
+# Local artifacts — never upload to Vercel
+visual-review-screenshots/
+visual-review-screenshots.zip
+
+# Local docs and scripts not needed at build time
+docs/
+scripts/
