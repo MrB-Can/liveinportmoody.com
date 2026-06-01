@@ -216,11 +216,11 @@ export const exploreItems = [
   },
 ];
 
-export type SocialLink = { label: string; platform: string; href: string };
+export type SocialLink = { label: string; platform: string; href: string; disabled?: boolean };
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", platform: "instagram", href: "#" },
-  { label: "YouTube", platform: "youtube", href: "#" },
-  { label: "Facebook", platform: "facebook", href: "#" },
+  { label: "Instagram", platform: "instagram", href: "#", disabled: true },
+  { label: "YouTube", platform: "youtube", href: "#", disabled: true },
+  { label: "Facebook", platform: "facebook", href: "#", disabled: true },
 ];
 
 export type FooterLinkItem = { label: string; href: string };

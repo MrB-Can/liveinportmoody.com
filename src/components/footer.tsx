@@ -17,17 +17,25 @@ export function Footer() {
             <p>{siteConfig.publicPhone}</p>
             <p>{siteConfig.publicEmail}</p>
           </div>
-          <div className="mt-6 flex gap-4">
-            {socialLinks.map((social) => (
-              <Link
-                key={social.platform}
-                href={social.href}
-                className="text-sm text-mist hover:text-white"
-                aria-label={social.label}
-              >
-                {social.label}
-              </Link>
-            ))}
+          <div className="mt-6">
+            {socialLinks.some((s) => !s.disabled) ? (
+              <div className="flex gap-4">
+                {socialLinks
+                  .filter((s) => !s.disabled)
+                  .map((social) => (
+                    <Link
+                      key={social.platform}
+                      href={social.href}
+                      className="text-sm text-mist hover:text-white"
+                      aria-label={social.label}
+                    >
+                      {social.label}
+                    </Link>
+                  ))}
+              </div>
+            ) : (
+              <p className="text-xs text-mist/60">Social links coming soon</p>
+            )}
           </div>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

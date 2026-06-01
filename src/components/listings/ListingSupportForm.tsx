@@ -29,46 +29,50 @@ export function ListingSupportForm() {
     const listingAddress = String(form.get("listingAddress") || "");
     const question = String(form.get("question") || "");
 
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        formType: "ask-question",
-        leadType: "buyer",
-        name: String(form.get("name") || ""),
-        email: String(form.get("email") || ""),
-        phone: String(form.get("phone") || ""),
-        message: [
-          "Listing support request",
-          "intent:listing-search-support",
-          `Help needed: ${helpType || "Not selected"}`,
-          `listing_url: ${listingUrl || "Not provided"}`,
-          `listing_address: ${listingAddress || "Not provided"}`,
-          `Question: ${question || "Not provided"}`,
-        ].join("\n"),
-        pagePath: "/listings",
-        ctaLabel: "Ask about a listing",
-        resourceName: listingAddress || listingUrl || "Port Moody listing support",
-        consentToContact: form.get("consentToContact") === "on",
-        tags: [
-          "source:liveinportmoody",
-          "intent:buyer",
-          "intent:listing-search-support",
-          "lead_type:buyer",
-          "area:port-moody",
-        ],
-      }),
-    });
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "ask-question",
+          leadType: "buyer",
+          name: String(form.get("name") || ""),
+          email: String(form.get("email") || ""),
+          phone: String(form.get("phone") || ""),
+          message: [
+            "Listing support request",
+            "intent:listing-search-support",
+            `Help needed: ${helpType || "Not selected"}`,
+            `listing_url: ${listingUrl || "Not provided"}`,
+            `listing_address: ${listingAddress || "Not provided"}`,
+            `Question: ${question || "Not provided"}`,
+          ].join("\n"),
+          pagePath: "/listings",
+          ctaLabel: "Ask about a listing",
+          resourceName: listingAddress || listingUrl || "Port Moody listing support",
+          consentToContact: form.get("consentToContact") === "on",
+          tags: [
+            "source:liveinportmoody",
+            "intent:buyer",
+            "intent:listing-search-support",
+            "lead_type:buyer",
+            "area:port-moody",
+          ],
+        }),
+      });
 
-    setIsSubmitting(false);
+      if (response.ok) {
+        setStatus("success");
+        event.currentTarget.reset();
+        return;
+      }
 
-    if (response.ok) {
-      setStatus("success");
-      event.currentTarget.reset();
-      return;
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setStatus("error");
   }
 
   return (
