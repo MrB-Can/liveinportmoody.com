@@ -4,6 +4,13 @@ Agent 4
 SPRINT:
 A4-S28B — Site Ops Deployment Recovery
 
+BLOCKED_REASON (updated 2026-06-01 by Agent 1, S29B cleanup):
+Original blocker — active-task conflict around visual-review-screenshots/** — is now resolved.
+All visual-screenshot tasks (A2-S28B, A2-S28C, A2-S28D, A2-S28F) are done.
+New blocker: This task is about a separate project (app.lgis.ca / Site Ops repo).
+It cannot be executed from the liveinportmoody.com working directory.
+To unblock: run this task from the Site Ops project directory as a standalone sprint.
+
 GOAL:
 Resolve the Site Ops Vercel UNKNOWN deployment state and get app.lgis.ca onto the latest Site Ops commit if possible.
 
