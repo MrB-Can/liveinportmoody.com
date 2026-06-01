@@ -82,8 +82,8 @@ export default function FirstTimeHomeBuyersPage() {
             A practical starting point for first-time buyers comparing Port Moody condos, townhouses, neighbourhoods, costs, documents, and decision risks.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="#first-time-guide">Get the Port Moody first-time buyer guide</CTAButton>
-            <CTAButton href="#ask-first-time-question" variant="secondary">Ask a first-time buyer question</CTAButton>
+            <CTAButton href="/buyer-guide">Get the Port Moody buyer guide</CTAButton>
+            <CTAButton href="/contact" variant="secondary">Ask a first-time buyer question</CTAButton>
           </div>
         </div>
       </section>

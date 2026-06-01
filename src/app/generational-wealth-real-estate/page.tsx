@@ -64,7 +64,7 @@ export default function GenerationalWealthRealEstatePage() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#generational-guide">Get the generational wealth guide</CTAButton>
-            <CTAButton href="#long-term-question" variant="secondary">Ask about your long-term real estate plan</CTAButton>
+            <CTAButton href="/contact" variant="secondary">Ask about your long-term real estate plan</CTAButton>
           </div>
         </div>
       </section>

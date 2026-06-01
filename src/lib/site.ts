@@ -71,18 +71,65 @@ export const navItems: NavItem[] = [
     ],
   },
   { label: "Listings", href: "/listings" },
-  { label: "Buy", href: "/buy" },
-  { label: "Sell", href: "/sell" },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Buy",
+    href: "/buy",
+    groups: [
+      {
+        title: "Buying in Port Moody",
+        items: [
+          { label: "Buy in Port Moody", href: "/buy" },
+          { label: "Buyer Guide", href: "/buyer-guide" },
+          { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+          { label: "Generational Wealth", href: "/generational-wealth-real-estate" },
+          { label: "Request Recent Sales", href: "/request-recent-sales" },
+          { label: "Presales", href: "/presales" },
+          { label: "FAQ", href: "/faq" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Sell",
+    href: "/sell",
+    groups: [
+      {
+        title: "Selling in Port Moody",
+        items: [
+          { label: "Sell in Port Moody", href: "/sell" },
+          { label: "Seller Guide", href: "/seller-guide" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    groups: [
+      {
+        title: "Guides & Tools",
+        items: [
+          { label: "Resource Library", href: "/resources" },
+          { label: "Market", href: "/market" },
+          { label: "Blog", href: "/blog" },
+          { label: "FAQ", href: "/faq" },
+        ],
+      },
+      {
+        title: "Community",
+        items: [
+          { label: "Local Businesses", href: "/local-businesses" },
+          { label: "Events", href: "/events" },
+          { label: "Testimonials", href: "/testimonials" },
+          { label: "Accolades", href: "/accolades" },
+        ],
+      },
+    ],
+  },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const exploreItems = [
-  {
-    label: "Start Exploring",
-    href: "/explore",
-    description: "Use the main Port Moody exploration hub to choose your next path.",
-    group: "Overview",
-  },
   {
     label: "Neighbourhoods",
     href: "/neighbourhoods",
@@ -102,34 +149,58 @@ export const exploreItems = [
     group: "Places",
   },
   {
-    label: "Listings",
+    label: "Active Listings",
     href: "/listings",
     description: "Start with active listings, then use local guides to understand the property context.",
     group: "Property Search",
   },
   {
-    label: "Moving to Port Moody",
+    label: "Presales",
+    href: "/presales",
+    description: "Research Port Moody presales and new builds with verification-first buyer guidance.",
+    group: "Property Search",
+  },
+  {
+    label: "Request Recent Sales",
+    href: "/request-recent-sales",
+    description: "Get real sold data for the buildings, complexes, and areas you're comparing.",
+    group: "Property Search",
+  },
+  {
+    label: "Living in Port Moody",
     href: "/move-to-port-moody",
     description: "Understand lifestyle, commute, hillsides, amenities, and relocation trade-offs.",
     group: "Local Life",
   },
   {
-    label: "Schools",
-    href: "/resources#schools",
-    description: "Use school context as one input in a broader neighbourhood and property decision.",
+    label: "Events",
+    href: "/events",
+    description: "Port Moody community, seasonal, family, and local events.",
     group: "Local Life",
   },
   {
-    label: "Trails",
-    href: "/move-to-port-moody#trails",
-    description: "Explore the outdoor lifestyle that shapes daily life in Port Moody.",
+    label: "Local Businesses",
+    href: "/local-businesses",
+    description: "Local business, lifestyle, and community group features for Port Moody.",
     group: "Local Life",
   },
   {
-    label: "Transit",
-    href: "/move-to-port-moody#transit",
-    description: "Compare SkyTrain, driving, walking, and bike access by area.",
+    label: "Blog",
+    href: "/blog",
+    description: "In-depth articles on Port Moody properties, market context, and local life.",
     group: "Local Life",
+  },
+  {
+    label: "Buyer Guide",
+    href: "/buyer-guide",
+    description: "Step-by-step buyer guidance for micro-markets, shortlist decisions, and offer context.",
+    group: "Resources",
+  },
+  {
+    label: "Seller Guide",
+    href: "/seller-guide",
+    description: "Plan positioning, pricing, media, and launch strategy for a Port Moody sale.",
+    group: "Resources",
   },
   {
     label: "Market",
@@ -138,51 +209,9 @@ export const exploreItems = [
     group: "Resources",
   },
   {
-    label: "Buyer Resources",
-    href: "/buy",
-    description: "Get buyer guidance for micro-markets, shortlist decisions, and offer context.",
-    group: "Resources",
-  },
-  {
-    label: "Seller Resources",
-    href: "/sell",
-    description: "Plan positioning, pricing, media, and launch strategy for a Port Moody sale.",
-    group: "Resources",
-  },
-  {
-    label: "Resource Library",
-    href: "/resources",
-    description: "Find checklists, local questions, relocation prompts, and market-note signup.",
-    group: "Resources",
-  },
-  {
-    label: "Presales",
-    href: "/presales",
-    description: "Research Port Moody presales and new builds with verification-first buyer guidance.",
-    group: "Resources",
-  },
-  {
-    label: "Local Businesses",
-    href: "/local-businesses",
-    description: "Future hub for verified local business, lifestyle, and community group features.",
-    group: "Local Life",
-  },
-  {
-    label: "Events",
-    href: "/events",
-    description: "Future hub for verified Port Moody community, seasonal, family, and real estate events.",
-    group: "Local Life",
-  },
-  {
-    label: "Testimonials",
-    href: "/testimonials",
-    description: "Approved public reviews and client stories will be added without invented testimonials.",
-    group: "Resources",
-  },
-  {
-    label: "Accolades",
-    href: "/accolades",
-    description: "Approved recognition, community involvement, and professional background.",
+    label: "FAQ",
+    href: "/faq",
+    description: "Straight answers to common Port Moody real estate questions.",
     group: "Resources",
   },
 ];
@@ -199,38 +228,43 @@ export type FooterGroup = { title: string; links: FooterLinkItem[] };
 
 export const footerGroups: FooterGroup[] = [
   {
-    title: "City & Community",
+    title: "City Guide",
     links: [
       { label: "Explore Port Moody", href: "/explore" },
+      { label: "Neighbourhoods", href: "/neighbourhoods" },
       { label: "Living in Port Moody", href: "/move-to-port-moody" },
-      { label: "Market", href: "/market" },
-      { label: "Blog", href: "/blog" },
+      { label: "Events", href: "/events" },
+      { label: "Local Businesses", href: "/local-businesses" },
     ],
   },
   {
     title: "Property",
     links: [
-      { label: "Neighbourhoods", href: "/neighbourhoods" },
       { label: "Townhouse Complexes", href: "/complexes" },
       { label: "Condo Buildings", href: "/buildings" },
       { label: "Listings", href: "/listings" },
+      { label: "Presales", href: "/presales" },
+      { label: "Market", href: "/market" },
     ],
   },
   {
-    title: "Help",
+    title: "Buyers & Sellers",
     links: [
-      { label: "Buy", href: "/buy" },
-      { label: "Sell", href: "/sell" },
-      { label: "Resources", href: "/resources" },
-      { label: "Ask a Question", href: "/contact" },
+      { label: "Buyer Guide", href: "/buyer-guide" },
+      { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+      { label: "Seller Guide", href: "/seller-guide" },
+      { label: "Request Recent Sales", href: "/request-recent-sales" },
+      { label: "FAQ", href: "/faq" },
     ],
   },
   {
-    title: "Company",
+    title: "About",
     links: [
       { label: "About", href: "/about" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: "Blog", href: "/blog" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Accolades", href: "/accolades" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];

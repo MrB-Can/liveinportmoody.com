@@ -13,33 +13,13 @@ function timingSafeEqual(a: string, b: string): boolean {
   return result === 0;
 }
 
-function isAllowed(pathname: string): boolean {
+// Paths that pass through regardless of coming-soon state.
+function isAlwaysAllowed(pathname: string): boolean {
   return (
-    pathname === "/" ||
     pathname === "/coming-soon" ||
-    pathname === "/explore" ||
-    pathname === "/about" ||
-    pathname === "/buy" ||
-    pathname === "/buyer-guide" ||
-    pathname === "/sell" ||
-    pathname === "/seller-guide" ||
-    pathname === "/contact" ||
-    pathname === "/faq" ||
-    pathname === "/first-time-home-buyers" ||
-    pathname === "/generational-wealth-real-estate" ||
-    pathname === "/market" ||
-    pathname === "/move-to-port-moody" ||
-    pathname === "/request-recent-sales" ||
-    pathname === "/resources" ||
-    pathname === "/listings" ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
     pathname.startsWith("/api/") ||
-    pathname.startsWith("/_next/") ||
-    pathname.startsWith("/neighbourhoods") ||
-    pathname.startsWith("/complexes") ||
-    pathname.startsWith("/buildings") ||
-    pathname.startsWith("/blog") ||
     publicFilePattern.test(pathname)
   );
 }
@@ -49,17 +29,11 @@ export function middleware(request: NextRequest) {
   const comingSoonEnabled = process.env.COMING_SOON_ENABLED !== "false";
   const previewKey = process.env.PREVIEW_KEY;
 
-  if (!previewKey) {
-    if (!comingSoonEnabled) return NextResponse.next();
-    if (isAllowed(pathname)) return NextResponse.next();
-    const url = request.nextUrl.clone();
-    url.pathname = "/coming-soon";
-    url.search = "";
-    return NextResponse.rewrite(url);
-  }
+  // Always pass through regardless of gate state.
+  if (isAlwaysAllowed(pathname)) return NextResponse.next();
 
-  // Handle /preview?key=... — set cookie and redirect to home
-  if (pathname === "/preview") {
+  // Handle /preview?key=... — set cookie and redirect to home.
+  if (previewKey && pathname === "/preview") {
     const key = request.nextUrl.searchParams.get("key") ?? "";
     if (timingSafeEqual(key, previewKey)) {
       const res = NextResponse.redirect(new URL("/", request.url));
@@ -74,16 +48,16 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Gate is disabled — let everything through.
   if (!comingSoonEnabled) return NextResponse.next();
 
-  // Allow through if the user has the preview cookie
-  const cookieVal = request.cookies.get(PREVIEW_COOKIE)?.value ?? "";
-  if (timingSafeEqual(cookieVal, previewKey)) {
-    return NextResponse.next();
+  // Cookie holders have already unlocked — let them through.
+  if (previewKey) {
+    const cookieVal = request.cookies.get(PREVIEW_COOKIE)?.value ?? "";
+    if (timingSafeEqual(cookieVal, previewKey)) return NextResponse.next();
   }
 
-  if (isAllowed(pathname)) return NextResponse.next();
-
+  // Everyone else → coming-soon.
   const url = request.nextUrl.clone();
   url.pathname = "/coming-soon";
   url.search = "";

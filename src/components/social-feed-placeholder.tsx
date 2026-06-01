@@ -7,7 +7,7 @@ export function SocialFeedPlaceholder() {
         <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Social</p>
-            <h2 className="mt-3 font-heading text-3xl text-deepInlet">Latest from Instagram and YouTube</h2>
+            <h2 className="mt-3 font-heading text-3xl text-deepInlet">Instagram and YouTube connection coming soon</h2>
           </div>
           <div>
             <p className="text-sm leading-6 text-slateText">

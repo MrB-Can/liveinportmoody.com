@@ -1,4 +1,5 @@
 import { FAQAccordion } from "@/components/faq-accordion";
+import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
 
@@ -159,6 +160,10 @@ export default function FaqPage() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slateText">
             Answers to common questions about buying, selling, first-time buying, neighbourhoods, buildings, complexes, presales, listings, schools, and moving to Port Moody.
           </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CTAButton href="/contact">Ask a Port Moody question</CTAButton>
+            <CTAButton href="/listings" variant="secondary">View current listings</CTAButton>
+          </div>
         </div>
       </section>
 
