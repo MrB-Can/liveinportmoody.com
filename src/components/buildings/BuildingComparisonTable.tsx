@@ -11,7 +11,7 @@ export function BuildingComparisonTable({ buildings }: { buildings: PortMoodyBui
             <th className="px-4 py-3">Area</th>
             <th className="px-4 py-3">General feel</th>
             <th className="px-4 py-3">Best for</th>
-            <th className="px-4 py-3">What to verify</th>
+            <th className="px-4 py-3">Due diligence focus</th>
             <th className="px-4 py-3">Status</th>
             <th className="px-4 py-3">CTA</th>
           </tr>
@@ -25,11 +25,11 @@ export function BuildingComparisonTable({ buildings }: { buildings: PortMoodyBui
               <td className="px-4 py-4 text-slateText">{building.bestFor}</td>
               <td className="px-4 py-4 text-slateText">{building.watchouts}</td>
               <td className="px-4 py-4">
-                <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-forest">Preview</span>
+                <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-forest">Guide preview</span>
               </td>
               <td className="px-4 py-4">
                 <CTAButton href={`/buildings/${building.slug}`} variant="ghost">
-                  Preview
+                  See guide preview
                 </CTAButton>
               </td>
             </tr>

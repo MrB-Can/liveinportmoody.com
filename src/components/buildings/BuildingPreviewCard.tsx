@@ -6,7 +6,7 @@ export function BuildingPreviewCard({ building }: { building: PortMoodyBuilding 
   return (
     <article className="flex min-h-full flex-col rounded-lg border border-softBorder bg-white p-6">
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <Badge tone="slate">Preview</Badge>
+        <Badge tone="slate">Building guide preview</Badge>
         <span className="text-xs font-medium text-slateText">{building.type}</span>
       </div>
       <h3 className="font-heading text-2xl text-deepInlet">{building.name}</h3>
@@ -18,13 +18,13 @@ export function BuildingPreviewCard({ building }: { building: PortMoodyBuilding 
           <p className="text-slateText">{building.bestFor}</p>
         </div>
         <div>
-          <p className="font-semibold text-charcoal">What to verify</p>
+          <p className="font-semibold text-charcoal">Due diligence focus</p>
           <p className="text-slateText">{building.watchouts}</p>
         </div>
       </div>
       <div className="mt-6">
         <CTAButton href={`/buildings/${building.slug}`} variant="secondary">
-          Open preview
+          See building guide preview
         </CTAButton>
       </div>
     </article>

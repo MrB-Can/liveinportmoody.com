@@ -34,7 +34,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want a central condo lifestyle with shops, services, transit, and Port Moody waterfront access nearby.",
     watchouts:
-      "Strata documents, fees, amenities, parking, storage, bylaws, depreciation report, insurance, and active listing availability — verify all before relying on this preview.",
+      "Strata documents, fees, amenities, parking, storage, bylaws, depreciation report, insurance, and active listing availability should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -56,7 +56,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers wanting a more central Port Moody location with waterfront, breweries, SkyTrain, and village amenities nearby.",
     watchouts:
-      "Strata documents, amenities, parking, storage, bylaws, insurance, fees, and active listing availability — verify all before relying on this preview.",
+      "Strata documents, amenities, parking, storage, bylaws, insurance, fees, and active listing availability should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -78,7 +78,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want a walkable condo location with a village-style setting and convenient access to SkyTrain.",
     watchouts:
-      "Strata documents, fees, parking, storage, bylaws, amenities, insurance, exposure, and active listings — verify all before relying on this preview.",
+      "Strata documents, fees, parking, storage, bylaws, amenities, insurance, exposure, and active listings should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -100,7 +100,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want central Port Moody convenience with shops, services, restaurants, and transit nearby.",
     watchouts:
-      "Strata health, fees, amenities, parking, storage, bylaws, insurance, and listing availability — verify all before relying on this preview.",
+      "Strata health, fees, amenities, parking, storage, bylaws, insurance, and listing availability should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -122,7 +122,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who value daily convenience, shops, services, transit access, and a central Port Moody condo lifestyle.",
     watchouts:
-      "Specific building, strata documents, fees, parking, storage, amenities, bylaws, insurance, noise, and exposure — verify per building.",
+      "Specific building, strata documents, fees, parking, storage, amenities, bylaws, insurance, noise, and exposure should be confirmed per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -144,7 +144,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want a walkable village setting close to groceries, cafes, services, and central Port Moody amenities.",
     watchouts:
-      "Building age, envelope history, strata documents, fees, parking, storage, bylaws, insurance, and active listings — verify per building.",
+      "Building age, envelope history, strata documents, fees, parking, storage, bylaws, insurance, and active listings should be confirmed per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -166,7 +166,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers wanting a more central Port Moody lifestyle with trails, amenities, and mixed condo and townhome options nearby.",
     watchouts:
-      "Specific building, strata documents, parking, storage, amenities, fees, bylaws, and exposure — verify per building.",
+      "Specific building, strata documents, parking, storage, amenities, fees, bylaws, and exposure should be confirmed per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -188,7 +188,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers comparing newer-feeling central condo options and wanting local context before relying on listing copy.",
     watchouts:
-      "Strata documents, fees, amenities, parking, storage, bylaws, insurance, and availability — verify all before relying on this preview.",
+      "Strata documents, fees, amenities, parking, storage, bylaws, insurance, and availability should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -210,7 +210,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want a central location and need help comparing building context, exposure, fees, and resale factors.",
     watchouts:
-      "Strata documents, insurance, bylaws, parking, storage, amenities, fees, planned work, and active listing details — verify all.",
+      "Strata documents, insurance, bylaws, parking, storage, amenities, fees, planned work, and active listing details should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -232,7 +232,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers comparing value, central location, building age, layout, parking, and walkability trade-offs.",
     watchouts:
-      "Strata documents, depreciation report, insurance, fees, bylaws, parking, storage, and condition — verify all before relying on this preview.",
+      "Strata documents, depreciation report, insurance, fees, bylaws, parking, storage, and condition should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -254,7 +254,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers wanting central Port Moody access to trails, waterfront, shops, transit, and condo amenities nearby.",
     watchouts:
-      "Building-specific documents, fees, amenities, parking, storage, bylaws, insurance, exposure, and active listings — verify all.",
+      "Building-specific documents, fees, amenities, parking, storage, bylaws, insurance, exposure, and active listings should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -276,7 +276,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want an inlet-side lifestyle near Rocky Point, central amenities, trails, and transit connections.",
     watchouts:
-      "Strata documents, fees, insurance, parking, storage, bylaws, amenities, exposure, and listing availability — verify all.",
+      "Strata documents, fees, insurance, parking, storage, bylaws, amenities, exposure, and listing availability should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -298,7 +298,7 @@ export const buildings: PortMoodyBuilding[] = [
     bestFor:
       "Buyers who want a walkable condo setting close to shops, services, restaurants, and SkyTrain access.",
     watchouts:
-      "Building documents, depreciation report, insurance, bylaws, parking, storage, fees, amenities, and exposure — verify all.",
+      "Building documents, depreciation report, insurance, bylaws, parking, storage, fees, amenities, and exposure should be confirmed for the specific unit.",
     yearBuilt: null,
     unitCount: null,
     construction: null,

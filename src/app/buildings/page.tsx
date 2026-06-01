@@ -75,7 +75,7 @@ const howToUseCards = [
   },
   {
     heading: "Use guides as orientation",
-    body: "Building previews give orientation, not final answers. Verify unit-specific details before relying on any guide.",
+    body: "Building previews help with comparison. Confirm unit-specific details, strata documents, and listing details before making decisions.",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function BuildingsPage() {
         <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[360px] md:h-[480px] rounded-lg" />
       </Section>
 
-      <Section title="Building previews" intro="These are preview-level research cards, not full building guides. They are designed to help you ask better questions before reviewing a listing or writing an offer." tone="white">
+      <Section title="Building guide previews" intro="Use these cards to compare location, buyer fit, and due-diligence questions before reviewing a specific listing or strata package." tone="white">
         <div id="building-grid" className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {buildings.map((building) => (
             <BuildingPreviewCard key={building.slug} building={building} />
@@ -138,7 +138,7 @@ export default function BuildingsPage() {
                   {groupBuildings.map((building) => (
                     <article key={building.slug} className="rounded-lg border border-softBorder bg-white p-5">
                       <div className="flex items-center gap-2">
-                        <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-slateText">Preview</span>
+                        <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-slateText">Guide preview</span>
                         <span className="text-xs text-slateText">{building.type}</span>
                       </div>
                       <h4 className="mt-3 font-heading text-xl text-deepInlet">{building.name}</h4>
@@ -151,7 +151,7 @@ export default function BuildingsPage() {
                           href={`/buildings/${building.slug}`}
                           className="text-sm font-semibold text-forest hover:text-deepInlet"
                         >
-                          Open preview →
+                          See building guide preview →
                         </Link>
                       </div>
                     </article>
