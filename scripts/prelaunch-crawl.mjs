@@ -116,8 +116,12 @@ const CORE_PAGES = [
   { path: "/buy",                         label: "Buy",                       expectNoindex: false },
   { path: "/sell",                        label: "Sell",                      expectNoindex: false },
   { path: "/resources",                   label: "Resources",                 expectNoindex: false },
+  { path: "/local-insights",              label: "Local Insights",            expectNoindex: false },
   { path: "/contact",                     label: "Contact",                   expectNoindex: false },
+  { path: "/privacy",                     label: "Privacy",                   expectNoindex: false },
+  { path: "/terms",                       label: "Terms",                     expectNoindex: false },
   { path: "/move-to-port-moody",          label: "Move to Port Moody",        expectNoindex: false },
+  { path: "/relocate",                    label: "Relocate",                  expectNoindex: false },
   { path: "/first-time-home-buyers",      label: "First-Time Buyers",         expectNoindex: false },
   { path: "/generational-wealth-real-estate", label: "Generational Wealth",  expectNoindex: false },
   { path: "/buyer-guide",                 label: "Buyer Guide",               expectNoindex: false },
@@ -156,7 +160,8 @@ const ALL_PAGES = [...CORE_PAGES, ...PREVIEW_PAGES];
 // Known routes in the app — used to detect dead internal links
 const KNOWN_ROUTES = new Set([
   "/", "/explore", "/neighbourhoods", "/buildings", "/complexes", "/listings",
-  "/buy", "/sell", "/resources", "/contact", "/move-to-port-moody", "/about",
+  "/buy", "/sell", "/resources", "/local-insights", "/contact", "/privacy", "/terms",
+  "/move-to-port-moody", "/relocate", "/about",
   "/market", "/blog", "/faq", "/privacy", "/terms",
   "/first-time-home-buyers", "/generational-wealth-real-estate",
   "/buyer-guide", "/seller-guide", "/request-recent-sales",

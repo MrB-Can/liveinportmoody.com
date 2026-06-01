@@ -178,6 +178,28 @@ export default function HomeEvaluationPage() {
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
           </Link>
+
+          <Link
+            href="/recently-sold"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Recently sold</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Understand recent Port Moody sales context and comparable market activity.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Explore →</span>
+          </Link>
+
+          <Link
+            href="/raving-fans"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Client stories</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Review the future home for approved client stories and verified public review links.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Read stories →</span>
+          </Link>
         </div>
       </Section>
 

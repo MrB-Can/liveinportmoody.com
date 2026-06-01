@@ -27,7 +27,7 @@ export function NewsletterSignup() {
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slateText">
             Occasional notes on neighbourhood guides, listings and market notes, presales, sold stories,
-            local events, and featured businesses. No fake automation claims or scraped social posts.
+            local events, and featured businesses.
           </p>
         </div>
         <LeadForm

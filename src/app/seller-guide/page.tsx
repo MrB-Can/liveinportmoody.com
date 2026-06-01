@@ -106,7 +106,7 @@ export default function SellerGuidePage() {
       </Section>
 
       <Section title="Other seller resources">
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-3">
           <a
             href="/sell"
             className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
@@ -127,6 +127,17 @@ export default function SellerGuidePage() {
               Walk through our 8-step selling process from strategy to closing.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
+          </a>
+
+          <a
+            href="/raving-fans"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Client stories</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Review the future home for approved client stories and verified public review links.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Read stories →</span>
           </a>
         </div>
       </Section>

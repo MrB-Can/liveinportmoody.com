@@ -149,6 +149,17 @@ export default function RecentlySoldPage() {
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Request now →</span>
           </a>
+
+          <a
+            href="/raving-fans"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Client stories</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Review the future home for approved client stories and verified public review links.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Read stories →</span>
+          </a>
         </div>
       </Section>
 
