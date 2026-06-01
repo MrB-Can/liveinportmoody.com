@@ -436,7 +436,7 @@ const EXPECTED_ASSETS = [
   "hero-move.png",
   "hero-resources.png",
   "hero-legal.png",
-  "og-placeholder.jpg",
+  "images/social/live-in-port-moody-og.png",
   "images/phase1/port-moody-forest-path.jpg",
   "images/phase1/port-moody-community-building.jpg",
   "images/phase1/port-moody-hillside-homes.jpg",
@@ -459,9 +459,14 @@ if (!existsSync(join(PUBLIC_DIR, "images/team/leilani.jpeg")) &&
   wn("public/images/team/leilani.* — no Leilani team photo found", "expected gap before launch");
 }
 
-// OG image is a placeholder — note it
-if (existsSync(join(PUBLIC_DIR, "og-placeholder.jpg"))) {
-  wn("og-placeholder.jpg is a placeholder", "should be replaced with branded OG image before launch promotion");
+// OG image check — warn if still using placeholder, pass if branded asset exists
+const brandedOg = join(PUBLIC_DIR, "images/social/live-in-port-moody-og.png");
+if (existsSync(brandedOg)) {
+  ok("branded OG image present — images/social/live-in-port-moody-og.png");
+} else if (existsSync(join(PUBLIC_DIR, "og-placeholder.jpg"))) {
+  wn("og-placeholder.jpg is a placeholder", "replace with branded OG image before launch promotion");
+} else {
+  bad("no OG image found", "expected images/social/live-in-port-moody-og.png");
 }
 
 // ─── Section 6: Sitemap and robots spot check ─────────────────────────────────
