@@ -49,22 +49,22 @@ const primaryPaths: PrimaryPath[] = [
 const guideSections = [
   {
     title: "Moving here",
-    href: "/move-to-port-moody",
+    href: "/local-life",
     body: "Trails, SkyTrain, schools, breweries, hillsides, density, and waterfront access all shape the move.",
   },
   {
     title: "Schools",
-    href: "/move-to-port-moody#schools",
+    href: "/local-life#schools",
     body: "Use school context carefully as one part of the broader neighbourhood and commute decision.",
   },
   {
     title: "Trails",
-    href: "/move-to-port-moody#trails",
+    href: "/local-life#trails",
     body: "Port Moody's trail network is part of the lifestyle value, especially around the inlet and hillside areas.",
   },
   {
     title: "Transit",
-    href: "/move-to-port-moody#transit",
+    href: "/local-life#transit",
     body: "SkyTrain access changes the buyer pool, commute patterns, parking needs, and rental appeal.",
   },
   {
@@ -74,7 +74,7 @@ const guideSections = [
   },
   {
     title: "Buyer and seller resources",
-    href: "/resources",
+    href: "/local-insights",
     body: "Find practical prompts for buyers, sellers, relocation planning, local questions, and market updates.",
   },
 ];

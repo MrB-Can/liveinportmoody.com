@@ -57,7 +57,7 @@ const sellingResources: ResourceCard[] = [
     title: "Testimonials",
     description: "Approved client stories and reviews from buyers and sellers who worked with Paul and Leilani in Port Moody.",
     cta: "View testimonials",
-    href: "/testimonials",
+    href: "/raving-fans",
   },
   {
     title: "Accolades",
@@ -90,7 +90,7 @@ const researchResources: ResourceCard[] = [
     title: "Moving to Port Moody",
     description: "A practical guide to Port Moody lifestyle, commute, schools, trails, housing types, neighbourhoods, and relocation decisions.",
     cta: "Relocation guide",
-    href: "/move-to-port-moody",
+    href: "/local-life",
   },
 ];
 
@@ -99,7 +99,7 @@ const localLifeResources: ResourceCard[] = [
     title: "Local Businesses",
     description: "Local cafes, breweries, services, and community groups that shape daily life in Port Moody. Nominate a business or explore what is featured.",
     cta: "Explore businesses",
-    href: "/local-businesses",
+    href: "/featured-businesses",
   },
   {
     title: "Events",

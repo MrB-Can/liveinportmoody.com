@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { phaseOneRoutes, siteConfig } from "@/lib/site";
 import { buildings } from "@/data/buildings";
+import { complexes } from "@/data/complexes";
 import { neighbourhoodGuides } from "@/data/neighbourhoodGuides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,5 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
-  return [...phaseOneEntries, ...neighbourhoodEntries, ...buildingEntries];
+  const complexEntries: MetadataRoute.Sitemap = complexes
+    .filter((complex) => complex.guideStatusLabel === "Guide live" && complex.detailPageUrl)
+    .map((complex) => ({
+      url: new URL(complex.detailPageUrl as string, siteConfig.url).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+
+  return [...phaseOneEntries, ...neighbourhoodEntries, ...buildingEntries, ...complexEntries];
 }

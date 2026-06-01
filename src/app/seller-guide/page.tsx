@@ -90,8 +90,9 @@ export default function SellerGuidePage() {
             <p className="mt-3 text-sm leading-6 text-slateText">
               If you need help before the guide is ready, ask for seller guidance now and share your timing, property type, or preparation questions.
             </p>
-            <div className="mt-5">
-              <CTAButton href="/contact" variant="secondary">Ask for seller guidance now</CTAButton>
+            <div className="mt-5 flex flex-col gap-3">
+              <CTAButton href="/home-evaluation">Request home evaluation</CTAButton>
+              <CTAButton href="/contact" variant="secondary">Ask seller questions</CTAButton>
             </div>
           </div>
           <LeadForm
@@ -101,6 +102,32 @@ export default function SellerGuidePage() {
             title="Request the Port Moody seller guide"
             tags={["source:liveinportmoody", "intent:seller-guide-request", "lead_type:seller", "area:port-moody"]}
           />
+        </div>
+      </Section>
+
+      <Section title="Other seller resources">
+        <div className="grid gap-4 lg:grid-cols-2">
+          <a
+            href="/sell"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Complete seller guide</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Positioning, pricing, preparation, media, and launch strategy for selling in Port Moody.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Read more →</span>
+          </a>
+
+          <a
+            href="/how-we-do-it"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-5 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">How we do it</p>
+            <p className="mt-2 flex-1 text-sm text-slateText">
+              Walk through our 8-step selling process from strategy to closing.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
+          </a>
         </div>
       </Section>
     </>

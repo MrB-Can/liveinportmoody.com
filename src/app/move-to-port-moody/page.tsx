@@ -349,7 +349,7 @@ export default function MoveToPortMoodyPage() {
             <p className="mt-2 text-sm text-slateText">Get notified about verified Port Moody presale and new-build projects when there is current context worth reviewing.</p>
             <p className="mt-3 text-xs font-semibold text-forest">Get updates →</p>
           </Link>
-          <Link href="/local-businesses" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
+          <Link href="/featured-businesses" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
             <p className="font-semibold text-deepInlet">Local businesses</p>
             <p className="mt-2 text-sm text-slateText">Local cafes, breweries, services, and community groups that shape daily life. Nominate a business or browse what is featured.</p>
             <p className="mt-3 text-xs font-semibold text-forest">Explore businesses →</p>

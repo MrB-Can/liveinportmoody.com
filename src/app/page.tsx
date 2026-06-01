@@ -13,22 +13,22 @@ export const metadata = createMetadata({
 
 const decisionCards = [
   {
-    title: "Move to Port Moody",
-    copy: "Understand lifestyle, commute, schools, trails, density, and neighbourhood trade-offs.",
-    cta: "Explore life here",
-    href: "/explore",
-  },
-  {
     title: "Buy in Port Moody",
     copy: "Find the right neighbourhood, property type, building, or complex before you write an offer.",
-    cta: "Start buying research",
+    cta: "Buying guidance",
     href: "/buy",
   },
   {
     title: "Sell in Port Moody",
-    copy: "Position your home around what buyers actually value here.",
-    cta: "Plan my sale",
+    copy: "Position your home around what buyers actually value here — pricing, preparation, and local market context.",
+    cta: "Selling guidance",
     href: "/sell",
+  },
+  {
+    title: "Relocate to Port Moody",
+    copy: "Understand lifestyle, commute, schools, trails, density, and neighbourhood trade-offs before you commit.",
+    cta: "Relocation guide",
+    href: "/local-life",
   },
   {
     title: "Compare neighbourhoods",
@@ -38,13 +38,13 @@ const decisionCards = [
   },
   {
     title: "Research buildings and complexes",
-    copy: "Review condo buildings and townhouse complexes before you commit.",
-    cta: "Research homes",
-    href: "/complexes",
+    copy: "Review condo buildings and townhouse complexes by location, strata context, and buyer considerations.",
+    cta: "Research buildings",
+    href: "/buildings",
   },
   {
     title: "See current listings",
-    copy: "Search active MLS Reciprocity listings and ask for local context.",
+    copy: "Search active MLS Reciprocity listings and ask for local context on any property.",
     cta: "View listings",
     href: "/listings",
   },
@@ -115,10 +115,16 @@ const leadMagnetCards = [
 
 const communityCards = [
   {
-    title: "Local businesses",
-    copy: "Local cafes, breweries, fitness, services, and community groups that shape daily life in Port Moody.",
-    cta: "Explore businesses",
-    href: "/local-businesses",
+    title: "Local life",
+    copy: "Local cafes, breweries, parks, trails, schools, and community context that shapes daily life in Port Moody.",
+    cta: "Explore local life",
+    href: "/local-life",
+  },
+  {
+    title: "Featured businesses",
+    copy: "Local cafes, breweries, fitness, services, and community groups worth knowing.",
+    cta: "Featured businesses",
+    href: "/featured-businesses",
   },
   {
     title: "Events",
@@ -127,16 +133,10 @@ const communityCards = [
     href: "/events",
   },
   {
-    title: "Testimonials",
+    title: "Raving fans",
     copy: "Client stories and approved public reviews from buyers, sellers, and relocators who worked with Paul and Leilani.",
-    cta: "View client stories",
-    href: "/testimonials",
-  },
-  {
-    title: "Accolades",
-    copy: "Professional recognition, community involvement, and background for Leilani Fong PREC and Paul Bennett.",
-    cta: "View recognition",
-    href: "/accolades",
+    cta: "Read client stories",
+    href: "/raving-fans",
   },
 ];
 
@@ -247,15 +247,59 @@ export default function HomePage() {
       <ImageHero
         eyebrow="Live in Port Moody"
         title="Make clearer Port Moody real estate decisions."
-        subtitle="Local guides, market context, listings, and practical real estate advice from people who live and work in Port Moody."
-        primaryCta={{ label: "Start with the decision hub", href: "#decision-hub" }}
+        subtitle="Local neighbourhood guides, buyer strategy, seller advice, building research, listings, and market context from people who live and work in Port Moody."
+        primaryCta={{ label: "Get started", href: "/get-started" }}
         secondaryCta={{ label: "Ask a local question", href: "#ask" }}
         imageSrc="/images/hero/port-moody-hero-original.jpg"
         imageAlt="Calm view across Burrard Inlet in Port Moody with forested mountains, still water, and tree branches framing the shoreline."
         homeSizing
       />
 
-      <Section eyebrow="Start here" title="What are you trying to figure out?" tone="white">
+      {/* Trust strip — immediately beneath fold */}
+      <section className="border-b border-softBorder bg-white px-5 py-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
+                <span className="text-sm font-bold text-forest">✓</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-deepInlet">Licensed BC REALTORS</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">Paul Bennett and Leilani Fong PREC · eXp Realty</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
+                <span className="text-sm font-bold text-forest">✓</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-deepInlet">Port Moody focused</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">We live and work here — this is our local market.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
+                <span className="text-sm font-bold text-forest">✓</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-deepInlet">Research-first approach</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">Verified local context, not generic market commentary.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
+                <span className="text-sm font-bold text-forest">✓</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-deepInlet">Verified accolades</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">Recognition and reviews being confirmed from verified sources.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Section eyebrow="Buy, sell, or relocate" title="What are you trying to figure out?" tone="white">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
             <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
@@ -495,7 +539,7 @@ export default function HomePage() {
                 Testimonials, client stories, Google reviews, and professional recognition are published from verified public sources or with client approval. No invented reviews, rankings, or awards.
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <CTAButton href="/testimonials" variant="secondary">View client stories</CTAButton>
+                <CTAButton href="/raving-fans" variant="secondary">View client stories</CTAButton>
                 <CTAButton href="/accolades" variant="ghost">View recognition</CTAButton>
               </div>
             </div>

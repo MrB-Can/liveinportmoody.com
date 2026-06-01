@@ -123,11 +123,11 @@ export function MobileNav() {
               </div>
             ))}
             <Link
-              href="/contact"
+              href="/get-started"
               className="mt-2 block rounded-md bg-deepInlet px-3 py-3 text-center text-base font-semibold text-white"
               onClick={closeAll}
             >
-              Ask a Question
+              Get Started
             </Link>
           </nav>
         </div>

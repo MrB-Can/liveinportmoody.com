@@ -38,23 +38,21 @@ const wn  = (label, detail = "") => { console.log(`  ⚠️  ${label}${detail ? 
 const inf = (label)               => console.log(`  🔍 ${label}`);
 const sec = (title)               => console.log(`\n${"═".repeat(62)}\n  ${title}\n${"═".repeat(62)}`);
 
-// ─── Fetch helper ─────────────────────────────────────────────────────────────
-
-async function get(path, { cookie, manual = false } = {}) {
+async function get(path, options = {}) {
   const url = path.startsWith("http") ? path : `${BASE}${path}`;
   const headers = { "User-Agent": "LIPM-Crawl/1.0", Accept: "text/html,application/xhtml+xml,*/*" };
-  if (cookie) headers["Cookie"] = cookie;
+  if (options.cookie) headers.Cookie = options.cookie;
   try {
     const res = await fetch(url, {
       headers,
-      redirect: manual ? "manual" : "follow",
+      redirect: options.manual ? "manual" : "follow",
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     let html = "";
     try { html = await res.text(); } catch (_) {}
     return { ok: true, status: res.status, headers: res.headers, html, url };
   } catch (e) {
-    return { ok: false, status: 0, error: e.message, headers: new Headers(), html: "", url };
+    return { ok: false, status: 0, error: e.message, headers: { get: () => "" }, html: "", url };
   }
 }
 
@@ -63,7 +61,10 @@ async function post(path, body) {
   try {
     const res = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "User-Agent": "LIPM-Crawl/1.0" },
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "LIPM-Crawl/1.0",
+      },
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
@@ -128,6 +129,14 @@ const CORE_PAGES = [
   { path: "/events",                      label: "Events",                    expectNoindex: false },
   { path: "/testimonials",               label: "Testimonials",              expectNoindex: false },
   { path: "/accolades",                   label: "Accolades",                 expectNoindex: false },
+  { path: "/get-started",                label: "Get Started",               expectNoindex: false },
+  { path: "/meet-us",                    label: "Meet Us",                   expectNoindex: false },
+  { path: "/home-evaluation",            label: "Home Evaluation",           expectNoindex: false },
+  { path: "/how-we-do-it",              label: "How We Do It",              expectNoindex: false },
+  { path: "/recently-sold",             label: "Recently Sold",             expectNoindex: false },
+  { path: "/raving-fans",               label: "Raving Fans",               expectNoindex: false },
+  { path: "/local-life",                label: "Local Life",                expectNoindex: false },
+  { path: "/featured-businesses",       label: "Featured Businesses",       expectNoindex: false },
 ];
 
 const PREVIEW_PAGES = [
@@ -153,6 +162,9 @@ const KNOWN_ROUTES = new Set([
   "/buyer-guide", "/seller-guide", "/request-recent-sales",
   "/presales", "/local-businesses", "/events", "/testimonials", "/accolades",
   "/coming-soon", "/sitemap.xml", "/robots.txt",
+  "/get-started", "/meet-us", "/home-evaluation", "/how-we-do-it",
+  "/recently-sold", "/raving-fans", "/local-life", "/local-insights",
+  "/featured-businesses",
   "/neighbourhoods/heritage-mountain",
   "/neighbourhoods/heritage-woods", "/neighbourhoods/mountain-meadows",
   "/neighbourhoods/moody-centre", "/neighbourhoods/glenayre",

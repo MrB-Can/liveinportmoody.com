@@ -433,24 +433,53 @@ export default function SellPage() {
           ))}
         </div>
         <div id="value-opinion" className="mt-10 max-w-2xl rounded-lg border border-softBorder bg-mist p-6">
-          <h2 className="mb-1 font-heading text-2xl text-deepInlet">Request a micro-market value opinion</h2>
+          <h2 className="mb-1 font-heading text-2xl text-deepInlet">Request a home evaluation</h2>
           <p className="mb-6 text-sm text-slateText">
-            Tell us your property type, address or complex, timeline, and what you want to understand. We&apos;ll respond personally.
+            Get a property assessment, understand your market positioning, and learn next steps for selling.
           </p>
-          <LeadForm
-            formType="home-value"
-            leadType="seller"
-            ctaLabel="Request value opinion"
-            title=""
-            messageLabel="Approximate address, property type, timeline, and what you want to understand"
-            tags={[
-                "source:liveinportmoody",
-                "intent:seller",
-                "intent:seller-micro-market-value",
-                "lead_type:seller",
-                "area:port-moody",
-            ]}
-          />
+          <CTAButton href="/home-evaluation">Request evaluation</CTAButton>
+        </div>
+      </Section>
+
+      {/* 9b. Seller resources section */}
+      <Section
+        eyebrow="Next steps"
+        title="Explore our seller resources."
+        tone="white"
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          <Link
+            href="/how-we-do-it"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-6 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">How we do it</p>
+            <p className="mt-3 flex-1 text-sm text-slateText">
+              Walk through our 8-step selling process from strategy consultation to closing.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Learn more →</span>
+          </Link>
+
+          <Link
+            href="/recently-sold"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-6 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Recently sold</p>
+            <p className="mt-3 flex-1 text-sm text-slateText">
+              Explore Port Moody properties sold by our team and understand selling strategies.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">See stories →</span>
+          </Link>
+
+          <Link
+            href="/seller-guide"
+            className="flex flex-col rounded-lg border border-softBorder bg-white p-6 hover:border-forest"
+          >
+            <p className="font-heading text-lg text-deepInlet">Seller guide</p>
+            <p className="mt-3 flex-1 text-sm text-slateText">
+              Request the Port Moody seller guide with comprehensive selling preparation and guidance.
+            </p>
+            <span className="mt-4 text-sm font-semibold text-forest">Request guide →</span>
+          </Link>
         </div>
       </Section>
 

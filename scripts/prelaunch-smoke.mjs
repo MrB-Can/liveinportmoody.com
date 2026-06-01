@@ -16,6 +16,10 @@
  *   1 — one or more critical checks failed
  */
 
+import http from 'http';
+import https from 'https';
+import { URL } from 'url';
+
 const BASE = (process.env.LIPM_BASE_URL ?? 'https://www.liveinportmoody.com').replace(/\/$/, '');
 const PREVIEW_KEY = process.env.LIPM_PREVIEW_KEY ?? 'lgis2026';
 const PREVIEW_COOKIE_NAME = '__lipm_preview';
@@ -36,25 +40,49 @@ const wn  = (label, detail = '') => { console.log(`  ⚠️  ${label}${detail ? 
 const inf = (label)               => console.log(`  🔍 ${label}`);
 const sec = (title)               => console.log(`\n${'═'.repeat(62)}\n  ${title}\n${'═'.repeat(62)}`);
 
-// ─── Fetch helper ──────────────────────────────────────────────────────────────
+// ─── HTTP helper ───────────────────────────────────────────────────────────────
 
-async function get(path, { cookie, manual = false } = {}) {
-  const url = `${BASE}${path}`;
-  const headers = { 'User-Agent': 'LIPM-Smoke/1.0', Accept: 'text/html,application/xhtml+xml,*/*' };
-  if (cookie) headers['Cookie'] = cookie;
+function getHttp(urlStr, { cookie, manual = false } = {}) {
+  return new Promise((resolve) => {
+    const url = new URL(urlStr);
+    const isHttps = url.protocol === 'https:';
+    const client = isHttps ? https : http;
 
-  try {
-    const res = await fetch(url, {
-      headers,
-      redirect: manual ? 'manual' : 'follow',
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+    const options = {
+      hostname: url.hostname,
+      port: url.port || (isHttps ? 443 : 80),
+      path: url.pathname + url.search,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'LIPM-Smoke/1.0',
+        'Accept': 'text/html,application/xhtml+xml,*/*',
+      },
+      timeout: TIMEOUT_MS,
+    };
+
+    if (cookie) options.headers['Cookie'] = cookie;
+
+    const req = client.request(options, (res) => {
+      let html = '';
+      res.on('data', chunk => { html += chunk; });
+      res.on('end', () => {
+        const headers = {};
+        headers.get = (key) => res.headers[key.toLowerCase()] || '';
+        resolve({ ok: true, status: res.statusCode, headers, html, url: urlStr });
+      });
     });
-    let html = '';
-    try { html = await res.text(); } catch (_) {}
-    return { ok: true, status: res.status, headers: res.headers, html, url };
-  } catch (e) {
-    return { ok: false, status: 0, error: e.message, headers: new Headers(), html: '', url };
-  }
+
+    req.on('error', (e) => {
+      resolve({ ok: false, status: 0, error: e.message, headers: { get: () => '' }, html: '', url: urlStr });
+    });
+
+    req.end();
+  });
+}
+
+async function get(path, options = {}) {
+  const url = `${BASE}${path}`;
+  return getHttp(url, options);
 }
 
 // ─── Parsing helpers ───────────────────────────────────────────────────────────
@@ -64,6 +92,18 @@ const extractTitle = html => html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.t
 const extractH1    = html => html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, '').trim() ?? '';
 const hasNoindex   = html => /name=["']robots["'][^>]*noindex/i.test(html) || /noindex[^"']*["'][^>]*name=["']robots["']/i.test(html);
 const extractLocs  = xml  => [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1].trim());
+const hasPreviewCookie = setCookie => {
+  const value = String(setCookie ?? '').toLowerCase();
+  return value.includes(PREVIEW_COOKIE_NAME.toLowerCase()) || value.includes('lipm_preview=');
+};
+const isRootRedirect = location => {
+  if (location === '/' || location === `${BASE}/`) return true;
+  try {
+    return new URL(location).pathname === '/';
+  } catch {
+    return false;
+  }
+};
 
 // ─── Section 1: Public gate — no cookie ────────────────────────────────────────
 
@@ -117,7 +157,7 @@ let previewCookie = '';
 {
   const r = await get('/preview?key=WRONG_KEY_SMOKE_TEST', { manual: true });
   const setCookie = r.headers.get('set-cookie') ?? '';
-  if (setCookie.includes(PREVIEW_COOKIE_NAME)) {
+  if (hasPreviewCookie(setCookie)) {
     bad('Wrong key — cookie set (should NOT be set with wrong key)', setCookie.slice(0, 80));
   } else {
     ok('Wrong key → no cookie set');
@@ -130,15 +170,15 @@ let previewCookie = '';
   const setCookie = r.headers.get('set-cookie') ?? '';
   const location  = r.headers.get('location') ?? '';
 
-  inf(`Status: ${r.status} | Location: ${location} | Set-Cookie present: ${setCookie.includes(PREVIEW_COOKIE_NAME)}`);
+  inf(`Status: ${r.status} | Location: ${location} | Set-Cookie present: ${hasPreviewCookie(setCookie)}`);
 
   if (r.status >= 300 && r.status < 400) ok(`Preview redirect — status ${r.status}`);
   else wn(`Preview redirect — unexpected status ${r.status}`, 'expected 3xx');
 
-  if (setCookie.includes(PREVIEW_COOKIE_NAME)) {
+  if (hasPreviewCookie(setCookie)) {
     ok(`Cookie set — ${PREVIEW_COOKIE_NAME} present in Set-Cookie`);
     // Extract value; value equals the preview key per middleware implementation
-    const match = setCookie.match(new RegExp(`${PREVIEW_COOKIE_NAME}=([^;]+)`));
+    const match = String(setCookie ?? '').match(new RegExp(`${PREVIEW_COOKIE_NAME}=([^;]+)`));
     const cookieValue = match?.[1] ?? PREVIEW_KEY;
     previewCookie = `${PREVIEW_COOKIE_NAME}=${cookieValue}`;
     inf(`Cookie to use: ${previewCookie.slice(0, 40)}`);
@@ -149,7 +189,7 @@ let previewCookie = '';
     wn('Falling back to constructed cookie for remaining sections');
   }
 
-  if (location === '/' || location === `${BASE}/`) ok(`Redirect location → / (correct)`);
+  if (isRootRedirect(location)) ok(`Redirect location → / (correct)`);
   else wn(`Redirect location → ${location}`, 'expected /');
 }
 

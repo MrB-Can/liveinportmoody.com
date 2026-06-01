@@ -38,7 +38,7 @@ export function Footer() {
             )}
           </div>
         </div>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {footerGroups.map((group) => (
             <div key={group.title}>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-seaGlass">{group.title}</p>

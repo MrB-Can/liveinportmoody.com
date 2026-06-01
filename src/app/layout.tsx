@@ -3,8 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 import { AnalyticsProvider } from "@/app/analytics-provider";
-import { organizationSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -44,9 +45,15 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+        />
         <AnalyticsProvider />
         <Header />
         <main>{children}</main>
+        <NewsletterSignup />
         <Footer />
       </body>
     </html>

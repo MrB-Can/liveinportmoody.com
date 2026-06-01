@@ -30,65 +30,96 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Explore", href: "/explore", submenu: true },
   {
-    label: "Real Estate",
-    href: "/listings",
+    label: "Buy",
+    href: "/buy",
     groups: [
       {
         items: [
-          { label: "Listings", href: "/listings" },
-          { label: "Presales", href: "/presales" },
-          { label: "Condo Buildings", href: "/buildings" },
-          { label: "Townhouse Complexes", href: "/complexes" },
-          { label: "Buy", href: "/buy" },
-          { label: "Sell", href: "/sell" },
+          { label: "Search Listings", href: "/listings" },
+          { label: "Buyer Guide", href: "/buyer-guide" },
+          { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+          { label: "Neighbourhoods", href: "/neighbourhoods" },
+          { label: "Buildings", href: "/buildings" },
+          { label: "Complexes", href: "/complexes" },
+          { label: "Request Recent Sales", href: "/request-recent-sales" },
         ],
       },
     ],
   },
   {
-    label: "Guides",
-    href: "/buyer-guide",
+    label: "Sell",
+    href: "/sell",
     groups: [
       {
         items: [
-          { label: "Buyer Guide", href: "/buyer-guide" },
           { label: "Seller Guide", href: "/seller-guide" },
-          { label: "First-Time Buyers", href: "/first-time-home-buyers" },
-          { label: "Generational Wealth", href: "/generational-wealth-real-estate" },
-          { label: "Request Recent Sales", href: "/request-recent-sales" },
-          { label: "FAQ", href: "/faq" },
+          { label: "Home Evaluation", href: "/home-evaluation" },
+          { label: "How We Do It", href: "/how-we-do-it" },
+          { label: "Recently Sold", href: "/recently-sold" },
+          { label: "Raving Fans", href: "/raving-fans" },
+          { label: "Contact", href: "/contact" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Relocate",
+    href: "/local-life",
+    groups: [
+      {
+        items: [
+          { label: "Local Life", href: "/local-life" },
+          { label: "Neighbourhoods", href: "/neighbourhoods" },
+          { label: "Schools, Parks & Trails", href: "/local-life" },
+          { label: "Local Insights", href: "/local-insights" },
+          { label: "Ask a Local Question", href: "/contact" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Neighbourhoods",
+    href: "/neighbourhoods",
+    groups: [
+      {
+        items: [
+          { label: "Port Moody Neighbourhoods", href: "/neighbourhoods" },
+          { label: "Condo Buildings", href: "/buildings" },
+          { label: "Townhouse Complexes", href: "/complexes" },
+          { label: "Presales & New Builds", href: "/presales" },
         ],
       },
     ],
   },
   {
     label: "Local Life",
-    href: "/local-businesses",
+    href: "/local-life",
     groups: [
       {
         items: [
-          { label: "Local Businesses", href: "/local-businesses" },
+          { label: "Local Life", href: "/local-life" },
+          { label: "Featured Businesses", href: "/featured-businesses" },
           { label: "Events", href: "/events" },
+          { label: "Parks, Trails & Schools", href: "/local-life" },
         ],
       },
     ],
   },
   {
     label: "About",
-    href: "/about",
+    href: "/meet-us",
     groups: [
       {
         items: [
-          { label: "About", href: "/about" },
-          { label: "Testimonials", href: "/testimonials" },
+          { label: "Meet Us", href: "/meet-us" },
+          { label: "Raving Fans", href: "/raving-fans" },
           { label: "Accolades", href: "/accolades" },
+          { label: "Contact", href: "/contact" },
         ],
       },
     ],
   },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const exploreItems = [
@@ -130,7 +161,7 @@ export const exploreItems = [
   },
   {
     label: "Living in Port Moody",
-    href: "/move-to-port-moody",
+    href: "/local-life",
     description: "Understand lifestyle, commute, hillsides, amenities, and relocation trade-offs.",
     group: "Local Life",
   },
@@ -141,8 +172,8 @@ export const exploreItems = [
     group: "Local Life",
   },
   {
-    label: "Local Businesses",
-    href: "/local-businesses",
+    label: "Featured Businesses",
+    href: "/featured-businesses",
     description: "Local business, lifestyle, and community group features for Port Moody.",
     group: "Local Life",
   },
@@ -190,50 +221,57 @@ export type FooterGroup = { title: string; links: FooterLinkItem[] };
 
 export const footerGroups: FooterGroup[] = [
   {
-    title: "Explore",
+    title: "Buy",
     links: [
-      { label: "Explore Port Moody", href: "/explore" },
-      { label: "Neighbourhoods", href: "/neighbourhoods" },
-      { label: "Move to Port Moody", href: "/move-to-port-moody" },
-      { label: "Market", href: "/market" },
+      { label: "Search Listings", href: "/listings" },
+      { label: "Buyer Guide", href: "/buyer-guide" },
+      { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+      { label: "Buildings & Complexes", href: "/buildings" },
+      { label: "Request Recent Sales", href: "/request-recent-sales" },
     ],
   },
   {
-    title: "Real Estate",
+    title: "Sell",
     links: [
-      { label: "Listings", href: "/listings" },
-      { label: "Presales", href: "/presales" },
+      { label: "Seller Guide", href: "/seller-guide" },
+      { label: "Home Evaluation", href: "/home-evaluation" },
+      { label: "How We Do It", href: "/how-we-do-it" },
+      { label: "Raving Fans", href: "/raving-fans" },
+    ],
+  },
+  {
+    title: "Relocate",
+    links: [
+      { label: "Local Life", href: "/local-life" },
+      { label: "Neighbourhoods", href: "/neighbourhoods" },
+      { label: "Local Life", href: "/local-life" },
+      { label: "Local Insights", href: "/local-insights" },
+    ],
+  },
+  {
+    title: "Neighbourhoods",
+    links: [
+      { label: "Compare Neighbourhoods", href: "/neighbourhoods" },
       { label: "Condo Buildings", href: "/buildings" },
       { label: "Townhouse Complexes", href: "/complexes" },
-      { label: "Buy", href: "/buy" },
-      { label: "Sell", href: "/sell" },
-    ],
-  },
-  {
-    title: "Guides",
-    links: [
-      { label: "Buyer Guide", href: "/buyer-guide" },
-      { label: "Seller Guide", href: "/seller-guide" },
-      { label: "First-Time Buyers", href: "/first-time-home-buyers" },
-      { label: "Generational Wealth", href: "/generational-wealth-real-estate" },
-      { label: "Request Recent Sales", href: "/request-recent-sales" },
-      { label: "FAQ", href: "/faq" },
+      { label: "Presales", href: "/presales" },
     ],
   },
   {
     title: "Local Life",
     links: [
-      { label: "Local Businesses", href: "/local-businesses" },
+      { label: "Local Life", href: "/local-life" },
+      { label: "Featured Businesses", href: "/featured-businesses" },
       { label: "Events", href: "/events" },
     ],
   },
   {
     title: "About",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Testimonials", href: "/testimonials" },
+      { label: "Meet Us", href: "/meet-us" },
       { label: "Accolades", href: "/accolades" },
       { label: "Contact", href: "/contact" },
+      { label: "Local Insights", href: "/local-insights" },
     ],
   },
 ];
@@ -244,13 +282,24 @@ export const phaseOneRoutes = [
   "/",
   "/buy",
   "/sell",
-  "/move-to-port-moody",
+  "/local-life",
   "/market",
-  "/resources",
-  "/about",
   "/contact",
   "/privacy",
   "/terms",
   "/buyer-guide",
   "/seller-guide",
+  "/first-time-home-buyers",
+  "/generational-wealth-real-estate",
+  "/meet-us",
+  "/home-evaluation",
+  "/how-we-do-it",
+  "/recently-sold",
+  "/raving-fans",
+  "/local-insights",
+  "/featured-businesses",
+  "/events",
+  "/presales",
+  "/accolades",
+  "/faq",
 ];

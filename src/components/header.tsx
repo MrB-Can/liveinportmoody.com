@@ -138,7 +138,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden flex-shrink-0 md:block">
-          <CTAButton href="/contact">Ask a Question</CTAButton>
+          <CTAButton href="/get-started">Get Started</CTAButton>
         </div>
         <MobileNav />
       </div>

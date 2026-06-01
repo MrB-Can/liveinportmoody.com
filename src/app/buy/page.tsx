@@ -53,7 +53,7 @@ const pathCards = [
     heading: "I am relocating to Port Moody",
     body: "Understand commute, schools, trails, density, village areas, hills, weather, and trade-offs before choosing an area.",
     cta: "Explore Port Moody",
-    href: "/move-to-port-moody",
+    href: "/local-life",
   },
   {
     heading: "I found a listing",

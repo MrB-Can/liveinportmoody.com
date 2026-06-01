@@ -44,3 +44,14 @@ export function organizationSchema() {
     description: siteConfig.description,
   };
 }
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    inLanguage: "en-CA",
+  };
+}
