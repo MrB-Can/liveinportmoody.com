@@ -111,7 +111,7 @@ export default function EventsPage() {
           description="Events are reviewed before being added."
           ctaLabel="Send event suggestion"
           messageLabel="Event details and verification source"
-          tags={["event-suggestion"]}
+          tags={["source:liveinportmoody", "intent:event-suggestion", "area:port-moody"]}
         />
       </section>
     </>

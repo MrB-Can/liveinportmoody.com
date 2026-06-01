@@ -69,29 +69,33 @@ export function LeadForm({
 
   async function onSubmit(values: LeadFormValues) {
     setStatus("idle");
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...values,
-        formType,
-        leadType,
-        pagePath: pathname,
-        ctaLabel,
-        resourceName,
-        tags,
-        attribution: getAttribution(),
-      }),
-    });
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          formType,
+          leadType,
+          pagePath: pathname,
+          ctaLabel,
+          resourceName,
+          tags,
+          attribution: getAttribution(),
+        }),
+      });
 
-    if (response.ok) {
-      trackFormSubmit(formType);
-      setStatus("success");
-      reset();
-      return;
+      if (response.ok) {
+        trackFormSubmit(formType);
+        setStatus("success");
+        reset();
+        return;
+      }
+
+      setStatus("error");
+    } catch {
+      setStatus("error");
     }
-
-    setStatus("error");
   }
 
   return (

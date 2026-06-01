@@ -129,7 +129,7 @@ export default function LocalBusinessesPage() {
             description="Tell us who should be considered and what should be verified."
             ctaLabel="Send nomination"
             messageLabel="Business, group, or feature idea"
-            tags={["local-business-nomination"]}
+            tags={["source:liveinportmoody", "intent:local-business-nomination", "area:port-moody"]}
           />
         </div>
       </section>

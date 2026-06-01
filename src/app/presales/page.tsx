@@ -210,7 +210,7 @@ export default function PresalesPage() {
               ctaLabel="Send presale question"
               resourceName="Port Moody presales"
               messageLabel="What presale question should we help with?"
-              tags={["presales", "new-development"]}
+              tags={["source:liveinportmoody", "intent:presale-inquiry", "lead_type:buyer", "area:port-moody"]}
             />
           </div>
         </div>

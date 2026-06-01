@@ -72,6 +72,7 @@ export default function ComingSoonPage() {
               title="Have a Port Moody question?"
               description="Ask anything about the city, neighbourhoods, buildings, or the market. We'll get back to you personally."
               messageLabel="What are you trying to figure out?"
+              tags={["source:liveinportmoody", "intent:coming-soon-question", "area:port-moody"]}
             />
           </section>
         </div>
