@@ -28,8 +28,8 @@ export function BuildingComparisonTable({ buildings }: { buildings: PortMoodyBui
                 <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-forest">Preview</span>
               </td>
               <td className="px-4 py-4">
-                <CTAButton href={`#ask-building-${building.slug}`} variant="ghost">
-                  Ask
+                <CTAButton href={`/buildings/${building.slug}`} variant="ghost">
+                  Preview
                 </CTAButton>
               </td>
             </tr>

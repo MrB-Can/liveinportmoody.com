@@ -19,6 +19,13 @@ const riskItems = [
   "Family help should be documented carefully with legal and financial guidance.",
 ];
 
+const planningQuestions = [
+  "Is the goal housing stability, helping a child buy, keeping a property, downsizing, income planning, or estate flexibility?",
+  "How would higher rates, vacancies, repairs, strata fees, taxes, or a market slowdown affect the plan?",
+  "Who needs advice before a decision is made: lender, lawyer, accountant, financial planner, insurer, or family members?",
+  "What local Port Moody factors matter: property type, strata health, land value, rental rules, neighbourhood demand, or future resale audience?",
+];
+
 const faqItems = [
   {
     question: "Is real estate always a good way to build family wealth?",
@@ -116,6 +123,19 @@ export default function GenerationalWealthRealEstatePage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="Questions to clarify before acting" tone="white">
+        <div className="grid gap-4 md:grid-cols-2">
+          {planningQuestions.map((question) => (
+            <div key={question} className="rounded-lg border border-softBorder bg-mist p-5 text-sm leading-6 text-slateText">
+              {question}
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 max-w-3xl text-xs leading-5 text-slateText">
+          This page is general education only and is not legal, tax, or financial advice.
+        </p>
       </Section>
 
       <Section id="generational-guide" title="Request Long-Term Real Estate Guidance" tone="white">

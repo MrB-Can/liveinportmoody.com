@@ -40,11 +40,35 @@ const considerationCards = [
   },
 ];
 
+const presaleQuestions = [
+  "What is the deposit schedule, and when are each of the payments due?",
+  "Who holds the deposit funds, and what happens if timelines or financing conditions change?",
+  "What are the estimated completion date, outside date, amendment history, and delay rights?",
+  "What GST, assignment, legal, financing, and insurance questions should be reviewed before signing?",
+  "What parking, storage, strata budget, estimated fees, bylaws, amenities, and disclosure amendments need verification?",
+  "How does the project compare with active resale options for size, timing, neighbourhood fit, and future resale audience?",
+];
+
+const comparisonCards = [
+  {
+    title: "Timing",
+    body: "A resale purchase has a clearer possession date. A presale can offer a future move-in path, but buyers need a plan for completion delays, rate changes, and interim housing.",
+  },
+  {
+    title: "Certainty",
+    body: "Existing homes can be inspected and compared in person. Presales require deeper document review, developer research, disclosure review, and careful expectation-setting.",
+  },
+  {
+    title: "Total cost",
+    body: "Compare deposit timing, GST, closing costs, assignment terms, strata assumptions, upgrades, storage, parking, and the cost of waiting against active resale alternatives.",
+  },
+];
+
 const faqs = [
   {
     question: "Are there active Port Moody presale projects listed here?",
     answer:
-      "Not yet. This first version is a research hub. Current project availability, pricing, incentives, and timelines will only be added after they are verified from approved sources.",
+      "This page is a research and request hub. Current project availability, pricing, incentives, and timelines will be published only after they are verified from approved current sources.",
   },
   {
     question: "Is presale advice legal or tax advice?",
@@ -59,7 +83,7 @@ const faqs = [
   {
     question: "Can you send updates when new projects are verified?",
     answer:
-      "Yes. Use the presale updates form and we can follow up when there is verified information worth reviewing.",
+      "Yes. Use the presale updates form and we can follow up when verified information is available for review.",
   },
 ];
 
@@ -116,12 +140,50 @@ export default function PresalesPage() {
       <section className="mx-auto max-w-5xl px-5 py-12">
         <div className="rounded-lg border border-dashed border-softBorder bg-mist p-6 md:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Current and new developments</p>
-          <h2 className="mt-3 font-heading text-3xl text-deepInlet">Verified project coverage coming soon</h2>
+          <h2 className="mt-3 font-heading text-3xl text-deepInlet">Request verified project updates</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-            This section is reserved for verified Port Moody presale and new development information. Project
-            availability, pricing, incentives, and dates will only be published after they are checked against approved
-            current sources.
+            We are collecting approved sources for Port Moody presales and new developments. Project availability,
+            pricing, incentives, and dates will only be published after they are checked against current approved
+            sources.
           </p>
+          <div className="mt-5">
+            <CTAButton href="/contact" variant="secondary">Ask about a project</CTAButton>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-12">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-heading text-3xl text-deepInlet">Questions to ask before buying a presale</h2>
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
+            {presaleQuestions.map((question) => (
+              <div key={question} className="rounded-lg border border-softBorder bg-mist p-5 text-sm leading-6 text-slateText">
+                {question}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-warmSand px-5 py-12">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-heading text-3xl text-deepInlet">Compare presales with resale before you commit</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
+            A presale can be the right fit for some buyers, but it should be compared with active resale options, timing risk,
+            total cost, neighbourhood fit, and the type of home you can verify today.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {comparisonCards.map((card) => (
+              <article key={card.title} className="rounded-lg border border-softBorder bg-white/85 p-5">
+                <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CTAButton href="/contact" variant="secondary">Ask about this</CTAButton>
+            <CTAButton href="/listings" variant="ghost">Compare active listings</CTAButton>
+          </div>
         </div>
       </section>
 

@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { CTAButton } from "@/components/cta-button";
+import { LeadForm } from "@/components/lead-form";
 
 const MLS_DISCLOSURE =
   "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.";
 
 const VERIFICATION_NOTE =
   "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
+
+type RelatedLink = { label: string; href: string };
 
 type Props = {
   name: string;
@@ -20,6 +24,7 @@ type Props = {
   sellerNotes: string[];
   neighbourhoodSlug?: string;
   neighbourhoodName?: string;
+  relatedLinks?: RelatedLink[];
 };
 
 export function ComplexPreviewTemplate({
@@ -36,10 +41,11 @@ export function ComplexPreviewTemplate({
   sellerNotes,
   neighbourhoodSlug,
   neighbourhoodName,
+  relatedLinks,
 }: Props) {
   return (
     <>
-      {/* Back link */}
+      {/* Breadcrumb */}
       <div className="border-b border-softBorder bg-mist px-5 py-3">
         <div className="mx-auto flex max-w-6xl gap-5">
           <Link href="/complexes" className="text-sm font-semibold text-forest hover:text-deepInlet">
@@ -69,28 +75,18 @@ export function ComplexPreviewTemplate({
           {address && <p className="mt-2 text-sm text-slateText">{address}</p>}
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">{summary}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/listings"
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-deepInlet px-5 py-3 text-sm font-semibold text-white hover:bg-forest"
-            >
-              Ask about homes in {name}
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-deepInlet px-5 py-3 text-sm font-semibold text-deepInlet hover:bg-mist"
-            >
-              Ask about this complex
-            </Link>
+            <CTAButton href="#ask-this-complex">Ask about this complex</CTAButton>
+            <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
+            <CTAButton href="/complexes" variant="ghost">Compare all complexes</CTAButton>
           </div>
           <p className="mt-4 max-w-2xl text-xs leading-5 text-slateText">{MLS_DISCLOSURE}</p>
         </div>
       </section>
 
-      <main className="mx-auto max-w-6xl space-y-12 px-5 py-12">
+      <div className="mx-auto max-w-6xl space-y-12 px-5 py-12">
         {/* Preview notice */}
         <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
-          This is a guide preview. Information is being expanded. Verify all details in current
-          strata documents and with a qualified professional before making any decision.
+          This is a guide preview. Information is being expanded. Verify all details in current strata documents and with a qualified professional before making any decision.
         </p>
 
         {/* Verification note */}
@@ -113,7 +109,7 @@ export function ComplexPreviewTemplate({
           </div>
         </section>
 
-        {/* Known + must verify */}
+        {/* Known facts + must verify */}
         <section>
           <h2 className="mb-4 font-heading text-2xl text-deepInlet">What is known</h2>
           <div className="grid gap-6 lg:grid-cols-2">
@@ -133,7 +129,7 @@ export function ComplexPreviewTemplate({
               <ul className="grid gap-2 text-sm text-slateText sm:grid-cols-2">
                 {mustVerify.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="flex-shrink-0 text-forest">□</span>
+                    <span className="shrink-0 text-forest">□</span>
                     {item}
                   </li>
                 ))}
@@ -157,7 +153,7 @@ export function ComplexPreviewTemplate({
             {buyerNotes.map((note, i) => (
               <div key={i} className="rounded-lg border border-softBorder bg-white p-4">
                 <p className="flex gap-3 text-sm leading-6 text-slateText">
-                  <span className="flex-shrink-0 font-bold text-forest">✓</span>
+                  <span className="shrink-0 font-bold text-forest">✓</span>
                   {note}
                 </p>
               </div>
@@ -177,37 +173,61 @@ export function ComplexPreviewTemplate({
           </div>
         </section>
 
-        {/* Listing fallback CTA */}
-        <section className="rounded-lg border border-softBorder p-6">
-          <h2 className="mb-2 font-heading text-2xl text-deepInlet">Listings in {area}</h2>
-          <p className="mb-4 text-xs leading-5 text-slateText">{MLS_DISCLOSURE}</p>
-          <div className="rounded-lg border border-softBorder bg-mist p-6 text-center">
-            <p className="mb-4 text-sm text-slateText">Find available homes in {area}</p>
-            <Link
-              href="/listings"
-              className="inline-block rounded-lg bg-forest px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-deepInlet"
-            >
-              Ask about homes in {name}
-            </Link>
+        {/* Related links */}
+        {relatedLinks && relatedLinks.length > 0 && (
+          <section>
+            <h2 className="mb-4 font-heading text-2xl text-deepInlet">Compare and explore</h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex min-h-10 items-center rounded-md border border-softBorder bg-white px-4 py-2 text-sm font-semibold text-deepInlet hover:border-seaGlass hover:bg-mist"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Active listings context */}
+        <section>
+          <h2 className="mb-3 font-heading text-2xl text-deepInlet">Active listings in {area}</h2>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <p className="text-sm leading-6 text-slateText">
+              Use listings as the starting point, then compare the complex, strata documents, layout, location, and resale context before making a decision.
+            </p>
+            <p className="mt-3 text-xs leading-5 text-slateText">{MLS_DISCLOSURE}</p>
+            <div className="mt-5">
+              <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
+            </div>
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className="rounded-lg border border-softBorder bg-gradient-to-r from-forest/5 to-deepInlet/5 p-8 text-center">
-          <h2 className="mb-3 font-heading text-2xl text-deepInlet">
-            Have more questions about {name}?
-          </h2>
-          <p className="mb-6 text-sm text-slateText">
-            Get guidance from a local expert before you decide
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block rounded-lg bg-forest px-6 py-2 font-semibold text-white transition-colors hover:bg-deepInlet"
-          >
-            Get in Touch
-          </Link>
+        {/* Lead form */}
+        <section id="ask-this-complex" className="scroll-mt-8">
+          <h2 className="mb-4 font-heading text-2xl text-deepInlet">Ask about {name}</h2>
+          <div className="max-w-2xl">
+            <LeadForm
+              formType="complex-inquiry"
+              leadType="buyer"
+              ctaLabel={`Ask about ${name}`}
+              description={`Send a question about ${name} — location, strata, layout, buyer or seller considerations, or what to verify before making a decision.`}
+              messageLabel="What are you trying to figure out?"
+              messagePlaceholder={`Complex name, listing, or question about ${name}...`}
+              resourceName={`${name} complex inquiry`}
+              tags={[
+                "source:liveinportmoody",
+                "intent:complex-inquiry",
+                "lead_type:buyer",
+                "property:townhouse",
+                "area:port-moody",
+              ]}
+            />
+          </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Port Moody Local Businesses",
   description:
-    "A future hub for verified Port Moody local business features, lifestyle context, community groups, and business nominations.",
+    "A Port Moody local business feature hub for lifestyle context, community groups, and business nominations.",
   path: "/local-businesses",
 });
 
@@ -18,19 +18,25 @@ const categories = [
   "Community groups",
 ];
 
-const futureFeatureCards = [
+const featureTypes = [
   {
-    title: "Business feature slot",
-    body: "Reserved for an approved local business profile with permission, current details, and a clear source.",
+    title: "Everyday local stops",
+    body: "Coffee shops, restaurants, breweries, fitness studios, grocers, clinics, services, and family-friendly places that shape daily routines.",
   },
   {
-    title: "Neighbourhood lifestyle story",
-    body: "Reserved for a local story that helps buyers understand daily life in a specific Port Moody area.",
+    title: "Neighbourhood lifestyle stories",
+    body: "Local context that helps buyers compare village convenience, weekend habits, walkability, transit access, parks, trails, and community feel.",
   },
   {
-    title: "Community group profile",
-    body: "Reserved for a verified community organization, local initiative, or event partner.",
+    title: "Community groups and initiatives",
+    body: "Organizations, volunteer groups, arts, recreation, youth programs, and local initiatives that can be profiled after details and permission are confirmed.",
   },
+];
+
+const nominationSteps = [
+  "Send the business or organization name, website or public profile, and the Port Moody area it serves.",
+  "Include why it matters to residents, buyers, sellers, or people considering a move to Port Moody.",
+  "We review public details, permission needs, and whether the feature is useful community context before publishing.",
 ];
 
 export default function LocalBusinessesPage() {
@@ -43,8 +49,8 @@ export default function LocalBusinessesPage() {
             Port Moody local business features
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            A future hub for verified local business stories, community groups, and lifestyle features that help
-            people understand what day-to-day life in Port Moody feels like.
+            A local feature hub for business stories, community groups, and lifestyle context that helps people
+            understand what day-to-day life in Port Moody feels like.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/contact">Suggest a local business</CTAButton>
@@ -59,8 +65,8 @@ export default function LocalBusinessesPage() {
             <h2 className="font-heading text-3xl text-deepInlet">Why local businesses matter</h2>
             <p className="mt-4 text-sm leading-6 text-slateText">
               Port Moody lifestyle is shaped by walkable villages, small businesses, breweries, cafes, services,
-              family activities, recreation, and community groups. These features will be added only after the
-              business or organization details are verified.
+              family activities, recreation, and community groups. Business features are useful because they show
+              how an area works between showings, school runs, workdays, and weekends.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -75,19 +81,31 @@ export default function LocalBusinessesPage() {
 
       <section className="bg-warmSand px-5 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-heading text-3xl text-deepInlet">Future featured businesses</h2>
+          <h2 className="font-heading text-3xl text-deepInlet">What kinds of businesses can be featured</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-            No business profiles are listed until they are approved and verified. This prevents stale hours,
-            unconfirmed claims, or accidental endorsements.
+            We are collecting approved examples that can help residents and future residents understand Port Moody.
+            Profiles will use verified public details and permission where needed.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {futureFeatureCards.map((card) => (
-              <article key={card.title} className="rounded-lg border border-dashed border-softBorder bg-white/85 p-6">
+            {featureTypes.map((card) => (
+              <article key={card.title} className="rounded-lg border border-softBorder bg-white/85 p-6">
                 <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 py-12">
+        <h2 className="font-heading text-3xl text-deepInlet">How nominations are reviewed</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {nominationSteps.map((step, index) => (
+            <div key={step} className="rounded-lg border border-softBorder bg-white p-5 text-sm leading-6 text-slateText">
+              <span className="mb-3 grid h-8 w-8 place-items-center rounded-full bg-deepInlet text-sm font-semibold text-white">{index + 1}</span>
+              {step}
+            </div>
+          ))}
         </div>
       </section>
 

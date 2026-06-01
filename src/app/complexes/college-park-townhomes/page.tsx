@@ -58,6 +58,11 @@ export default function CollegeParkTownhomesPage() {
       locationContext="College Park is an established residential neighbourhood in Port Moody near Douglas College, with quieter streets and a suburban character. Townhome options here appeal to buyers who want established living and more space than central condo areas offer, but are willing to be more car-dependent for daily errands and commuting. Compare College Park with Heritage Mountain for green setting and trail access, or with Klahanie for more walkability and central location."
       buyerNotes={buyerNotes}
       sellerNotes={sellerNotes}
+      relatedLinks={[
+        { label: "Discovery Ridge (Heritage Mountain)", href: "/complexes/discovery-ridge" },
+        { label: "Klahanie townhomes", href: "/complexes/klahanie-townhomes" },
+        { label: "All complexes", href: "/complexes" },
+      ]}
     />
   );
 }

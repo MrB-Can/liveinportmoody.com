@@ -10,6 +10,15 @@ export const metadata = createMetadata({
   path: "/request-recent-sales",
 });
 
+const requestDetails = [
+  "The property type you are researching",
+  "Neighbourhood, building, complex, or address range",
+  "Whether you are buying, selling, refinancing, or planning",
+  "Your timing and the decision you are trying to make",
+  "Any active listing or property you want to compare",
+  "Whether you need buyer context, seller context, or both",
+];
+
 export default function RequestRecentSalesPage() {
   return (
     <>
@@ -38,6 +47,20 @@ export default function RequestRecentSalesPage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="What to include in your request">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {requestDetails.map((detail) => (
+            <div key={detail} className="rounded-lg border border-softBorder bg-white p-5 text-sm font-semibold leading-6 text-deepInlet">
+              {detail}
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 max-w-3xl text-sm leading-6 text-slateText">
+          We can help you understand comparable sales where permitted, explain how active listings fit the local context,
+          and identify what should be verified before relying on a pricing assumption.
+        </p>
       </Section>
 
       <Section id="recent-sales-request" title="Request Recent Sales Context">

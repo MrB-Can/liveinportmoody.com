@@ -58,6 +58,11 @@ export default function KlahanieTownhomesPage() {
       locationContext="Klahanie is one of Port Moody's more walkable residential areas, with access to Rocky Point Park, Newport Village, Suter Brook, and the Inlet waterfront within a short distance. Klahanie townhomes sit in an established setting with transit access and daily amenity convenience that most Heritage Mountain options do not offer. Buyers comparing Klahanie with Heritage Mountain should weigh walkability and central location against green space, quieter streets, and hillside character."
       buyerNotes={buyerNotes}
       sellerNotes={sellerNotes}
+      relatedLinks={[
+        { label: "Aria Townhomes (Moody Centre)", href: "/complexes/aria-townhomes" },
+        { label: "Discovery Ridge (Heritage Mountain)", href: "/complexes/discovery-ridge" },
+        { label: "All complexes", href: "/complexes" },
+      ]}
     />
   );
 }

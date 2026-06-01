@@ -10,7 +10,6 @@ export const metadata = createMetadata(
       "Request the Port Moody buyer guide and ask for local buyer guidance on neighbourhood fit, property types, listings, strata documents, and offer preparation.",
     path: "/buyer-guide",
   },
-  { robots: { index: false, follow: true } }
 );
 
 const guideCovers = [

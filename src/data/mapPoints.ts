@@ -234,7 +234,7 @@ export const complexMapPoints: MapPoint[] = [
     isApproximate: true,
     description: "101 Parkside Drive area",
     href: "/complexes/treetops-101-parkside-drive",
-    ctaLabel: "View Complex",
+    ctaLabel: "View Treetops guide",
   },
   {
     id: "discovery-ridge",

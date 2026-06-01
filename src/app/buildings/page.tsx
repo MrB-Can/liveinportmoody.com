@@ -10,7 +10,7 @@ import { CondoDecisionGuide } from "@/components/buildings/CondoDecisionGuide";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { VerificationNote } from "@/components/ui/verification-note";
-import { buildings } from "@/data/buildings";
+import { buildings, buildingDisplayGroups } from "@/data/buildings";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -56,6 +56,29 @@ const faqs = [
 const standardVerificationNote =
   "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
 
+const howToUseCards = [
+  {
+    heading: "Compare by area",
+    body: "Start with the neighbourhood — Suter Brook, Newport Village, Klahanie, or Moody Centre — before comparing buildings.",
+  },
+  {
+    heading: "Compare lifestyle fit",
+    body: "Walkability, transit, noise, views, commute, and daily convenience vary significantly between buildings and areas.",
+  },
+  {
+    heading: "Verify strata documents",
+    body: "Every building decision needs current strata documents: Form B, depreciation report, minutes, insurance, and financials.",
+  },
+  {
+    heading: "Ask about active listings",
+    body: "Use the inquiry form to ask about availability in a specific building through approved MLS Reciprocity sources.",
+  },
+  {
+    heading: "Use guides as orientation",
+    body: "Building previews give orientation, not final answers. Verify unit-specific details before relying on any guide.",
+  },
+];
+
 export default function BuildingsPage() {
   return (
     <>
@@ -66,7 +89,7 @@ export default function BuildingsPage() {
             Compare Port Moody condo buildings
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slateText">
-            Compare Port Moody condo buildings by neighbourhood, construction type, age, amenities, walkability, transit access, strata considerations, and buyer fit.
+            Research Port Moody condo buildings by location, walkability, age, strata considerations, transit access, lifestyle fit, and buyer and seller context.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#building-grid">Compare buildings</CTAButton>
@@ -76,7 +99,18 @@ export default function BuildingsPage() {
         </div>
       </section>
 
-      <Section title="Filter-ready building research" intro="Start with the area and lifestyle fit, then verify each building against current strata documents and active listing context." tone="white">
+      <Section title="How to use this guide" intro="Port Moody condo building research works best when you start broad and verify specific details before making a decision." tone="white">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {howToUseCards.map((card) => (
+            <div key={card.heading} className="rounded-lg border border-softBorder bg-mist p-5">
+              <p className="font-heading text-lg text-deepInlet">{card.heading}</p>
+              <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Research shortcuts" intro="Start with the area and lifestyle fit, then verify each building against current strata documents and active listing context.">
         <BuildingFilterChips />
       </Section>
 
@@ -89,6 +123,43 @@ export default function BuildingsPage() {
           {buildings.map((building) => (
             <BuildingPreviewCard key={building.slug} building={building} />
           ))}
+        </div>
+      </Section>
+
+      <Section title="Buildings by area" intro="Port Moody condo buildings are concentrated in Suter Brook, Moody Centre, Newport Village, and Klahanie. Each area has different trade-offs around walkability, transit, building age, and lifestyle.">
+        <div className="space-y-10">
+          {buildingDisplayGroups.map((group) => {
+            const groupBuildings = buildings.filter((b) => b.displayGroup === group);
+            if (groupBuildings.length === 0) return null;
+            return (
+              <div key={group}>
+                <h3 className="font-heading text-2xl text-deepInlet">{group}</h3>
+                <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                  {groupBuildings.map((building) => (
+                    <article key={building.slug} className="rounded-lg border border-softBorder bg-white p-5">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-slateText">Preview</span>
+                        <span className="text-xs text-slateText">{building.type}</span>
+                      </div>
+                      <h4 className="mt-3 font-heading text-xl text-deepInlet">{building.name}</h4>
+                      {building.address && (
+                        <p className="mt-1 text-xs text-slateText">{building.address}</p>
+                      )}
+                      <p className="mt-3 text-sm leading-6 text-slateText">{building.bestFor}</p>
+                      <div className="mt-4">
+                        <Link
+                          href={`/buildings/${building.slug}`}
+                          className="text-sm font-semibold text-forest hover:text-deepInlet"
+                        >
+                          Open preview →
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Section>
 

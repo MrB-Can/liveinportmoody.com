@@ -61,6 +61,11 @@ export default function DiscoveryRidgePage() {
       sellerNotes={sellerNotes}
       neighbourhoodSlug="heritage-mountain"
       neighbourhoodName="Heritage Mountain"
+      relatedLinks={[
+        { label: "Treetops (Heritage Mountain)", href: "/complexes/treetops-101-parkside-drive" },
+        { label: "Heritage Mountain neighbourhood guide", href: "/neighbourhoods/heritage-mountain" },
+        { label: "All complexes", href: "/complexes" },
+      ]}
     />
   );
 }

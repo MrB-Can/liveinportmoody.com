@@ -39,7 +39,6 @@ function verificationItems(building: PortMoodyBuilding) {
 
 export function BuildingGuidePreviewTemplate({ building }: { building: PortMoodyBuilding }) {
   const isGroup = building.type.toLowerCase().includes("group");
-  const askHref = `/buildings#ask-building-${building.slug}`;
 
   return (
     <>
@@ -58,7 +57,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
             Information is being expanded. This preview is designed to help buyers and sellers ask better questions before relying on a listing or strata package.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href={askHref}>Ask about this building</CTAButton>
+            <CTAButton href="/contact">Ask about this building</CTAButton>
             <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
             <CTAButton href="/buildings" variant="ghost">Compare buildings</CTAButton>
           </div>
@@ -152,35 +151,47 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
             </p>
           </div>
           <div className="rounded-lg border border-softBorder bg-white p-6">
-            <h2 className="font-heading text-2xl text-deepInlet">Avoid unsupported claims</h2>
+            <h2 className="font-heading text-2xl text-deepInlet">Prepare strata documents early</h2>
             <p className="mt-4 text-sm leading-6 text-slateText">
-              Do not market unverified amenities, bylaws, rental rules, pet rules, fees, school placement, or listing availability. Confirm the details first, then use careful, property-specific language.
+              Buyers comparing Port Moody condo buildings expect a current Form B, meeting minutes, depreciation report, insurance certificate, and clear answers on fees, parking, storage, and any pending work. Prepare these before going to market.
+            </p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h2 className="font-heading text-2xl text-deepInlet">Highlight renovations carefully</h2>
+            <p className="mt-4 text-sm leading-6 text-slateText">
+              Renovation claims must be supported by what is verifiable: permits pulled, work completed, and materials used. Avoid unverified estimates or general descriptions that go beyond what can be confirmed in the unit.
+            </p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h2 className="font-heading text-2xl text-deepInlet">Know your active competition</h2>
+            <p className="mt-4 text-sm leading-6 text-slateText">
+              Understand what is currently listed in the same building and in comparable Port Moody buildings before pricing. Buyer demand is building-specific — a well-positioned unit in a desirable building can outperform the general market or suffer if the building has documented issues.
             </p>
           </div>
         </div>
       </Section>
 
-      <Section title="Listings and MLS Reciprocity" tone="white">
+      <Section title="Active listings" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="rounded-lg border border-softBorder bg-white p-6">
-            <h2 className="font-heading text-2xl text-deepInlet">Listing fallback CTA</h2>
+            <h2 className="font-heading text-2xl text-deepInlet">Use listings with building research</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              Filtered building links have not been approved for this preview. Start with the general Port Moody listings page or ask about this building so active inventory can be checked through approved sources.
+              Use this preview to frame the building and location, then start with an active listing for unit-specific details. Ask about the building if you want help sorting what matters before writing an offer.
             </p>
             <p className="mt-3 text-xs leading-5 text-slateText">{disclosure}</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>
-              <CTAButton href={askHref}>Ask about this building</CTAButton>
+              <CTAButton href="/contact">Ask about this building</CTAButton>
             </div>
           </div>
           <div className="rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
-            <h2 className="font-heading text-2xl">Contact CTA</h2>
+            <h2 className="font-heading text-2xl">Have a question?</h2>
             <p className="mt-3 text-sm leading-6 text-mist">
-              Send the building name, unit, or listing link. We can help you identify what should be verified before relying on the listing copy.
+              Send the building name, unit, or listing link. We can help you understand location, strata documents, layout, exposure, fees, parking, and what to verify before relying on the listing.
             </p>
             <div className="mt-5">
               <Link href="/contact" className="text-sm font-semibold text-white underline underline-offset-4">
-                Contact us about this building
+                Contact Paul and Leilani
               </Link>
             </div>
           </div>

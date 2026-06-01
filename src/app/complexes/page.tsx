@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { CTAButton } from "@/components/cta-button";
+import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
+import { Section } from "@/components/section";
 import { complexes, complexNeighbourhoodGroups } from "@/data/complexes";
 import { createMetadata } from "@/lib/seo";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
@@ -92,6 +95,29 @@ const faqs = [
 const standardVerificationNote =
   "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
 
+const howToUseCards = [
+  {
+    heading: "Compare by neighbourhood",
+    body: "Start with Heritage Mountain, Klahanie, Moody Centre, or College Park before comparing individual complexes.",
+  },
+  {
+    heading: "Compare strata health",
+    body: "Depreciation report, reserve fund, maintenance history, special levies, and insurance differ by complex and matter more than price alone.",
+  },
+  {
+    heading: "Compare layout and parking",
+    body: "Bedrooms, stairs, garage usability, visitor parking, outdoor space, and storage allocation vary significantly in established complexes.",
+  },
+  {
+    heading: "Ask about current availability",
+    body: "Use the inquiry form to ask about active listings in a specific complex through approved MLS Reciprocity sources.",
+  },
+  {
+    heading: "Verify details before buying",
+    body: "Guides are for orientation. Verify strata documents, bylaws, fees, and unit-specific details with a professional before deciding.",
+  },
+];
+
 function statusClass(status: string) {
   if (status === "Guide live" || status === "live") return "bg-forest/10 text-forest";
   if (status === "Full guide in progress" || status === "in-progress") return "bg-seaGlass/30 text-deepInlet";
@@ -112,27 +138,23 @@ export default function ComplexesPage() {
             amenities, trail access, schools, walkability, and buyer fit.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#comparison"
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-deepInlet px-5 py-3 text-sm font-semibold text-white hover:bg-forest"
-            >
-              Compare complexes
-            </Link>
-            <Link
-              href="/listings"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-deepInlet px-5 py-3 text-sm font-semibold text-deepInlet hover:bg-mist"
-            >
-              View townhouse listings
-            </Link>
-            <Link
-              href="#ask-about-a-complex"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-softBorder px-5 py-3 text-sm font-semibold text-charcoal hover:bg-mist"
-            >
-              Ask about a complex
-            </Link>
+            <CTAButton href="#comparison">Compare complexes</CTAButton>
+            <CTAButton href="/listings" variant="secondary">View townhouse listings</CTAButton>
+            <CTAButton href="#ask-about-a-complex" variant="ghost">Ask about a complex</CTAButton>
           </div>
         </div>
       </section>
+
+      <Section title="How to use this guide" intro="Port Moody townhouse research works best when you start with the area and lifestyle, then verify strata details before deciding." tone="white">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {howToUseCards.map((card) => (
+            <div key={card.heading} className="rounded-lg border border-softBorder bg-mist p-5">
+              <p className="font-heading text-lg text-deepInlet">{card.heading}</p>
+              <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <section className="mx-auto max-w-6xl px-5 py-10">
         <div className="rounded-lg border border-softBorder bg-white p-5">
@@ -178,16 +200,15 @@ export default function ComplexesPage() {
           </div>
         </div>
         <div className="mt-6 overflow-x-auto rounded-lg border border-softBorder bg-white">
-          <table className="min-w-[900px] text-left text-sm">
+          <table className="min-w-[860px] text-left text-sm">
             <thead className="bg-mist text-xs uppercase tracking-[0.1em] text-slateText">
               <tr>
                 <th className="px-4 py-3">Complex</th>
                 <th className="px-4 py-3">Area</th>
-                <th className="px-4 py-3">Style</th>
                 <th className="px-4 py-3">Best for</th>
-                <th className="px-4 py-3">Setting</th>
-                <th className="px-4 py-3">Guide status</th>
-                <th className="px-4 py-3">CTA</th>
+                <th className="px-4 py-3">What to verify</th>
+                <th className="px-4 py-3">Guide</th>
+                <th className="px-4 py-3">Preview</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-softBorder">
@@ -195,9 +216,8 @@ export default function ComplexesPage() {
                 <tr key={complex.slug} className="align-top">
                   <td className="px-4 py-4 font-semibold text-deepInlet">{complex.name}</td>
                   <td className="px-4 py-4 text-slateText">{complex.area}</td>
-                  <td className="px-4 py-4 text-slateText">{complex.style}</td>
                   <td className="px-4 py-4 text-slateText">{complex.bestFor}</td>
-                  <td className="px-4 py-4 text-slateText">{complex.setting}</td>
+                  <td className="px-4 py-4 text-slateText">{complex.whatToVerify}</td>
                   <td className="px-4 py-4">
                     <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${statusClass(complex.guideStatusLabel)}`}>
                       {complex.guideStatusLabel}
@@ -281,12 +301,9 @@ export default function ComplexesPage() {
               Send us the complex name or listing. We can help you understand the location, strata documents,
               sales context, layout, parking, maintenance history, and resale considerations.
             </p>
-            <Link
-              href="#ask-about-a-complex"
-              className="mt-5 inline-flex min-h-11 items-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-deepInlet hover:bg-mist"
-            >
-              Ask about a townhouse complex
-            </Link>
+            <div className="mt-5">
+              <CTAButton href="#ask-about-a-complex" variant="secondary">Ask about a townhouse complex</CTAButton>
+            </div>
           </div>
         </div>
       </section>
@@ -301,12 +318,9 @@ export default function ComplexesPage() {
             <p className="mt-3 text-xs leading-5 text-slateText">
               Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
             </p>
-            <Link
-              href="/listings"
-              className="mt-5 inline-flex min-h-11 items-center rounded-md bg-deepInlet px-4 py-2 text-sm font-semibold text-white hover:bg-forest"
-            >
-              View townhouse listings
-            </Link>
+            <div className="mt-5">
+              <CTAButton href="/listings">View townhouse listings</CTAButton>
+            </div>
           </div>
           <div id="ask-about-a-complex" className="rounded-lg border border-softBorder bg-sand p-6">
             <LeadForm
@@ -324,17 +338,9 @@ export default function ComplexesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
-        <h2 className="font-heading text-3xl text-deepInlet">Port Moody townhouse FAQ</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {faqs.map((faq) => (
-            <article key={faq.question} className="rounded-lg border border-softBorder bg-white p-5">
-              <h3 className="font-semibold text-deepInlet">{faq.question}</h3>
-              <p className="mt-3 text-sm leading-6 text-slateText">{faq.answer}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <Section title="Port Moody townhouse FAQ" tone="white">
+        <FAQAccordion items={faqs} />
+      </Section>
     </>
   );
 }

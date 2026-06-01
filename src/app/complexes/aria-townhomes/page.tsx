@@ -61,6 +61,11 @@ export default function AriaTownhomesPage() {
       sellerNotes={sellerNotes}
       neighbourhoodSlug="moody-centre"
       neighbourhoodName="Moody Centre"
+      relatedLinks={[
+        { label: "Klahanie townhomes", href: "/complexes/klahanie-townhomes" },
+        { label: "Moody Centre neighbourhood guide", href: "/neighbourhoods/moody-centre" },
+        { label: "All complexes", href: "/complexes" },
+      ]}
     />
   );
 }

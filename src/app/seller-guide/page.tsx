@@ -10,7 +10,6 @@ export const metadata = createMetadata(
       "Request the Port Moody seller guide and ask for local seller guidance on preparation, pricing, positioning, media, storytelling, and launch planning.",
     path: "/seller-guide",
   },
-  { robots: { index: false, follow: true } }
 );
 
 const prepChecklist = [

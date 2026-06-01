@@ -41,6 +41,25 @@ const mistakeItems = [
   "Using online payment estimates as a substitute for lender, legal, accounting, or insurance advice.",
 ];
 
+const processSteps = [
+  {
+    title: "Prepare the budget",
+    body: "Confirm lender guidance, available deposit funds, down payment source, closing-cost assumptions, and the type of approval conditions you may need.",
+  },
+  {
+    title: "Choose the right search lane",
+    body: "Decide whether you are comparing condos, townhomes, detached homes, or a specific neighbourhood before reacting to every new listing.",
+  },
+  {
+    title: "Review the property risk",
+    body: "Look at strata documents, condition, insurance, fees, parking, storage, building history, renovation needs, and resale fit before writing.",
+  },
+  {
+    title: "Write with context",
+    body: "Use local context, professional advice, and property-specific verification so the offer matches your budget, timeline, and risk tolerance.",
+  },
+];
+
 const faqItems = [
   {
     question: "What should a first-time buyer do before viewing homes?",
@@ -82,7 +101,7 @@ export default function FirstTimeHomeBuyersPage() {
             A practical starting point for first-time buyers comparing Port Moody condos, townhouses, neighbourhoods, costs, documents, and decision risks.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="/buyer-guide">Get the Port Moody buyer guide</CTAButton>
+            <CTAButton href="/buyer-guide">Request the Port Moody buyer guide</CTAButton>
             <CTAButton href="/contact" variant="secondary">Ask a first-time buyer question</CTAButton>
           </div>
         </div>
@@ -105,6 +124,17 @@ export default function FirstTimeHomeBuyersPage() {
               <h2 className="font-heading text-2xl text-deepInlet">{item.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{item.body}</p>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="A practical first-time buying process" tone="white">
+        <div className="grid gap-4 md:grid-cols-2">
+          {processSteps.map((step) => (
+            <article key={step.title} className="rounded-lg border border-softBorder bg-mist p-5">
+              <h2 className="font-heading text-2xl text-deepInlet">{step.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{step.body}</p>
+            </article>
           ))}
         </div>
       </Section>
@@ -147,7 +177,7 @@ export default function FirstTimeHomeBuyersPage() {
         </div>
       </Section>
 
-      <Section id="first-time-guide" title="Get the Port Moody first-time buyer guide" tone="white">
+      <Section id="first-time-guide" title="Request First-Time Buyer Guidance" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-mist p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Request first-time buyer guidance</h2>

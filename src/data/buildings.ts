@@ -7,6 +7,7 @@ export type PortMoodyBuilding = {
   address: string | null;
   neighbourhood: string;
   neighbourhoodSlug: string;
+  displayGroup: string;
   summary: string;
   bestFor: string;
   watchouts: string;
@@ -25,14 +26,15 @@ export const buildings: PortMoodyBuilding[] = [
     slug: "the-grande",
     type: "Condo building",
     address: null,
-    neighbourhood: "Suter Brook / Port Moody Centre context",
+    neighbourhood: "Suter Brook / Port Moody Centre",
     neighbourhoodSlug: "suter-brook",
+    displayGroup: "Suter Brook / Port Moody Centre",
     summary:
-      "Preview guide for buyers comparing larger Port Moody condo buildings, walkability, amenities, and SkyTrain access.",
+      "Preview guide for buyers comparing larger Port Moody condo buildings near walkable amenities, shops, and SkyTrain access.",
     bestFor:
-      "Buyers who want a more central condo lifestyle with access to shops, services, transit, and Port Moody amenities.",
+      "Buyers who want a central condo lifestyle with shops, services, transit, and Port Moody waterfront access nearby.",
     watchouts:
-      "Exact building details, strata fees, amenities, parking, storage, bylaws, depreciation report, insurance, and active listing availability.",
+      "Strata documents, fees, amenities, parking, storage, bylaws, depreciation report, insurance, and active listing availability — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -48,18 +50,19 @@ export const buildings: PortMoodyBuilding[] = [
     address: "50 Electronic Avenue, Port Moody",
     neighbourhood: "Moody Centre",
     neighbourhoodSlug: "moody-centre",
+    displayGroup: "Moody Centre",
     summary:
-      "Preview guide for buyers researching newer condo options near Moody Centre, Rocky Point, Brewers Row, and transit.",
+      "Preview guide for buyers researching newer condo options near Moody Centre, Rocky Point, Brewers Row, and SkyTrain.",
     bestFor:
-      "Buyers wanting a more central Port Moody location with access to waterfront, breweries, SkyTrain, and village amenities.",
+      "Buyers wanting a more central Port Moody location with waterfront, breweries, SkyTrain, and village amenities nearby.",
     watchouts:
-      "Building phase, strata documents, amenities, parking, storage, bylaws, insurance, fees, and active listing availability.",
+      "Strata documents, amenities, parking, storage, bylaws, insurance, fees, and active listing availability — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
     amenities: [],
-    latitude: null,
-    longitude: null,
+    latitude: 49.2795,
+    longitude: -122.8512,
     guideStatus: "preview",
   },
   {
@@ -69,12 +72,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Suter Brook",
     neighbourhoodSlug: "suter-brook",
+    displayGroup: "Suter Brook / Port Moody Centre",
     summary:
       "Preview guide for buyers comparing Suter Brook condo options near shops, services, transit, and daily amenities.",
     bestFor:
       "Buyers who want a walkable condo location with a village-style setting and convenient access to SkyTrain.",
     watchouts:
-      "Verify current strata documents, fees, parking, storage, bylaws, amenities, insurance, exposure, and active listings.",
+      "Strata documents, fees, parking, storage, bylaws, amenities, insurance, exposure, and active listings — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -90,12 +94,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Suter Brook",
     neighbourhoodSlug: "suter-brook",
+    displayGroup: "Suter Brook / Port Moody Centre",
     summary:
       "Preview guide for buyers comparing Suter Brook high-rise condo options, building feel, walkability, and strata considerations.",
     bestFor:
       "Buyers who want central Port Moody convenience with shops, services, restaurants, and transit nearby.",
     watchouts:
-      "Confirm building-specific strata health, fees, amenities, parking, storage, bylaws, insurance, and listing availability.",
+      "Strata health, fees, amenities, parking, storage, bylaws, insurance, and listing availability — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -111,12 +116,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Suter Brook",
     neighbourhoodSlug: "suter-brook",
+    displayGroup: "Suter Brook / Port Moody Centre",
     summary:
       "Preview group for buyers comparing Suter Brook condo buildings by location, walkability, strata profile, and exposure.",
     bestFor:
       "Buyers who value daily convenience, shops, services, transit access, and a central Port Moody condo lifestyle.",
     watchouts:
-      "Specific building, strata documents, fees, parking, storage, amenities, bylaws, insurance, noise, and exposure.",
+      "Specific building, strata documents, fees, parking, storage, amenities, bylaws, insurance, noise, and exposure — verify per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -132,12 +138,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Newport Village",
     neighbourhoodSlug: "newport-village",
+    displayGroup: "Newport Village",
     summary:
       "Preview group for buyers comparing Newport Village condo options, village convenience, age profile, and strata considerations.",
     bestFor:
       "Buyers who want a walkable village setting close to groceries, cafes, services, and central Port Moody amenities.",
     watchouts:
-      "Building age, envelope history, strata documents, fees, parking, storage, bylaws, insurance, and active listings.",
+      "Building age, envelope history, strata documents, fees, parking, storage, bylaws, insurance, and active listings — verify per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -153,12 +160,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Klahanie",
     neighbourhoodSlug: "klahanie",
+    displayGroup: "Klahanie",
     summary:
       "Preview guide for buyers comparing Klahanie condo options near Rocky Point, Suter Brook, Newport Village, and the inlet-side lifestyle.",
     bestFor:
-      "Buyers wanting a more central Port Moody lifestyle with trails, amenities, and condo/townhome options nearby.",
+      "Buyers wanting a more central Port Moody lifestyle with trails, amenities, and mixed condo and townhome options nearby.",
     watchouts:
-      "Specific building, strata documents, parking, storage, amenities, fees, bylaws, and exposure.",
+      "Specific building, strata documents, parking, storage, amenities, fees, bylaws, and exposure — verify per building.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -172,14 +180,15 @@ export const buildings: PortMoodyBuilding[] = [
     slug: "platform",
     type: "Condo building",
     address: null,
-    neighbourhood: "Port Moody Centre",
+    neighbourhood: "Moody Centre",
     neighbourhoodSlug: "moody-centre",
+    displayGroup: "Moody Centre",
     summary:
       "Preview guide for buyers researching central Port Moody condo options with transit, waterfront, and daily amenities nearby.",
     bestFor:
       "Buyers comparing newer-feeling central condo options and wanting local context before relying on listing copy.",
     watchouts:
-      "Verify exact building details, strata documents, fees, amenities, parking, storage, bylaws, insurance, and availability.",
+      "Strata documents, fees, amenities, parking, storage, bylaws, insurance, and availability — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -193,14 +202,15 @@ export const buildings: PortMoodyBuilding[] = [
     slug: "george",
     type: "Condo building",
     address: null,
-    neighbourhood: "Port Moody Centre",
+    neighbourhood: "Moody Centre",
     neighbourhoodSlug: "moody-centre",
+    displayGroup: "Moody Centre",
     summary:
       "Preview guide for buyers comparing Port Moody Centre condo options, walkability, transit, layout, and strata considerations.",
     bestFor:
       "Buyers who want a central location and need help comparing building context, exposure, fees, and resale factors.",
     watchouts:
-      "Confirm strata documents, insurance, bylaws, parking, storage, amenities, fees, planned work, and active listing details.",
+      "Strata documents, insurance, bylaws, parking, storage, amenities, fees, planned work, and active listing details — verify all.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -214,14 +224,15 @@ export const buildings: PortMoodyBuilding[] = [
     slug: "sonrisa",
     type: "Condo building",
     address: null,
-    neighbourhood: "Port Moody Centre",
+    neighbourhood: "Moody Centre",
     neighbourhoodSlug: "moody-centre",
+    displayGroup: "Moody Centre",
     summary:
       "Preview guide for buyers researching established Port Moody Centre condo options and strata document considerations.",
     bestFor:
       "Buyers comparing value, central location, building age, layout, parking, and walkability trade-offs.",
     watchouts:
-      "Verify current strata documents, depreciation report, insurance, fees, bylaws, parking, storage, and condition.",
+      "Strata documents, depreciation report, insurance, fees, bylaws, parking, storage, and condition — verify all before relying on this preview.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -237,12 +248,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Klahanie",
     neighbourhoodSlug: "klahanie",
+    displayGroup: "Klahanie",
     summary:
       "Preview guide for buyers comparing Klahanie-area condo options, lifestyle access, strata considerations, and exposure.",
     bestFor:
       "Buyers wanting central Port Moody access to trails, waterfront, shops, transit, and condo amenities nearby.",
     watchouts:
-      "Verify building-specific documents, fees, amenities, parking, storage, bylaws, insurance, exposure, and active listings.",
+      "Building-specific documents, fees, amenities, parking, storage, bylaws, insurance, exposure, and active listings — verify all.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -258,12 +270,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Klahanie",
     neighbourhoodSlug: "klahanie",
+    displayGroup: "Klahanie",
     summary:
       "Preview guide for buyers comparing Klahanie condo buildings, amenity access, strata profile, layout, and resale considerations.",
     bestFor:
       "Buyers who want an inlet-side lifestyle near Rocky Point, central amenities, trails, and transit connections.",
     watchouts:
-      "Review strata documents, fees, insurance, parking, storage, bylaws, amenities, exposure, and listing availability.",
+      "Strata documents, fees, insurance, parking, storage, bylaws, amenities, exposure, and listing availability — verify all.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -279,12 +292,13 @@ export const buildings: PortMoodyBuilding[] = [
     address: null,
     neighbourhood: "Suter Brook",
     neighbourhoodSlug: "suter-brook",
+    displayGroup: "Suter Brook / Port Moody Centre",
     summary:
       "Preview guide for buyers comparing Suter Brook condo buildings by daily convenience, strata considerations, and unit trade-offs.",
     bestFor:
       "Buyers who want a walkable condo setting close to shops, services, restaurants, and SkyTrain access.",
     watchouts:
-      "Confirm building documents, depreciation report, insurance, bylaws, parking, storage, fees, amenities, and exposure.",
+      "Building documents, depreciation report, insurance, bylaws, parking, storage, fees, amenities, and exposure — verify all.",
     yearBuilt: null,
     unitCount: null,
     construction: null,
@@ -294,3 +308,10 @@ export const buildings: PortMoodyBuilding[] = [
     guideStatus: "preview",
   },
 ];
+
+export const buildingDisplayGroups = [
+  "Suter Brook / Port Moody Centre",
+  "Moody Centre",
+  "Newport Village",
+  "Klahanie",
+] as const;
