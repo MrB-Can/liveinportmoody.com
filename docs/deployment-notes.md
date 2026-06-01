@@ -60,11 +60,16 @@ Before running `vercel deploy --prod`:
 - [ ] No secrets are committed (`git status` shows `.env.local` as untracked or in `.gitignore`)
 - [ ] `npm run lint` passes
 - [ ] `npm run build` passes
-- [ ] Deploy to preview first: `vercel deploy`
-- [ ] Smoke test preview — maps load, key pages render
-- [ ] Deploy to production: `vercel deploy --prod --force`
+- [ ] `npm run smoke:prelaunch` passes against current production (note expected failures if deploy is intended to fix them)
+- [ ] Working tree is clean — no unrelated uncommitted files (use `git status` to confirm)
+- [ ] Deploy to production: `vercel deploy --prod`
+- [ ] `npm run smoke:prelaunch` passes against production after deploy
+- [ ] Manually confirm maps render on `/neighbourhoods`, `/complexes`, `/buildings` after preview unlock
 
-Run all checks in one command: `npm run deploy:check`
+Run code checks: `npm run deploy:check`
+Run smoke: `npm run smoke:prelaunch`
+See full smoke documentation: `docs/prelaunch-smoke-test.md`
+See launch blockers: `docs/prelaunch-launch-blockers.md`
 
 ## Rotating the GHL API token
 
