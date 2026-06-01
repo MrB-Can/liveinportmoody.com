@@ -17,11 +17,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-softBorder bg-white/95 backdrop-blur">
-      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
-        <Link href="/" aria-label="Live in Port Moody home" onClick={close}>
+      <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-5">
+        <Link href="/" aria-label="Live in Port Moody home" onClick={close} className="flex-shrink-0">
           <Wordmark />
         </Link>
-        <nav className="hidden items-center gap-4 lg:gap-6 md:flex">
+        <nav className="hidden items-center gap-3 md:flex">
           {navItems.map((item) => (
             <div key={item.href} className="relative">
               {item.submenu ? (
@@ -29,12 +29,12 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => toggle(item.label)}
-                    className="flex items-center gap-1 text-sm font-medium text-charcoal hover:text-forest"
+                    className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-charcoal hover:text-forest"
                     aria-expanded={openMenu === item.label}
                     aria-haspopup="true"
                   >
                     {item.label}
-                    <svg className={`h-3 w-3 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`h-3 w-3 flex-shrink-0 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
                     </svg>
                   </button>
@@ -87,12 +87,12 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => toggle(item.label)}
-                    className="flex items-center gap-1 text-sm font-medium text-charcoal hover:text-forest"
+                    className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-charcoal hover:text-forest"
                     aria-expanded={openMenu === item.label}
                     aria-haspopup="true"
                   >
                     {item.label}
-                    <svg className={`h-3 w-3 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`h-3 w-3 flex-shrink-0 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
                     </svg>
                   </button>
@@ -130,14 +130,14 @@ export function Header() {
                   )}
                 </>
               ) : (
-                <Link href={item.href} className="text-sm font-medium text-charcoal hover:text-forest" onClick={close}>
+                <Link href={item.href} className="whitespace-nowrap text-sm font-medium text-charcoal hover:text-forest" onClick={close}>
                   {item.label}
                 </Link>
               )}
             </div>
           ))}
         </nav>
-        <div className="hidden md:block">
+        <div className="hidden flex-shrink-0 md:block">
           <CTAButton href="/contact">Ask a Question</CTAButton>
         </div>
         <MobileNav />

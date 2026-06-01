@@ -32,94 +32,56 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   { label: "Explore", href: "/explore", submenu: true },
   {
-    label: "Neighbourhoods",
-    href: "/neighbourhoods",
+    label: "Real Estate",
+    href: "/listings",
     groups: [
       {
-        title: "Neighbourhood guides",
         items: [
-          { label: "All neighbourhoods", href: "/neighbourhoods" },
-          { label: "Heritage Mountain", href: "/neighbourhoods/heritage-mountain", badge: "Guide" },
-          { label: "Heritage Woods", href: "/neighbourhoods/heritage-woods", badge: "Preview" },
-          { label: "Moody Centre", href: "/neighbourhoods/moody-centre", badge: "Preview" },
-          { label: "Glenayre", href: "/neighbourhoods/glenayre", badge: "Preview" },
+          { label: "Listings", href: "/listings" },
+          { label: "Presales", href: "/presales" },
+          { label: "Condo Buildings", href: "/buildings" },
+          { label: "Townhouse Complexes", href: "/complexes" },
+          { label: "Buy", href: "/buy" },
+          { label: "Sell", href: "/sell" },
         ],
       },
     ],
   },
   {
-    label: "Buildings & Complexes",
-    href: "/complexes",
+    label: "Guides",
+    href: "/buyer-guide",
     groups: [
       {
-        title: "Townhouse complexes",
         items: [
-          { label: "All complexes", href: "/complexes" },
-          { label: "Treetops", href: "/complexes/treetops-101-parkside-drive", badge: "Guide" },
-          { label: "Discovery Ridge", href: "/complexes/discovery-ridge", badge: "Preview" },
-          { label: "Aria Townhomes", href: "/complexes/aria-townhomes", badge: "Preview" },
-          { label: "Klahanie Townhomes", href: "/complexes/klahanie-townhomes", badge: "Preview" },
-          { label: "College Park Townhomes", href: "/complexes/college-park-townhomes", badge: "Preview" },
-        ],
-      },
-      {
-        title: "Condo buildings",
-        items: [
-          { label: "All buildings", href: "/buildings" },
-        ],
-      },
-    ],
-  },
-  { label: "Listings", href: "/listings" },
-  {
-    label: "Buy",
-    href: "/buy",
-    groups: [
-      {
-        title: "Buying in Port Moody",
-        items: [
-          { label: "Buy in Port Moody", href: "/buy" },
           { label: "Buyer Guide", href: "/buyer-guide" },
+          { label: "Seller Guide", href: "/seller-guide" },
           { label: "First-Time Buyers", href: "/first-time-home-buyers" },
           { label: "Generational Wealth", href: "/generational-wealth-real-estate" },
           { label: "Request Recent Sales", href: "/request-recent-sales" },
-          { label: "Presales", href: "/presales" },
           { label: "FAQ", href: "/faq" },
         ],
       },
     ],
   },
   {
-    label: "Sell",
-    href: "/sell",
+    label: "Local Life",
+    href: "/local-businesses",
     groups: [
       {
-        title: "Selling in Port Moody",
-        items: [
-          { label: "Sell in Port Moody", href: "/sell" },
-          { label: "Seller Guide", href: "/seller-guide" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "/resources",
-    groups: [
-      {
-        title: "Guides & Tools",
-        items: [
-          { label: "Resource Library", href: "/resources" },
-          { label: "Market", href: "/market" },
-          { label: "Blog", href: "/blog" },
-          { label: "FAQ", href: "/faq" },
-        ],
-      },
-      {
-        title: "Community",
         items: [
           { label: "Local Businesses", href: "/local-businesses" },
           { label: "Events", href: "/events" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "About",
+    href: "/about",
+    groups: [
+      {
+        items: [
+          { label: "About", href: "/about" },
           { label: "Testimonials", href: "/testimonials" },
           { label: "Accolades", href: "/accolades" },
         ],
@@ -228,40 +190,47 @@ export type FooterGroup = { title: string; links: FooterLinkItem[] };
 
 export const footerGroups: FooterGroup[] = [
   {
-    title: "City Guide",
+    title: "Explore",
     links: [
       { label: "Explore Port Moody", href: "/explore" },
       { label: "Neighbourhoods", href: "/neighbourhoods" },
-      { label: "Living in Port Moody", href: "/move-to-port-moody" },
-      { label: "Events", href: "/events" },
-      { label: "Local Businesses", href: "/local-businesses" },
-    ],
-  },
-  {
-    title: "Property",
-    links: [
-      { label: "Townhouse Complexes", href: "/complexes" },
-      { label: "Condo Buildings", href: "/buildings" },
-      { label: "Listings", href: "/listings" },
-      { label: "Presales", href: "/presales" },
+      { label: "Move to Port Moody", href: "/move-to-port-moody" },
       { label: "Market", href: "/market" },
     ],
   },
   {
-    title: "Buyers & Sellers",
+    title: "Real Estate",
+    links: [
+      { label: "Listings", href: "/listings" },
+      { label: "Presales", href: "/presales" },
+      { label: "Condo Buildings", href: "/buildings" },
+      { label: "Townhouse Complexes", href: "/complexes" },
+      { label: "Buy", href: "/buy" },
+      { label: "Sell", href: "/sell" },
+    ],
+  },
+  {
+    title: "Guides",
     links: [
       { label: "Buyer Guide", href: "/buyer-guide" },
-      { label: "First-Time Buyers", href: "/first-time-home-buyers" },
       { label: "Seller Guide", href: "/seller-guide" },
+      { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+      { label: "Generational Wealth", href: "/generational-wealth-real-estate" },
       { label: "Request Recent Sales", href: "/request-recent-sales" },
       { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Local Life",
+    links: [
+      { label: "Local Businesses", href: "/local-businesses" },
+      { label: "Events", href: "/events" },
     ],
   },
   {
     title: "About",
     links: [
       { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Accolades", href: "/accolades" },
       { label: "Contact", href: "/contact" },
