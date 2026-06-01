@@ -55,3 +55,7 @@ tsconfig.tsbuildinfo
 # Local screenshot artifacts (never commit)
 visual-review-screenshots/
 visual-review-screenshots.zip
+
+# Agent work scratch and cache (never commit)
+agent-work/tmp/
+agent-work/.cache/
