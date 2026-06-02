@@ -27,7 +27,7 @@ SCREENSHOT CHECK:
 - /neighbourhoods mobile if checked: not checked; no shared component used by /neighbourhoods was changed.
 
 COMMIT:
-Recorded in final response after commit
+6c4a964
 
 RECOMMENDED NEXT STEP:
 Run the targeted buildings recapture task to confirm the production-style visual screenshot no longer repeats map tiles on mobile.
