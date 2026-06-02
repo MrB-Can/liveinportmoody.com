@@ -8,7 +8,8 @@ STATUS:
 Completed
 
 COMMIT:
-Pending at report time
+Code/report commit: b16f176
+Task closure commit: pending at report update time
 
 DEPLOYED:
 no
@@ -20,7 +21,6 @@ FILES CHANGED:
 - src/app/local-businesses/page.tsx
 - src/app/testimonials/page.tsx
 - src/app/accolades/page.tsx
-- src/app/events/page.tsx
 - src/app/faq/page.tsx
 - src/app/local-life/page.tsx
 - src/app/featured-businesses/page.tsx
@@ -33,7 +33,7 @@ FILES CHANGED:
 VALIDATION:
 - npm run lint: pass
 - npm run build: pass
-- npm run smoke:prelaunch: pass
+- npm run smoke:prelaunch: pass outside sandbox, 71 passed / 0 warnings / 0 failed
 - npm run crawl:prelaunch: skipped
 
 FINDINGS:
