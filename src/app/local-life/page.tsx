@@ -52,6 +52,21 @@ const officialSources = [
   },
 ];
 
+const decisionCards = [
+  {
+    title: "For buyers",
+    body: "Use local life context to compare daily routines, commute patterns, walkability, and what you may want to verify before writing.",
+  },
+  {
+    title: "For sellers",
+    body: "Use lifestyle context to explain the practical appeal of a home without overstating amenities, schools, or events.",
+  },
+  {
+    title: "For relocation",
+    body: "Use this hub to frame local questions before narrowing to neighbourhoods, buildings, complexes, or listings.",
+  },
+];
+
 export default function LocalLifePage() {
   return (
     <>
@@ -74,9 +89,9 @@ export default function LocalLifePage() {
       </section>
 
       <Section title="What shapes daily life here" intro="Start with lifestyle fit, then verify exact details for the property, address, school, trail, or event you care about." tone="white">
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
           {localLifeSections.map((item) => (
-            <article key={item.title} className="rounded-lg border border-softBorder bg-mist p-6">
+            <article key={item.title} className="p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{item.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{item.body}</p>
             </article>
@@ -85,12 +100,23 @@ export default function LocalLifePage() {
       </Section>
 
       <Section title="Verification-first local context">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {officialSources.map((item) => (
-            <div key={item.title} className="rounded-lg border border-softBorder bg-white p-5">
+            <div key={item.title} className="p-5">
               <p className="font-semibold text-deepInlet">{item.title}</p>
               <p className="mt-2 text-sm leading-6 text-slateText">{item.body}</p>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Use local life with a real estate lens" tone="white">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+          {decisionCards.map((card) => (
+            <article key={card.title} className="p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
+            </article>
           ))}
         </div>
       </Section>

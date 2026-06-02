@@ -9,6 +9,27 @@ export const metadata = createMetadata({
   path: "/local-businesses",
 });
 
+const bridgeCards = [
+  {
+    title: "Featured Businesses",
+    body: "The new hub for reviewed Port Moody business and organization features.",
+    href: "/featured-businesses",
+    cta: "Open the hub",
+  },
+  {
+    title: "Local Life",
+    body: "Use local context alongside neighbourhood, commute, parks, and daily-routine research.",
+    href: "/local-life",
+    cta: "Explore local life",
+  },
+  {
+    title: "Suggest a business",
+    body: "Send a public source and why the business matters to Port Moody residents.",
+    href: "/contact",
+    cta: "Send a suggestion",
+  },
+];
+
 export default function LocalBusinessesPage() {
   return (
     <>
@@ -37,6 +58,20 @@ export default function LocalBusinessesPage() {
             context. Until approved features are ready, use the nomination path to suggest businesses or community
             organizations worth reviewing.
           </p>
+        </div>
+      </Section>
+
+      <Section title="Choose the next step">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+          {bridgeCards.map((card) => (
+            <article key={card.title} className="p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">{card.cta}</CTAButton>
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
     </>

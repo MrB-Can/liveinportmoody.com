@@ -50,9 +50,9 @@ export default function AccoladesPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-5 py-12">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {sections.map((section) => (
-            <article key={section.title} className="rounded-lg border border-softBorder bg-white p-6">
+            <article key={section.title} className="p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{section.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{section.body}</p>
             </article>
@@ -68,9 +68,9 @@ export default function AccoladesPage() {
               We are collecting approved examples of recognition and community involvement. The goal is to show useful
               proof without overstating credentials or publishing unverified claims.
             </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-6 divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
               {verificationItems.map((item) => (
-                <div key={item} className="rounded-md border border-softBorder bg-white px-4 py-3 text-sm font-semibold text-deepInlet">
+                <div key={item} className="px-4 py-3 text-sm font-semibold text-deepInlet">
                   {item}
                 </div>
               ))}

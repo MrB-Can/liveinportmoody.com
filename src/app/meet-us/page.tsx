@@ -29,6 +29,27 @@ const approachCards = [
   "Use local context to support buying, selling, moving, and long-term planning.",
 ];
 
+const nextStepCards = [
+  {
+    title: "Buying",
+    body: "Ask about neighbourhood fit, buildings, complexes, listings, and what to verify before writing.",
+    href: "/buy",
+    cta: "Buyer resources",
+  },
+  {
+    title: "Selling",
+    body: "Ask about positioning, preparation, pricing context, and how to make the property easier to understand.",
+    href: "/sell",
+    cta: "Seller resources",
+  },
+  {
+    title: "Local questions",
+    body: "Ask about local life, relocation, trails, schools by address, and area-fit trade-offs.",
+    href: "/contact",
+    cta: "Ask a question",
+  },
+];
+
 export default function MeetUsPage() {
   return (
     <>
@@ -51,9 +72,9 @@ export default function MeetUsPage() {
       </section>
 
       <Section title="How we work together" tone="white">
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {roleCards.map((person) => (
-            <article key={person.name} className="rounded-lg border border-softBorder bg-white p-6">
+            <article key={person.name} className="p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-emphasis">{person.role}</p>
               <h2 className="mt-3 font-heading text-3xl text-deepInlet">{person.name}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{person.body}</p>
@@ -63,11 +84,25 @@ export default function MeetUsPage() {
       </Section>
 
       <Section title="Why Port Moody" intro="The site is built around local resident perspective, practical real estate decisions, and the details people need before choosing an area or property.">
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0">
           {approachCards.map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-white p-5 text-sm font-semibold text-deepInlet">
+            <div key={item} className="p-5 text-sm font-semibold text-deepInlet">
               {item}
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Start with the question you have" tone="white">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+          {nextStepCards.map((card) => (
+            <article key={card.title} className="p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
+              <div className="mt-5">
+                <CTAButton href={card.href} variant="secondary">{card.cta}</CTAButton>
+              </div>
+            </article>
           ))}
         </div>
       </Section>

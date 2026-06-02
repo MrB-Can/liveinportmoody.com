@@ -148,6 +148,8 @@ const faqCategories = [
   },
 ];
 
+const categoryLinks = faqCategories.map((category) => category.title);
+
 export default function FaqPage() {
   return (
     <>
@@ -168,6 +170,16 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
+
+      <Section title="Find the right answer faster" tone="white" intro="Use the categories below to orient the question before you rely on any property-specific detail.">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryLinks.map((category) => (
+            <div key={category} className="rounded-lg border border-softBorder bg-white p-5">
+              <p className="font-semibold text-deepInlet">{category}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {faqCategories.map((category, index) => (
         <Section key={category.title} title={category.title} tone={index % 2 === 0 ? "white" : "mist"}>

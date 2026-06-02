@@ -9,6 +9,27 @@ export const metadata = createMetadata({
   path: "/testimonials",
 });
 
+const trustPaths = [
+  {
+    title: "Raving Fans",
+    body: "The future home for verified review links and client-approved stories.",
+    href: "/raving-fans",
+    cta: "Open Raving Fans",
+  },
+  {
+    title: "Meet us",
+    body: "Learn who is behind Live in Port Moody before approved proof content is added.",
+    href: "/meet-us",
+    cta: "Meet Paul and Leilani",
+  },
+  {
+    title: "Ask directly",
+    body: "Use the contact path for a specific buying, selling, or local question.",
+    href: "/contact",
+    cta: "Contact us",
+  },
+];
+
 export default function TestimonialsPage() {
   return (
     <>
@@ -34,6 +55,20 @@ export default function TestimonialsPage() {
           <p className="text-sm leading-6 text-slateText">
             Verified public reviews and client-approved stories can be added later when approved sources are available.
           </p>
+        </div>
+      </Section>
+
+      <Section title="Where to go next">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+          {trustPaths.map((path) => (
+            <article key={path.title} className="p-6">
+              <h2 className="font-heading text-2xl text-deepInlet">{path.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slateText">{path.body}</p>
+              <div className="mt-5">
+                <CTAButton href={path.href} variant="secondary">{path.cta}</CTAButton>
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
     </>

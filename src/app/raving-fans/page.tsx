@@ -52,9 +52,9 @@ export default function RavingFansPage() {
       </section>
 
       <Section title="Review sources to connect later" tone="white">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {sourceAreas.map((source) => (
-            <article key={source.title} className="rounded-lg border border-softBorder bg-white p-6">
+            <article key={source.title} className="p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{source.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{source.body}</p>
             </article>
@@ -63,9 +63,9 @@ export default function RavingFansPage() {
       </Section>
 
       <Section title="Trust content rules">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {proofRules.map((rule) => (
-            <div key={rule} className="rounded-lg border border-softBorder bg-white p-5 text-sm font-semibold text-deepInlet">
+            <div key={rule} className="p-5 text-sm font-semibold text-deepInlet">
               {rule}
             </div>
           ))}

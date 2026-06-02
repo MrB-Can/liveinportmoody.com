@@ -32,6 +32,12 @@ const aboutCards = [
   },
 ];
 
+const proofStatusCards = [
+  "Verified reviews will be connected only from approved public sources.",
+  "Awards and recognition will be added only with source details confirmed.",
+  "Local businesses and events are reviewed before they appear as public content.",
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -48,9 +54,9 @@ export default function AboutPage() {
       <Section title="Real estate plus local intelligence" tone="white" intro="The site connects buyer and seller decisions with the local context that changes how a property actually works: neighbourhood, building, complex, lifestyle, commute, strata, preparation, and long-term fit." />
 
       <Section title="Where to go next">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {aboutCards.map((card) => (
-            <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+            <article key={card.title} className="p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
               <div className="mt-5">
@@ -62,14 +68,24 @@ export default function AboutPage() {
       </Section>
 
       <Section title="How the local content supports real estate" tone="white">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {[
             "Neighbourhood and nearby community fit",
             "Condo building and townhouse complex due diligence",
             "Local Life context without unverified businesses or events",
             "Buyer and seller guidance connected to real decisions",
           ].map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-mist p-5 text-sm font-semibold text-deepInlet">
+            <div key={item} className="p-5 text-sm font-semibold text-deepInlet">
+              {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Trust content status">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+          {proofStatusCards.map((item) => (
+            <div key={item} className="p-5 text-sm font-semibold leading-6 text-deepInlet">
               {item}
             </div>
           ))}

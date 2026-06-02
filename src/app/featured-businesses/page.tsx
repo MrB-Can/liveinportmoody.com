@@ -48,19 +48,19 @@ export default function FeaturedBusinessesPage() {
       </section>
 
       <Section title="Categories we can review" intro="No businesses are listed here until details are verified and the feature is useful to the local decision context." tone="white">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-3">
           {categories.map((category) => (
-            <div key={category} className="rounded-lg border border-softBorder bg-mist p-5">
-              <p className="font-semibold text-deepInlet">{category}</p>
+            <div key={category} className="p-5 font-semibold text-deepInlet">
+              {category}
             </div>
           ))}
         </div>
       </Section>
 
       <Section title="How featured businesses are reviewed">
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-4 md:divide-x md:divide-y-0">
           {reviewSteps.map((step, index) => (
-            <div key={step} className="rounded-lg border border-softBorder bg-white p-5 text-sm leading-6 text-slateText">
+            <div key={step} className="p-5 text-sm leading-6 text-slateText">
               <span className="mb-3 grid h-8 w-8 place-items-center rounded-full bg-deepInlet text-sm font-semibold text-white">{index + 1}</span>
               {step}
             </div>

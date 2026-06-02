@@ -36,6 +36,13 @@ const insightCards = [
   },
 ];
 
+const verificationPrompts = [
+  "What does this change about the shortlist?",
+  "Which detail must be verified by exact address?",
+  "What trade-off is easy to miss online?",
+  "Who should confirm the technical or professional detail?",
+];
+
 export default function LocalInsightsPage() {
   return (
     <>
@@ -57,16 +64,29 @@ export default function LocalInsightsPage() {
       </section>
 
       <Section title="Start with the decision you are making" tone="white">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
           {insightCards.map((card) => (
-            <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+            <article key={card.title} className="flex min-h-64 flex-col p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
+              <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.body}</p>
               <div className="mt-5">
                 <CTAButton href={card.href} variant="secondary">{card.cta}</CTAButton>
               </div>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section title="How to use local insight safely">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+          {verificationPrompts.map((prompt) => (
+            <div key={prompt} className="p-5 text-sm font-semibold text-deepInlet">
+              {prompt}
+            </div>
+          ))}
+        </div>
+        <div className="mt-6">
+          <CTAButton href="/contact" variant="secondary">Ask a local question</CTAButton>
         </div>
       </Section>
     </>
