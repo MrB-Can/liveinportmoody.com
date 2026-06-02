@@ -35,11 +35,11 @@ const guideCards = [
 
 export function CondoDecisionGuide() {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:gap-4 md:divide-y-0 md:border-0 md:bg-transparent">
       {guideCards.map((card) => (
-        <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
-          <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
-          <p className="mt-3 text-sm leading-6 text-slateText">{card.copy}</p>
+        <article key={card.title} className="p-4 md:rounded-lg md:border md:border-softBorder md:bg-white md:p-6">
+          <h3 className="font-heading text-lg text-deepInlet md:text-xl">{card.title}</h3>
+          <p className="mt-2 text-sm leading-6 text-slateText md:mt-3">{card.copy}</p>
         </article>
       ))}
     </div>

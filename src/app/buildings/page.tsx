@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { FAQAccordion } from "@/components/faq-accordion";
-import { BuildingComparisonTable } from "@/components/buildings/BuildingComparisonTable";
 import { BuildingFilterChips } from "@/components/buildings/BuildingFilterChips";
 import { BuildingInquiryForm } from "@/components/buildings/BuildingInquiryForm";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { buildingMapPoints, neighbourhoodMapPoints } from "@/data/mapPoints";
-import { BuildingPreviewCard } from "@/components/buildings/BuildingPreviewCard";
 import { CondoDecisionGuide } from "@/components/buildings/CondoDecisionGuide";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
@@ -79,6 +77,25 @@ const howToUseCards = [
   },
 ];
 
+const comparisonPrompts = [
+  {
+    title: "Location and walkability",
+    body: "Compare the area first: Suter Brook, Newport Village, Klahanie, Moody Centre, or nearby pockets solve different lifestyle and commute problems.",
+  },
+  {
+    title: "Building age and construction",
+    body: "Use building age, concrete versus wood-frame construction, amenities, elevators, and common property history as prompts for deeper review.",
+  },
+  {
+    title: "Strata document focus",
+    body: "Verify minutes, Form B, depreciation report, insurance, bylaws, fees, parking, storage, planned work, and any special levies.",
+  },
+  {
+    title: "Listing-specific fit",
+    body: "Confirm exposure, noise, layout, parking, storage, fees, and active alternatives for the specific unit before making a decision.",
+  },
+];
+
 export default function BuildingsPage() {
   return (
     <>
@@ -92,7 +109,7 @@ export default function BuildingsPage() {
             Research Port Moody condo buildings by location, walkability, age, strata considerations, transit access, lifestyle fit, and buyer and seller context.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton href="#building-grid">Compare buildings</CTAButton>
+            <CTAButton href="#buildings-by-area">Compare buildings</CTAButton>
             <CTAButton href="/listings" variant="secondary">View condo listings</CTAButton>
             <CTAButton href="#ask-building" variant="ghost">Ask about a building</CTAButton>
           </div>
@@ -115,46 +132,49 @@ export default function BuildingsPage() {
       </Section>
 
       <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation.">
-        <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[300px] rounded-lg md:h-[400px]" />
-      </Section>
-
-      <Section title="Building guide previews" intro="Use these cards to compare location, buyer fit, and due-diligence questions before reviewing a specific listing or strata package." tone="white">
-        <div id="building-grid" className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {buildings.map((building) => (
-            <BuildingPreviewCard key={building.slug} building={building} />
-          ))}
+        <div className="md:hidden">
+          <div className="rounded-lg border border-softBorder bg-white p-5">
+            <h2 className="font-heading text-2xl text-deepInlet">Mobile map orientation</h2>
+            <p className="mt-3 text-sm leading-6 text-slateText">
+              Port Moody condo buildings are concentrated around Suter Brook, Newport Village, Klahanie, and Moody Centre.
+              Use the desktop map for visual orientation, then verify exact building and listing details before making decisions.
+            </p>
+            <div className="mt-5 grid gap-3">
+              {buildingDisplayGroups.map((group) => {
+                const count = buildings.filter((building) => building.displayGroup === group).length;
+                if (count === 0) return null;
+                return (
+                  <div key={group} className="rounded-md border border-softBorder bg-mist px-4 py-3">
+                    <p className="font-semibold text-deepInlet">{group}</p>
+                    <p className="mt-1 text-xs text-slateText">{count} building guide preview{count === 1 ? "" : "s"}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="hidden md:block">
+          <PortMoodyMap points={[...buildingMapPoints, ...neighbourhoodMapPoints]} showLegend={true} className="h-[400px] rounded-lg" />
         </div>
       </Section>
 
-      <Section title="Buildings by area" intro="Port Moody condo buildings are concentrated in Suter Brook, Moody Centre, Newport Village, and Klahanie. Each area has different trade-offs around walkability, transit, building age, and lifestyle.">
-        <div className="space-y-10">
+      <Section id="buildings-by-area" title="Buildings by area" intro="Port Moody condo buildings are concentrated in Suter Brook, Moody Centre, Newport Village, and Klahanie. Each area has different trade-offs around walkability, transit, building age, and lifestyle.">
+        <div className="space-y-5">
           {buildingDisplayGroups.map((group) => {
             const groupBuildings = buildings.filter((b) => b.displayGroup === group);
             if (groupBuildings.length === 0) return null;
             return (
-              <div key={group}>
-                <h3 className="font-heading text-2xl text-deepInlet">{group}</h3>
-                <div className="mt-5 divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
+              <div key={group} className="rounded-lg border border-softBorder bg-white p-4">
+                <h3 className="font-heading text-xl text-deepInlet">{group}</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
                   {groupBuildings.map((building) => (
-                    <article key={building.slug} className="p-5">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-slateText">Guide preview</span>
-                        <span className="text-xs text-slateText">{building.type}</span>
-                      </div>
-                      <h4 className="mt-3 font-heading text-xl text-deepInlet">{building.name}</h4>
-                      {building.address && (
-                        <p className="mt-1 text-xs text-slateText">{building.address}</p>
-                      )}
-                      <p className="mt-3 text-sm leading-6 text-slateText">{building.bestFor}</p>
-                      <div className="mt-4">
-                        <Link
-                          href={`/buildings/${building.slug}`}
-                          className="text-sm font-semibold text-forest hover:text-deepInlet"
-                        >
-                          See building guide preview →
-                        </Link>
-                      </div>
-                    </article>
+                    <Link
+                      key={building.slug}
+                      href={`/buildings/${building.slug}`}
+                      className="rounded-full border border-softBorder bg-mist px-3 py-1.5 text-xs font-semibold text-deepInlet hover:border-seaGlass hover:bg-white"
+                    >
+                      {building.name}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -164,8 +184,14 @@ export default function BuildingsPage() {
       </Section>
 
       <Section title="Port Moody condo building comparison">
-        <p className="mb-3 text-xs text-slateText md:hidden">Swipe sideways to compare all columns.</p>
-        <BuildingComparisonTable buildings={buildings} />
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white lg:grid lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          {comparisonPrompts.map((prompt) => (
+            <article key={prompt.title} className="p-4">
+              <h3 className="font-heading text-lg text-deepInlet">{prompt.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slateText">{prompt.body}</p>
+            </article>
+          ))}
+        </div>
         <div className="mt-5">
           <VerificationNote note={standardVerificationNote} />
         </div>
@@ -177,7 +203,7 @@ export default function BuildingsPage() {
         tone="white"
       >
         <CondoDecisionGuide />
-        <div className="mt-8 rounded-lg border border-softBorder bg-mist p-6">
+        <div className="mt-6 rounded-lg border border-softBorder bg-mist p-4 md:mt-8 md:p-6">
           <h3 className="font-heading text-2xl text-deepInlet">Looking at a Port Moody condo?</h3>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
             Send us the building name or listing. We can help you understand location, strata documents, layout, exposure, parking, fees, amenities, and resale considerations.
