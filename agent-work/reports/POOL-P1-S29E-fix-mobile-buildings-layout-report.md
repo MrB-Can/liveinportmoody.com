@@ -21,10 +21,10 @@ VALIDATION:
 - smoke: pass
 
 SCREENSHOT CHECK:
-- /buildings mobile: checked at 390px against local dev server; mobile now shows compact map orientation instead of visible map tiles. Screenshot height reduced from previous 1170 x 74043 reference to 1170 x 47754 in the local check before the final combined compact section changes.
-- /buildings desktop: checked at 1440px against local dev server; interactive map still renders and desktop layout remains usable.
-- /complexes mobile if checked: not checked; no shared component used by /complexes was changed.
-- /neighbourhoods mobile if checked: not checked; no shared component used by /neighbourhoods was changed.
+- /buildings mobile: checked at 390px against local dev server; final DOM height measured 11,789px, down from the broken 21,702px reproduction and below the /complexes and /neighbourhoods mobile reference pages.
+- /buildings desktop: checked at 1440px against local dev server; final DOM height measured 7,546px and desktop layout remains usable.
+- /complexes mobile if checked: checked at 390px; unchanged reference height measured 13,111px.
+- /neighbourhoods mobile if checked: checked at 390px; unchanged reference height measured 12,483px.
 
 COMMIT:
 6c4a964
