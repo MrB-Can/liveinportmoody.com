@@ -109,27 +109,27 @@ export function LeadForm({
       {description ? <p className="mt-2 text-sm leading-6 text-slateText">{description}</p> : null}
 
       <div className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label htmlFor="name" className="grid gap-2 text-sm font-medium text-charcoal">
           Name
-          <input className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" {...register("name")} />
+          <input id="name" className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" {...register("name")} />
           {errors.name ? <span className="text-sm text-red-700">{errors.name.message}</span> : null}
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label htmlFor="email" className="grid gap-2 text-sm font-medium text-charcoal">
           Email
-          <input className="min-h-11 rounded-md border border-softBorder px-3" type="email" autoComplete="email" {...register("email")} />
+          <input id="email" className="min-h-11 rounded-md border border-softBorder px-3" type="email" autoComplete="email" {...register("email")} />
           {errors.email ? <span className="text-sm text-red-700">{errors.email.message}</span> : null}
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label htmlFor="phone" className="grid gap-2 text-sm font-medium text-charcoal">
           Phone {phoneOptional ? <span className="font-normal text-slateText">optional</span> : null}
-          <input className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" {...register("phone")} />
+          <input id="phone" className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" {...register("phone")} />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label htmlFor="message" className="grid gap-2 text-sm font-medium text-charcoal">
           {messageLabel}
-          <textarea className="min-h-24 rounded-md border border-softBorder px-3 py-3" placeholder={messagePlaceholder} {...register("message")} />
+          <textarea id="message" className="min-h-24 rounded-md border border-softBorder px-3 py-3" placeholder={messagePlaceholder} {...register("message")} />
         </label>
-        <label className="hidden">
+        <label htmlFor="honeypot" className="hidden">
           Leave this field blank
-          <input tabIndex={-1} autoComplete="off" {...register("honeypot")} />
+          <input id="honeypot" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
         </label>
         <label className="flex gap-3 text-sm leading-6 text-slateText">
           <input className="mt-1 h-4 w-4" type="checkbox" {...register("consentToContact")} />
