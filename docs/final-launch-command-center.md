@@ -17,7 +17,7 @@
 | SEO/claim safety | ✅ Clean | Minor wording fixes applied |
 | Link/copy safety | ✅ Clean | No invented claims, no dead links |
 | Sitemap | ✅ 25 URLs | All https://www., correct noindex on previews |
-| GHL CRM integration | ⏳ Awaiting live test | Runbook ready; no real lead submitted yet |
+| GHL CRM integration | ✅ PASSED | Live test confirmed 2026-06-01 20:45 UTC — contact created, routed correctly |
 | Legal (privacy/terms) | ⏳ Awaiting owner review | Language needs Paul's sign-off |
 | Owner approval | ⏳ Awaiting Leilani/Paul | Homepage, nav, funnels |
 | Social links | ⚠️ Owner decision needed | Still href="#" — needs real URLs or stays hidden |
@@ -26,15 +26,13 @@
 
 ---
 
-## The One Technical Blocker
+## The One Technical Blocker — NOW RESOLVED ✅
 
-**GHL live form test has not been performed.**
+**GHL live form test: PASSED on 2026-06-01 at 20:45 UTC**
 
-A real form submission must land in GoHighLevel before the site goes public. The runbook is complete and waiting:
+Owner confirmed: "It worked." A test contact was successfully submitted via `/contact`, appeared in GoHighLevel with correct pipeline/stage/owner/tags, and was verified. The CRM integration is live and functional.
 
-**→ `docs/ghl-live-form-test-runbook.md`**
-
-Start with Form 1 (`/contact`). A single successful contact appearing in GHL with correct pipeline/stage/owner/tags is enough to confirm the integration is live. Then run Forms 2–5 and clean up test contacts.
+**Status:** ✅ Cleared — ready to proceed with coming-soon removal.
 
 ---
 
