@@ -19,14 +19,14 @@ export function Footer() {
           </div>
           <div className="mt-6">
             {socialLinks.some((s) => !s.disabled) && (
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 {socialLinks
                   .filter((s) => !s.disabled)
                   .map((social) => (
                     <Link
                       key={social.platform}
                       href={social.href}
-                      className="text-sm text-mist hover:text-white"
+                      className="font-semibold text-seaGlass hover:text-white transition-colors"
                       aria-label={social.label}
                     >
                       {social.label}

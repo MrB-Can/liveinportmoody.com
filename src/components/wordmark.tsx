@@ -25,7 +25,7 @@ export function Wordmark({ variant = "dark" }: WordmarkProps) {
       width={180}
       height={44}
       priority
-      className="h-9 w-auto"
+      className="h-12 w-auto"
     />
   );
 }
