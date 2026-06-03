@@ -33,8 +33,8 @@ const aboutCards = [
 ];
 
 const proofStatusCards = [
-  "Verified reviews will be connected only from approved public sources.",
-  "Awards and recognition will be added only with source details confirmed.",
+  "Verified reviews appear only from approved public sources.",
+  "Awards and recognition appear only with confirmed source details.",
   "Local businesses and events are reviewed before they appear as public content.",
 ];
 

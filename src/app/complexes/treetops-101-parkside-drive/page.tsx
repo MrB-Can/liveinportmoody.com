@@ -234,7 +234,7 @@ export default function TreetopsPage() {
                 <li>Amenity building and recreation area</li>
               </ul>
             </div>
-            <p className="mt-2 text-xs text-slateText">Photos coming soon. No listing or competitor images are used.</p>
+            <p className="mt-2 text-xs text-slateText">Uses owner-approved photography only. No listing or competitor images are used.</p>
           </div>
         </div>
       </section>
@@ -344,7 +344,7 @@ export default function TreetopsPage() {
             <div className="grid gap-5 md:grid-cols-2">
               {homeCards.map(([title, body]) => (
                 <article key={title} className="rounded-lg border border-softBorder bg-white p-5">
-                  <div className="mb-4 h-24 rounded-md bg-gradient-to-br from-mist to-seaGlass/20" aria-label={`${title} placeholder`} />
+                  <div className="mb-4 h-24 rounded-md bg-gradient-to-br from-mist to-seaGlass/20" aria-label={`${title} visual summary`} />
                   <h3 className="font-heading text-xl text-deepInlet">{title}</h3>
                   <p className="mt-3 text-sm leading-6 text-slateText">{body}</p>
                 </article>

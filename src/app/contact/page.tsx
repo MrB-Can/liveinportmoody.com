@@ -85,6 +85,20 @@ export default function ContactPage() {
         </div>
       </Section>
 
+      <Section title="Why ask us" tone="sand">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            "Licensed BC real estate guidance through eXp Realty.",
+            "Port Moody-focused local research for neighbourhood, building, and complex questions.",
+            "Verified-only public proof: no invented reviews, rankings, awards, or sold data.",
+          ].map((item) => (
+            <div key={item} className="rounded-lg border border-softBorder bg-white p-5 text-sm font-semibold leading-6 text-deepInlet">
+              {item}
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section title="How your question is handled" intro="Your message is reviewed by context so the right follow-up can focus on buying, selling, relocation, market questions, listings, or local Port Moody guidance.">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[

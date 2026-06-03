@@ -159,7 +159,7 @@ const pricingCards = [
   "Price against true alternatives, not general market averages.",
   "Explain the micro-market context buyers may not know.",
   "Reduce buyer uncertainty before they ask questions.",
-  "Launch with complete media, not placeholder photos.",
+  "Launch with complete approved media.",
   "Prepare strata documents before buyers ask for them.",
   "Follow up with serious buyers quickly.",
 ];
@@ -487,7 +487,7 @@ export default function SellPage() {
           >
             <p className="font-heading text-lg text-deepInlet">Client stories</p>
             <p className="mt-3 flex-1 text-sm text-slateText">
-              Review the future home for approved client stories and verified public review links.
+              Read approved client stories and verified public review links.
             </p>
             <span className="mt-4 text-sm font-semibold text-forest">Read stories →</span>
           </Link>

@@ -19,7 +19,7 @@ export function PlaceholderImageBlock({ caption, label, height = "md" }: Placeho
     <figure>
       <div
         className={`flex flex-col items-center justify-center gap-3 rounded-lg bg-gradient-to-br from-mist to-seaGlass/20 ${heights[height]}`}
-        aria-label={label ?? "Image placeholder — replace with professional photo"}
+        aria-label={label ?? "Planned visual area"}
         role="img"
       >
         <ImageIcon className="h-8 w-8 text-seaGlass" />

@@ -7,7 +7,7 @@ export function NeighbourhoodMapPlaceholder() {
 
       <div className="rounded-lg border border-softBorder bg-gradient-to-br from-mist to-seaGlass/20 p-8 flex flex-col items-center justify-center min-h-96">
         <MapPin className="h-12 w-12 text-forest mb-4" />
-        <h3 className="font-semibold text-deepInlet mb-2">Interactive map coming soon</h3>
+        <h3 className="font-semibold text-deepInlet mb-2">Map orientation</h3>
         <p className="text-sm text-slateText text-center max-w-md mb-6">
           Visual map showing all Port Moody neighbourhoods with boundaries, landmarks, and quick links to detailed guides.
         </p>

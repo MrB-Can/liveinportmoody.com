@@ -1,5 +1,6 @@
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
+import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -66,10 +67,13 @@ export default function MeetUsPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/contact">Contact Paul and Leilani</CTAButton>
             <CTAButton href="/raving-fans" variant="secondary">Raving Fans</CTAButton>
-            <CTAButton href="/accolades" variant="ghost">Accolades</CTAButton>
           </div>
         </div>
       </section>
+
+      <Section title="Leilani Fong and Paul Bennett" tone="white">
+        <TeamImagePlaceholder />
+      </Section>
 
       <Section title="How we work together" tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
@@ -107,7 +111,7 @@ export default function MeetUsPage() {
         </div>
       </Section>
 
-      <Section title="No stock proof" tone="sand" intro="Approved photos, reviews, recognition, and client stories can be added later when real source material is available.">
+      <Section title="No stock proof" tone="sand" intro="Approved photos, reviews, recognition, and client stories appear only when real source material is available.">
         <CTAButton href="/contact">Ask a Port Moody question</CTAButton>
       </Section>
     </>

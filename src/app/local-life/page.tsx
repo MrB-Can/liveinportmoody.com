@@ -29,7 +29,7 @@ const localLifeSections = [
   },
   {
     title: "Events",
-    body: "Events will be added when dates, hosts, public sources, and relevance to Port Moody residents are confirmed.",
+    body: "Events are published when dates, hosts, public sources, and relevance to Port Moody residents are confirmed.",
   },
   {
     title: "Featured Businesses",

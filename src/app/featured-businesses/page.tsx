@@ -36,7 +36,7 @@ export default function FeaturedBusinessesPage() {
             Port Moody featured businesses, reviewed one at a time.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            Local businesses help people understand daily life in Port Moody. Features will be added only after
+            Local businesses help people understand daily life in Port Moody. Features are published only after
             public details, relevance, and permission needs are reviewed.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -1,13 +1,20 @@
-import { Camera } from "lucide-react";
+import Image from "next/image";
 
 export function TeamImagePlaceholder() {
   return (
-    <div className="mb-8 aspect-video w-full rounded-lg border border-softBorder bg-gradient-to-br from-mist to-seaGlass/20 flex flex-col items-center justify-center p-8 text-center">
-      <Camera className="mb-4 h-12 w-12 text-forest" />
-      <h3 className="font-semibold text-deepInlet mb-2">Team photo coming soon</h3>
-      <p className="text-sm text-slateText max-w-md">
-        Wide local photo of Paul and Leilani together in Port Moody, ideally with waterfront, forest, village, or neighbourhood context.
-      </p>
-    </div>
+    <figure className="mb-8 overflow-hidden rounded-lg border border-softBorder bg-white shadow-sm">
+      <div className="relative aspect-[5/4] w-full sm:aspect-[5/3]">
+        <Image
+          src="/images/team/leilani-paul-team.jpeg"
+          alt="Leilani Fong and Paul Bennett, Live in Port Moody"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 100vw, 896px"
+        />
+      </div>
+      <figcaption className="px-5 py-4 text-sm leading-6 text-slateText">
+        Leilani Fong and Paul Bennett combine licensed real estate representation with local research and property intelligence for Port Moody buyers and sellers.
+      </figcaption>
+    </figure>
   );
 }

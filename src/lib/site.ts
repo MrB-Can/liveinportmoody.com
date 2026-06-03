@@ -16,7 +16,7 @@ export const siteConfig = {
 
 export const headerAssetTodo = {
   item: "Facebook-aligned logo/header asset",
-  status: "pending_approved_asset",
+  status: "needs_approved_asset",
   note: "Do not replace the current header or logo artwork until an approved Facebook-aligned asset is available.",
 } as const;
 
@@ -114,7 +114,6 @@ export const navItems: NavItem[] = [
         items: [
           { label: "Meet Us", href: "/meet-us" },
           { label: "Raving Fans", href: "/raving-fans" },
-          { label: "Accolades", href: "/accolades" },
           { label: "Contact", href: "/contact" },
         ],
       },
@@ -211,9 +210,8 @@ export const exploreItems = [
 
 export type SocialLink = { label: string; platform: string; href: string; disabled?: boolean };
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", platform: "instagram", href: "#", disabled: true },
-  { label: "YouTube", platform: "youtube", href: "#", disabled: true },
-  { label: "Facebook", platform: "facebook", href: "#", disabled: true },
+  { label: "Instagram", platform: "instagram", href: "https://www.instagram.com/liveinportmoody/" },
+  { label: "Facebook", platform: "facebook", href: "https://www.facebook.com/liveinportmoody" },
 ];
 
 export type FooterLinkItem = { label: string; href: string };
@@ -269,13 +267,34 @@ export const footerGroups: FooterGroup[] = [
     title: "About",
     links: [
       { label: "Meet Us", href: "/meet-us" },
-      { label: "Accolades", href: "/accolades" },
       { label: "Contact", href: "/contact" },
     ],
   },
 ];
 
 export const footerLinks = footerGroups.flatMap((g) => g.links);
+
+export type TrustItem = {
+  title: string;
+  description: string;
+  badgeAssetPath?: string;
+  logoAssetPath?: string;
+  sourceUrl?: string;
+  verified?: boolean;
+};
+
+export const trustItems: TrustItem[] = [
+  {
+    title: "Licensed BC REALTORS",
+    description: "Paul Bennett and Leilani Fong PREC · eXp Realty",
+    verified: true,
+  },
+  {
+    title: "Port Moody Focused",
+    description: "Local expertise from residents who live and work in Port Moody.",
+    verified: true,
+  },
+];
 
 export const phaseOneRoutes = [
   "/",
@@ -299,6 +318,5 @@ export const phaseOneRoutes = [
   "/featured-businesses",
   "/events",
   "/presales",
-  "/accolades",
   "/faq",
 ];

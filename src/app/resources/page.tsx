@@ -59,12 +59,6 @@ const sellingResources: ResourceCard[] = [
     cta: "View testimonials",
     href: "/raving-fans",
   },
-  {
-    title: "Accolades",
-    description: "Verified recognition, community involvement, and professional background of Leilani Fong PREC and Paul Bennett.",
-    cta: "View accolades",
-    href: "/accolades",
-  },
 ];
 
 const researchResources: ResourceCard[] = [

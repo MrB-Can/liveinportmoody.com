@@ -20,7 +20,7 @@ const neighbourhoods = [
     transit: "Good",
     feel: "Growing, mixed-use",
     tradeoff: "Active development",
-    href: "#",
+    href: "/neighbourhoods",
     status: "preview",
   },
   {
@@ -31,7 +31,7 @@ const neighbourhoods = [
     transit: "Excellent",
     feel: "Modern, walkable",
     tradeoff: "Higher price point",
-    href: "#",
+    href: "/neighbourhoods",
     status: "preview",
   },
   {
@@ -42,7 +42,7 @@ const neighbourhoods = [
     transit: "Good",
     feel: "Established, family-oriented",
     tradeoff: "Mixed housing types",
-    href: "#",
+    href: "/neighbourhoods",
     status: "preview",
   },
   {
@@ -53,7 +53,7 @@ const neighbourhoods = [
     transit: "Excellent",
     feel: "Downtown, mixed-use",
     tradeoff: "Less residential quiet",
-    href: "#",
+    href: "/neighbourhoods",
     status: "preview",
   },
   {
@@ -64,7 +64,7 @@ const neighbourhoods = [
     transit: "Good",
     feel: "Established, quiet",
     tradeoff: "Less trail access",
-    href: "#",
+    href: "/neighbourhoods",
     status: "preview",
   },
 ];
@@ -106,7 +106,7 @@ export function NeighbourhoodComparisonTable() {
                       Explore →
                     </Link>
                   ) : (
-                    <span className="text-xs text-slateText">Coming soon</span>
+                    <span className="text-xs text-slateText">—</span>
                   )}
                 </td>
               </tr>

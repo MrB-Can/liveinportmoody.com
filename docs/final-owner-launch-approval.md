@@ -12,11 +12,13 @@
 | Privacy/terms pages approved | GO — confirmed by owner before launch |
 | GHL live test passed | GO — confirmed by owner 2026-06-01 |
 | Remove coming-soon gate | GO — executed by S29R, deployed with `vercel --prod --force` |
-| Remove /accolades from visible nav/footer | GO — pending code change (S30B blocked) |
-| Use text-only verified trust/accolade blocks | GO — pending code change (S30B blocked) |
-| Use non-public code/data placeholders for future badge/logo assets | GO |
-| Do not show public badge/logo placeholder labels | GO — currently clean in code |
+| Remove /accolades from visible nav/footer | GO — executed 2026-06-03 (S30B) |
+| Use text-only verified trust/accolade blocks | GO — implemented on homepage (S30B) |
+| Use non-public code/data placeholders for future badge/logo assets | GO — data structure added to site.ts |
+| Do not show public badge/logo placeholder labels | GO — cleaned up in components |
 | Launch with MLS listings fallback if reciprocity URL not ready | GO |
+| Use owner-supplied team photo | GO — applied 2026-06-03 (S30F) |
+| Use real Facebook and Instagram links | GO — applied 2026-06-03 (S30F) |
 
 ---
 
@@ -24,10 +26,10 @@
 
 | Decision | Status |
 |---|---|
-| Keep /accolades route live but unpromoted | NO-GO — must redirect to /meet-us or /about |
-| Show public "badge coming soon" / "logo placeholder" labels | NO-GO — currently clean |
-| Launch without real Leilani/team photo | NO-GO — photo still missing; visible on /meet-us |
-| Launch without real social links | NO-GO — all social links still disabled; visible in footer |
+| Keep /accolades route live but unpromoted | NO-GO — redirected to /meet-us (S30B) |
+| Show public "badge coming soon" / "logo placeholder" labels | NO-GO — cleaned up across src/ (S30B) |
+| Launch without real Leilani/team photo | NO-GO — resolved by S30F owner asset cleanup |
+| Launch without real social links | NO-GO — resolved with Instagram and Facebook; YouTube omitted |
 
 ---
 
@@ -46,10 +48,10 @@ All decisions are now recorded. No pending decisions remain.
 
 ## Post-Launch Action Items Required
 
-The site launched without meeting two owner NO-GO conditions. These must be addressed:
+The site launched without meeting two owner NO-GO conditions. Both were addressed by POOL-P0-S30F:
 
-1. **Leilani/team photo** — supply `public/images/team/leilani.jpeg`
-2. **Real social URLs** — supply Instagram URL + at least one other platform
+1. **Leilani/team photo** — owner-supplied team photo deployed at `public/images/team/leilani-paul-team.jpeg`
+2. **Real social URLs** — Instagram and Facebook applied; YouTube omitted until a real URL is provided
 
 See `docs/current-launch-blockers.md` and `docs/social-url-and-photo-intake.md`.
 

@@ -2,6 +2,7 @@ import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
+import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -256,7 +257,7 @@ export default function HomePage() {
         homeSizing
       />
 
-      {/* Trust strip — immediately beneath fold */}
+      {/* Trust strip: immediately beneath fold */}
       <section className="border-b border-softBorder bg-white px-5 py-8">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -292,8 +293,8 @@ export default function HomePage() {
                 <span className="text-sm font-bold text-forest">✓</span>
               </div>
               <div>
-                <p className="text-sm font-semibold text-deepInlet">Verified accolades</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">Reviews and recognition published from verified sources.</p>
+                <p className="text-sm font-semibold text-deepInlet">Verified recognition only</p>
+                <p className="mt-1 text-xs leading-5 text-slateText">Reviews and recognition are published only from approved sources.</p>
               </div>
             </div>
           </div>
@@ -318,7 +319,7 @@ export default function HomePage() {
 
       <Section
         title="A Port Moody guide, not just a listing search"
-        intro="LiveInPortMoody.com is being built as a local decision guide for people comparing where to live, what to buy, when to sell, and which questions to verify before they commit."
+        intro="LiveInPortMoody.com is a local decision guide for people comparing where to live, what to buy, when to sell, and which questions to verify before they commit."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {guideFocusCards.map((card) => (
@@ -333,7 +334,7 @@ export default function HomePage() {
       <Section
         eyebrow="Guides and requests"
         title="Start with the right next question"
-        intro="Request a guide, ask for help, get notified, or ask for compliant market context. These pages use request language until guide assets or verified data are ready."
+        intro="Request a guide, ask for help, get notified, or ask for compliant market context. These pages use request language for guide assets and verified data."
         tone="white"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -483,12 +484,7 @@ export default function HomePage() {
         intro="Live in Port Moody combines licensed real estate guidance, local research, property analysis, media, and market context to help buyers and sellers make clearer decisions in Port Moody."
       >
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="grid min-h-[360px] content-center rounded-lg border border-softBorder bg-white p-8 text-center">
-            <p className="font-heading text-3xl text-deepInlet">Local guidance, verified over time</p>
-            <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-slateText">
-              The site is structured around research, verification, client questions, and local context instead of unsupported claims.
-            </p>
-          </div>
+          <TeamImagePlaceholder />
           <div className="grid gap-4">
             <article className="rounded-lg border border-softBorder bg-white p-6">
               <h3 className="font-heading text-2xl text-deepInlet">Paul Bennett</h3>
@@ -541,7 +537,6 @@ export default function HomePage() {
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <CTAButton href="/raving-fans" variant="secondary">View client stories</CTAButton>
-                <CTAButton href="/accolades" variant="ghost">View recognition</CTAButton>
               </div>
             </div>
           </div>

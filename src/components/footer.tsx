@@ -18,7 +18,7 @@ export function Footer() {
             <p>{siteConfig.publicEmail}</p>
           </div>
           <div className="mt-6">
-            {socialLinks.some((s) => !s.disabled) ? (
+            {socialLinks.some((s) => !s.disabled) && (
               <div className="flex gap-4">
                 {socialLinks
                   .filter((s) => !s.disabled)
@@ -33,8 +33,6 @@ export function Footer() {
                     </Link>
                   ))}
               </div>
-            ) : (
-              <p className="text-xs text-mist/60">Social links coming soon</p>
             )}
           </div>
         </div>
