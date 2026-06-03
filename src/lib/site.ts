@@ -305,6 +305,7 @@ export const trustItems: TrustItem[] = [
 
 export const phaseOneRoutes = [
   "/",
+  "/about",
   "/buy",
   "/sell",
   "/local-life",
