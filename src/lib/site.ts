@@ -290,8 +290,18 @@ export const trustItems: TrustItem[] = [
     verified: true,
   },
   {
-    title: "Port Moody Focused",
-    description: "Local expertise from residents who live and work in Port Moody.",
+    title: "Port Moody focused",
+    description: "We live and work here — this is our local market.",
+    verified: true,
+  },
+  {
+    title: "Research-first approach",
+    description: "Verified local context, not generic market commentary.",
+    verified: true,
+  },
+  {
+    title: "Verified accolades",
+    description: "Reviews and recognition published from verified sources.",
     verified: true,
   },
 ];
