@@ -149,12 +149,12 @@ export default function ListingsPage() {
             </div>
           ) : (
             <div>
-              <h2 className="font-heading text-2xl text-deepInlet">MLS Reciprocity search is being connected</h2>
+              <h2 className="font-heading text-2xl text-deepInlet">Current Port Moody listings with local context</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-                Ask us about current Port Moody listings and we can help immediately.
+                Ask us about current Port Moody listings and we can help you compare the property, building, neighbourhood, pricing context, and buyer trade-offs before you write.
               </p>
               <p className="mt-4 max-w-3xl text-sm leading-6 text-slateText">
-                Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
+                Active listings are provided through MLS Reciprocity where available. Sold and expired listings are not included.
               </p>
               <div className="mt-5">
                 <CTAButton href="#ask-listing" variant="secondary">Ask about current listings</CTAButton>

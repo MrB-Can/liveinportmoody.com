@@ -151,7 +151,7 @@ export default function NeighbourhoodsPage() {
 
           {previewNeighbourhoods.length > 0 && (
             <>
-              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Neighbourhood research in progress</h2>
+              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">More Port Moody neighbourhood snapshots</h2>
               {previewNeighbourhoods.map((neighbourhood) => (
                 <Link
                   key={neighbourhood.slug}
@@ -162,7 +162,7 @@ export default function NeighbourhoodsPage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
                         <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
-                        <Badge tone="blue">Research in progress</Badge>
+                        <Badge tone="blue">Area snapshot</Badge>
                         {neighbourhood.category && (
                           <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
                             {CATEGORY_BADGE[neighbourhood.category].label}
@@ -186,14 +186,14 @@ export default function NeighbourhoodsPage() {
 
           {comingSoonNeighbourhoods.length > 0 && (
             <>
-              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Additional neighbourhoods</h2>
+              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Nearby areas to consider</h2>
               {comingSoonNeighbourhoods.map((neighbourhood) => (
                 <div key={neighbourhood.slug} className="bg-mist/60 p-6 opacity-75">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
                         <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
-                        <Badge tone="slate">Verification needed</Badge>
+                        <Badge tone="slate">Nearby area</Badge>
                         {neighbourhood.category && (
                           <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
                             {CATEGORY_BADGE[neighbourhood.category].label}

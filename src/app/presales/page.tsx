@@ -142,12 +142,10 @@ export default function PresalesPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Current and new developments</p>
           <h2 className="mt-3 font-heading text-3xl text-deepInlet">Request verified project updates</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-            We are collecting approved sources for Port Moody presales and new developments. Project availability,
-            pricing, incentives, and dates will only be published after they are checked against current approved
-            sources.
+            Ask us to verify current Port Moody presale and new development details before you rely on pricing, incentives, timelines, or availability.
           </p>
           <div className="mt-5">
-            <CTAButton href="/contact" variant="secondary">Ask about a project</CTAButton>
+            <CTAButton href="/contact" variant="secondary">Ask about a presale project</CTAButton>
           </div>
         </div>
       </section>
