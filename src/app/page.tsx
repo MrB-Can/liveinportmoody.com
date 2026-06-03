@@ -3,6 +3,7 @@ import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
+import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -257,49 +258,7 @@ export default function HomePage() {
         homeSizing
       />
 
-      {/* Trust strip: immediately beneath fold */}
-      <section className="border-b border-softBorder bg-white px-5 py-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
-                <span className="text-sm font-bold text-forest">✓</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-deepInlet">Licensed BC REALTORS</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">Paul Bennett and Leilani Fong PREC · eXp Realty</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
-                <span className="text-sm font-bold text-forest">✓</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-deepInlet">Port Moody focused</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">We live and work here — this is our local market.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
-                <span className="text-sm font-bold text-forest">✓</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-deepInlet">Research-first approach</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">Verified local context, not generic market commentary.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
-                <span className="text-sm font-bold text-forest">✓</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-deepInlet">Verified recognition only</p>
-                <p className="mt-1 text-xs leading-5 text-slateText">Reviews and recognition are published only from approved sources.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TrustStrip />
 
       <Section eyebrow="Buy, sell, or relocate" title="What are you trying to figure out?" tone="white">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
