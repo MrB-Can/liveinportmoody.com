@@ -3,6 +3,7 @@ import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { siteConfig } from "@/lib/site";
+import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -32,6 +33,8 @@ export default function ContactPage() {
         subtitle="No pressure. Tell us what you are trying to figure out and we will point you in the right direction."
         primaryCta={{ label: "Send a question", href: "#contact-form" }}
       />
+
+      <TrustStrip />
 
       <Section eyebrow="What can you ask?" title="Topics we can help with" tone="white">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

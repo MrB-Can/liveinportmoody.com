@@ -5,6 +5,7 @@ import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { FAQSection } from "@/components/ui/faq-section";
 import { VerificationNote } from "@/components/ui/verification-note";
+import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -281,6 +282,8 @@ export default function SellPage() {
         imageSrc="/hero-sell.png"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
+
+      <TrustStrip />
 
       {/* 2. Start with positioning */}
       <Section

@@ -1,6 +1,7 @@
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
+import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -70,6 +71,8 @@ export default function MeetUsPage() {
           </div>
         </div>
       </section>
+
+      <TrustStrip />
 
       <Section title="Leilani Fong and Paul Bennett" tone="white">
         <TeamImagePlaceholder />
