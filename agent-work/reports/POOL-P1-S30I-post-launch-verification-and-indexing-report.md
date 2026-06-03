@@ -5,34 +5,40 @@ TASK:
 POOL-P1-S30I - Post-Launch Verification and Indexing Prep
 
 STATUS:
-Blocked - waiting for S30G completion and deployment
+Completed
 
-BLOCKER:
-S30I requires confirming that `POOL-P0-S30G-reconcile-logo-truststrip-and-deploy` has completed and deployed before public verification/indexing prep proceeds. S30G is still present in `agent-work/active/`, and no S30G done file, report, or matching completion commit was found.
+S30G STATUS:
+Confirmed complete and deployed. S30G task is in `agent-work/done/`, and its report records production deployment to `https://www.liveinportmoody.com`.
 
 PUBLIC CHECKS:
-- homepage: not run; blocked before public verification
-- contact: not run; blocked before public verification
-- meet-us: not run; blocked before public verification
-- buildings: not run; blocked before public verification
-- neighbourhoods: not run; blocked before public verification
-- accolades: not run; blocked before public verification
-- robots: not run; blocked before public verification
-- sitemap: not run; blocked before public verification
-- sitemap excludes /accolades: not checked; blocked before public verification
-- coming-soon gate absent: not checked; blocked before public verification
+- homepage: HTTP 200
+- contact: HTTP 200
+- meet-us: HTTP 200; team photo asset also returns HTTP 200 at `/images/team/leilani-paul-team.jpeg`
+- buildings: HTTP 200
+- neighbourhoods: HTTP 200
+- accolades: HTTP 307 redirect to `/meet-us`
+- robots: HTTP 200; `User-Agent: *`, `Allow: /`, sitemap declared
+- sitemap: HTTP 200; XML available
+- sitemap excludes /accolades: yes
+- coming-soon gate absent: yes; sampled public pages return live page responses
 
 CRAWL:
-- result: not run; blocked before crawl
+- result: pass. `npm run crawl:prelaunch` reported 106 passed, 1 warning, 0 failed. Warning is stale script logic looking for `public/images/team/leilani.*`; current deployed owner asset is the team photo at `public/images/team/leilani-paul-team.jpeg`.
 
 LOGS:
-- errors: not checked; blocked before log scan
+- errors: none. `vercel logs --level error --since 1h` returned no logs for `paul-1527s-projects/liveinportmoody.com` on branch `main`.
 
 INDEXING NOTES:
-- created: no; blocked until final public verification can be run after S30G deployment
+- created: yes, `docs/search-indexing-submission-notes.md`
+
+FILES CHANGED:
+- `docs/post-launch-verification-results.md`
+- `docs/search-indexing-submission-notes.md`
+- `agent-work/reports/POOL-P1-S30I-post-launch-verification-and-indexing-report.md`
+- `agent-work/done/POOL-P1-S30I-post-launch-verification-and-indexing.md`
 
 COMMIT:
 Pending
 
 RECOMMENDED NEXT STEP:
-Complete and deploy S30G, then rerun this post-launch verification and indexing task. Submit sitemap in Google Search Console and Bing Webmaster Tools after verification passes.
+Submit sitemap in Google Search Console and Bing Webmaster Tools.
