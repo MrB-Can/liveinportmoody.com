@@ -10,7 +10,6 @@ export function VideoBlock({ title, description }: VideoBlockProps) {
       <div className="self-center">
         <h3 className="font-heading text-2xl text-deepInlet">{title}</h3>
         <p className="mt-3 text-sm leading-6 text-slateText">{description}</p>
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-emphasis">Video content planned</p>
       </div>
     </div>
   );
