@@ -36,8 +36,8 @@ export default function FeaturedBusinessesPage() {
             Port Moody featured businesses, reviewed one at a time.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            Local businesses help people understand daily life in Port Moody. Features are published only after
-            public details, relevance, and permission needs are reviewed.
+            Local businesses help people understand daily life in Port Moody. This hub accepts suggestions and explains
+            the review standard for public business features.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#suggest-feature">Suggest a business</CTAButton>
@@ -47,7 +47,7 @@ export default function FeaturedBusinessesPage() {
         </div>
       </section>
 
-      <Section title="Categories we can review" intro="No businesses are listed here until details are verified and the feature is useful to the local decision context." tone="white">
+      <Section title="Categories we review" intro="Business features are selected only when details are verified and the feature is useful to the local decision context." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-3">
           {categories.map((category) => (
             <div key={category} className="p-5 font-semibold text-deepInlet">
@@ -68,7 +68,7 @@ export default function FeaturedBusinessesPage() {
         </div>
       </Section>
 
-      <Section id="suggest-feature" title="Suggest a featured business" tone="sand" intro="Use this request form to nominate a business, organization, or local activity for review. This does not guarantee publication.">
+      <Section id="suggest-feature" title="Suggest a featured business" tone="sand" intro="Use this request form to nominate a business, organization, or local activity for review. Suggestions are evaluated before any public feature is created.">
         <div className="max-w-2xl">
           <LeadForm
             formType="ask-question"

@@ -57,7 +57,6 @@ export const navItems: NavItem[] = [
           { label: "Home Evaluation", href: "/home-evaluation" },
           { label: "How We Do It", href: "/how-we-do-it" },
           { label: "Recently Sold", href: "/recently-sold" },
-          { label: "Raving Fans", href: "/raving-fans" },
           { label: "Contact", href: "/contact" },
         ],
       },
@@ -113,7 +112,6 @@ export const navItems: NavItem[] = [
       {
         items: [
           { label: "Meet Us", href: "/meet-us" },
-          { label: "Raving Fans", href: "/raving-fans" },
           { label: "Contact", href: "/contact" },
         ],
       },
@@ -235,7 +233,6 @@ export const footerGroups: FooterGroup[] = [
       { label: "Home Evaluation", href: "/home-evaluation" },
       { label: "How We Do It", href: "/how-we-do-it" },
       { label: "Recently Sold", href: "/recently-sold" },
-      { label: "Raving Fans", href: "/raving-fans" },
     ],
   },
   {

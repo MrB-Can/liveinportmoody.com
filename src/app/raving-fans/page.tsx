@@ -5,22 +5,22 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Raving Fans and Verified Client Proof",
   description:
-    "Raving Fans page for verified reviews, approved client stories, and future connected review sources without unsupported ratings or review counts.",
+    "Raving Fans page for verified reviews, approved client stories, and review-source standards without unsupported ratings or review counts.",
   path: "/raving-fans",
 });
 
 const sourceAreas = [
   {
     title: "Google reviews",
-    body: "Google review links or excerpts can appear once the official public profile and usage context are confirmed.",
+    body: "Google review links or excerpts are used only when the official public profile and usage context are confirmed.",
   },
   {
     title: "RankMyAgent or RateMyAgent",
-    body: "Approved review platform links can be added later if an approved profile, plugin, or public source is available.",
+    body: "Review platform links are used only with an approved profile, plugin, or public source.",
   },
   {
     title: "Client-approved stories",
-    body: "Buyer, seller, relocation, or long-term planning stories can appear only after client approval for public use.",
+    body: "Buyer, seller, relocation, or long-term planning stories require client approval for public use.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function RavingFansPage() {
             Verified reviews and client stories.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            This page is prepared for approved public reviews, connected review profiles, and client-approved
+            This page explains how Live in Port Moody handles public reviews, review profiles, and client-approved
             stories. It does not use unverified testimonials, unsupported ratings, or invented claims.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

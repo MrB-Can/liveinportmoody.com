@@ -16,7 +16,7 @@ const eventGroups = [
   },
   {
     title: "Outdoors",
-    body: "Outdoor events can help people understand waterfront, park, recreation, and seasonal lifestyle patterns after details are verified.",
+    body: "Outdoor events can help people understand waterfront, park, recreation, and seasonal lifestyle patterns when details are verified.",
   },
   {
     title: "Markets",
@@ -50,7 +50,7 @@ export default function EventsPage() {
           <h1 className="mt-4 font-heading text-4xl text-deepInlet md:text-5xl">Port Moody events hub</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
             A local events page for verified community, seasonal, family, and real estate/community events.
-            Current dates and event details will be listed only after they are checked.
+            Current dates and event details are included only when they are checked against public sources.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="#suggest-event">Suggest a Port Moody event</CTAButton>
@@ -76,7 +76,7 @@ export default function EventsPage() {
           <div className="rounded-lg border border-dashed border-softBorder bg-white/85 p-6">
             <h2 className="font-heading text-3xl text-deepInlet">Request updates or suggest an event</h2>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-              We are collecting verified event details from public sources and organizers. This page avoids stale
+              Event details come from confirmed public sources and organizers. This page avoids stale
               calendars, unconfirmed hosts, and invented event schedules.
             </p>
             <div className="mt-5">

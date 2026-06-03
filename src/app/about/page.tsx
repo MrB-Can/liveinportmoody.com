@@ -18,12 +18,6 @@ const aboutCards = [
     cta: "Meet Leilani and Paul",
   },
   {
-    title: "Raving Fans",
-    body: "Verified reviews, connected review sources, and client-approved stories.",
-    href: "/raving-fans",
-    cta: "View Raving Fans",
-  },
-  {
     title: "Contact",
     body: "Ask a buying, selling, neighbourhood, building, complex, presale, local life, or guide request question.",
     href: "/contact",
@@ -53,7 +47,7 @@ export default function AboutPage() {
       <Section title="Real estate plus local intelligence" tone="white" intro="The site connects buyer and seller decisions with the local context that changes how a property actually works: neighbourhood, building, complex, lifestyle, commute, strata, preparation, and long-term fit." />
 
       <Section title="Where to go next">
-        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {aboutCards.map((card) => (
             <article key={card.title} className="p-6">
               <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>

@@ -1,61 +1,53 @@
 AGENT:
-Claude Code (Haiku 4.5)
+Codex
 
 TASK:
 POOL-P0-S32A — Remove Public Incomplete Content Language
 
 STATUS:
-✅ Completed
+Completed
 
 PAGES UPDATED:
-- src/app/raving-fans/page.tsx
-- src/app/testimonials/page.tsx
-- src/app/about/page.tsx
-- src/app/local-businesses/page.tsx
+- `/raving-fans`: changed future-state review copy into current verification/source standards.
+- `/testimonials`: changed compatibility page to redirect to `/raving-fans`.
+- `/about`: removed empty intro video block and removed prominent Raving Fans card.
+- `/local-businesses`: changed compatibility page to redirect to `/featured-businesses`.
+- `/featured-businesses`: changed future publication wording into current suggestion/review standards.
+- `/events`: changed future event-listing wording into current source-checking standards.
+- Shared market snapshot: removed after-launch market-note wording.
+- Navigation/footer: removed visible Raving Fans links where approved reviews are not yet public.
 
 INCOMPLETE LANGUAGE REMOVED:
-- "will live here" → removed from raving-fans heading
-- "connect later" → removed from raving-fans section title
-- "being organized" → rewritten in testimonials heading
-- "future home for" → removed from testimonials trust paths
-- "will be published on...once" → rewritten to "appear on...with verified"
-- "prepared home for" → removed from about Raving Fans card
-- "Local Businesses is now Featured Businesses" → removed from local-businesses heading
-- Empty video block → removed from about page
+- "future connected review sources" / `src/app/raving-fans/page.tsx`
+- "can appear once" / `src/app/raving-fans/page.tsx`
+- "can be added later" / `src/app/raving-fans/page.tsx`
+- "can appear only after" / `src/app/raving-fans/page.tsx`
+- "before approved proof content is added" / `src/app/testimonials/page.tsx`
+- "can be added later" / `src/app/testimonials/page.tsx`
+- "Local Businesses is now Featured Businesses" / `src/app/local-businesses/page.tsx`
+- "Featured businesses will support..." and "Until approved features..." / `src/app/local-businesses/page.tsx`
+- "Features are published only after..." / `src/app/featured-businesses/page.tsx`
+- "No businesses are listed here until..." / `src/app/featured-businesses/page.tsx`
+- "Current dates and event details will be listed..." / `src/app/events/page.tsx`
+- "First Port Moody detached note will be published after launch" / `src/components/market-snapshot.tsx`
 
 ROUTES REDIRECTED:
-None (testimonials and local-businesses remain as bridge pages for SEO)
+- `/testimonials` -> `/raving-fans`
+- `/local-businesses` -> `/featured-businesses`
 
 NAV/FOOTER CHANGES:
-None (Raving Fans and Testimonials remain in nav as content bridges)
+- Removed Raving Fans from Sell dropdown.
+- Removed Raving Fans from About dropdown.
+- Removed Raving Fans from footer Sell group.
+- Removed Raving Fans prominent About page card.
 
 VALIDATION:
-- lint: ✔ No ESLint warnings or errors
-- build: ✓ Compiled successfully in 6.0s (86 pages)
-- crawl: ✅ PASS — 106 passed | 1 warning (expected: Leilani team photo)
-
-SPECIFIC CHANGES:
-
-**raving-fans/page.tsx:**
-- Heading: "Verified reviews and client stories will live here" → "Verified reviews and client stories"
-- Section title: "Review sources to connect later" → "Review sources"
-
-**testimonials/page.tsx:**
-- Heading: "Testimonials are being organized under Raving Fans" → "Verified client reviews and stories on Raving Fans"
-- Trust path: "The future home for verified review links..." → "Verified review links and client-approved stories"
-- Description: "...will be published on Raving Fans once..." → "...appear on Raving Fans with verified..."
-
-**about/page.tsx:**
-- About card: "A prepared home for verified reviews..." → "Verified reviews, connected review sources, and client-approved stories"
-- Removed: "Intro video" section with empty VideoBlock
-- Removed: VideoBlock import
-
-**local-businesses/page.tsx:**
-- Heading: "Local Businesses is now Featured Businesses" → "Featured Businesses"
-- Description: Rewritten to describe organization without scaffold language
+- lint: pass (`npm run lint` under Node 20.20.0)
+- build: pass (`npm run build` under Node 20.20.0)
+- crawl: pass (`npm run crawl:prelaunch` under Node 20.20.0; 105 passed, 2 existing warnings, 0 failed)
 
 COMMIT:
-✅ Scoped files committed
+Scoped commit created: Remove public incomplete content language
 
 RECOMMENDED NEXT STEP:
-Run S32B header/footer/logo social polish, then deploy when approved.
+Run S32B visual polish, then deploy.
