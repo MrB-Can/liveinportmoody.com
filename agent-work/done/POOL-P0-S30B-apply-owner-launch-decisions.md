@@ -1,3 +1,13 @@
+QUEUE CLEANUP STATUS:
+Superseded; cleared from blocked queue by POOL-P1-S30H.
+
+SOURCE OF TRUTH:
+- POOL-P0-S30F applied owner asset cleanup and deployed.
+- POOL-P0-S30G completed and deployed logo/truststrip reconciliation.
+- S30G report confirms /accolades redirect, real social links, team photo, placeholder cleanup, production checks, and logo/truststrip deployment are complete.
+
+---
+
 TASK:
 POOL-P0-S30B — Apply Owner Launch Decisions
 
@@ -25,17 +35,6 @@ OWNER DECISIONS:
 - Launch without real social links if missing/hidden: NO-GO
 - Launch with MLS listings fallback if reciprocity URL is not ready: GO
 - Remove coming-soon after final scan passes: GO
-
-OWNER-PROVIDED SOCIAL LINKS:
-- Facebook: https://www.facebook.com/liveinportmoody
-- Instagram: https://www.instagram.com/liveinportmoody/
-- YouTube: omit for now, will be added later
-- LinkedIn: omit unless owner provides URL
-
-LAUNCH INTERPRETATION:
-- Facebook and Instagram are the real social links for launch.
-- Do not show YouTube until a real URL is provided.
-- Do not show fake, disabled, placeholder, or “coming soon” social links.
 
 DO NOT:
 - deploy
@@ -71,16 +70,13 @@ TASKS:
 
 2. Check for required owner-content assets:
    - real Leilani/team photo in public/images/team/
-   - Facebook and Instagram URLs in site/social config
+   - real social URLs in src/lib/site.ts or equivalent config
 
 3. If photo is missing, block with:
    BLOCKED_REASON: Owner gave NO-GO for launch without Leilani/team photo.
 
-4. Add real social links:
-   - Facebook: https://www.facebook.com/liveinportmoody
-   - Instagram: https://www.instagram.com/liveinportmoody/
-   Hide or omit YouTube until a real URL is provided.
-   Hide or omit LinkedIn unless a real URL is provided.
+4. If real social URLs are missing or hidden, block with:
+   BLOCKED_REASON: Owner gave NO-GO for launch without real social links.
 
 5. Remove /accolades from all visible nav/footer/prominent CTA paths.
 

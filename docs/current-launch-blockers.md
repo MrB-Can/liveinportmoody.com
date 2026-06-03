@@ -5,6 +5,8 @@
 **Site is live.** Coming-soon gate removed 2026-06-01 (commit fa480a2, task POOL-P0-S29R).
 Production URL: https://www.liveinportmoody.com
 
+Latest launch cleanup source of truth: `agent-work/reports/POOL-P0-S30G-reconcile-logo-truststrip-and-deploy-report.md`.
+
 ---
 
 ## Resolved — No Longer Blocking
@@ -23,11 +25,18 @@ Production URL: https://www.liveinportmoody.com
 
 ---
 
-## Active Blockers (Post-Launch — Must Fix)
+## Active Launch Blockers
 
-None as of 2026-06-03 after POOL-P0-S30F.
+None as of 2026-06-03 after POOL-P0-S30G.
 
 The previous Leilani/team photo blocker is resolved with `public/images/team/leilani-paul-team.jpeg`, generated from the owner-supplied `~/Downloads/Teamshot.jpeg`.
+
+The stale blocked queue items cleared by POOL-P1-S30H are:
+
+- A6-S28D-internal-link-and-redirect-audit-post-launch.md: completed post-launch audit.
+- POOL-P0-S30B-apply-owner-approval-decisions-superseded.md: superseded by S30F/S30G.
+- POOL-P0-S30B-apply-owner-launch-decisions.md: superseded by S30F/S30G.
+- POOL-P1-S30I-post-launch-verification-and-indexing.md: moved back to backlog, ready to run after S30G.
 
 ---
 
@@ -35,6 +44,7 @@ The previous Leilani/team photo blocker is resolved with `public/images/team/lei
 
 | Item | Decision | Owner Input Needed |
 |---|---|---|
+| Post-launch verification and indexing | Ready | Run `agent-work/backlog/POOL-P1-S30I-post-launch-verification-and-indexing.md` |
 | Remove /accolades from nav/footer | GO | ✅ Done |
 | Redirect /accolades route | Required | ✅ Done (redirects to /meet-us) |
 | Scatter text-only trust blocks on key pages | GO | ✅ Done without fake awards/counts |

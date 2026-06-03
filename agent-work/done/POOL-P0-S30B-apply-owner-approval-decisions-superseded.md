@@ -1,3 +1,13 @@
+QUEUE CLEANUP STATUS:
+Superseded; cleared from blocked queue by POOL-P1-S30H.
+
+SOURCE OF TRUTH:
+- POOL-P0-S30F applied owner asset cleanup and deployed.
+- POOL-P0-S30G completed and deployed logo/truststrip reconciliation.
+- S30G report confirms /accolades redirect, real social links, team photo, placeholder cleanup, production checks, and logo/truststrip deployment are complete.
+
+---
+
 TASK:
 POOL-P0-S30B — Apply Owner Approval Decisions Before Launch
 
