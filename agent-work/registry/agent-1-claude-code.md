@@ -24,3 +24,13 @@ Move task to agent-work/done/ if completed.
 Move task to agent-work/blocked/ if blocked — explain why in the report.
 Commit only scoped files listed in ALLOWED FILES.
 Commit message format: Sprint {SPRINT}: {short description}
+
+
+CONTINUOUS WORK RULE:
+After you complete or block your current task:
+1. Run npm run agent:status.
+2. Check agent-work/backlog for another task assigned to your agent ID.
+3. If another assigned task exists, start it immediately.
+4. Continue until no assigned backlog task remains.
+5. Do not take tasks assigned to another agent.
+6. Do not work outside task scope.

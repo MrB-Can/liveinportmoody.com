@@ -1,3 +1,5 @@
+TRANSFERRED_REASON: This is a Site Ops/app.lgis.ca task and must be run from the Site Ops repo. It is not a LiveInPortMoody launch blocker.
+
 AGENT:
 Agent 4
 
