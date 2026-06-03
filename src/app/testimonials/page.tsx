@@ -12,7 +12,7 @@ export const metadata = createMetadata({
 const trustPaths = [
   {
     title: "Raving Fans",
-    body: "The future home for verified review links and client-approved stories.",
+    body: "Verified review links and client-approved stories.",
     href: "/raving-fans",
     cta: "Open Raving Fans",
   },
@@ -37,11 +37,10 @@ export default function TestimonialsPage() {
         <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Testimonials</p>
           <h1 className="mt-4 font-heading text-4xl text-deepInlet md:text-5xl">
-            Testimonials are being organized under Raving Fans.
+            Verified client reviews and stories on Raving Fans.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            Approved reviews, connected review profiles, and client-approved stories will be published on Raving Fans
-            once the source material is verified.
+            Approved reviews, connected review profiles, and client-approved stories appear on Raving Fans with verified source material.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/raving-fans">Go to Raving Fans</CTAButton>

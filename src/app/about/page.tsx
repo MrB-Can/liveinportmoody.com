@@ -1,7 +1,6 @@
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
-import { VideoBlock } from "@/components/video-block";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -20,7 +19,7 @@ const aboutCards = [
   },
   {
     title: "Raving Fans",
-    body: "A prepared home for verified reviews, connected review sources, and client-approved stories when approved material is available.",
+    body: "Verified reviews, connected review sources, and client-approved stories.",
     href: "/raving-fans",
     cta: "View Raving Fans",
   },
@@ -90,10 +89,6 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-      </Section>
-
-      <Section title="Intro video" tone="white">
-        <VideoBlock title="Why we built Live in Port Moody" description="A short video introducing our local approach to Port Moody real estate, research, and client service." />
       </Section>
 
       <Section title="Ask a Port Moody question" tone="sand">

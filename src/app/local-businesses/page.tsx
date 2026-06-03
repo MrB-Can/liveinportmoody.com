@@ -37,11 +37,10 @@ export default function LocalBusinessesPage() {
         <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Local businesses</p>
           <h1 className="mt-4 font-heading text-4xl text-deepInlet md:text-5xl">
-            Local Businesses is now Featured Businesses.
+            Featured Businesses.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            We are organizing local business content under Featured Businesses so each business can be reviewed one
-            at a time with verified public details and permission where needed.
+            Local business content is organized under Featured Businesses, where each business is reviewed one at a time with verified public details and permission where needed.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/featured-businesses">Go to Featured Businesses</CTAButton>

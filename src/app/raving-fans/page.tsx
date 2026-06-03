@@ -38,7 +38,7 @@ export default function RavingFansPage() {
         <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Raving Fans</p>
           <h1 className="mt-4 font-heading text-4xl text-deepInlet md:text-5xl">
-            Verified reviews and client stories will live here.
+            Verified reviews and client stories.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
             This page is prepared for approved public reviews, connected review profiles, and client-approved
@@ -51,7 +51,7 @@ export default function RavingFansPage() {
         </div>
       </section>
 
-      <Section title="Review sources to connect later" tone="white">
+      <Section title="Review sources" tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {sourceAreas.map((source) => (
             <article key={source.title} className="p-6">
