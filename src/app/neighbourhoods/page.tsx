@@ -242,6 +242,38 @@ export default function NeighbourhoodsPage() {
         </div>
       </section>
 
+      {/* Neighbourhood Decision Framework */}
+      <section className="mx-auto max-w-4xl px-5 py-12">
+        <h2 className="font-heading text-2xl text-deepInlet mb-6">Neighbourhood decision framework</h2>
+        <p className="text-slateText mb-6">Use these dimensions to narrow your search. No neighbourhood scores perfectly on all, so decide what matters most to you:</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Walkability & Village Feel</h3>
+            <p className="text-sm text-slateText">Moody Centre and Newport Village are most walkable. Suter Brook offers moderate walkability. Hillside areas prioritize nature over walkable services.</p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Transit & Commute</h3>
+            <p className="text-sm text-slateText">SkyTrain access is strong from Moody Centre and parts of Suter Brook. Other areas serve commute by car or bus. Verify your specific route and timing.</p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Housing Type & Density</h3>
+            <p className="text-sm text-slateText">Condos cluster in walkable areas. Townhouses spread across Heritage Mountain, Klahanie, and College Park. Detached homes concentrate in quieter hillside areas.</p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Trails, Parks & Nature</h3>
+            <p className="text-sm text-slateText">Hillside areas (Heritage Mountain, Pleasantside, Glenayre) have best trail access. All neighbourhoods have parks. Waterfront feels are strongest near Barnet Marine.</p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Quiet & Space</h3>
+            <p className="text-sm text-slateText">Heritage Mountain, Pleasantside, and Glenayre offer quiet streets and established character. Walkable villages are livelier. Space vs. convenience is the main trade-off.</p>
+          </div>
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <h3 className="font-semibold text-deepInlet mb-2">Schools & Families</h3>
+            <p className="text-sm text-slateText">All neighbourhoods have school access. Verify your exact address for catchment. Heritage Mountain, College Park, and Klahanie are popular with families.</p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <NeighbourhoodFAQ items={faqItems} />
     </>
