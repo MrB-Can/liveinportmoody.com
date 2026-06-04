@@ -5,8 +5,6 @@ type HomeDetails = {
   commonAreas: string;
 };
 
-import { PlaceholderImageBlock } from "@/components/ui/placeholder-image-block";
-
 type ComplexDetailsProps = {
   details: HomeDetails;
 };
@@ -27,11 +25,6 @@ export function ComplexDetails({ details }: ComplexDetailsProps) {
         <h3 className="font-heading text-xl text-deepInlet">Interiors</h3>
         <p className="mt-3 leading-7 text-slateText">{details.interiors}</p>
       </div>
-
-      <PlaceholderImageBlock
-        label="Representative exterior or lane view"
-        caption="Replace with a professional photo of an exterior architectural detail or internal lane."
-      />
 
       <div>
         <h3 className="font-heading text-xl text-deepInlet">Ground Floor & Layouts</h3>

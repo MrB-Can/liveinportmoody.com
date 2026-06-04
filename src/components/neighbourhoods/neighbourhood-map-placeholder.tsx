@@ -11,9 +11,6 @@ export function NeighbourhoodMapPlaceholder() {
         <p className="text-sm text-slateText text-center max-w-md mb-6">
           Visual map showing all Port Moody neighbourhoods with boundaries, landmarks, and quick links to detailed guides.
         </p>
-        <div className="grid gap-2 text-xs text-slateText">
-          <p><span className="font-semibold">Planned labels:</span> Suter Brook, Newport Village, Klahanie, Moody Centre, Heritage Mountain, Heritage Woods, College Park, Glenayre, Pleasantside, Ioco/North Shore, Barber Street, and Seaview context.</p>
-        </div>
       </div>
     </section>
   );

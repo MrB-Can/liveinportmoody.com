@@ -15,7 +15,6 @@ const mapPins = [
   { label: "The Tides", top: "54%", left: "68%" },
   { label: "Nahanni", top: "63%", left: "70%" },
   { label: "Libra", top: "43%", left: "54%" },
-  { label: "Future additions", top: "18%", left: "74%" },
 ];
 
 export function BuildingMapPlaceholder() {

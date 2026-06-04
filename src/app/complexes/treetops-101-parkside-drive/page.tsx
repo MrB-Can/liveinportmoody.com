@@ -200,7 +200,7 @@ export default function TreetopsPage() {
       </div>
 
       <section className="bg-gradient-to-b from-forest/10 to-white px-5 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <div className="mx-auto max-w-6xl">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Heritage Mountain townhouse guide</p>
             <h1 className="mt-4 font-heading text-4xl text-deepInlet md:text-5xl">Treetops at 101 Parkside Drive</h1>
@@ -222,19 +222,6 @@ export default function TreetopsPage() {
             <p className="mt-4 max-w-2xl text-xs leading-5 text-slateText">
               Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
             </p>
-          </div>
-          <div>
-            <div className="min-h-72 rounded-lg border border-softBorder bg-gradient-to-br from-mist via-seaGlass/30 to-white p-6 shadow-soft">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-forest">Treetops photos needed</p>
-              <p className="mt-4 font-heading text-2xl text-deepInlet">Future photo set</p>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-slateText">
-                <li>Treetops entrance sign</li>
-                <li>Internal lane and exterior townhomes</li>
-                <li>Forested walking path and mature landscaping</li>
-                <li>Amenity building and recreation area</li>
-              </ul>
-            </div>
-            <p className="mt-2 text-xs text-slateText">Uses owner-approved photography only. No listing or competitor images are used.</p>
           </div>
         </div>
       </section>
