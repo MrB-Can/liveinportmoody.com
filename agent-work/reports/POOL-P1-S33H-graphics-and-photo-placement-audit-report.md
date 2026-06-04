@@ -1,91 +1,139 @@
-AGENT:
-Claude Haiku (pooled audit agent)
+# POOL-P1-S33H: Graphics and Photo Placement Audit Report
 
-TASK:
-POOL-P1-S33H — Graphics and Photo Placement Audit
+## AGENT
+Claude Haiku (pooled launch agent)
 
-STATUS:
-✅ Completed — Independent visual audit of live site structure and recommendations
+## TASK
+Review live site and screenshot captures to audit graphics/photo placement and recommend improvements for trust, flow, and local authority.
+
+## STATUS
+**DONE** — Comprehensive audit completed and documented.
 
 ---
 
 ## PAGES NEEDING PHOTOS
 
-**P0 Priority (Visual Foundation):**
-- Homepage hero: Replace generic landscape with 2-3 Port Moody lifestyle photos
-- Neighbourhoods: Add 1 area character photo per neighbourhood
+### P0 Priority (Visual Foundation)
+- **Homepage (/) hero + team section** → Real Port Moody lifestyle photos (walkable streets, waterfront, homes in context). Owner-sourced.
+- **/neighbourhoods area cards** → 1 small photo per area (street, landmark, housing type). Owner-sourced.
 
-**P1 Priority (High-Value):**
-- Local life: Add 4-6 local business/lifestyle photos
-- Featured businesses: 1 photo per business (owner-source dependent)
-- Events: Photos with event listings (owner-source dependent)
-- Raving fans: Client headshots with testimonials (consent-dependent)
+### P1 Priority (High-Value)
+- **/local-life** → 4-6 local photos (cafes, trails, parks, schools with permission)
+- **/featured-businesses** → 1 photo per business (owner-provided when content added)
+- **/events** → Event photos or promotional images (event organizer-provided when content added)
+- **/raving-fans** → Client headshots with stories (consent-dependent)
 
-**Key finding:** No stock imagery currently detected. Site correctly avoids fake images.
+**Owner Photo Needs:** Homepage, neighbourhoods, local-life, featured-businesses, events, raving-fans
 
 ---
 
 ## PAGES NEEDING GRAPHICS
 
-**Agent-Creatable Diagrams (7 items):**
-1. /buy — Buyer decision flow diagram (Low complexity)
-2. /sell — Seller preparation checklist (Low complexity)
-3. /listings — Property evaluation framework (Low complexity)
-4. /presales — Presale vs. resale comparison table (Medium complexity)
-5. /neighbourhoods — Area amenity icons (Medium complexity)
-6. /first-time-home-buyers — Buyer process timeline (Low complexity)
-7. /home-evaluation — Evaluation scope diagram (Low complexity)
+### Agent-Creatable Diagrams (Immediately Available)
+1. **/buy** — Buyer decision flow (area → type → building → listings → offer)
+2. **/sell** — Seller preparation checklist/timeline
+3. **/listings** — Property evaluation framework/comparison chart
+4. **/presales** — Presale vs. resale comparison table with icons
+5. **/neighbourhoods** — Area amenity icon system (walkability, schools, transit, trails)
+6. **/first-time-home-buyers** — Buyer process timeline (area → preapproval → search → offer → inspection → closing)
+7. **/home-evaluation** — Evaluation scope diagram (property, market, buyer, pricing)
 
-**Finding:** All can be created using existing site data and standard real estate practices.
+**Agent-Safe Content (No invented facts required):** Decision frameworks, checklists, terminology glossary, property type comparisons
 
 ---
 
 ## OWNER PHOTO NEEDS
 
-- Homepage hero lifestyle photos (high-impact trust builder)
-- Neighbourhood character photos (area decision aid)
-- Local business and lifestyle photos
-- Client testimonial photos (with consent)
-- Business feature photos
-- Event photos (as events are added)
+**Critical (High-Impact):**
+1. Homepage hero: Real Port Moody lifestyle photography
+2. Neighbourhoods: Area character photos for each neighbourhood
+3. Local life: Local business and lifestyle context photos
 
-**Constraint:** All must be real Port Moody locations or owner-owned/approved content. No stock or AI-generated imagery.
+**Content-Dependent (When Added):**
+4. Featured businesses: Business owner photos
+5. Events: Event photos or promotional images
+6. Raving fans: Client-approved headshots and stories
 
----
-
-## AGENT-CREATABLE GRAPHICS
-
-**Immediately available:**
-- Buyer and seller decision flow diagrams
-- Comparison tables and checklists
-- Process timelines
-- Area amenity icons
-
-**Additional safe content:**
-- Decision frameworks (neighbourhood, strata, presale)
-- Real estate terminology glossary
-- Property type comparisons
+**Constraint:** No stock images, AI-generated content, or invented photos. All must be real Port Moody locations or owner-approved/owned content.
 
 ---
 
 ## DO NOT ADD
 
-- Stock images or generic photos
-- AI-generated illustrations
-- Invented testimonials or fake reviews
-- Fake business features or invented events
+- Stock images or generic photography
+- AI-generated images or illustrations
+- Invented client testimonials or fake reviews
+- Fake business features or invented local businesses
+- Invented events or fake event photos
 - Unverified awards or credentials
+- Placeholder graphics
 
 ---
 
-## RECOMMENDED TIMELINE
+## RECOMMENDED VISUAL ENHANCEMENT TIMELINE
 
-**Phase 1 (Immediate):** Create agent-creatable graphics (buyer flow, seller checklist, neighbourhood diagram)
-**Phase 2 (Week 1-2):** Plan and execute local photo shoot (6-8 neighbourhood + lifestyle photos)
-**Phase 3 (Week 3+):** Add owner content (client stories, business features, events, awards)
+**Phase 1 (Immediate):** Agent-creatable graphics
+- Buyer decision flow diagram (/buy)
+- Neighbourhood framework diagram (/neighbourhoods)
+- Seller preparation checklist (/sell)
+
+**Phase 2 (Week 1-2):** Photo shoot planning
+- Identify local photo locations
+- Plan neighbourhood character shots
+- Plan local business/lifestyle photos
+
+**Phase 3 (Week 3+):** Owner content additions
+- Homepage hero photos
+- Neighbourhood character photos
+- Client stories with photos
+- Business features with photos
+- Event listings with photos
 
 ---
 
-## DOCUMENTS CREATED
+## IMPACT ASSESSMENT
 
-- docs/graphics-and-photo-placement-audit.md (detailed visual audit and recommendations)
+**High Impact (Do First):**
+- Homepage hero photos (immediate trust builder)
+- Buyer/seller decision diagrams (high-frequency pages)
+- Neighbourhood character photos (core decision aid)
+
+**Medium Impact (Do Next):**
+- Process checklists and timelines
+- Presale comparison graphics
+- Local business/event photos
+
+**Low Impact (Do Later):**
+- Amenity icons
+- Glossary graphics
+- Secondary page enhancements
+
+---
+
+## AUDIT FINDINGS
+
+✅ **Site is functionally complete** — Text-heavy on key decision pages but no critical visual gaps
+
+✅ **No existing photos need replacement** — Team photo already optimized
+
+✅ **No layout or design issues detected** — Visual enhancements are additive, not corrective
+
+✅ **All recommendations respect "no invented content" constraint** — No stock, AI-generated, or fake photos
+
+✅ **Consistent styling and accessibility required** for all new graphics
+
+---
+
+## NEXT STEPS
+
+1. **Agent:** Create 7 diagram templates (buyer flow, seller checklist, evaluation framework, presale comparison, amenity icons, first-time buyer timeline, evaluation scope)
+2. **Owner:** Begin photo collection for homepage hero, neighbourhoods, and local-life pages
+3. **Owner:** Identify and verify local businesses and events for future content
+4. **Agent:** Set up design system for diagrams to ensure consistency with site branding
+
+---
+
+## COMMIT
+- `docs/graphics-and-photo-placement-audit.md`
+- `agent-work/done/POOL-P1-S33H-graphics-and-photo-placement-audit.md`
+- `agent-work/reports/POOL-P1-S33H-graphics-and-photo-placement-audit-report.md`
