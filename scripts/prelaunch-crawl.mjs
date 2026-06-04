@@ -470,10 +470,8 @@ for (const asset of EXPECTED_ASSETS) {
 }
 
 // Check team photo for Leilani (expected gap)
-if (!existsSync(join(PUBLIC_DIR, "images/team/leilani.jpeg")) &&
-    !existsSync(join(PUBLIC_DIR, "images/team/leilani.jpg")) &&
-    !existsSync(join(PUBLIC_DIR, "images/team/leilani.png"))) {
-  wn("public/images/team/leilani.* — no Leilani team photo found", "expected gap before launch");
+if (!existsSync(join(PUBLIC_DIR, "images/team/leilani-paul-team.jpeg"))) {
+  wn("public/images/team/leilani-paul-team.jpeg — team photo not found", "expected asset for live site");
 }
 
 // OG image check — warn if still using placeholder, pass if branded asset exists

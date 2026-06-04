@@ -105,21 +105,22 @@ const isRootRedirect = location => {
   }
 };
 
-// ─── Section 1: Public gate — no cookie ────────────────────────────────────────
+// ─── Section 1: Public pages — should be accessible (live site mode) ────────
 
-sec('1 — PUBLIC GATE (no cookie — should be gated)');
+sec('1 — PUBLIC PAGES (should be accessible)');
 
-const gatedRoutes = [
+const publicPages = [
   '/', '/explore', '/neighbourhoods', '/buildings', '/complexes',
   '/buy', '/sell', '/presales', '/local-businesses', '/events',
   '/testimonials', '/accolades',
 ];
 
-for (const path of gatedRoutes) {
+for (const path of publicPages) {
   const r = await get(path);
   if (!r.ok) { bad(`${path} — request failed`, r.error); continue; }
-  if (isGated(r)) ok(`${path} → gated`);
-  else bad(`${path} → NOT gated`, `title: ${extractTitle(r.html).slice(0, 60)}`);
+  if (r.status >= 400) { bad(`${path} — HTTP ${r.status}`); continue; }
+  if (!isGated(r)) ok(`${path} → accessible (200)`);
+  else wn(`${path} → appears gated`, `title: ${extractTitle(r.html).slice(0, 60)}`);
 }
 
 // ─── Section 2: Always-allowed — no cookie ────────────────────────────────────
