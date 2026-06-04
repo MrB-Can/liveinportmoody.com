@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { TreetopsInquiryForm } from "@/components/complexes/TreetopsInquiryForm";
 import { createMetadata } from "@/lib/seo";
@@ -179,6 +180,28 @@ const faqs = [
   ],
 ];
 
+const galleryImages = [
+  {
+    src: "/images/complexes/treetops/treetops-entrance.webp",
+    alt: "Treetops entrance sign at 101 Parkside Drive in Port Moody",
+    title: "Treetops entrance at 101 Parkside Drive",
+    caption: "Main entrance and signage",
+    primary: true,
+  },
+  {
+    src: "/images/complexes/treetops/treetops-driveway-townhomes.jpeg",
+    alt: "Internal lane and townhome exteriors at Treetops",
+    title: "Internal lane and townhome exteriors at Treetops",
+    caption: "Community streets and home styles",
+  },
+  {
+    src: "/images/complexes/treetops/treetops-pool.jpg",
+    alt: "Indoor amenity pool at Treetops",
+    title: "Indoor amenity pool at Treetops",
+    caption: "Recreation facilities",
+  },
+];
+
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
     <section id={id} className="scroll-mt-28 border-t border-softBorder pt-10">
@@ -226,15 +249,39 @@ export default function TreetopsPage() {
         </div>
       </section>
 
-      <div className="sticky top-20 z-30 border-y border-softBorder bg-white/95 px-5 py-3 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl gap-2 overflow-x-auto text-sm">
-          {anchorLinks.map(([label, href]) => (
-            <Link key={href} href={href} className="whitespace-nowrap rounded-full border border-softBorder px-3 py-1.5 text-charcoal hover:bg-mist">
-              {label}
-            </Link>
-          ))}
-        </nav>
+      <div className="sticky top-20 z-30 w-full max-w-full overflow-hidden border-y border-softBorder bg-white/95 py-3 backdrop-blur">
+        <div className="mx-auto max-w-6xl overflow-x-auto px-5">
+          <nav className="flex w-max max-w-none gap-2 text-sm">
+            {anchorLinks.map(([label, href]) => (
+              <Link key={href} href={href} className="whitespace-nowrap rounded-full border border-softBorder px-3 py-1.5 text-charcoal hover:bg-mist">
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
+
+      <section className="bg-mist px-5 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-8 font-heading text-3xl text-deepInlet">Treetops photo gallery</h2>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)]">
+            {galleryImages.map((image) => (
+              <article
+                key={image.src}
+                className={`overflow-hidden rounded-lg border border-softBorder bg-white shadow-sm ${image.primary ? "lg:row-span-2" : ""}`}
+              >
+                <div className={`relative w-full ${image.primary ? "h-72 md:h-96 lg:h-full lg:min-h-[32rem]" : "h-64"}`}>
+                  <Image src={image.src} alt={image.alt} fill sizes={image.primary ? "(min-width: 1024px) 760px, 100vw" : "(min-width: 1024px) 360px, 100vw"} className="object-cover" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-deepInlet">{image.title}</h3>
+                  <p className="mt-2 text-sm text-slateText">{image.caption}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <main className="mx-auto max-w-6xl px-5 py-12">
         <section className="rounded-lg border border-softBorder bg-white p-6 shadow-sm">

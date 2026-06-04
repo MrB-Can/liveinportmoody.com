@@ -102,15 +102,15 @@ export function TreetopsInquiryForm() {
   }
 
   return (
-    <form className="rounded-lg border border-softBorder bg-white p-6 shadow-sm" onSubmit={onSubmit}>
+    <form className="w-full min-w-0 rounded-lg border border-softBorder bg-white p-6 shadow-sm" onSubmit={onSubmit}>
       <h2 className="font-heading text-2xl text-deepInlet">Ask about Treetops</h2>
       <p className="mt-2 text-sm leading-6 text-slateText">
         One form routes your request with Treetops-specific context for buyer, seller, listing alert, strata, or comparison questions.
       </p>
-      <div className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+      <div className="mt-5 grid min-w-0 gap-4">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           What do you need help with?
-          <select name="helpType" className="min-h-11 rounded-md border border-softBorder px-3">
+          <select name="helpType" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3">
             {intentOptions.map((option) => (
               <option key={option.label} value={option.label}>
                 {option.label}
@@ -118,23 +118,23 @@ export function TreetopsInquiryForm() {
             ))}
           </select>
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Name
-          <input name="name" className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" required />
+          <input name="name" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" autoComplete="name" required />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Email
-          <input name="email" className="min-h-11 rounded-md border border-softBorder px-3" type="email" autoComplete="email" required />
+          <input name="email" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" type="email" autoComplete="email" required />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Phone <span className="font-normal text-slateText">optional</span>
-          <input name="phone" className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" />
+          <input name="phone" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Details
           <textarea
             name="message"
-            className="min-h-28 rounded-md border border-softBorder px-3 py-3"
+            className="min-h-28 w-full min-w-0 rounded-md border border-softBorder px-3 py-3"
             placeholder="Share the unit, listing link, strata question, selling timeline, or comparison complex."
           />
         </label>
@@ -142,11 +142,11 @@ export function TreetopsInquiryForm() {
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-        <label className="flex gap-3 text-sm leading-6 text-slateText">
+        <label className="flex min-w-0 gap-3 text-sm leading-6 text-slateText">
           <input className="mt-1 h-4 w-4" type="checkbox" name="consentToContact" defaultChecked />
           I consent to being contacted about this request by email or phone.
         </label>
-        <label className="flex gap-3 text-sm leading-6 text-slateText">
+        <label className="flex min-w-0 gap-3 text-sm leading-6 text-slateText">
           <input className="mt-1 h-4 w-4" type="checkbox" name="consentToSms" />
           I consent to SMS follow-up if I provided a phone number. Message and data rates may apply.
         </label>
