@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <>
       <ImageHero
-        imageSrc="/hero-legal.png"
+        imageSrc="/hero-legal.webp"
         title="Terms and Real Estate Disclaimer"
         subtitle="Plain-language terms for using Live in Port Moody and understanding the limits of website information."
       />

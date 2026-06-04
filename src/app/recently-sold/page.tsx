@@ -21,7 +21,7 @@ export default function RecentlySoldPage() {
         subtitle="Use this page to ask for comparable-sales context where it can be shared appropriately. Public sold listings and sold prices are not displayed here."
         primaryCta={{ label: "Request sales context", href: "#ask-comparable" }}
         secondaryCta={{ label: "Request evaluation", href: "/home-evaluation" }}
-        imageSrc="/hero-sell.png"
+        imageSrc="/hero-sell.webp"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
 

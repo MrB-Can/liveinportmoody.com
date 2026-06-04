@@ -279,7 +279,7 @@ export default function SellPage() {
         subtitle="Selling in Port Moody is not just about putting a home on MLS. The strongest listings connect price, preparation, media, neighbourhood context, property condition, buyer demand, and the specific trade-offs buyers are weighing."
         primaryCta={{ label: "Build a selling plan", href: "/sell#value-opinion" }}
         secondaryCta={{ label: "Request a value opinion", href: "/sell#value-opinion" }}
-        imageSrc="/hero-sell.png"
+        imageSrc="/hero-sell.webp"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
 

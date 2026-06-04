@@ -340,7 +340,7 @@ export default function BuyPage() {
         subtitle="Buying in Port Moody is not just about finding a listing. Neighbourhood, property type, building history, strata documents, walkability, schools, trails, parking, exposure, and resale demand can all change whether a property is the right fit."
         primaryCta={{ label: "Start buying research", href: "#start" }}
         secondaryCta={{ label: "View active listings", href: "/listings" }}
-        imageSrc="/hero-buy.png"
+        imageSrc="/hero-buy.webp"
         imageAlt="Port Moody residential homes framed by mature trees on a hillside."
         priority
       />

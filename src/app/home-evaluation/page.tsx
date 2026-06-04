@@ -22,7 +22,7 @@ export default function HomeEvaluationPage() {
         subtitle="A useful home evaluation looks beyond automated estimates. We consider your property type, condition, neighbourhood, building or complex reputation, recent sales context, and current buyer demand to give you a practical, honest assessment."
         primaryCta={{ label: "Request evaluation", href: "#evaluation-form" }}
         secondaryCta={{ label: "Learn the selling process", href: "/how-we-do-it" }}
-        imageSrc="/hero-sell.png"
+        imageSrc="/hero-sell.webp"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
 

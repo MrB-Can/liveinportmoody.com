@@ -120,7 +120,7 @@ export default function HowWeDoItPage() {
         subtitle="From strategy consultation to closing, our process is built on understanding your home&apos;s value, positioning it clearly to the right buyers, and navigating the sale with care and precision."
         primaryCta={{ label: "Request evaluation", href: "/home-evaluation" }}
         secondaryCta={{ label: "Learn about selling", href: "/sell" }}
-        imageSrc="/hero-sell.png"
+        imageSrc="/hero-sell.webp"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
 

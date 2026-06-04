@@ -13,7 +13,7 @@ export default function PrivacyPage() {
   return (
     <>
       <ImageHero
-        imageSrc="/hero-legal.png"
+        imageSrc="/hero-legal.webp"
         title="Privacy Policy"
         subtitle="How Live in Port Moody collects, uses, stores, and protects information submitted through this website."
       />
