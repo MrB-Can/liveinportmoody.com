@@ -1,106 +1,133 @@
-# Current Launch Blockers and Remaining Actions
+# Current Launch Blockers & Remaining Human Actions
 
-**Date:** June 3, 2026
-
-## Launch Blockers
-**Status:** ✅ NONE
-
-All technical and code changes are complete and deployed. The site is production-ready.
+**Date:** June 3, 2026  
+**Status:** Queue reconciled, ready for next phase
 
 ---
 
-## Human Actions Remaining
+## LAUNCH BLOCKERS
 
-### 1. Sitemap Submission and Indexing (HUMAN-P0-S33A)
-**Status:** Pending
-**Action:** Submit sitemap.xml to Google Search Console and Bing Webmaster Tools
-**Pre-requisites:** Completed
-- ✅ Sitemap generated and live (25 URLs)
-- ✅ robots.txt properly configured
-- ✅ All production pages deployed
+**None.** ✅
 
-**Owner:** Paul / Leilani
-**Timeline:** High priority (indexing takes 1-2 weeks to show results)
+All critical P0 items resolved:
+- ✅ S34A: Deployment complete, live validation passing
+- ✅ S33J: Validation scripts updated for live site
+- ✅ Queue cleanup: S33L, S33K moved to done; S31A consolidated
+- ✅ All P1 planning/audit/review tasks completed
 
 ---
 
-### 2. Contact Consent Legal Decision
-**Status:** Pending Decision
-**Action:** Determine legal language and consent flow for contact forms
-**Pre-requisites:** Form infrastructure in place
-- ✅ Lead form implemented
-- ✅ GHL integration active
-- ⏳ Legal/compliance review needed
+## REMAINING HUMAN ACTIONS
 
-**Owner:** Owner (Legal/Compliance)
-**Impact:** Affects form functionality and compliance with privacy regs
+### P0 Priority (Critical path)
 
----
+1. **HUMAN-P0-S33A: Submit Sitemap and Indexing**
+   - Status: In backlog, ready to execute
+   - Action: Owner to submit sitemap.xml to Google Search Console and Bing Webmaster Tools
+   - Pages to request indexing: /, /buy, /sell, /neighbourhoods, /meet-us, /contact, /raving-fans, /local-life, /buyer-guide, /seller-guide
+   - Timeline: Execute when ready to go live
+   - Dependency: None (S32A/S34A deployment complete)
 
-### 3. Proof and Content Collection
-**Status:** Ongoing
-**Items:**
-- HUMAN-P1-S33B: Raving Fans proof (reviews/stories)
-- HUMAN-P1-S33C: Accolade verification and badge input
-- HUMAN-P1-S33D: Featured business owner input
-- HUMAN-P1-S33E: Events owner input
-- HUMAN-P1-S33F: Local photo shot list approval
-- HUMAN-P1-S33G: Seller story consent
-- HUMAN-P1-S34D: Local photo collection
-- HUMAN-P1-S34E: Proof content collection
+### P1 Priority (Content/Proof)
 
-**Owner:** Paul / Leilani
-**Timeline:** Ongoing (staggered as content becomes available)
+2. **HUMAN-P1-S35B: Contact Consent Legal Decision**
+   - Status: In backlog, pending owner decision
+   - Action: Owner to decide on contact form consent requirements (contact page displays user data to agents)
+   - Decision needed: Should users have explicit consent for lead sharing?
+   - Impact: Contact form and lead-form components
+   - Timeline: Before full production rollout
 
----
+3. **HUMAN-P1-S34D: Local Photo Collection**
+   - Status: In backlog, pending owner input
+   - Action: Collect or commission local Port Moody lifestyle and area photos
+   - Targets: Homepage hero (2-3 photos), neighbourhood cards (1 per area), local-life section (4-6 photos)
+   - Impact: Improves visual trust and engagement (P0 when ready)
+   - Timeline: Phase 2 (after launch)
 
-## Completed Technical Work
+4. **HUMAN-P1-S34E: Proof Content Collection**
+   - Status: In backlog, pending owner input
+   - Action: Collect verified reviews, client stories, business features, events
+   - Targets: /raving-fans, /featured-businesses, /events pages
+   - Impact: Fills content gaps (highest conversion impact)
+   - Timeline: Phase 2 (after launch)
 
-### Code Changes (Deployed)
-✅ S34A: Visitor language fixes (neighbourhoods, listings, presales)
-✅ S33H: Graphics and photo placement audit (plan)
-✅ S33K: Hero image optimization (WebP conversion, 93% smaller)
-✅ S33L: Mobile nav accessibility (aria-expanded, Escape close)
-✅ S32A-S32I: Visual review and QA cycle
-
-### Screenshots and Documentation
-✅ S34B: Visual recapture (language and photo fixes, 14 screenshots)
-✅ S32J: Independent review synthesis
-✅ S33H: Graphics and photo placement audit document
+5. **HUMAN-P1-S33B through S33G: Proof/Content Owner Input**
+   - Status: Various, in backlog
+   - Actions: Verified reviews, accolades, business features, events, photo approval, seller stories
+   - Timeline: As content becomes available
+   - Impact: Trust-building content for conversion optimization
 
 ---
 
-## Next Technical Steps (Post-Launch)
+## NEXT PHASE WORK (Agent-Creatable)
 
-### Phase 1 (Immediate - Week 1)
-- Owner to submit sitemap and request indexing
-- Owner to make legal/compliance decision on consent flow
-- Monitor indexing progress in GSC/Bing
+Recommended agent work to start immediately after sitemap submission:
 
-### Phase 2 (Week 1-2)
-- Begin local photo collection for hero and neighbourhood pages
-- Identify featured businesses and events for owner verification
-- Gather client stories and testimonials for Raving Fans
+1. **S35C: Add Buyer/Seller Process Graphics**
+   - Create buyer decision flow diagram (/buy)
+   - Create seller preparation checklist (/sell)
+   - No owner input required
+   - High impact on funnel clarity
 
-### Phase 3 (Week 2-4)
-- Add local lifestyle photos to homepage and neighbourhoods
-- Implement buyer/seller process diagrams (agent-creatable graphics)
-- Add featured business and event content
+2. **S35D: Add Listings/Presales Decision Graphics**
+   - Create presale vs. resale comparison
+   - Create property evaluation framework
+   - Low risk, high-value UX improvement
 
-### Phase 4 (Ongoing)
-- Add client testimonials and proof content to Raving Fans
-- Monitor and update neighbourhood/building/complex guides
-- Track SEO performance and indexing progress
+3. **S35E: Add Neighbourhood Framework & Glossary**
+   - Create neighbourhood decision guide
+   - Create real estate terminology glossary
+   - Uses existing site data only
+
+4. **S35G: Focused Visual Recapture (Graphics & Content)**
+   - Add agent-safe checklists and frameworks
+   - Create process timelines
+   - All immediately creatable content
 
 ---
 
-## Current Queue Status
+## QUEUE STATE AFTER RECONCILIATION
 
-**Agent-Work State:**
-- Active: None (all P0/P1 tasks completed)
-- Backlog: P1 graphics tasks (S35C-S35G), Human tasks (S33B-S34E)
-- Done: 60+ completed tasks
-- Blocked: None
+| Folder | Items | Status |
+|--------|-------|--------|
+| **Backlog** | 11 | Human tasks (content, consent, photos) + Agent P1 graphics tasks |
+| **Active** | 0 | Empty (S35A moved to done) |
+| **Blocked** | 0 | Clean (S33K moved to done) |
+| **Done** | 77+ | All P0/P1/P2 agent tasks, consolidation complete |
 
-**Ready to deploy:** ✅ Yes - all code changes are production-ready
-**Awaiting:** Owner content and legal decisions
+---
+
+## KEY DATES
+
+- **Live deployment:** June 3, 2026 (✅ Complete)
+- **Sitemap submission:** Ready (awaiting owner action)
+- **Phase 2 content:** Owner-dependent, recommend starting within 1 week
+- **Agent graphics work:** Can start immediately after sitemap submission
+
+---
+
+## DEPENDENCIES
+
+**Before sitemap submission:**
+- None (all deployment blockers resolved)
+
+**Before full marketing rollout:**
+- HUMAN-P0-S33A: Sitemap submitted and indexed (1-2 weeks typical)
+- HUMAN-P1-S35B: Contact consent decision (legal/business decision)
+
+**For conversion optimization (Phase 2):**
+- HUMAN-P1-S34D/S34E: Owner photo/proof content collection
+- Agent graphics implementation (low risk, can proceed in parallel)
+
+---
+
+## RISK ASSESSMENT
+
+**Current status:** ✅ LOW RISK
+- No technical blockers
+- No deployment issues
+- Queue clean and organized
+- All code validation passing
+- All accessibility and SEO requirements met
+
+**Ready for:** Public launch after owner completes sitemap submission
