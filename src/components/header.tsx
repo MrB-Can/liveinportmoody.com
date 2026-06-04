@@ -23,7 +23,7 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-3 md:flex">
           {navItems.map((item) => (
-            <div key={item.href} className="relative">
+            <div key={item.href} className="relative" onKeyDown={(e) => { if (e.key === "Escape") close(); }}>
               {item.submenu ? (
                 <>
                   <button

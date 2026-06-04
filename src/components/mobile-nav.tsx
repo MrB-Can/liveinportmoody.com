@@ -34,6 +34,8 @@ export function MobileNav() {
                     <button
                       type="button"
                       onClick={() => toggle(item.label)}
+                      aria-expanded={openMenu === item.label}
+                      aria-haspopup="true"
                       className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-base font-medium text-charcoal hover:bg-mist"
                     >
                       <span>{item.label}</span>
@@ -75,6 +77,8 @@ export function MobileNav() {
                     <button
                       type="button"
                       onClick={() => toggle(item.label)}
+                      aria-expanded={openMenu === item.label}
+                      aria-haspopup="true"
                       className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-base font-medium text-charcoal hover:bg-mist"
                     >
                       <span>{item.label}</span>
