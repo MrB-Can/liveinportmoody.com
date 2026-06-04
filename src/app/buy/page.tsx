@@ -406,6 +406,24 @@ export default function BuyPage() {
         </div>
       </Section>
 
+      {/* 4b. Buyer decision framework */}
+      <Section title="Buyer decision framework" intro="Use these five stages to structure your buying journey. No two buyers prioritize the same way, so focus on what matters most to you.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            { stage: "Area fit", detail: "Neighbourhood walkability, schools, transit, trails, quiet, commute, and lifestyle match" },
+            { stage: "Property type", detail: "Condo, townhouse, or detached? Space, layout, maintenance, privacy, and renovation potential" },
+            { stage: "Building / Strata", detail: "Fees, reserve fund, insurance, bylaws, condition, parking, storage, and upcoming work" },
+            { stage: "Listing context", detail: "Exposure, condition, layout, parking, price vs. comparable alternatives, and trade-offs" },
+            { stage: "Offer decision", detail: "Inspection results, strata review, financing, subject removal timing, and negotiation strategy" },
+          ].map((item) => (
+            <article key={item.stage} className="rounded-lg border border-softBorder bg-white p-5 text-center">
+              <h3 className="font-heading text-lg text-deepInlet">{item.stage}</h3>
+              <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       {/* 5. Choose your area */}
       <Section
         eyebrow="Port Moody area guide"
