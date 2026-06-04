@@ -1,6 +1,7 @@
 import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
+import { Section } from "@/components/section";
 import { VerificationNote } from "@/components/ui/verification-note";
 import { createMetadata } from "@/lib/seo";
 
@@ -162,6 +163,23 @@ export default function PresalesPage() {
           </div>
         </div>
       </section>
+
+      <Section title="Before relying on presale details" intro="Use this framework to verify and compare before making a commitment.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            { item: "Project Details", detail: "Specifications, features, layouts, appliances, parking, storage" },
+            { item: "Disclosure Review", detail: "Disclosure statement, amendments, builder history, warranty" },
+            { item: "Deposit & Timing", detail: "Schedule, holdback, completion date, outside date, amendments" },
+            { item: "Resale Comparison", detail: "Active alternatives, timing, cost, certainty, neighbourhood fit" },
+            { item: "Ask Before Signing", detail: "Tax, legal, financing, insurance advice; assignment terms; conditions" },
+          ].map((item) => (
+            <article key={item.item} className="rounded-lg border border-softBorder bg-white p-5 text-center">
+              <h3 className="font-heading text-lg text-deepInlet">{item.item}</h3>
+              <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
 
       <section className="bg-warmSand px-5 py-12">
         <div className="mx-auto max-w-5xl">

@@ -299,6 +299,43 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
+      <Section title="Real estate terminology glossary" tone="white">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Subject Removal</h3>
+            <p className="text-sm text-slateText">An offer condition allowing you to back out if a home inspection or other due diligence reveals issues. Subject removal typically expires within 7-10 days.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Strata Documents</h3>
+            <p className="text-sm text-slateText">Official records for condo and townhouse ownership. Includes bylaws, financial statements, meeting minutes, and reserve fund assessments. Review before buying.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Form B (Property Disclosure Statement)</h3>
+            <p className="text-sm text-slateText">Legal disclosure form where the seller declares known problems with the property. Reviewed and disclosed before offer acceptance.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Depreciation Report</h3>
+            <p className="text-sm text-slateText">Strata engineering report estimating future reserve fund needs and major capital expenses. Important for understanding long-term condo costs.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Presale Disclosure Statement</h3>
+            <p className="text-sm text-slateText">Legal disclosure required for new construction presales. Details deposits, completion timelines, amendments, and terms. Review carefully before committing.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">MLS Reciprocity</h3>
+            <p className="text-sm text-slateText">Shared listing database between Vancouver and Greater Vancouver real estate boards. Most active residential listings appear here. Sold listings are not included in this system.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Assessment vs. Market Value</h3>
+            <p className="text-sm text-slateText">Assessment value is used for property tax (set by provincial assessor). Market value is what buyers actually pay. These can differ significantly — market value typically higher.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-deepInlet mb-2">Appraisal</h3>
+            <p className="text-sm text-slateText">Professional estimate of property value, usually required by lenders. Different from market value — appraisals can be lower if the property doesn&apos;t support the purchase price.</p>
+          </div>
+        </div>
+      </Section>
+
       <Section title="Frequently asked questions" tone="white">
         <FAQAccordion items={faqs} />
       </Section>

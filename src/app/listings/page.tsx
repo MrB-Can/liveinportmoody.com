@@ -178,6 +178,23 @@ export default function ListingsPage() {
         </div>
       </Section>
 
+      <Section title="Before writing an offer" intro="Use this framework to think through what matters for this specific property and your decision.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            { item: "Property", detail: "Age, condition, renovations, defects, inspections" },
+            { item: "Building / Strata", detail: "Bylaws, fees, reserves, special assessments, condition" },
+            { item: "Neighbourhood", detail: "Schools, transit, walkability, character, future development" },
+            { item: "Pricing Context", detail: "Recent sales, list-to-sell ratio, market trends, comparable units" },
+            { item: "Buyer Trade-offs", detail: "Space vs. location, finishes vs. potential, timing vs. fit" },
+          ].map((item) => (
+            <article key={item.item} className="rounded-lg border border-softBorder bg-white p-5 text-center">
+              <h3 className="font-heading text-lg text-deepInlet">{item.item}</h3>
+              <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section title="Listing support" tone="white">
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.1fr] lg:items-start">
           <div className="self-start rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
