@@ -179,7 +179,7 @@ export default function ListingsPage() {
       </Section>
 
       <Section title="Before writing an offer" intro="Use this framework to think through what matters for this specific property and your decision.">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { item: "Property", detail: "Age, condition, renovations, defects, inspections" },
             { item: "Building / Strata", detail: "Bylaws, fees, reserves, special assessments, condition" },
@@ -187,7 +187,7 @@ export default function ListingsPage() {
             { item: "Pricing Context", detail: "Recent sales, list-to-sell ratio, market trends, comparable units" },
             { item: "Buyer Trade-offs", detail: "Space vs. location, finishes vs. potential, timing vs. fit" },
           ].map((item) => (
-            <article key={item.item} className="rounded-lg border border-softBorder bg-white p-5 text-center">
+            <article key={item.item} className="min-w-0 rounded-lg border border-softBorder bg-white p-5 text-center">
               <h3 className="font-heading text-lg text-deepInlet">{item.item}</h3>
               <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
             </article>
@@ -196,8 +196,8 @@ export default function ListingsPage() {
       </Section>
 
       <Section title="Listing support" tone="white">
-        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.1fr] lg:items-start">
-          <div className="self-start rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
+        <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.1fr)] lg:items-start">
+          <div className="w-full min-w-0 max-w-full self-start rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
             <h2 className="font-heading text-3xl">Get local context before you write.</h2>
             <p className="mt-4 text-sm leading-6 text-mist">
               Send the listing URL or address. We can help you think through neighbourhood fit, building or complex risk, strata documents, pricing context, and the trade-offs that are not obvious online.

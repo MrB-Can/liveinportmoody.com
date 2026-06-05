@@ -78,35 +78,35 @@ export function ListingSupportForm() {
   }
 
   return (
-    <form id="ask-listing" className="rounded-lg border border-softBorder bg-white p-6 shadow-sm" onSubmit={onSubmit}>
+    <form id="ask-listing" className="w-full min-w-0 max-w-full rounded-lg border border-softBorder bg-white p-6 shadow-sm" onSubmit={onSubmit}>
       <h3 className="font-heading text-2xl text-deepInlet">Ask about a listing</h3>
       <p className="mt-2 text-sm leading-6 text-slateText">
         Send us a Port Moody listing before you write. We can help with local context, building or complex questions, strata documents, and buyer trade-offs.
       </p>
-      <div className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+      <div className="mt-5 grid min-w-0 gap-4">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Name
-          <input name="name" className="min-h-11 rounded-md border border-softBorder px-3" required autoComplete="name" />
+          <input name="name" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" required autoComplete="name" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Email
-          <input name="email" className="min-h-11 rounded-md border border-softBorder px-3" required type="email" autoComplete="email" />
+          <input name="email" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" required type="email" autoComplete="email" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Phone <span className="font-normal text-slateText">optional</span>
-          <input name="phone" className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" />
+          <input name="phone" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Listing URL <span className="font-normal text-slateText">optional</span>
-          <input name="listingUrl" className="min-h-11 rounded-md border border-softBorder px-3" type="url" placeholder="https://" />
+          <input name="listingUrl" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" type="url" placeholder="https://" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Listing address <span className="font-normal text-slateText">optional</span>
-          <input name="listingAddress" className="min-h-11 rounded-md border border-softBorder px-3" placeholder="Example: 123 Example Street, Port Moody" />
+          <input name="listingAddress" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder px-3" placeholder="Example: 123 Example Street, Port Moody" />
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           What do you want help with?
-          <select name="helpType" className="min-h-11 rounded-md border border-softBorder bg-white px-3" defaultValue={helpOptions[0]}>
+          <select name="helpType" className="min-h-11 w-full min-w-0 rounded-md border border-softBorder bg-white px-3" defaultValue={helpOptions[0]}>
             {helpOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -114,15 +114,15 @@ export function ListingSupportForm() {
             ))}
           </select>
         </label>
-        <label className="grid gap-2 text-sm font-medium text-charcoal">
+        <label className="grid min-w-0 gap-2 text-sm font-medium text-charcoal">
           Notes
           <textarea
             name="question"
-            className="min-h-28 rounded-md border border-softBorder px-3 py-3"
+            className="min-h-28 w-full min-w-0 rounded-md border border-softBorder px-3 py-3"
             placeholder="Tell us what you are trying to understand before viewing, writing, or removing subjects."
           />
         </label>
-        <label className="flex gap-3 text-sm leading-6 text-slateText">
+        <label className="flex min-w-0 gap-3 text-sm leading-6 text-slateText">
           <input name="consentToContact" className="mt-1 h-4 w-4" type="checkbox" defaultChecked />
           I consent to Live in Port Moody contacting me about this request by email or phone.
         </label>
