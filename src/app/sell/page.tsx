@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DollarSign, Hammer, Rocket, Lightbulb, GraduationCap } from "lucide-react";
+import { type LucideIcon, DollarSign, Hammer, Rocket, Lightbulb, GraduationCap, Camera, Video, LayoutList, FileText } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -168,14 +168,14 @@ const pricingCards = [
   "Follow up with serious buyers quickly.",
 ];
 
-const mediaCards = [
-  { label: "Photography", body: "Show light, space, layout, and condition honestly." },
-  { label: "Video", body: "Demonstrate how the property flows and feels to live in." },
-  { label: "Floor plan", body: "Remove confusion about layout, flow, and room use." },
-  { label: "Neighbourhood context", body: "Connect trail access, walkability, commute, and area lifestyle to the listing." },
-  { label: "Building or complex explanation", body: "Help buyers understand the strata, amenities, and reputation." },
-  { label: "Feature callouts", body: "Flag parking, storage, outdoor space, and renovation details clearly." },
-  { label: "Buyer objections answered", body: "Address the predictable concerns before buyers need to ask." },
+const mediaCards: { label: string; body: string; icon: LucideIcon }[] = [
+  { label: "Photography", body: "Show light, space, layout, and condition honestly.", icon: Camera },
+  { label: "Video", body: "Demonstrate how the property flows and feels to live in.", icon: Video },
+  { label: "Floor plan", body: "Remove confusion about layout, flow, and room use.", icon: LayoutList },
+  { label: "Neighbourhood context", body: "Connect trail access, walkability, commute, and area lifestyle to the listing.", icon: FileText },
+  { label: "Building or complex explanation", body: "Help buyers understand the strata, amenities, and reputation.", icon: FileText },
+  { label: "Feature callouts", body: "Flag parking, storage, outdoor space, and renovation details clearly.", icon: LayoutList },
+  { label: "Buyer objections answered", body: "Address the predictable concerns before buyers need to ask.", icon: FileText },
 ];
 
 const complexOwnerCards = [
@@ -403,6 +403,7 @@ export default function SellPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {mediaCards.map((card) => (
             <div key={card.label} className="rounded-lg border border-softBorder bg-mist p-5">
+              <card.icon className="h-5 w-5 text-forest mb-3" />
               <p className="font-semibold text-deepInlet">{card.label}</p>
               <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
             </div>

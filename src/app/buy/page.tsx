@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Home, FileCheck, Eye, Handshake } from "lucide-react";
+import { MapPin, Home, FileCheck, Eye, Handshake, Building2, FileSearch, Phone, LucideIcon } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -249,11 +249,11 @@ const allBuyersChecklist = [
   "Subject removal strategy",
 ];
 
-const listingCtaCards = [
-  "Ask about a listing",
-  "Compare two listings",
-  "Ask about strata documents",
-  "Ask if the price makes sense",
+const listingCtaCards: { label: string; icon: LucideIcon }[] = [
+  { label: "Ask about a listing", icon: Phone },
+  { label: "Compare two listings", icon: MapPin },
+  { label: "Ask about strata documents", icon: FileSearch },
+  { label: "Ask if the price makes sense", icon: Building2 },
 ];
 
 const mistakes = [
@@ -495,9 +495,10 @@ export default function BuyPage() {
         tone="white"
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {listingCtaCards.map((label) => (
-            <div key={label} className="rounded-lg border border-softBorder bg-mist px-5 py-4 text-sm font-semibold text-deepInlet">
-              {label}
+          {listingCtaCards.map((card) => (
+            <div key={card.label} className="rounded-lg border border-softBorder bg-mist px-5 py-4 text-sm font-semibold text-deepInlet">
+              <card.icon className="h-5 w-5 text-forest mb-3" />
+              {card.label}
             </div>
           ))}
         </div>
