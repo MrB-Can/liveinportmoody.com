@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export default function AccoladesPage() {
-  redirect("/meet-us");
+  permanentRedirect("/meet-us");
 }

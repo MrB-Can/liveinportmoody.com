@@ -3,6 +3,19 @@ import { phaseOneRoutes, siteConfig } from "@/lib/site";
 import { buildings } from "@/data/buildings";
 import { complexes } from "@/data/complexes";
 import { neighbourhoodGuides } from "@/data/neighbourhoodGuides";
+import { getAllPosts } from "@/lib/blog";
+
+const additionalRoutes = [
+  "/blog",
+  "/buildings",
+  "/complexes",
+  "/neighbourhoods",
+  "/listings",
+  "/resources",
+  "/request-recent-sales",
+  "/move-to-port-moody",
+  "/explore",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const phaseOneEntries: MetadataRoute.Sitemap = phaseOneRoutes.map((route) => {
@@ -14,6 +27,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: route === "/" ? 1 : 0.7,
     };
   });
+
+  const additionalEntries: MetadataRoute.Sitemap = additionalRoutes.map((route) => ({
+    url: new URL(route, siteConfig.url).toString(),
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const blogEntries: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: new URL(`/blog/${post.slug}`, siteConfig.url).toString(),
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
 
   const neighbourhoodEntries: MetadataRoute.Sitemap = neighbourhoodGuides
     .filter((guide) => guide.status === "published")
@@ -42,5 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
-  return [...phaseOneEntries, ...neighbourhoodEntries, ...buildingEntries, ...complexEntries];
+  return [
+    ...phaseOneEntries,
+    ...additionalEntries,
+    ...blogEntries,
+    ...neighbourhoodEntries,
+    ...buildingEntries,
+    ...complexEntries,
+  ];
 }
