@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { BookOpen, School, GraduationCap, ArrowRight } from "lucide-react";
 import { TreetopsInquiryForm } from "@/components/complexes/TreetopsInquiryForm";
 import { createMetadata } from "@/lib/seo";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
@@ -202,10 +203,11 @@ const galleryImages = [
   },
 ];
 
-function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+function Section({ id, title, intro, children }: { id: string; title: string; intro?: string; children: ReactNode }) {
   return (
     <section id={id} className="scroll-mt-28 border-t border-softBorder pt-10">
       <h2 className="font-heading text-3xl text-deepInlet">{title}</h2>
+      {intro && <p className="mt-3 leading-7 text-slateText">{intro}</p>}
       <div className="mt-6">{children}</div>
     </section>
   );
@@ -521,6 +523,39 @@ export default function TreetopsPage() {
           <section id="treetops-form" className="scroll-mt-28">
             <TreetopsInquiryForm />
           </section>
+
+          <Section id="schools" title="School context" intro="Treetops is in the Heritage Mountain area. Nearby elementary catchment context includes Aspenwood Elementary and Heritage Mountain Elementary. Students from this area commonly continue to Eagle Mountain Middle and then Heritage Woods Secondary.">
+            <div className="space-y-8">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-3 rounded-lg border border-softBorder bg-white p-6">
+                <div className="flex items-center gap-3 flex-1">
+                  <BookOpen className="w-5 h-5 text-forest flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-deepInlet">Elementary</p>
+                    <p className="text-sm text-slateText">Aspenwood Elementary<br />Heritage Mountain Elementary</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 flex-shrink-0 hidden md:block" />
+                <div className="flex items-center gap-3 flex-1">
+                  <School className="w-5 h-5 text-forest flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-deepInlet">Middle</p>
+                    <p className="text-sm text-slateText">Eagle Mountain Middle</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 flex-shrink-0 hidden md:block" />
+                <div className="flex items-center gap-3 flex-1">
+                  <GraduationCap className="w-5 h-5 text-forest flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-deepInlet">Secondary</p>
+                    <p className="text-sm text-slateText">Heritage Woods Secondary</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-lg bg-blue-50 border border-blue-200 p-5">
+                <p className="text-xs text-blue-800"><span className="font-semibold">SD43 Verification:</span> School assignments vary by exact address and can change. Always verify the assigned elementary, middle, and secondary schools through the <a href="https://www.sd43.bc.ca/Schools/FindSchool" target="_blank" rel="noopener noreferrer" className="underline font-semibold">SD43 School Locator</a> before relying on school catchment information.</p>
+              </div>
+            </div>
+          </Section>
 
           <Section id="faq" title="Treetops FAQ">
             <div className="grid gap-4 md:grid-cols-2">
