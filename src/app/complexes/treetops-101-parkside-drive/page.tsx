@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { BookOpen, School, GraduationCap, ArrowRight } from "lucide-react";
+import { BookOpen, School, GraduationCap, ArrowRight, MapPin, Home, CheckCircle2, Lightbulb, Train } from "lucide-react";
 import { TreetopsInquiryForm } from "@/components/complexes/TreetopsInquiryForm";
 import { createMetadata } from "@/lib/seo";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
