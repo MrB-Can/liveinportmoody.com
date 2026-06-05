@@ -2,6 +2,7 @@ import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
+import { UtensilsCrossed, Wrench, Heart, Dumbbell, Home, ShoppingBag } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Port Moody Featured Businesses",
@@ -11,12 +12,12 @@ export const metadata = createMetadata({
 });
 
 const categories = [
-  "Cafes and restaurants",
-  "Services",
-  "Family and local activities",
-  "Fitness and wellness",
-  "Home and renovation",
-  "Local shopping",
+  { label: "Cafes and restaurants", icon: UtensilsCrossed },
+  { label: "Services", icon: Wrench },
+  { label: "Family and local activities", icon: Heart },
+  { label: "Fitness and wellness", icon: Dumbbell },
+  { label: "Home and renovation", icon: Home },
+  { label: "Local shopping", icon: ShoppingBag },
 ];
 
 const reviewSteps = [
@@ -49,9 +50,10 @@ export default function FeaturedBusinessesPage() {
 
       <Section title="Categories we review" intro="Business features are selected only when details are verified and the feature is useful to the local decision context." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-3">
-          {categories.map((category) => (
-            <div key={category} className="p-5 font-semibold text-deepInlet">
-              {category}
+          {categories.map(({ label, icon: Icon }) => (
+            <div key={label} className="p-5 flex items-center gap-3">
+              <Icon className="w-6 h-6 text-forest flex-shrink-0" />
+              <span className="font-semibold text-deepInlet">{label}</span>
             </div>
           ))}
         </div>

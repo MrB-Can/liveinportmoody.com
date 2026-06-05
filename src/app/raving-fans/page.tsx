@@ -1,6 +1,7 @@
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
+import { MessageSquareCheck, Clock, Verified, Lock } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Raving Fans and Verified Client Proof",
@@ -9,27 +10,6 @@ export const metadata = createMetadata({
   path: "/raving-fans",
 });
 
-const sourceAreas = [
-  {
-    title: "Google reviews",
-    body: "Google review links or excerpts are used only when the official public profile and usage context are confirmed.",
-  },
-  {
-    title: "RankMyAgent or RateMyAgent",
-    body: "Review platform links are used only with an approved profile, plugin, or public source.",
-  },
-  {
-    title: "Client-approved stories",
-    body: "Buyer, seller, relocation, or long-term planning stories require client approval for public use.",
-  },
-];
-
-const proofRules = [
-  "Reviews must come from verified sources.",
-  "Review counts must be source-backed.",
-  "Star ratings must be source-backed.",
-  "No client story without approval.",
-];
 
 export default function RavingFansPage() {
   return (
@@ -53,22 +33,48 @@ export default function RavingFansPage() {
 
       <Section title="Review sources" tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
-          {sourceAreas.map((source) => (
-            <article key={source.title} className="p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{source.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slateText">{source.body}</p>
-            </article>
-          ))}
+          <article className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Verified className="w-6 h-6 text-forest flex-shrink-0" />
+              <h2 className="font-heading text-2xl text-deepInlet">Google reviews</h2>
+            </div>
+            <p className="text-sm leading-6 text-slateText">Google review links or excerpts are used only when the official public profile and usage context are confirmed.</p>
+          </article>
+          <article className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <MessageSquareCheck className="w-6 h-6 text-forest flex-shrink-0" />
+              <h2 className="font-heading text-2xl text-deepInlet">RankMyAgent</h2>
+            </div>
+            <p className="text-sm leading-6 text-slateText">Review platform links are used only with an approved profile, plugin, or public source.</p>
+          </article>
+          <article className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Lock className="w-6 h-6 text-forest flex-shrink-0" />
+              <h2 className="font-heading text-2xl text-deepInlet">Client-approved stories</h2>
+            </div>
+            <p className="text-sm leading-6 text-slateText">Buyer, seller, relocation, or long-term planning stories require client approval for public use.</p>
+          </article>
         </div>
       </Section>
 
       <Section title="Trust content rules">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
-          {proofRules.map((rule) => (
-            <div key={rule} className="p-5 text-sm font-semibold text-deepInlet">
-              {rule}
-            </div>
-          ))}
+          <div className="p-5 flex flex-col items-start gap-3">
+            <Verified className="w-6 h-6 text-forest flex-shrink-0" />
+            <p className="text-sm font-semibold text-deepInlet">Reviews must come from verified sources.</p>
+          </div>
+          <div className="p-5 flex flex-col items-start gap-3">
+            <MessageSquareCheck className="w-6 h-6 text-forest flex-shrink-0" />
+            <p className="text-sm font-semibold text-deepInlet">Review counts must be source-backed.</p>
+          </div>
+          <div className="p-5 flex flex-col items-start gap-3">
+            <Clock className="w-6 h-6 text-forest flex-shrink-0" />
+            <p className="text-sm font-semibold text-deepInlet">Star ratings must be source-backed.</p>
+          </div>
+          <div className="p-5 flex flex-col items-start gap-3">
+            <Lock className="w-6 h-6 text-forest flex-shrink-0" />
+            <p className="text-sm font-semibold text-deepInlet">No client story without approval.</p>
+          </div>
         </div>
         <div className="mt-6">
           <CTAButton href="/contact" variant="secondary">Ask for local guidance</CTAButton>

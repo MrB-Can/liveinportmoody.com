@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 import type { ReactNode } from "react";
-import { BookOpen, School, GraduationCap, ArrowRight, MapPin, Home, CheckCircle2, Lightbulb, Train } from "lucide-react";
+import { BookOpen, School, GraduationCap, ArrowRight, MapPin, Home, Building2, Calendar, Leaf, Car, Dumbbell, Map, CheckCircle2 } from "lucide-react";
 import { TreetopsInquiryForm } from "@/components/complexes/TreetopsInquiryForm";
 import { createMetadata } from "@/lib/seo";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
@@ -44,13 +45,13 @@ const fitNo = [
   "You are not willing to review strata documents carefully.",
 ];
 
-const knownFacts = [
-  ["Address", "101 Parkside Drive"],
-  ["Area", "Heritage Mountain"],
-  ["Property type", "Townhouse strata"],
-  ["Approx. units", "Approximately 172, verify"],
-  ["Built", "Early 1990s, verify"],
-  ["Setting", "Forested, mature landscaping"],
+const knownFacts: [React.ComponentType<{ className?: string }>, string, string][] = [
+  [MapPin, "Address", "101 Parkside Drive"],
+  [Map, "Area", "Heritage Mountain"],
+  [Home, "Property type", "Townhouse strata"],
+  [Building2, "Approx. units", "Approximately 172, verify"],
+  [Calendar, "Built", "Early 1990s, verify"],
+  [Leaf, "Setting", "Forested, mature landscaping"],
 ];
 
 const mustVerify = [
@@ -81,16 +82,19 @@ const homeCards = [
   ["Common areas", "Internal lanes, pedestrian routes, green space, recreation areas, and visitor parking areas."],
 ];
 
-const amenities = [
+const amenities: [React.ComponentType<{ className?: string }>, string, string][] = [
   [
+    Car,
     "Visitor parking",
     "Important for families, guests, and resale value. Verify current parking rules and enforcement.",
   ],
   [
+    Leaf,
     "On-site paths and green space",
     "Adds lifestyle value, but buyers should consider maintenance costs and strata responsibility.",
   ],
   [
+    Dumbbell,
     "Recreation facilities",
     "Potential lifestyle benefit, but verify availability, condition, fees, rules, and planned maintenance.",
   ],
@@ -322,11 +326,16 @@ export default function TreetopsPage() {
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="rounded-lg border border-softBorder bg-white p-6">
                 <h3 className="font-heading text-xl text-deepInlet">Known public / observed summary</h3>
-                <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-                  {knownFacts.map(([label, value]) => (
-                    <div key={label}>
-                      <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-forest">{label}</dt>
-                      <dd className="mt-1 text-sm text-charcoal">{value}</dd>
+                <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {knownFacts.map(([Icon, label, value]) => (
+                    <div key={label} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest/10">
+                        <Icon className="h-3.5 w-3.5 text-forest" />
+                      </span>
+                      <div>
+                        <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-forest">{label}</dt>
+                        <dd className="mt-0.5 text-sm text-charcoal">{value}</dd>
+                      </div>
                     </div>
                   ))}
                 </dl>
@@ -335,7 +344,10 @@ export default function TreetopsPage() {
                 <h3 className="font-heading text-xl text-deepInlet">Must verify before purchase</h3>
                 <ul className="mt-5 grid gap-2 text-sm text-slateText sm:grid-cols-2">
                   {mustVerify.map((item) => (
-                    <li key={item} className="flex gap-2"><span className="text-forest">□</span>{item}</li>
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-forest/50" />
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -401,10 +413,13 @@ export default function TreetopsPage() {
 
           <Section id="amenities" title="Amenities and why they matter">
             <div className="grid gap-5 md:grid-cols-3">
-              {amenities.map(([title, body]) => (
+              {amenities.map(([AmenityIcon, title, body]) => (
                 <article key={title} className="rounded-lg border border-softBorder bg-white p-5">
-                  <h3 className="font-heading text-xl text-deepInlet">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slateText">{body}</p>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forest/10">
+                    <AmenityIcon className="h-4 w-4 text-forest" />
+                  </span>
+                  <h3 className="mt-3 font-heading text-xl text-deepInlet">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slateText">{body}</p>
                 </article>
               ))}
             </div>
@@ -418,6 +433,7 @@ export default function TreetopsPage() {
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {commuteTiles.map(([title, body]) => (
                 <article key={title} className="rounded-lg border border-softBorder bg-white p-5">
+                  <Train className="mb-2 h-4 w-4 text-forest/60" />
                   <h3 className="font-semibold text-deepInlet">{title}</h3>
                   <p className="mt-2 text-sm text-slateText">{body}</p>
                 </article>

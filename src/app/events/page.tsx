@@ -1,6 +1,7 @@
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { createMetadata } from "@/lib/seo";
+import { Users, Trees, ShoppingCart, Palette, Home } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Port Moody Events Hub",
@@ -13,22 +14,27 @@ const eventGroups = [
   {
     title: "Family",
     body: "Family-friendly events are useful for buyers comparing routines, weekends, schools, parks, and community fit.",
+    icon: Users,
   },
   {
     title: "Outdoors",
     body: "Outdoor events can help people understand waterfront, park, recreation, and seasonal lifestyle patterns when details are verified.",
+    icon: Trees,
   },
   {
     title: "Markets",
     body: "Markets and seasonal gatherings can shape local routines when host, date, location, and public source details are confirmed.",
+    icon: ShoppingCart,
   },
   {
     title: "Arts and culture",
     body: "Arts, culture, civic, and community gatherings can be included when the organizer and public event details are confirmed.",
+    icon: Palette,
   },
   {
     title: "Real estate and community events",
     body: "Local seminars, open-house style education, market sessions, or neighbourhood events can be included after details are confirmed.",
+    icon: Home,
   },
 ];
 
@@ -62,10 +68,13 @@ export default function EventsPage() {
 
       <section className="mx-auto max-w-5xl px-5 py-12">
         <div className="grid gap-4 md:grid-cols-2">
-          {eventGroups.map((group) => (
-            <article key={group.title} className="rounded-lg border border-softBorder bg-white p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{group.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slateText">{group.body}</p>
+          {eventGroups.map(({ title, body, icon: Icon }) => (
+            <article key={title} className="rounded-lg border border-softBorder bg-white p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Icon className="w-6 h-6 text-forest flex-shrink-0" />
+                <h2 className="font-heading text-2xl text-deepInlet">{title}</h2>
+              </div>
+              <p className="text-sm leading-6 text-slateText">{body}</p>
             </article>
           ))}
         </div>

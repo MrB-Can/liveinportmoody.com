@@ -2,6 +2,7 @@ import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
+import { Trees, School, Footprints, Zap, Calendar, Store } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Port Moody Local Life",
@@ -14,26 +15,32 @@ const localLifeSections = [
   {
     title: "Parks",
     body: "Use parks as part of an area-fit conversation: daily walks, weekend routines, playgrounds, waterfront access, and how close those amenities are to the specific home you are considering.",
+    icon: Trees,
   },
   {
     title: "Schools",
     body: "School planning should be verified by exact address through the applicable official district or school authority before relying on any assumption.",
+    icon: School,
   },
   {
     title: "Trails",
     body: "Trail access is a major part of Port Moody life, but current trail conditions, access rules, and closures should be checked through official municipal or regional sources.",
+    icon: Footprints,
   },
   {
     title: "Activities",
     body: "Activities can include recreation, waterfront routines, family programs, breweries, community groups, arts, sports, and everyday errands that shape how an area feels.",
+    icon: Zap,
   },
   {
     title: "Events",
     body: "Events are published when dates, hosts, public sources, and relevance to Port Moody residents are confirmed.",
+    icon: Calendar,
   },
   {
     title: "Featured Businesses",
     body: "Local businesses will be reviewed one at a time with verified public details and permission where needed.",
+    icon: Store,
   },
 ];
 
@@ -41,14 +48,17 @@ const officialSources = [
   {
     title: "Schools",
     body: "Use official school district or school authority lookup tools for address-specific school information.",
+    icon: School,
   },
   {
     title: "Parks and trails",
     body: "Use City of Port Moody, Metro Vancouver, or other official park sources for current access, rules, and closures.",
+    icon: Trees,
   },
   {
     title: "Events",
     body: "Use organizer pages or official public calendars before relying on event dates, locations, or registration details.",
+    icon: Calendar,
   },
 ];
 
@@ -90,10 +100,13 @@ export default function LocalLifePage() {
 
       <Section title="What shapes daily life here" intro="Start with lifestyle fit, then verify exact details for the property, address, school, trail, or event you care about." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
-          {localLifeSections.map((item) => (
-            <article key={item.title} className="p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{item.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-slateText">{item.body}</p>
+          {localLifeSections.map(({ title, body, icon: Icon }) => (
+            <article key={title} className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Icon className="w-6 h-6 text-forest flex-shrink-0" />
+                <h2 className="font-heading text-2xl text-deepInlet">{title}</h2>
+              </div>
+              <p className="text-sm leading-6 text-slateText">{body}</p>
             </article>
           ))}
         </div>
@@ -101,10 +114,13 @@ export default function LocalLifePage() {
 
       <Section title="Verification-first local context">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
-          {officialSources.map((item) => (
-            <div key={item.title} className="p-5">
-              <p className="font-semibold text-deepInlet">{item.title}</p>
-              <p className="mt-2 text-sm leading-6 text-slateText">{item.body}</p>
+          {officialSources.map(({ title, body, icon: Icon }) => (
+            <div key={title} className="p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Icon className="w-5 h-5 text-forest flex-shrink-0" />
+                <p className="font-semibold text-deepInlet">{title}</p>
+              </div>
+              <p className="text-sm leading-6 text-slateText">{body}</p>
             </div>
           ))}
         </div>
