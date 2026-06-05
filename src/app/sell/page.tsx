@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DollarSign, Hammer, Rocket, Lightbulb, GraduationCap } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -345,17 +346,23 @@ export default function SellPage() {
       <Section title="Seller preparation framework" intro="Structure your launch around five key decision points. Each stage builds on the previous one.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { stage: "Pricing context", detail: "Recent sales, active competition, strata situation, property condition, and micro-market comparables" },
-            { stage: "Prep & presentation", detail: "Repairs, cleaning, staging, lighting, photos, strata documents, and disclosure preparation" },
-            { stage: "Launch strategy", detail: "MLS copy, photography, video, social, local distribution, media timeline, and buyer follow-up plan" },
-            { stage: "Showing feedback", detail: "Buyer comments, objection patterns, price perception, positioning response, and timeline adjustment" },
-            { stage: "Offer review", detail: "Terms, subjects, dates, contingencies, conditions, deposit, closing timeline, and counter strategy" },
-          ].map((item) => (
-            <article key={item.stage} className="rounded-lg border border-softBorder bg-white p-5 text-center">
-              <h3 className="font-heading text-lg text-deepInlet">{item.stage}</h3>
-              <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
-            </article>
-          ))}
+            { stage: "Pricing context", detail: "Recent sales, active competition, strata situation, property condition, and micro-market comparables", icon: DollarSign },
+            { stage: "Prep & presentation", detail: "Repairs, cleaning, staging, lighting, photos, strata documents, and disclosure preparation", icon: Hammer },
+            { stage: "Launch strategy", detail: "MLS copy, photography, video, social, local distribution, media timeline, and buyer follow-up plan", icon: Rocket },
+            { stage: "Showing feedback", detail: "Buyer comments, objection patterns, price perception, positioning response, and timeline adjustment", icon: Lightbulb },
+            { stage: "Offer review", detail: "Terms, subjects, dates, contingencies, conditions, deposit, closing timeline, and counter strategy", icon: GraduationCap },
+          ].map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <article key={item.stage} className="rounded-lg border border-softBorder bg-white p-5 text-center hover:shadow-md transition">
+                <div className="flex justify-center mb-3">
+                  <IconComponent className="w-6 h-6 text-forest" />
+                </div>
+                <h3 className="font-heading text-lg text-deepInlet">{item.stage}</h3>
+                <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
+              </article>
+            );
+          })}
         </div>
       </Section>
 

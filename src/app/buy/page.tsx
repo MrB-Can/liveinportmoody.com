@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MapPin, Home, FileCheck, Eye, Handshake } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -410,17 +411,23 @@ export default function BuyPage() {
       <Section title="Buyer decision framework" intro="Use these five stages to structure your buying journey. No two buyers prioritize the same way, so focus on what matters most to you.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { stage: "Area fit", detail: "Neighbourhood walkability, schools, transit, trails, quiet, commute, and lifestyle match" },
-            { stage: "Property type", detail: "Condo, townhouse, or detached? Space, layout, maintenance, privacy, and renovation potential" },
-            { stage: "Building / Strata", detail: "Fees, reserve fund, insurance, bylaws, condition, parking, storage, and upcoming work" },
-            { stage: "Listing context", detail: "Exposure, condition, layout, parking, price vs. comparable alternatives, and trade-offs" },
-            { stage: "Offer decision", detail: "Inspection results, strata review, financing, subject removal timing, and negotiation strategy" },
-          ].map((item) => (
-            <article key={item.stage} className="rounded-lg border border-softBorder bg-white p-5 text-center">
-              <h3 className="font-heading text-lg text-deepInlet">{item.stage}</h3>
-              <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
-            </article>
-          ))}
+            { stage: "Area fit", detail: "Neighbourhood walkability, schools, transit, trails, quiet, commute, and lifestyle match", icon: MapPin },
+            { stage: "Property type", detail: "Condo, townhouse, or detached? Space, layout, maintenance, privacy, and renovation potential", icon: Home },
+            { stage: "Building / Strata", detail: "Fees, reserve fund, insurance, bylaws, condition, parking, storage, and upcoming work", icon: FileCheck },
+            { stage: "Listing context", detail: "Exposure, condition, layout, parking, price vs. comparable alternatives, and trade-offs", icon: Eye },
+            { stage: "Offer decision", detail: "Inspection results, strata review, financing, subject removal timing, and negotiation strategy", icon: Handshake },
+          ].map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <article key={item.stage} className="rounded-lg border border-softBorder bg-white p-5 text-center hover:shadow-md transition">
+                <div className="flex justify-center mb-3">
+                  <IconComponent className="w-6 h-6 text-forest" />
+                </div>
+                <h3 className="font-heading text-lg text-deepInlet">{item.stage}</h3>
+                <p className="mt-2 text-xs leading-5 text-slateText">{item.detail}</p>
+              </article>
+            );
+          })}
         </div>
       </Section>
 
