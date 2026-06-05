@@ -1,3 +1,4 @@
+import { type LucideIcon, DollarSign, Calendar, Receipt, ArrowRightLeft, FileText } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
@@ -18,26 +19,31 @@ const buyerNotes = [
   "Project availability and pricing must be verified from current developer, disclosure, or listing sources before relying on it.",
 ];
 
-const considerationCards = [
+const considerationCards: { title: string; body: string; icon: LucideIcon }[] = [
   {
     title: "Deposits",
     body: "Review the deposit schedule, who holds the funds, when payments are due, and what happens if financing or timing changes.",
+    icon: DollarSign,
   },
   {
     title: "Completion",
     body: "Ask about estimated completion, outside dates, amendment history, walk-through timing, and how delays are handled.",
+    icon: Calendar,
   },
   {
     title: "GST",
     body: "New homes may involve GST. Confirm tax treatment with qualified tax or legal advice for the specific purchase.",
+    icon: Receipt,
   },
   {
     title: "Assignments",
     body: "Assignment rights and restrictions vary. Review contract terms, fees, developer consent requirements, and marketability.",
+    icon: ArrowRightLeft,
   },
   {
     title: "Disclosure",
     body: "Read the disclosure statement and amendments carefully. Confirm parking, storage, strata budget, amenities, and estimated fees.",
+    icon: FileText,
   },
 ];
 
@@ -124,6 +130,7 @@ export default function PresalesPage() {
           <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {considerationCards.map((card) => (
               <article key={card.title} className="rounded-lg border border-softBorder bg-white/85 p-5">
+                <card.icon className="h-5 w-5 text-forest mb-3" />
                 <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
               </article>

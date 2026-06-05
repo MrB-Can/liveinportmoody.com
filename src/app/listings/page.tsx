@@ -4,6 +4,7 @@ import { ListingSupportForm } from "@/components/listings/ListingSupportForm";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { ExternalLink } from "@/lib/icons";
+import { type LucideIcon, MapPin, Building2, FileSearch, BarChart2, Scale } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -15,26 +16,31 @@ export const metadata = createMetadata({
 
 const reciprocitySearchUrl = process.env.NEXT_PUBLIC_GVR_RECIPROCITY_SEARCH_URL;
 
-const contextCards = [
+const contextCards: { title: string; copy: string; icon: LucideIcon }[] = [
   {
     title: "Neighbourhood fit",
     copy: "A listing can look good online but still be a poor fit for commute, walkability, schools, slope, or lifestyle.",
+    icon: MapPin,
   },
   {
     title: "Building or complex research",
     copy: "For condos and townhouses, the building or strata can matter as much as the unit.",
+    icon: Building2,
   },
   {
     title: "Strata document review",
     copy: "Before writing or removing subjects, review minutes, Form B, depreciation report, insurance, bylaws, fees, and planned work.",
+    icon: FileSearch,
   },
   {
     title: "Pricing context",
     copy: "Ask for current context before relying on list price alone. Sold data is not published here unless approved.",
+    icon: BarChart2,
   },
   {
     title: "Buyer trade-offs",
     copy: "Understand what you are giving up: walkability, space, age, parking, privacy, exposure, or renovation level.",
+    icon: Scale,
   },
 ];
 
@@ -168,6 +174,7 @@ export default function ListingsPage() {
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {contextCards.map((card) => (
             <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+              <card.icon className="h-5 w-5 text-forest mb-3" />
               <h3 className="font-heading text-xl text-deepInlet">{card.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slateText">{card.copy}</p>
             </article>

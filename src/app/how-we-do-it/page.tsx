@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { type LucideIcon, Target, Home, Lightbulb, Clock, BarChart2, Handshake } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
@@ -10,6 +11,41 @@ export const metadata = createMetadata({
     "Our Port Moody selling process: from strategy consultation and pricing to preparation, launch, showings, and closing. An honest, step-by-step breakdown.",
   path: "/how-we-do-it",
 });
+
+type PrincipleCard = { icon: LucideIcon; heading: string; body: string };
+
+const principleCards: PrincipleCard[] = [
+  {
+    icon: Target,
+    heading: "Market-first",
+    body: "We start by understanding the market context, not by assuming a price. What are buyers actually looking for? What’s selling, and what’s sitting?",
+  },
+  {
+    icon: Home,
+    heading: "Property-specific",
+    body: "Your home competes against real alternatives. We compare you to the same building, complex, or neighbourhood type — not broad city averages.",
+  },
+  {
+    icon: Lightbulb,
+    heading: "Clarity-focused",
+    body: "Strong positioning, honest media, and complete documentation reduce buyer uncertainty and speed up decision-making.",
+  },
+  {
+    icon: Clock,
+    heading: "Timeline-flexible",
+    body: "Whether you’re selling quickly, taking time to prepare, or weighing options, our process adapts to your timeline and goals.",
+  },
+  {
+    icon: BarChart2,
+    heading: "Feedback-driven",
+    body: "We collect buyer feedback, market response, and competing activity — then adjust strategy based on what the market tells us.",
+  },
+  {
+    icon: Handshake,
+    heading: "Negotiation-sharp",
+    body: "When offers come in, we review them thoughtfully, negotiate strategically, and protect your interests through closing.",
+  },
+];
 
 const processSteps = [
   {
@@ -162,47 +198,13 @@ export default function HowWeDoItPage() {
         title="What guides our process."
       >
         <div className="grid gap-5 lg:grid-cols-3">
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Market-first</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              We start by understanding the market context, not by assuming a price. What are buyers actually looking for? What&apos;s selling, and what&apos;s sitting?
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Property-specific</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              Your home competes against real alternatives. We compare you to the same building, complex, or neighbourhood type — not broad city averages.
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Clarity-focused</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              Strong positioning, honest media, and complete documentation reduce buyer uncertainty and speed up decision-making.
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Timeline-flexible</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              Whether you&apos;re selling quickly, taking time to prepare, or weighing options, our process adapts to your timeline and goals.
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Feedback-driven</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              We collect buyer feedback, market response, and competing activity — then adjust strategy based on what the market tells us.
-            </p>
-          </div>
-
-          <div className="rounded-lg border border-softBorder bg-white p-6">
-            <p className="font-heading text-lg text-deepInlet">Negotiation-sharp</p>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              When offers come in, we review them thoughtfully, negotiate strategically, and protect your interests through closing.
-            </p>
-          </div>
+          {principleCards.map((card) => (
+            <div key={card.heading} className="rounded-lg border border-softBorder bg-white p-6">
+              <card.icon className="h-5 w-5 text-forest mb-3" />
+              <p className="font-heading text-lg text-deepInlet">{card.heading}</p>
+              <p className="mt-3 text-sm leading-6 text-slateText">{card.body}</p>
+            </div>
+          ))}
         </div>
       </Section>
 
