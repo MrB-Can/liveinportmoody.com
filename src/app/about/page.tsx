@@ -2,6 +2,7 @@ import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
+import { type LucideIcon, MapPin, FileCheck, Coffee, Compass } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "About Live in Port Moody",
@@ -62,14 +63,17 @@ export default function AboutPage() {
 
       <Section title="How the local content supports real estate" tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
-          {[
-            "Neighbourhood and nearby community fit",
-            "Condo building and townhouse complex due diligence",
-            "Local Life context without unverified businesses or events",
-            "Buyer and seller guidance connected to real decisions",
-          ].map((item) => (
-            <div key={item} className="p-5 text-sm font-semibold text-deepInlet">
-              {item}
+          {(
+            [
+              { icon: MapPin, text: "Neighbourhood and nearby community fit" },
+              { icon: FileCheck, text: "Condo building and townhouse complex due diligence" },
+              { icon: Coffee, text: "Local Life context without unverified businesses or events" },
+              { icon: Compass, text: "Buyer and seller guidance connected to real decisions" },
+            ] as { icon: LucideIcon; text: string }[]
+          ).map((item) => (
+            <div key={item.text} className="p-5 text-sm font-semibold text-deepInlet">
+              <item.icon className="h-5 w-5 text-forest mb-2" />
+              {item.text}
             </div>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Map, Building2, House, LayoutList } from "lucide-react";
+import { Map, Building2, House, LayoutList, Navigation, GraduationCap, Trees, Train, BarChart2, Briefcase } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SocialFeedPlaceholder } from "@/components/social-feed-placeholder";
 import { createMetadata } from "@/lib/seo";
@@ -46,36 +46,42 @@ const primaryPaths: PrimaryPath[] = [
   },
 ];
 
-const guideSections = [
+const guideSections: { title: string; href: string; body: string; icon: LucideIcon }[] = [
   {
     title: "Moving here",
     href: "/local-life",
     body: "Trails, SkyTrain, schools, breweries, hillsides, density, and waterfront access all shape the move.",
+    icon: Navigation,
   },
   {
     title: "Schools",
     href: "/local-life#schools",
     body: "Use school context carefully as one part of the broader neighbourhood and commute decision.",
+    icon: GraduationCap,
   },
   {
     title: "Trails",
     href: "/local-life#trails",
     body: "Port Moody's trail network is part of the lifestyle value, especially around the inlet and hillside areas.",
+    icon: Trees,
   },
   {
     title: "Transit",
     href: "/local-life#transit",
     body: "SkyTrain access changes the buyer pool, commute patterns, parking needs, and rental appeal.",
+    icon: Train,
   },
   {
     title: "Market",
     href: "/market",
     body: "Read current market notes and property-type context without fake numbers or generic spin.",
+    icon: BarChart2,
   },
   {
     title: "Buyer and seller resources",
     href: "/local-insights",
     body: "Find practical prompts for buyers, sellers, relocation planning, local questions, and market updates.",
+    icon: Briefcase,
   },
 ];
 
@@ -154,6 +160,7 @@ export default function ExplorePage() {
                   href={item.href}
                   className="rounded-lg border border-softBorder bg-white/80 p-5 transition hover:bg-white"
                 >
+                  <item.icon className="h-5 w-5 text-forest mb-2" />
                   <h3 className="font-heading text-xl text-deepInlet">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slateText">{item.body}</p>
                 </Link>

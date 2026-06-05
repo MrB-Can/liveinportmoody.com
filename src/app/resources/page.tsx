@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
+import { File, Clock, TrendingDown, PiggyBank, Shield, Book, Car, PawPrint, AlertCircle } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
@@ -127,16 +129,16 @@ const localLifeResources: ResourceCard[] = [
   },
 ];
 
-const strataItems = [
-  "Form B",
-  "Strata minutes",
-  "Depreciation report",
-  "Contingency reserve fund",
-  "Insurance and deductibles",
-  "Bylaws and rules",
-  "Parking and storage",
-  "Pets and rentals",
-  "Special levies and capital projects",
+const strataItems: { icon: LucideIcon; label: string }[] = [
+  { icon: File, label: "Form B" },
+  { icon: Clock, label: "Strata minutes" },
+  { icon: TrendingDown, label: "Depreciation report" },
+  { icon: PiggyBank, label: "Contingency reserve fund" },
+  { icon: Shield, label: "Insurance and deductibles" },
+  { icon: Book, label: "Bylaws and rules" },
+  { icon: Car, label: "Parking and storage" },
+  { icon: PawPrint, label: "Pets and rentals" },
+  { icon: AlertCircle, label: "Special levies and capital projects" },
 ];
 
 const faqs = [
@@ -251,8 +253,9 @@ export default function ResourcesPage() {
       >
         <div className="grid gap-3 md:grid-cols-3">
           {strataItems.map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-mist px-5 py-4 text-sm font-semibold text-deepInlet">
-              {item}
+            <div key={item.label} className="flex items-center gap-2.5 rounded-lg border border-softBorder bg-mist px-5 py-4 text-sm font-semibold text-deepInlet">
+              <item.icon className="h-4 w-4 text-forest flex-shrink-0" />
+              {item.label}
             </div>
           ))}
         </div>
