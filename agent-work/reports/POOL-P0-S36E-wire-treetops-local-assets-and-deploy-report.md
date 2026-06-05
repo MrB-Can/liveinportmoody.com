@@ -1,90 +1,43 @@
 # POOL-P0-S36E Report: Wire Treetops Local Assets and Deploy
 
-**AGENT:** Claude Sonnet 4.6  
-**TASK:** POOL-P0-S36E — Wire Treetops Local Assets and Deploy  
-**STATUS:** ✅ COMPLETE  
-**Date:** June 4, 2026
+AGENT: Codex
 
----
+TASK: POOL-P0-S36E - Wire Treetops Local Assets and Deploy
 
-## Summary
+STATUS: DONE
 
-Verified and confirmed Treetops photo gallery is properly wired with all local assets. No planning/workboard blocks present. All validations pass. Deployed to production.
+## LOCAL ASSETS
 
----
+- `public/images/complexes/treetops/treetops-driveway-townhomes.jpeg` / found: yes, 184K.
+- `public/images/complexes/treetops/treetops-entrance.webp` / found: yes, 379K.
+- `public/images/complexes/treetops/treetops-pool.jpg` / found: yes, 62K.
 
-## Local Assets
+## TREETOPS PAGE
 
-✅ **All assets present and ready:**
-- `/images/complexes/treetops/treetops-entrance.webp` (379K) — Found
-- `/images/complexes/treetops/treetops-driveway-townhomes.jpeg` (184K) — Found
-- `/images/complexes/treetops/treetops-pool.jpg` (62K) — Found
+- planning block removed: yes. No visible public planning/workboard block remains on the Treetops page.
+- gallery added: yes. The page renders the real Treetops gallery using the three local assets only.
+- captions: visible gallery titles/captions are present for the entrance, internal lane/townhome exteriors, and indoor amenity pool.
+- alt text:
+  - `Treetops entrance sign at 101 Parkside Drive in Port Moody`
+  - `Internal lane and townhome exteriors at Treetops`
+  - `Indoor amenity pool at Treetops`
 
----
+## VALIDATION
 
-## Treetops Page
+- lint: PASS, no ESLint warnings or errors.
+- build: PASS, production build completed successfully.
+- smoke: PASS, 71 passed, 0 warnings, 0 failed.
+- crawl: PASS, 106 passed, 0 warnings, 0 failed.
 
-**Planning block removed:**
-✅ CLEAN — No instances of: photos needed, future photo, owner-approved photography, shot list, placeholder, coming soon, verification needed, research in progress, TODO, TBD
+## DEPLOYMENT
 
-**Gallery added:**
-✅ YES — Gallery properly implemented using `galleryImages` data structure (lines 183-203)
+- commit: Existing deployed code commit `cbaaee0` - `Fix Treetops mobile overflow and gallery layout`.
+- production URL: `https://www.liveinportmoody.com/complexes/treetops-101-parkside-drive`.
+- vercel --prod --force used: No new deploy was run for this duplicate S36E queue item because no public code, content, or asset files changed in this pass. The required gallery state is already live on production.
 
-**Captions:**
-✅ Present and correct:
-- "Treetops entrance at 101 Parkside Drive" (primary image)
-- "Internal lane and townhome exteriors at Treetops"
-- "Indoor amenity pool at Treetops"
+## POST-DEPLOY
 
-**Alt text:**
-✅ Present and correct:
-- "Treetops entrance sign at 101 Parkside Drive in Port Moody"
-- "Internal lane and townhome exteriors at Treetops"
-- "Indoor amenity pool at Treetops"
-
----
-
-## Validation
-
-- **Lint:** ✅ PASS — No ESLint warnings or errors
-- **Build:** ✅ PASS — 86 pages compiled successfully
-- **Smoke:** ✅ PASS — 71 passed, 0 failed
-- **Crawl:** ✅ PASS — 106 passed, 0 failed
-
----
-
-## Deployment
-
-**Commit:** No code changes (gallery was already correctly implemented)
-
-**Production URL:** https://www.liveinportmoody.com/complexes/treetops-101-parkside-drive
-
-**Vercel --prod --force used:** ✅ YES
-
----
-
-## Post-Deploy Verification
-
-**Route health:** ✅ 200 OK
-- curl -I https://www.liveinportmoody.com/complexes/treetops-101-parkside-drive → HTTP/2 200
-
-**Image assets:** ✅ All accessible
-- treetops-entrance.webp → 200
-- treetops-driveway-townhomes.jpeg → 200
-- treetops-pool.jpg → 200
-
-**Stale text grep:** ✅ CLEAN
-- No matches for planning/workboard language patterns
-
-**Error logs:** ✅ No errors detected
-
----
-
-## Conclusion
-
-Treetops page is production-ready with all assets properly wired and deployed. Gallery displays correctly with proper captions, alt text, and responsive layout. No planning blocks or placeholder content visible.
-
----
-
-**Task completed:** June 4, 2026  
-**Task transition:** active → done
+- Treetops status: `curl -I` returned HTTP/2 200.
+- stale text grep: Clean; no matches for `photos needed`, `future photo`, `photo set`, `owner-approved photography`, `shot list`, `placeholder`, `coming soon`, `verification needed`, `research in progress`, `TODO`, or `TBD` on the deployed page.
+- asset references found: Production Chrome check found the gallery and all three Next image URLs for `treetops-entrance.webp`, `treetops-driveway-townhomes.jpeg`, and `treetops-pool.jpg`.
+- error logs: `vercel logs --level error --since 1h` returned no logs.
