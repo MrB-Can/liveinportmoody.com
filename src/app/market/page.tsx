@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
+import { FAQAccordion } from "@/components/faq-accordion";
 
 export const metadata = createMetadata({
   title: "Port Moody Market Intelligence",
@@ -269,19 +270,7 @@ export default function MarketPage() {
           <h2 className="font-heading text-2xl text-deepInlet mb-2">Frequently asked questions</h2>
           <p className="text-slateText mb-8">Common questions about the Port Moody market and how to use this context.</p>
 
-          <div className="space-y-3">
-            {faqItems.map((item, index) => (
-              <details key={index} className="rounded-lg border border-softBorder overflow-hidden group">
-                <summary className="w-full flex items-center justify-between p-5 hover:bg-white transition-colors text-left cursor-pointer font-semibold text-deepInlet">
-                  {item.question}
-                  <span className="group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div className="px-5 py-4 bg-white/50 border-t border-softBorder">
-                  <p className="text-sm text-slateText leading-6">{item.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
+          <FAQAccordion items={faqItems} />
         </div>
       </section>
     </>
