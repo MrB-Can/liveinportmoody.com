@@ -8,6 +8,8 @@ import { FAQSection } from "@/components/ui/faq-section";
 import { VerificationNote } from "@/components/ui/verification-note";
 import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
+import { ProcessStep } from "@/components/process-step";
+import { ChecklistPanel } from "@/components/visual-elements/ChecklistPanel";
 
 export const metadata = createMetadata({
   title: "Buy in Port Moody | Buyer Guide and Local Real Estate Research",
@@ -297,38 +299,6 @@ const faqs = [
   },
 ];
 
-// ─── inline components ────────────────────────────────────────────────────────
-
-function ProcessStep({ step, title, body }: { step: number; title: string; body: string }) {
-  return (
-    <div className="flex gap-4 sm:gap-5">
-      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-deepInlet text-sm font-bold text-white">
-        {step}
-      </div>
-      <div className="pt-0.5">
-        <p className="font-semibold text-deepInlet">{title}</p>
-        <p className="mt-1 text-sm leading-6 text-slateText">{body}</p>
-      </div>
-    </div>
-  );
-}
-
-function CheckGroup({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <p className="mb-3 font-semibold text-deepInlet">{title}</p>
-      <ul className="space-y-2">
-        {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm text-slateText">
-            <span className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border border-softBorder" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 // ─── page ─────────────────────────────────────────────────────────────────────
 
 export default function BuyPage() {
@@ -508,9 +478,9 @@ export default function BuyPage() {
         title="What to verify before buying."
       >
         <div id="buyer-due-diligence" className="grid gap-8 md:grid-cols-3">
-          <CheckGroup title="Condos and townhouses" items={strataChecklist} />
-          <CheckGroup title="Detached homes" items={detachedChecklist} />
-          <CheckGroup title="All buyers" items={allBuyersChecklist} />
+          <ChecklistPanel title="Condos and townhouses" items={strataChecklist.map((label) => ({ label }))} color="forest" />
+          <ChecklistPanel title="Detached homes" items={detachedChecklist.map((label) => ({ label }))} color="forest" />
+          <ChecklistPanel title="All buyers" items={allBuyersChecklist.map((label) => ({ label }))} color="forest" />
         </div>
         <div className="mt-8">
           <VerificationNote note="This guide is for general orientation. Property-specific details should be verified with a qualified professional before making a decision." />

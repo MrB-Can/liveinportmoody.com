@@ -3,10 +3,12 @@ import { DollarSign, Hammer, Rocket, Lightbulb, GraduationCap } from "lucide-rea
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
+import { ProcessStep } from "@/components/process-step";
 import { Section } from "@/components/section";
 import { FAQSection } from "@/components/ui/faq-section";
 import { VerificationNote } from "@/components/ui/verification-note";
 import { TrustStrip } from "@/components/trust-strip";
+import { ChecklistPanel } from "@/components/visual-elements/ChecklistPanel";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -236,38 +238,6 @@ const faqs = [
   },
 ];
 
-// ─── inline components ────────────────────────────────────────────────────────
-
-function ProcessStep({ step, title, body }: { step: number; title: string; body: string }) {
-  return (
-    <div className="flex gap-4 sm:gap-5">
-      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-deepInlet text-sm font-bold text-white">
-        {step}
-      </div>
-      <div className="pt-0.5">
-        <p className="font-semibold text-deepInlet">{title}</p>
-        <p className="mt-1 text-sm leading-6 text-slateText">{body}</p>
-      </div>
-    </div>
-  );
-}
-
-function CheckGroup({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <p className="mb-3 font-semibold text-deepInlet">{title}</p>
-      <ul className="space-y-2">
-        {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm text-slateText">
-            <span className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border border-softBorder" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 // ─── page ─────────────────────────────────────────────────────────────────────
 
 export default function SellPage() {
@@ -396,9 +366,9 @@ export default function SellPage() {
         tone="white"
       >
         <div className="grid gap-8 md:grid-cols-3">
-          <CheckGroup title="All properties" items={allSellerChecklist} />
-          <CheckGroup title="Condos and townhouses" items={strataSellerChecklist} />
-          <CheckGroup title="Detached homes" items={detachedSellerChecklist} />
+          <ChecklistPanel title="All properties" items={allSellerChecklist.map((label) => ({ label }))} color="forest" />
+          <ChecklistPanel title="Condos and townhouses" items={strataSellerChecklist.map((label) => ({ label }))} color="forest" />
+          <ChecklistPanel title="Detached homes" items={detachedSellerChecklist.map((label) => ({ label }))} color="forest" />
         </div>
         <div className="mt-8">
           <VerificationNote note="This checklist is for general orientation. Consult qualified professionals for legal, financial, and inspection-related matters specific to your property." />
