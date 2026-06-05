@@ -1,3 +1,4 @@
+import { Target, MapPin, FileSearch, BarChart2 } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
@@ -25,10 +26,10 @@ const roleCards = [
 ];
 
 const approachCards = [
-  "Start with the decision, not just the listing.",
-  "Compare neighbourhood, building, complex, and lifestyle fit.",
-  "Verify school, strata, trail, listing, and property-specific details before relying on them.",
-  "Use local context to support buying, selling, moving, and long-term planning.",
+  { Icon: Target, text: "Start with the decision, not just the listing." },
+  { Icon: MapPin, text: "Compare neighbourhood, building, complex, and lifestyle fit." },
+  { Icon: FileSearch, text: "Verify school, strata, trail, listing, and property-specific details before relying on them." },
+  { Icon: BarChart2, text: "Use local context to support buying, selling, moving, and long-term planning." },
 ];
 
 const nextStepCards = [
@@ -91,10 +92,13 @@ export default function MeetUsPage() {
       </Section>
 
       <Section title="Why Port Moody" intro="The site is built around local resident perspective, practical real estate decisions, and the details people need before choosing an area or property.">
-        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-          {approachCards.map((item) => (
-            <div key={item} className="p-5 text-sm font-semibold text-deepInlet">
-              {item}
+        <div className="grid gap-4 sm:grid-cols-2">
+          {approachCards.map(({ Icon, text }) => (
+            <div key={text} className="flex items-start gap-4 rounded-lg border border-softBorder bg-white p-5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest/10">
+                <Icon className="h-4 w-4 text-forest" />
+              </span>
+              <p className="text-sm font-semibold leading-6 text-deepInlet">{text}</p>
             </div>
           ))}
         </div>

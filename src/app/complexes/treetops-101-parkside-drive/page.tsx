@@ -473,7 +473,12 @@ export default function TreetopsPage() {
                 <article key={group.title} className="rounded-lg border border-softBorder bg-white p-5">
                   <h3 className="font-heading text-xl text-deepInlet">{group.title}</h3>
                   <ul className="mt-4 space-y-2 text-sm text-slateText">
-                    {group.items.map((item) => <li key={item}>□ {item}</li>)}
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-forest/50" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </article>
               ))}

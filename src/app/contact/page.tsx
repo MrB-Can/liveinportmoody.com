@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MessageCircle, Search, CheckCircle2 } from "lucide-react";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
@@ -64,6 +65,30 @@ export default function ContactPage() {
             description="Share the area, building, property type, listing, or decision you are weighing. We respond personally."
             tags={["source:liveinportmoody", "intent:general-local-question", "area:port-moody"]}
           />
+        </div>
+      </Section>
+
+      <Section title="What happens next" tone="white">
+        <div className="flex flex-col gap-0 sm:flex-row">
+          {[
+            { step: 1, Icon: MessageCircle, label: "Send your question", body: "Describe the area, building, property, or decision you are weighing." },
+            { step: 2, Icon: Search, label: "We review context", body: "Your question is matched to local neighbourhood, building, and market context." },
+            { step: 3, Icon: CheckCircle2, label: "Practical next step", body: "You receive a focused, personally written response — not a form email." },
+          ].map(({ step, Icon, label, body }, i, arr) => (
+            <div key={step} className="relative flex flex-1 flex-col items-start gap-3 rounded-lg border border-softBorder bg-mist p-6 sm:rounded-none sm:border-r-0 last:sm:border-r sm:first:rounded-l-lg sm:last:rounded-r-lg">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-white text-sm font-bold">
+                {step}
+              </span>
+              <Icon className="h-5 w-5 text-forest" />
+              <div>
+                <p className="font-semibold text-deepInlet">{label}</p>
+                <p className="mt-1 text-sm leading-6 text-slateText">{body}</p>
+              </div>
+              {i < arr.length - 1 && (
+                <span className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-softBorder sm:block text-xl">›</span>
+              )}
+            </div>
+          ))}
         </div>
       </Section>
 
