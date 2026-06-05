@@ -75,6 +75,11 @@ export default function HeritageM() {
       </section>
 
       <div className="mx-auto max-w-4xl px-5 py-12 space-y-16">
+        {/* Overview */}
+        <section>
+          <p className="text-slateText leading-7">Heritage Mountain is one of Port Moody&apos;s most desirable family neighbourhoods, known for its quiet streets, larger homes, beautiful mountain views, and strong sense of community. Families are drawn to the area for its highly regarded school catchments, including Heritage Mountain Elementary School, Eagle Mountain Middle School, and Heritage Woods Secondary School. The neighbourhood is surrounded by nature, with easy access to Bert Flinn Park and Mountain Meadows Park, offering hiking and biking trails, playgrounds, and green spaces for families to enjoy.</p>
+        </section>
+
         {/* Quick facts with bars */}
         <QuickFactsWithBars
           facts={[
@@ -203,10 +208,10 @@ export default function HeritageM() {
           <p className="text-slateText mb-6">Heritage Mountain offers excellent access to Port Moody parks and trails system.</p>
           <div className="grid gap-4 md:grid-cols-2">
             {[
-              { name: "Heritage Mountain Community Park", distance: "Walking distance" },
+              { name: "Bert Flinn Park", distance: "Nearby" },
+              { name: "Mountain Meadows Park", distance: "Nearby" },
+              { name: "Heritage Mountain Community Park", distance: "Within neighbourhood" },
               { name: "Port Moody Trails Network", distance: "Various locations" },
-              { name: "Ioco Shoreline Park", distance: "Nearby" },
-              { name: "Burrard Inlet Waterfront", distance: "Short drive" },
             ].map((item) => (
               <div key={item.name} className="rounded-lg border border-softBorder bg-mist p-4">
                 <p className="font-semibold text-deepInlet text-sm">{item.name}</p>
@@ -214,6 +219,12 @@ export default function HeritageM() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* What makes it special */}
+        <section className="space-y-3">
+          <h2 className="font-heading text-2xl text-deepInlet">What makes Heritage Mountain special</h2>
+          <p className="text-slateText leading-7">What makes Heritage Mountain special is its unique blend of peaceful residential living and everyday convenience. Residents enjoy feeling tucked away among the trees while still being minutes from shops, transit, Rocky Point Park, and Port Moody&apos;s vibrant community. It&apos;s a neighbourhood where kids ride bikes, neighbours know one another, and many families choose to stay for years.</p>
         </section>
 
         {/* Schools */}
@@ -229,8 +240,9 @@ export default function HeritageM() {
           </div>
           <div className="space-y-4">
             {[
+              { name: "Heritage Mountain Elementary School", type: "Elementary", catchment: "Check with SD43 for current catchment" },
+              { name: "Eagle Mountain Middle School", type: "Middle School", catchment: "Check with SD43 for current catchment" },
               { name: "Heritage Woods Secondary School", type: "Secondary", catchment: "Check with SD43 for current catchment" },
-              { name: "Port Moody Elementary School", type: "Elementary", catchment: "Check with SD43 for current catchment" },
             ].map((school) => (
               <div key={school.name} className="rounded-lg border border-softBorder bg-white p-4">
                 <h3 className="font-semibold text-deepInlet text-sm">{school.name}</h3>

@@ -10,7 +10,7 @@ export type PhotoStatus = "not_started" | "in_progress" | "complete" | "pending_
 
 export interface SchoolInfo {
   name: string;
-  type: "elementary" | "secondary" | "k-12";
+  type: "elementary" | "middle" | "secondary" | "k-12";
   assignmentNote?: string;
   district: string;
   verificationLink?: string;
@@ -90,6 +90,11 @@ export interface NeighbourhoodGuide {
   // Listings
   listingsConfig: NeighbourhoodListingsConfig;
 
+  // Canonical narrative content
+  overviewParagraph?: string;
+  whatMakesItSpecial?: string;
+  photos?: { src: string; alt: string }[];
+
   // Media & SEO
   photoStatus: PhotoStatus;
   heroImage?: string;
@@ -119,7 +124,9 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     publicUrl: "/neighbourhoods/heritage-mountain",
 
     shortSummary: "A forest-setting community with established townhouse complexes, quiet residential character, and excellent trail access.",
-    intro: "Heritage Mountain is a hillside Port Moody neighbourhood known for mature townhouse complexes and detached homes set among forest, established trees, and trail networks. It has a quieter, more residential feel than central Port Moody areas, with limited daily walkability but strong appeal for families seeking space, privacy, and nature access.",
+    intro: "A hillside, forest-connected Port Moody neighbourhood with established detached homes, family-oriented townhouse complexes, trail access, and a quieter residential feel than the walkable village areas closer to the inlet.",
+    overviewParagraph: "Heritage Mountain is one of Port Moody's most desirable family neighbourhoods, known for its quiet streets, larger homes, beautiful mountain views, and strong sense of community. Families are drawn to the area for its highly regarded school catchments, including Heritage Mountain Elementary School, Eagle Mountain Middle School, and Heritage Woods Secondary School. The neighbourhood is surrounded by nature, with easy access to Bert Flinn Park and Mountain Meadows Park, offering hiking and biking trails, playgrounds, and green spaces for families to enjoy.",
+    whatMakesItSpecial: "What makes Heritage Mountain special is its unique blend of peaceful residential living and everyday convenience. Residents enjoy feeling tucked away among the trees while still being minutes from shops, transit, Rocky Point Park, and Port Moody's vibrant community. It's a neighbourhood where kids ride bikes, neighbours know one another, and many families choose to stay for years.",
 
     bestFor: ["Families", "Townhouse buyers", "Trail enthusiasts", "Quiet living"],
     housingTypes: ["Townhouses", "Detached homes", "Some condos"],
@@ -132,25 +139,44 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     schools: [
       {
-        name: "Glenayre Elementary",
+        name: "Heritage Mountain Elementary School",
         type: "elementary",
-        assignmentNote: "Some homes may be associated with this school; verify exact address with SD43",
-        district: "School District 43 (Port Moody)",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Eagle Mountain Middle School",
+        type: "middle",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Heritage Woods Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
         verificationLink: "https://www.sd43.bc.ca"
       }
     ],
-    schoolVerificationNote: "School assignment can change and varies by exact address. Verify with SD43 before assuming enrollment.",
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) and the specific school for your exact address.",
 
     parks: [
       {
-        name: "Heritage Mountain Trail System",
-        features: ["Walking trails", "Forest paths", "Viewpoints"],
-        distance: "Within neighbourhood"
+        name: "Bert Flinn Park",
+        features: ["Hiking and biking trails", "Forest paths", "Natural setting"],
+        distance: "Nearby"
       },
       {
-        name: "Port Moody Parks & Trails Network",
-        features: ["Regional trails", "Parks", "Waterfront access"],
+        name: "Mountain Meadows Park",
+        features: ["Playgrounds", "Green spaces", "Family recreation"],
         distance: "Nearby"
+      },
+      {
+        name: "Heritage Mountain Community Park",
+        features: ["Walking trails", "Viewpoints"],
+        distance: "Within neighbourhood"
       }
     ],
 
@@ -242,7 +268,9 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Newer hillside neighbourhood with detached homes, quiet streets, and trail access.",
-    intro: "Heritage Woods is a newer Port Moody hillside neighbourhood featuring detached homes and some townhomes on quiet residential streets with access to the regional trail network. It appeals to buyers seeking newer construction, space, and a quieter setting. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Heritage Woods is a newer Port Moody hillside neighbourhood featuring detached homes and some townhomes on quiet residential streets with access to the regional trail network. It appeals to buyers seeking newer construction, space, and a quieter setting.",
+    overviewParagraph: "Heritage Woods is a highly sought-after neighbourhood in Port Moody known for its newer homes, stunning mountain and inlet views, and family-oriented atmosphere. Many families are drawn to the area because of its school catchments, including Aspenwood Elementary School, Eagle Mountain Middle School, and Heritage Woods Secondary School. Residents enjoy close access to Bert Flinn Park and nearby trail systems that connect nature directly to the community.",
+    whatMakesItSpecial: "What makes Heritage Woods special is the balance of larger modern homes, peaceful streets, and a strong sense of neighbourhood where families often stay for years.",
 
     bestFor: ["New construction buyers", "Growing families", "Quiet settings", "Trail access"],
     housingTypes: ["Detached homes", "Townhouses"],
@@ -253,10 +281,37 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Verify school assignment by exact address with SD43"
     ],
 
-    schools: [],
-    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any school assignment.",
+    schools: [
+      {
+        name: "Aspenwood Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Eagle Mountain Middle School",
+        type: "middle",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Heritage Woods Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
+      {
+        name: "Bert Flinn Park",
+        features: ["Hiking and biking trails", "Forest paths", "Natural setting"],
+        distance: "Nearby"
+      },
       {
         name: "Port Moody Parks Network",
         features: ["Community parks", "Trail access", "Recreation areas"],
@@ -328,7 +383,9 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Established hillside residential neighbourhood with detached homes and quiet streets.",
-    intro: "Mountain Meadows is a Port Moody residential neighbourhood with established detached homes on hillside streets, mature trees, and a quieter suburban character. It appeals to buyers seeking space and privacy in a more established setting. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Mountain Meadows is a Port Moody residential neighbourhood with established detached homes on hillside streets, mature trees, and a quieter suburban character. It appeals to buyers seeking space and privacy in a more established setting.",
+    overviewParagraph: "Mountain Meadows is a welcoming Port Moody neighbourhood popular with families for its quiet streets and convenient location. School catchments commonly include Mountain Meadows Elementary School, Eagle Mountain Middle School, and Heritage Woods Secondary School. The neighbourhood offers easy access to Mountain Meadows Park, walking trails, playgrounds, and nearby recreation.",
+    whatMakesItSpecial: "What makes Mountain Meadows special is the strong sense of community and the combination of family-friendly living with access to nature and everyday conveniences.",
 
     bestFor: ["Established homes", "Quiet residential living", "Families", "Privacy seekers"],
     housingTypes: ["Detached homes", "Some townhomes"],
@@ -339,14 +396,41 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Verify school assignment by exact address"
     ],
 
-    schools: [],
-    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any assignment.",
+    schools: [
+      {
+        name: "Mountain Meadows Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Eagle Mountain Middle School",
+        type: "middle",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Heritage Woods Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
       {
+        name: "Mountain Meadows Park",
+        features: ["Playgrounds", "Walking trails", "Family recreation"],
+        distance: "Within neighbourhood"
+      },
+      {
         name: "Port Moody Parks Network",
         features: ["Community parks", "Neighbourhood green spaces"],
-        distance: "Within and adjacent to neighbourhood"
+        distance: "Adjacent to neighbourhood"
       }
     ],
 
@@ -424,7 +508,9 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Downtown Port Moody with urban living, waterfront access, walkable streets, and vibrant community spaces.",
-    intro: "Moody Centre (also called Port Moody Centre) is the downtown core of Port Moody, featuring walkable streets, local shops, restaurants, waterfront parks, and vibrant community gathering spaces. It appeals to urban-lifestyle seekers, downsizers, and active buyers looking for convenience, walkability, and proximity to community events. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Port Moody Centre is the heart of the city, offering walkable streets, local shops, restaurants, waterfront parks, and vibrant community gathering spaces. It appeals to urban-lifestyle seekers, downsizers, and active buyers looking for convenience, walkability, and proximity to community events.",
+    overviewParagraph: "Port Moody Centre is the heart of the city and offers an energetic mix of urban convenience and outdoor lifestyle. School catchments in the area commonly include Moody Elementary School and Port Moody Secondary School. Residents are steps away from Rocky Point Park, local shops, restaurants, and the popular brewery district. SkyTrain access makes commuting simple while still enjoying Port Moody's community atmosphere.",
+    whatMakesItSpecial: "What makes Port Moody Centre special is being able to walk to nearly everything, coffee shops, trails, parks, shopping, and the waterfront, creating a lifestyle many people fall in love with.",
 
     bestFor: ["Urban lifestyle", "Downsizers", "Walkability seekers", "Active/social buyers", "Professionals"],
     housingTypes: ["Condos", "Townhouses", "Apartments", "Mixed-use residential"],
@@ -436,14 +522,29 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Downtown is actively revitalizing; verify construction context near your address"
     ],
 
-    schools: [],
-    schoolVerificationNote: "School assignment in central Port Moody can vary significantly by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify exact school assignment for your property address before relying on any school assumption.",
+    schools: [
+      {
+        name: "Moody Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Port Moody Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
       {
-        name: "Port Moody Waterfront Parks",
+        name: "Rocky Point Park",
         features: ["Waterfront access", "Walking paths", "Community gathering spaces", "Scenic views"],
-        distance: "Downtown location"
+        distance: "Walking distance"
       },
       {
         name: "Moody Park",
@@ -523,7 +624,9 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Quiet residential neighbourhood with detached homes, mature trees, parks, and peaceful family-focused character.",
-    intro: "Glenayre is a quiet, established Port Moody neighbourhood characterised by detached homes on varied lot sizes, mature trees, and community calm. It appeals to families and buyers prioritizing privacy, space, established character, and proximity to schools and parks over urban walkability. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Glenayre is a quiet, established Port Moody neighbourhood with detached homes on varied lot sizes, mature trees, and community calm. It appeals to families and buyers prioritizing privacy, space, established character, and proximity to schools and parks.",
+    overviewParagraph: "Glenayre is one of Port Moody's hidden gems, known for its quiet streets, established homes, and strong neighbourhood pride. Families are often attracted to the area because of school catchments including Glenayre Elementary School and Port Moody Secondary School. The neighbourhood is surrounded by green spaces with easy access to Glenayre Community Centre and nearby walking trails and parks.",
+    whatMakesItSpecial: "What makes Glenayre special is its small-community feel, many residents know their neighbours, children play outside together, and families often stay for generations because of the welcoming atmosphere and central location.",
 
     bestFor: ["Families with children", "Quiet living", "Privacy seekers", "Established community"],
     housingTypes: ["Detached homes", "Some townhouses", "Varied lot sizes"],
@@ -536,23 +639,30 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
 
     schools: [
       {
-        name: "Glenayre Elementary",
+        name: "Glenayre Elementary School",
         type: "elementary",
-        assignmentNote: "Some homes in the area may be associated with this school; verify exact address with SD43 School Locator",
-        district: "School District 43 (Port Moody)",
-        verificationLink: "https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx"
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Port Moody Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
       }
     ],
-    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) or contact SD43 directly before relying on any assignment.",
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
       {
-        name: "Port Moody Parks System",
-        features: ["Community parks", "Playgrounds", "Recreation facilities"],
+        name: "Glenayre Community Centre",
+        features: ["Recreation facilities", "Community programs", "Green spaces"],
         distance: "Within neighbourhood"
       },
       {
-        name: "Trail access to regional network",
+        name: "Port Moody Parks System",
         features: ["Walking trails", "Community pathways", "Regional connections"],
         distance: "Adjacent to neighbourhood"
       }
@@ -629,10 +739,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     areaType: "port_moody_neighbourhood",
     status: "preview",
 
-    shortSummary: "A quieter west-side Port Moody neighbourhood with hillside streets, established housing, and access toward Barnet Highway, Burnaby, and SFU.",
-    intro: "College Park is a west-side Port Moody residential neighbourhood often researched by buyers who want a quieter setting with access toward Barnet Highway, Burnaby, and SFU. It offers established housing and recreation access, but slope, driveway grade, walkability, transit, park amenities, and school assignment should be checked by exact address. This guide is a neighbourhood preview — information is being expanded.",
+    shortSummary: "A family-friendly Port Moody neighbourhood with larger lots, established homes, and convenient access to SkyTrain and trails.",
+    intro: "College Park is a family-friendly Port Moody neighbourhood offering a peaceful residential setting surrounded by nature, with larger lots, established homes, and convenient access to SkyTrain and major commuter routes.",
+    overviewParagraph: "College Park is a family-friendly neighbourhood in Port Moody that offers a peaceful residential setting surrounded by nature. The area is popular with families thanks to school catchments such as Seaview Community School and Port Moody Secondary School. Residents enjoy easy access to Westhill Park, local trails, and nearby green spaces.",
+    whatMakesItSpecial: "What makes College Park special is its larger lots, established homes, and strong community feel while still being conveniently located near SkyTrain, shopping, and major commuter routes.",
 
-    bestFor: ["West-side Port Moody access", "Quieter residential buyers", "Hillside-home researchers", "Buyers comparing Burnaby/SFU routes"],
+    bestFor: ["Families", "Larger lots", "Established homes", "Commuter access"],
     housingTypes: ["Detached homes", "Townhouses", "Established residential properties"],
     tradeOffs: [
       "Hillside streets, driveway grade, and drainage can matter by property",
@@ -641,14 +753,34 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Established housing may require renovation, maintenance, or strata due diligence"
     ],
 
-    schools: [],
-    schoolVerificationNote: "School assignment varies by exact address. Use the SD43 School Locator or contact SD43 directly before relying on any elementary, middle, secondary, program, or capacity assumption.",
+    schools: [
+      {
+        name: "Seaview Community School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Port Moody Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
       {
-        name: "Westhill-area recreation",
-        features: ["Park and recreation context to verify", "Family recreation areas"],
-        distance: "Nearby for some addresses; verify exact access"
+        name: "Westhill Park",
+        features: ["Family recreation", "Green spaces", "Trails"],
+        distance: "Nearby"
+      },
+      {
+        name: "West-side Port Moody trail connections",
+        features: ["Walking trails", "Community pathways"],
+        distance: "Adjacent to neighbourhood"
       }
     ],
     trails: [
@@ -1111,10 +1243,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     areaType: "port_moody_neighbourhood",
     status: "preview",
 
-    shortSummary: "West Port Moody established residential area with detached homes and Barnet Highway access.",
-    intro: "Barber Street is a west Port Moody residential area characterized by established detached homes on quiet streets, with relatively convenient access to Barnet Highway, Burnaby, and regional routes. It appeals to buyers who want a quieter residential setting without the hillside complexity of College Park or the remoteness of the north shore areas. This guide is a neighbourhood preview — information is being expanded.",
+    shortSummary: "A highly desirable Port Moody neighbourhood with stunning inlet views, larger properties, and waterfront access.",
+    intro: "Barber Street is a highly desirable Port Moody neighbourhood known for its stunning inlet views, larger properties, and peaceful atmosphere with quick access to Old Orchard Park and nearby waterfront areas.",
+    overviewParagraph: "Barber Street is a highly desirable Port Moody neighbourhood known for its stunning inlet views, larger properties, and peaceful atmosphere. Families in the area often fall within catchments including Pleasantside Elementary School and Port Moody Secondary School. Residents enjoy quick access to Old Orchard Park and nearby waterfront areas.",
+    whatMakesItSpecial: "What makes Barber Street special is its unique mix of privacy, nature, and incredible water views while remaining only minutes from shops, restaurants, and transit.",
 
-    bestFor: ["Established residential buyers", "West-side access", "Quieter streets", "Detached home buyers"],
+    bestFor: ["Inlet views", "Larger properties", "Waterfront access", "Peaceful atmosphere"],
     housingTypes: ["Detached homes", "Some townhomes"],
     tradeOffs: [
       "Limited daily walkability; most errands require a car",
@@ -1123,10 +1257,30 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Verify school assignment by exact address"
     ],
 
-    schools: [],
-    schoolVerificationNote: "School assignment varies by specific address. Use the SD43 School Locator (https://www.sd43.bc.ca/Schools/Registration/Pages/default.aspx) to verify for your exact address.",
+    schools: [
+      {
+        name: "Pleasantside Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Port Moody Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
 
     parks: [
+      {
+        name: "Old Orchard Park",
+        features: ["Waterfront access", "Beaches", "Walking paths"],
+        distance: "Nearby"
+      },
       {
         name: "Local neighbourhood parks",
         features: ["Community green spaces", "Nearby recreation access"],
@@ -1296,6 +1450,113 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     longitude: -122.862
   },
 
+  {
+    name: "North Shore Port Moody",
+    slug: "north-shore-port-moody",
+    municipality: "Port Moody",
+    areaType: "port_moody_neighbourhood",
+    status: "preview",
+
+    shortSummary: "A waterfront area with character homes, relaxed community feel, and access to Old Orchard Park and Rocky Point Park.",
+    intro: "North Shore Port Moody offers a unique blend of waterfront living, character homes, and a relaxed community feel with access to parks, beaches, and walking paths along the inlet.",
+    overviewParagraph: "North Shore Port Moody offers a unique blend of waterfront living, character homes, and a relaxed community feel. The area provides access to school catchments such as Pleasantside Elementary School and Port Moody Secondary School. Residents love being close to Old Orchard Park and Rocky Point Park where beaches, walking paths, and waterfront activities create an incredible lifestyle.",
+    whatMakesItSpecial: "What makes North Shore Port Moody special is its laid-back atmosphere and feeling of being tucked away in nature while remaining close to the city.",
+
+    bestFor: ["Waterfront lifestyle", "Character homes", "Privacy seekers", "Nature-oriented buyers"],
+    housingTypes: ["Detached homes", "Character properties"],
+    tradeOffs: [
+      "Car-dependent for most daily errands",
+      "Limited transit access compared to central areas",
+      "Winding roads; verify access for your specific property",
+      "Verify school assignment by exact address"
+    ],
+
+    schools: [
+      {
+        name: "Pleasantside Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Port Moody Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
+    schoolVerificationNote: "School catchments can change. Verify current boundaries directly with School District 43 (SD43) for your exact address.",
+
+    parks: [
+      {
+        name: "Old Orchard Park",
+        features: ["Beaches", "Walking paths", "Waterfront activities"],
+        distance: "Nearby"
+      },
+      {
+        name: "Rocky Point Park",
+        features: ["Waterfront access", "Walking trails", "Community spaces"],
+        distance: "Nearby"
+      }
+    ],
+
+    trails: [
+      {
+        name: "North shore waterfront paths",
+        type: "walking",
+        difficulty: "easy"
+      }
+    ],
+
+    transitAndAccess: "Limited transit access. Car helpful for most daily errands and services. Verify specific transit options for your exact address.",
+    walkabilityNotes: "Limited daily walkability. The area's appeal is its waterfront character and proximity to parks rather than urban convenience. Most residents drive for errands and services.",
+
+    buyerNotes: [
+      "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
+      "Verify school assignment with SD43 for the exact address",
+      "Assess travel routes given the distance from SkyTrain and central Port Moody",
+      "Check road access conditions for the specific property"
+    ],
+
+    sellerNotes: [
+      "Highlight waterfront character, views, privacy, and park proximity",
+      "Be transparent about car dependence and distance from urban amenities",
+      "Market to buyers seeking a relaxed, nature-oriented lifestyle"
+    ],
+
+    relatedComplexes: [],
+    relatedBuildings: [],
+
+    listingsConfig: {
+      mode: "fallback",
+      disclosure: "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included."
+    },
+
+    photoStatus: "not_started",
+    mapLabel: "North Shore Port Moody",
+    seoTitle: "North Shore Port Moody Neighbourhood Guide",
+    seoDescription: "North Shore Port Moody neighbourhood guide featuring waterfront living, character homes, Old Orchard Park, Rocky Point Park, and community lifestyle.",
+
+    faq: [
+      {
+        question: "What makes North Shore Port Moody different from other areas?",
+        answer: "North Shore Port Moody has a laid-back, waterfront character with access to Old Orchard Park and Rocky Point Park. It offers privacy and a relaxed atmosphere while remaining close to central Port Moody."
+      },
+      {
+        question: "Which schools serve North Shore Port Moody?",
+        answer: "School catchments commonly include Pleasantside Elementary School and Port Moody Secondary School. Verify exact assignment with SD43 for your specific address before relying on any school assumption."
+      },
+      {
+        question: "Is North Shore Port Moody walkable?",
+        answer: "No. The area is car-dependent for daily errands. Its appeal is waterfront access, park proximity, and a relaxed community feel rather than walkable urban convenience."
+      }
+    ],
+    latitude: 49.295,
+    longitude: -122.876
+  },
+
   // Keep this draft — slug does not match any active sprint target route
   {
     name: "North Shore / Ioco / Pleasantside",
@@ -1346,10 +1607,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     areaType: "nearby_community",
     status: "preview",
 
-    shortSummary: "A quiet rural municipality adjacent to Port Moody with larger lots, acreage, and forest setting.",
-    intro: "Anmore is a separate rural municipality adjacent to Port Moody, offering larger lots, acreage properties, and a forested setting. It is sometimes considered by Port Moody buyers who want more land, privacy, and rural character. Anmore operates as its own municipality with separate property taxes, bylaws, and services from the City of Port Moody. This guide is a nearby community preview — information is being expanded.",
+    shortSummary: "A quiet rural municipality adjacent to Port Moody with estate-style properties, Buntzen Lake access, and a country-style lifestyle.",
+    intro: "Anmore is a separate rural municipality adjacent to Port Moody, offering estate-style properties, larger lots, and a forested setting with access to Buntzen Lake and extensive hiking and biking trails.",
+    overviewParagraph: "Anmore offers a unique lifestyle for those looking for privacy, space, and a connection to nature. Known for its estate-style properties and larger lots, the area attracts families seeking a quieter pace of life. School catchments often include Anmore Elementary School and Heritage Woods Secondary School. Outdoor lovers appreciate being close to Buntzen Lake and countless hiking and biking trails.",
+    whatMakesItSpecial: "What makes Anmore special is the rare opportunity to enjoy country-style living while remaining just minutes from Port Moody amenities and transit.",
 
-    bestFor: ["Larger lots and acreage", "Privacy seekers", "Rural lifestyle", "Forest setting"],
+    bestFor: ["Estate-style properties", "Privacy seekers", "Nature and trail access", "Larger lots"],
     housingTypes: ["Detached homes on larger lots", "Some acreage properties"],
     tradeOffs: [
       "Separate municipality — taxes, bylaws, and services differ from Port Moody",
@@ -1359,10 +1622,30 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Limited local amenities; most services require driving to Port Moody or Coquitlam"
     ],
 
-    schools: [],
+    schools: [
+      {
+        name: "Anmore Elementary School",
+        type: "elementary",
+        assignmentNote: "Verify exact address assignment — Anmore is a separate municipality, school district may differ from SD43",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      },
+      {
+        name: "Heritage Woods Secondary School",
+        type: "secondary",
+        assignmentNote: "Verify exact address assignment with the applicable school district",
+        district: "School District 43 (Coquitlam)",
+        verificationLink: "https://www.sd43.bc.ca"
+      }
+    ],
     schoolVerificationNote: "Anmore is a separate municipality. School district assignment may differ from Port Moody SD43. Verify school assignment by exact address before making any assumptions.",
 
     parks: [
+      {
+        name: "Buntzen Lake",
+        features: ["Swimming", "Hiking and biking trails", "Nature-based recreation"],
+        distance: "Nearby"
+      },
       {
         name: "Regional park and trail access",
         features: ["Forest trails", "Nature access", "Regional park connections"],
@@ -1443,10 +1726,12 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     areaType: "nearby_community",
     status: "preview",
 
-    shortSummary: "A very small, remote municipality adjacent to Port Moody near Belcarra Regional Park with waterfront character.",
-    intro: "Belcarra is an extremely small, quiet, and remote municipality adjacent to Port Moody and Belcarra Regional Park, offering detached homes with a waterfront and forest character. It is occasionally considered by Port Moody buyers who want maximum privacy and nature access. Belcarra is a separate municipality with its own taxes and services, and has almost no local amenities. This guide is a nearby community preview — information is being expanded.",
+    shortSummary: "One of the Lower Mainland's most scenic communities, centered around nature and Belcarra Regional Park.",
+    intro: "Belcarra is one of the Lower Mainland's most scenic communities, offering a lifestyle centered around nature and outdoor recreation, with Belcarra Regional Park, hiking trails, beaches, and kayaking on the doorstep.",
+    overviewParagraph: "Belcarra is one of the Lower Mainland's most scenic communities, offering a lifestyle centered around nature and outdoor recreation. Families living here often access nearby Port Moody school catchments while enjoying a quieter, rural atmosphere. Residents are surrounded by natural beauty including Belcarra Regional Park, hiking trails, beaches, and kayaking opportunities.",
+    whatMakesItSpecial: "What makes Belcarra special is its breathtaking coastal setting and the feeling of escaping city life while being only a short drive from Port Moody.",
 
-    bestFor: ["Maximum privacy", "Waterfront and nature character", "Remote living", "Belcarra Regional Park access"],
+    bestFor: ["Coastal and nature lifestyle", "Privacy seekers", "Belcarra Regional Park access", "Outdoor recreation"],
     housingTypes: ["Detached homes", "Some waterfront properties"],
     tradeOffs: [
       "Separate and very small municipality — minimal local services",

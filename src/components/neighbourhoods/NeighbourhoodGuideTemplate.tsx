@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LeadForm } from "@/components/lead-form";
 import { NeighbourhoodGuide } from "@/data/neighbourhoodGuides";
 import { Badge } from "@/components/ui/badge";
 import { QuickFactsWithBars } from "@/components/neighbourhoods/quick-facts-with-bars";
@@ -58,6 +59,13 @@ export function NeighbourhoodGuideTemplate({
       </section>
 
       <div className="mx-auto max-w-4xl space-y-12 px-5 py-10 md:py-12">
+        {/* Overview */}
+        {guide.overviewParagraph && (
+          <section>
+            <p className="text-slateText leading-7">{guide.overviewParagraph}</p>
+          </section>
+        )}
+
         {guide.status === "preview" && (
           <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
             {previewNote}
@@ -206,6 +214,27 @@ export function NeighbourhoodGuideTemplate({
           </section>
         )}
 
+        {/* What makes it special */}
+        {guide.whatMakesItSpecial && (
+          <section className="space-y-3">
+            <h2 className="font-heading text-2xl text-deepInlet">What makes it special</h2>
+            <p className="text-slateText leading-7">{guide.whatMakesItSpecial}</p>
+          </section>
+        )}
+
+        {/* Photo gallery */}
+        {guide.photos && guide.photos.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="font-heading text-2xl text-deepInlet">Photos</h2>
+            <div className="grid gap-3 md:grid-cols-2">
+              {guide.photos.map((photo, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={i} src={photo.src} alt={photo.alt} className="rounded-lg w-full object-cover aspect-video" />
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Transit & Walkability */}
         <section className="space-y-6">
           <div>
@@ -304,16 +333,29 @@ export function NeighbourhoodGuideTemplate({
           </section>
         )}
 
-        {/* CTA Section */}
-        <section className="rounded-lg bg-gradient-to-r from-forest/5 to-deepInlet/5 border border-softBorder p-8 text-center">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Have more questions about {guide.name}?</h2>
-          <p className="text-slateText mb-6">Get personalized guidance from a local expert</p>
-          <Link
-            href="/contact"
-            className="inline-block px-6 py-2 rounded-lg bg-forest text-white font-semibold hover:bg-deepInlet transition-colors"
-          >
-            Get in Touch
-          </Link>
+        {/* Contact CTA */}
+        <section className="rounded-lg border border-softBorder bg-white p-8">
+          <h2 className="font-heading text-2xl text-deepInlet mb-3">Questions about {guide.name}?</h2>
+          <p className="text-slateText mb-6">Whether you&apos;re a buyer, seller, or just exploring, Paul and Leilani can help.</p>
+          <div className="max-w-md">
+            <LeadForm
+              formType="ask-question"
+              leadType="buyer"
+              ctaLabel="Send a question"
+              title={`Ask about ${guide.name}`}
+              messageLabel={`What would you like to know about ${guide.name}?`}
+              resourceName={`${guide.name} neighbourhood guidance`}
+              tags={[
+                "source:liveinportmoody",
+                "intent:neighbourhood-guidance",
+                "lead_type:buyer",
+                `neighbourhood_name:${guide.name}`,
+                `neighbourhood_slug:${guide.slug}`,
+                `neighbourhood:${guide.slug}`,
+                "area:port-moody",
+              ]}
+            />
+          </div>
         </section>
       </div>
     </>
