@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import { trustItems } from "@/lib/site";
 
 export function TrustStrip() {
@@ -8,7 +9,7 @@ export function TrustStrip() {
           {trustItems.map((item) => (
             <div key={item.title} className="flex items-start gap-3">
               <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seaGlass/15">
-                <span className="text-sm font-bold text-forest" aria-hidden="true">✓</span>
+                <Check className="h-4 w-4 text-forest" aria-hidden="true" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-deepInlet">{item.title}</p>

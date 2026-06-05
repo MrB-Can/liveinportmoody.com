@@ -18,7 +18,7 @@ export function IconBadge({ icon: Icon, label, color = 'forest', size = 'md' }: 
     forest: 'bg-forest/10 text-forest border-forest/20',
     blue: 'bg-blue-100/50 text-blue-700 border-blue-200',
     sea: 'bg-sea/10 text-sea border-sea/20',
-    sand: 'bg-sand/20 text-sand-dark border-sand/40',
+    sand: 'bg-warmSand text-deepInlet border-softBorder',
     slate: 'bg-slate-100/50 text-slate-700 border-slate-200',
   };
 

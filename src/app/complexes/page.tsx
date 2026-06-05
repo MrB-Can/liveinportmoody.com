@@ -323,7 +323,7 @@ export default function ComplexesPage() {
               <CTAButton href="/listings">View townhouse listings</CTAButton>
             </div>
           </div>
-          <div id="ask-about-a-complex" className="rounded-lg border border-softBorder bg-sand p-6">
+          <div id="ask-about-a-complex" className="rounded-lg border border-softBorder bg-warmSand p-6">
             <LeadForm
               formType="complex-inquiry"
               leadType="buyer"

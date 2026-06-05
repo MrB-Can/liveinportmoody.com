@@ -44,7 +44,7 @@ export function TeamSection() {
         </div>
 
         {/* CTA */}
-        <div className="rounded-lg border border-softBorder bg-sand p-8 text-center">
+        <div className="rounded-lg border border-softBorder bg-warmSand p-8 text-center">
           <h3 className="font-heading text-2xl text-deepInlet mb-3">Have a Port Moody real estate question?</h3>
           <p className="text-slateText mb-6 max-w-2xl mx-auto">
             Ask us what you are trying to figure out and we will point you in the right direction.

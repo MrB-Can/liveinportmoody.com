@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
+import { CheckCircle2, XCircle } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Moving to Port Moody | Neighbourhoods, Lifestyle, Housing and Local Guidance",
@@ -186,7 +187,7 @@ export default function MoveToPortMoodyPage() {
         <ul className="space-y-3">
           {mayFitBullets.map((bullet, idx) => (
             <li key={idx} className="flex gap-3 text-slateText">
-              <span className="flex-shrink-0 text-forest font-bold">✓</span>
+              <CheckCircle2 className="h-5 w-5 text-forest flex-shrink-0 mt-0.5" />
               <span>{bullet}</span>
             </li>
           ))}
@@ -200,7 +201,7 @@ export default function MoveToPortMoodyPage() {
           <ul className="space-y-3">
             {mayNotFitBullets.map((bullet, idx) => (
               <li key={idx} className="flex gap-3 text-slateText">
-                <span className="flex-shrink-0 text-emphasis font-bold">✕</span>
+                <XCircle className="h-5 w-5 text-emphasis flex-shrink-0 mt-0.5" />
                 <span>{bullet}</span>
               </li>
             ))}
@@ -368,7 +369,7 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Relocation CTA */}
-      <section id="relocation-guidance" className="mx-auto max-w-4xl px-5 py-12 bg-sand">
+      <section id="relocation-guidance" className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
         <div className="rounded-lg border border-softBorder bg-white p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure where to start?</h2>
           <p className="text-slateText mb-6">

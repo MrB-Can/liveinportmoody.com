@@ -18,7 +18,7 @@ export function ChecklistPanel({ title, items, color = 'forest', columns = 1 }: 
     forest: { bg: 'bg-forest/5', border: 'border-forest/20', icon: 'text-forest', title: 'text-forest' },
     blue: { bg: 'bg-blue-100/40', border: 'border-blue-200', icon: 'text-blue-600', title: 'text-blue-700' },
     sea: { bg: 'bg-sea/5', border: 'border-sea/20', icon: 'text-sea', title: 'text-sea' },
-    sand: { bg: 'bg-sand/10', border: 'border-sand/30', icon: 'text-sand-dark', title: 'text-sand-dark' },
+    sand: { bg: 'bg-warmSand', border: 'border-softBorder', icon: 'text-emphasis', title: 'text-deepInlet' },
   };
 
   const colors = colorClasses[color];

@@ -16,7 +16,7 @@ export function QuickFactsIconRow({ facts, color = 'forest' }: QuickFactsIconRow
     forest: { icon: 'text-forest', label: 'text-forest', bg: 'bg-forest/5' },
     blue: { icon: 'text-blue-600', label: 'text-blue-700', bg: 'bg-blue-50' },
     sea: { icon: 'text-sea', label: 'text-sea', bg: 'bg-sea/5' },
-    sand: { icon: 'text-sand-dark', label: 'text-sand-dark', bg: 'bg-sand/5' },
+    sand: { icon: 'text-emphasis', label: 'text-slateText', bg: 'bg-warmSand' },
   };
 
   const colors = colorClasses[color];

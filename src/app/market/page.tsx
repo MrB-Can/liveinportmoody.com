@@ -139,7 +139,7 @@ export default function MarketPage() {
 
       {/* Market Intelligence Note */}
       <section className="mx-auto max-w-4xl px-5 py-12">
-        <div className="rounded-lg border border-softBorder bg-sand p-6">
+        <div className="rounded-lg border border-softBorder bg-warmSand p-6">
           <p className="text-sm text-slateText leading-6">
             This page provides qualitative local market context. Live statistics, recent sales, and detailed valuation work should be reviewed with current, approved data before making a decision.
           </p>
@@ -247,7 +247,7 @@ export default function MarketPage() {
 
       {/* Market Question CTA */}
       <section id="ask-market" className="mx-auto max-w-4xl px-5 py-12">
-        <div className="rounded-lg border border-softBorder bg-sand p-8">
+        <div className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Have a Port Moody market question?</h2>
           <p className="text-slateText mb-6">Ask about a specific property, area, neighbourhood, building, complex, or property type market context.</p>
           <div className="max-w-md">

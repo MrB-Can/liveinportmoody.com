@@ -222,7 +222,7 @@ export default function HeritageM() {
             <GraduationCap className="h-6 w-6 text-forest" />
             Schools & catchment verification
           </h2>
-          <div className="rounded-lg border border-softBorder bg-sand p-6 mb-6">
+          <div className="rounded-lg border border-softBorder bg-warmSand p-6 mb-6">
             <p className="text-sm text-slateText">
               <span className="font-semibold">Important:</span> School catchments can change. Verify current boundaries directly with School District 43 (SD43) and the specific schools listed below.
             </p>
@@ -312,7 +312,7 @@ export default function HeritageM() {
         </section>
 
         {/* Listings CTA */}
-        <section className="rounded-lg border border-softBorder bg-sand p-8">
+        <section className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Looking for a home in Heritage Mountain?</h2>
           <p className="text-slateText mb-6">View active listings or ask for local guidance.</p>
           <div className="grid gap-4 md:grid-cols-2 mb-6">

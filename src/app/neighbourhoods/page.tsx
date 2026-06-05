@@ -216,7 +216,7 @@ export default function NeighbourhoodsPage() {
 
       {/* Guidance CTA */}
       <section className="mx-auto max-w-4xl px-5 py-12">
-        <div className="rounded-lg border border-softBorder bg-sand p-8">
+        <div className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure which neighbourhood fits you?</h2>
           <p className="text-slateText mb-6">
             Tell us about your lifestyle, work location, budget range, property type, and must-haves. We will point you toward the areas that make the most sense.
