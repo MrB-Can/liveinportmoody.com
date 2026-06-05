@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { type LucideIcon, Navigation, Eye, FileCheck, Hammer, Car, Trees, Waves, GraduationCap, Map, Building2 } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
@@ -33,17 +34,17 @@ const propertyTypeCards = [
   },
 ];
 
-const valueDrivers = [
-  "Walkability and transit",
-  "Views, exposure, and privacy",
-  "Strata health",
-  "Renovation level",
-  "Parking and storage",
-  "Outdoor space",
-  "Trails and lifestyle access",
-  "School-area demand",
-  "Lot, slope, drainage, and trees",
-  "Development or density context",
+const valueDrivers: { icon: LucideIcon; label: string }[] = [
+  { icon: Navigation, label: "Walkability and transit" },
+  { icon: Eye, label: "Views, exposure, and privacy" },
+  { icon: FileCheck, label: "Strata health" },
+  { icon: Hammer, label: "Renovation level" },
+  { icon: Car, label: "Parking and storage" },
+  { icon: Trees, label: "Outdoor space" },
+  { icon: Waves, label: "Trails and lifestyle access" },
+  { icon: GraduationCap, label: "School-area demand" },
+  { icon: Map, label: "Lot, slope, drainage, and trees" },
+  { icon: Building2, label: "Development or density context" },
 ];
 
 const buyerCompetitionAreas = [
@@ -166,8 +167,9 @@ export default function MarketPage() {
           <h2 className="font-heading text-2xl text-deepInlet mb-6">What changes value here?</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {valueDrivers.map((driver) => (
-              <div key={driver} className="rounded-lg border border-softBorder bg-white p-4">
-                <p className="text-sm font-semibold text-deepInlet">{driver}</p>
+              <div key={driver.label} className="rounded-lg border border-softBorder bg-white p-4">
+                <driver.icon className="h-5 w-5 text-forest mb-2" />
+                <p className="text-sm font-semibold text-deepInlet">{driver.label}</p>
               </div>
             ))}
           </div>

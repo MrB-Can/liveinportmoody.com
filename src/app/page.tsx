@@ -1,3 +1,4 @@
+import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -53,13 +54,13 @@ const decisionCards = [
   },
 ];
 
-const glanceTiles = [
-  "Waterfront lifestyle",
-  "SkyTrain access",
-  "Forest trails",
-  "Family neighbourhoods",
-  "Village-style condo areas",
-  "Limited land supply",
+const glanceTiles: { label: string; icon: LucideIcon }[] = [
+  { label: "Waterfront lifestyle", icon: Waves },
+  { label: "SkyTrain access", icon: Train },
+  { label: "Forest trails", icon: Trees },
+  { label: "Family neighbourhoods", icon: Users },
+  { label: "Village-style condo areas", icon: Home },
+  { label: "Limited land supply", icon: MapPin },
 ];
 
 const guideFocusCards = [
@@ -317,8 +318,9 @@ export default function HomePage() {
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {glanceTiles.map((tile) => (
-            <div key={tile} className="rounded-lg border border-softBorder bg-white px-5 py-4 font-semibold text-deepInlet">
-              {tile}
+            <div key={tile.label} className="rounded-lg border border-softBorder bg-white px-5 py-4 font-semibold text-deepInlet">
+              <tile.icon className="h-6 w-6 text-forest mb-3" />
+              {tile.label}
             </div>
           ))}
         </div>
