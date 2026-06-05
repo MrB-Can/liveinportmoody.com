@@ -433,7 +433,7 @@ export default function TreetopsPage() {
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {commuteTiles.map(([title, body]) => (
                 <article key={title} className="rounded-lg border border-softBorder bg-white p-5">
-                  <Train className="mb-2 h-4 w-4 text-forest/60" />
+                  <Car className="mb-2 h-4 w-4 text-forest/60" />
                   <h3 className="font-semibold text-deepInlet">{title}</h3>
                   <p className="mt-2 text-sm text-slateText">{body}</p>
                 </article>
