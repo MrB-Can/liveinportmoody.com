@@ -1,3 +1,4 @@
+import { type LucideIcon, Building2, Home, Trees } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
@@ -18,16 +19,19 @@ const understandingItems = [
   "For strata properties, the building or complex can matter as much as the unit itself.",
 ];
 
-const propertyTypes = [
+const propertyTypes: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Building2,
     title: "Condos",
     body: "Often the most accessible first purchase in central Port Moody areas, but strata fees, insurance, parking, storage, exposure, noise, and building history need careful review.",
   },
   {
+    icon: Home,
     title: "Townhouses",
     body: "Can offer more space and function, but buyers should compare strata documents, exterior responsibilities, parking, outdoor space, and maintenance planning.",
   },
   {
+    icon: Trees,
     title: "Detached homes",
     body: "Usually require a larger budget and more maintenance planning. Condition, lot usability, drainage, updates, and future repair costs matter.",
   },
@@ -121,6 +125,7 @@ export default function FirstTimeHomeBuyersPage() {
         <div className="grid gap-5 md:grid-cols-3">
           {propertyTypes.map((item) => (
             <div key={item.title} className="rounded-lg border border-softBorder bg-white p-6">
+              <item.icon className="h-5 w-5 text-forest mb-3" />
               <h2 className="font-heading text-2xl text-deepInlet">{item.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{item.body}</p>
             </div>
@@ -130,8 +135,11 @@ export default function FirstTimeHomeBuyersPage() {
 
       <Section title="A practical first-time buying process" tone="white">
         <div className="grid gap-4 md:grid-cols-2">
-          {processSteps.map((step) => (
+          {processSteps.map((step, i) => (
             <article key={step.title} className="rounded-lg border border-softBorder bg-mist p-5">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-deepInlet text-xs font-bold text-white mb-3">
+                {i + 1}
+              </div>
               <h2 className="font-heading text-2xl text-deepInlet">{step.title}</h2>
               <p className="mt-3 text-sm leading-6 text-slateText">{step.body}</p>
             </article>
@@ -148,14 +156,14 @@ export default function FirstTimeHomeBuyersPage() {
       </Section>
 
       <Section title="Strata document basics">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="flex flex-wrap gap-2">
           {["Form B", "Strata minutes", "Depreciation report", "Insurance", "Bylaws and rules", "Contingency reserve fund"].map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-white p-5">
-              <p className="font-semibold text-deepInlet">{item}</p>
-              <p className="mt-2 text-sm leading-6 text-slateText">Review current documents for the specific property and get professional advice where needed.</p>
-            </div>
+            <span key={item} className="rounded-full border border-softBorder bg-mist px-4 py-2 text-sm font-semibold text-deepInlet">
+              {item}
+            </span>
           ))}
         </div>
+        <p className="mt-4 text-sm text-slateText">Review current documents for the specific property and get professional advice where needed.</p>
       </Section>
 
       <Section title="Common first-time buyer mistakes" tone="white">
