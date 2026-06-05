@@ -4,6 +4,7 @@ import { createMetadata } from "@/lib/seo";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { FAQAccordion } from "@/components/faq-accordion";
+import { Section } from "@/components/section";
 
 export const metadata = createMetadata({
   title: "Port Moody Market Intelligence",
@@ -149,8 +150,7 @@ export default function MarketPage() {
       </section>
 
       {/* Property Type Market Cards */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-6">Property types in Port Moody</h2>
+      <Section tone="white" title="Property types in Port Moody">
         <div className="space-y-4">
           {propertyTypeCards.map((card) => (
             <div key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
@@ -159,29 +159,26 @@ export default function MarketPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* What Changes Value */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-6">What changes value here?</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {valueDrivers.map((driver) => (
-              <div key={driver.label} className="rounded-lg border border-softBorder bg-white p-4">
-                <driver.icon className="h-5 w-5 text-forest mb-2" />
-                <p className="text-sm font-semibold text-deepInlet">{driver.label}</p>
-              </div>
-            ))}
-          </div>
+      <Section tone="mist" title="What changes value here?">
+        <div className="grid gap-4 md:grid-cols-2">
+          {valueDrivers.map((driver) => (
+            <div key={driver.label} className="rounded-lg border border-softBorder bg-white p-4">
+              <driver.icon className="h-5 w-5 text-forest mb-2" />
+              <p className="text-sm font-semibold text-deepInlet">{driver.label}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Buyer Competition Context */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Where buyers tend to compete</h2>
-        <p className="text-slateText mb-6">
-          Competition changes with inventory, pricing, season, rates, property condition, and buyer confidence.
-        </p>
+      <Section
+        tone="white"
+        title="Where buyers tend to compete"
+        intro="Competition changes with inventory, pricing, season, rates, property condition, and buyer confidence."
+      >
         <div className="grid gap-4 md:grid-cols-2">
           {buyerCompetitionAreas.map((area) => (
             <div key={area} className="rounded-lg border border-softBorder bg-white p-4">
@@ -189,29 +186,28 @@ export default function MarketPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Seller Positioning Context */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">What sellers need to position clearly</h2>
-          <div className="grid gap-4 md:grid-cols-2 mb-6">
-            {sellerPositioningCards.map((card) => (
-              <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
-                <p className="text-sm font-semibold text-deepInlet">{card}</p>
-              </div>
-            ))}
-          </div>
-          <Link href="/sell" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-            Build a selling plan
-          </Link>
+      <Section tone="sand" title="What sellers need to position clearly">
+        <div className="grid gap-4 md:grid-cols-2 mb-6">
+          {sellerPositioningCards.map((card) => (
+            <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
+              <p className="text-sm font-semibold text-deepInlet">{card}</p>
+            </div>
+          ))}
         </div>
-      </section>
+        <Link href="/sell" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
+          Build a selling plan
+        </Link>
+      </Section>
 
       {/* Neighbourhood Market Context */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Port Moody is not one market</h2>
-        <p className="text-slateText mb-6">Each neighbourhood has a different buyer base, property type mix, and market behaviour.</p>
+      <Section
+        tone="white"
+        title="Port Moody is not one market"
+        intro="Each neighbourhood has a different buyer base, property type mix, and market behaviour."
+      >
         <div className="grid gap-4 md:grid-cols-2 mb-6">
           {neighbourhoodCards.map((neighbourhood) => (
             <div key={neighbourhood.name} className="rounded-lg border border-softBorder bg-white p-4">
@@ -223,30 +219,30 @@ export default function MarketPage() {
         <Link href="/neighbourhoods" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
           Compare neighbourhoods
         </Link>
-      </section>
+      </Section>
 
       {/* Strata and Property Risk Context */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Market value is not just list price</h2>
-          <p className="text-slateText mb-6">For strata properties, documents and condition can change real value more than list price.</p>
-          <div className="grid gap-4 md:grid-cols-2 mb-6">
-            {strataContextCards.map((card) => (
-              <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
-                <p className="text-sm font-semibold text-deepInlet">{card}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex gap-4 flex-wrap">
-            <Link href="/buildings" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-              Research condo buildings
-            </Link>
-            <Link href="/complexes" className="inline-block px-6 py-3 border border-forest text-forest rounded-lg font-semibold hover:bg-mist">
-              Research townhouse complexes
-            </Link>
-          </div>
+      <Section
+        tone="mist"
+        title="Market value is not just list price"
+        intro="For strata properties, documents and condition can change real value more than list price."
+      >
+        <div className="grid gap-4 md:grid-cols-2 mb-6">
+          {strataContextCards.map((card) => (
+            <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
+              <p className="text-sm font-semibold text-deepInlet">{card}</p>
+            </div>
+          ))}
         </div>
-      </section>
+        <div className="flex gap-4 flex-wrap">
+          <Link href="/buildings" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
+            Research condo buildings
+          </Link>
+          <Link href="/complexes" className="inline-block px-6 py-3 border border-forest text-forest rounded-lg font-semibold hover:bg-mist">
+            Research townhouse complexes
+          </Link>
+        </div>
+      </Section>
 
       {/* Market Question CTA */}
       <section id="ask-market" className="mx-auto max-w-4xl px-5 py-12">
@@ -267,14 +263,13 @@ export default function MarketPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-2">Frequently asked questions</h2>
-          <p className="text-slateText mb-8">Common questions about the Port Moody market and how to use this context.</p>
-
-          <FAQAccordion items={faqItems} />
-        </div>
-      </section>
+      <Section
+        tone="mist"
+        title="Frequently asked questions"
+        intro="Common questions about the Port Moody market and how to use this context."
+      >
+        <FAQAccordion items={faqItems} />
+      </Section>
     </>
   );
 }

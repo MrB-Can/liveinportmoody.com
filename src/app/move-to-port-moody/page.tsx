@@ -4,6 +4,7 @@ import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { FAQAccordion } from "@/components/faq-accordion";
+import { Section } from "@/components/section";
 
 export const metadata = createMetadata({
   title: "Moving to Port Moody | Neighbourhoods, Lifestyle, Housing and Local Guidance",
@@ -183,8 +184,7 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Is Port Moody a Fit - May Fit */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Port Moody may fit you if</h2>
+      <Section title="Port Moody may fit you if" tone="white">
         <ul className="space-y-3">
           {mayFitBullets.map((bullet, idx) => (
             <li key={idx} className="flex gap-3 text-slateText">
@@ -193,26 +193,22 @@ export default function MoveToPortMoodyPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
       {/* Is Port Moody a Fit - May Not Fit */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Port Moody may not fit you if</h2>
-          <ul className="space-y-3">
-            {mayNotFitBullets.map((bullet, idx) => (
-              <li key={idx} className="flex gap-3 text-slateText">
-                <XCircle className="h-5 w-5 text-emphasis flex-shrink-0 mt-0.5" />
-                <span>{bullet}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Section title="Port Moody may not fit you if" tone="mist">
+        <ul className="space-y-3">
+          {mayNotFitBullets.map((bullet, idx) => (
+            <li key={idx} className="flex gap-3 text-slateText">
+              <XCircle className="h-5 w-5 text-emphasis flex-shrink-0 mt-0.5" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* Lifestyle Decision Cards */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-6">Where to start based on your lifestyle</h2>
+      <Section title="Where to start based on your lifestyle" tone="white">
         <div className="grid gap-4 md:grid-cols-2">
           {lifestyleCards.map((card) => (
             <div key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
@@ -221,7 +217,7 @@ export default function MoveToPortMoodyPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Neighbourhood guide links */}
       <section className="mx-auto max-w-4xl px-5 pb-8">
@@ -243,29 +239,27 @@ export default function MoveToPortMoodyPage() {
       </section>
 
       {/* Housing Types */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">What can you buy in Port Moody?</h2>
-          <div className="grid gap-6 md:grid-cols-3 mb-6">
-            {housingTypeCards.map((card) => (
-              <div key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
-                <h3 className="font-semibold text-deepInlet mb-2">{card.title}</h3>
-                <p className="text-sm text-slateText">{card.description}</p>
-              </div>
-            ))}
-          </div>
-          <Link href="/buy" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
-            Compare property types
-          </Link>
+      <Section title="What can you buy in Port Moody?" tone="sand">
+        <div className="grid gap-6 md:grid-cols-3 mb-6">
+          {housingTypeCards.map((card) => (
+            <div key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
+              <h3 className="font-semibold text-deepInlet mb-2">{card.title}</h3>
+              <p className="text-sm text-slateText">{card.description}</p>
+            </div>
+          ))}
         </div>
-      </section>
+        <Link href="/buy" className="inline-block px-6 py-3 bg-forest text-white rounded-lg font-semibold hover:opacity-90">
+          Compare property types
+        </Link>
+      </Section>
 
       {/* Commute and Transit */}
-      <section id="transit" className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Commute and transit reality</h2>
-        <p className="text-slateText mb-6">
-          Port Moody has SkyTrain access, bus routes, major roads, and regional connections, but daily convenience depends heavily on the neighbourhood. Suter Brook, Newport Village, Klahanie, and Moody Centre feel very different from Heritage Mountain, College Park, Glenayre, Pleasantside, or Ioco.
-        </p>
+      <Section
+        id="transit"
+        title="Commute and transit reality"
+        intro="Port Moody has SkyTrain access, bus routes, major roads, and regional connections, but daily convenience depends heavily on the neighbourhood. Suter Brook, Newport Village, Klahanie, and Moody Centre feel very different from Heritage Mountain, College Park, Glenayre, Pleasantside, or Ioco."
+        tone="white"
+      >
         <div className="grid gap-4 md:grid-cols-2">
           {commuteCards.map((card) => (
             <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
@@ -274,28 +268,26 @@ export default function MoveToPortMoodyPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Schools and Family */}
-      <section id="schools" className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Schools and family considerations</h2>
-          <p className="text-slateText mb-6">
-            School fit is address-specific. Always verify the exact property address with SD43 before relying on catchment assumptions.
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            {schoolCards.map((card) => (
-              <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
-                <p className="text-sm font-semibold text-deepInlet">{card}</p>
-              </div>
-            ))}
-          </div>
+      <Section
+        id="schools"
+        title="Schools and family considerations"
+        intro="School fit is address-specific. Always verify the exact property address with SD43 before relying on catchment assumptions."
+        tone="mist"
+      >
+        <div className="grid gap-4 md:grid-cols-2">
+          {schoolCards.map((card) => (
+            <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
+              <p className="text-sm font-semibold text-deepInlet">{card}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Parks, Trails, and Lifestyle */}
-      <section id="trails" className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Parks, trails, water, and village life</h2>
+      <Section id="trails" title="Parks, trails, water, and village life" tone="white">
         <div className="grid gap-4 md:grid-cols-2 mb-6">
           {parksTrailsCards.map((card) => (
             <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
@@ -303,25 +295,21 @@ export default function MoveToPortMoodyPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Trade-offs */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Port Moody trade-offs to understand</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {tradeoffCards.map((card) => (
-              <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
-                <p className="text-sm font-semibold text-deepInlet">{card}</p>
-              </div>
-            ))}
-          </div>
+      <Section title="Port Moody trade-offs to understand" tone="sand">
+        <div className="grid gap-4 md:grid-cols-2">
+          {tradeoffCards.map((card) => (
+            <div key={card} className="rounded-lg border border-softBorder bg-white p-4">
+              <p className="text-sm font-semibold text-deepInlet">{card}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Comparisons to Nearby Areas */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-3">Comparing Port Moody with nearby areas</h2>
+      <Section title="Comparing Port Moody with nearby areas" tone="white">
         <div className="space-y-4">
           {comparisonCards.map((card) => (
             <div key={card.area} className="rounded-lg border border-softBorder bg-white p-6">
@@ -330,11 +318,10 @@ export default function MoveToPortMoodyPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Next steps */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-6">Next steps for Port Moody movers</h2>
+      <Section title="Next steps for Port Moody movers" tone="white">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Link href="/buyer-guide" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
             <p className="font-semibold text-deepInlet">Request the buyer guide</p>
@@ -367,37 +354,35 @@ export default function MoveToPortMoodyPage() {
             <p className="mt-3 text-xs font-semibold text-seaGlass">Contact Paul and Leilani →</p>
           </Link>
         </div>
-      </section>
+      </Section>
 
       {/* Relocation CTA */}
-      <section id="relocation-guidance" className="mx-auto max-w-4xl px-5 py-12 bg-warmSand">
-        <div className="rounded-lg border border-softBorder bg-white p-8">
-          <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure where to start?</h2>
-          <p className="text-slateText mb-6">
-            Tell us where you are moving from, what you need day to day, your budget range, commute needs, schools, property type, and lifestyle priorities. We will point you toward the Port Moody areas that make the most sense.
-          </p>
-          <div className="max-w-md">
-            <LeadForm
-              formType="ask-question"
-              leadType="buyer"
-              ctaLabel="Get relocation guidance"
-              title="Moving to Port Moody?"
-              messageLabel="Tell us about your move, lifestyle, work location, and property preferences."
-              tags={["source:liveinportmoody", "intent:relocation-guidance", "lead_type:buyer", "area:port-moody"]}
-            />
-          </div>
+      <Section
+        id="relocation-guidance"
+        title="Not sure where to start?"
+        intro="Tell us where you are moving from, what you need day to day, your budget range, commute needs, schools, property type, and lifestyle priorities. We will point you toward the Port Moody areas that make the most sense."
+        tone="sand"
+      >
+        <div className="max-w-md">
+          <LeadForm
+            formType="ask-question"
+            leadType="buyer"
+            ctaLabel="Get relocation guidance"
+            title="Moving to Port Moody?"
+            messageLabel="Tell us about your move, lifestyle, work location, and property preferences."
+            tags={["source:liveinportmoody", "intent:relocation-guidance", "lead_type:buyer", "area:port-moody"]}
+          />
         </div>
-      </section>
+      </Section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-5 py-12 bg-mist">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl text-deepInlet mb-2">Frequently asked questions</h2>
-          <p className="text-slateText mb-8">Common questions about moving to Port Moody and choosing a neighbourhood.</p>
-
-          <FAQAccordion items={faqItems} />
-        </div>
-      </section>
+      <Section
+        title="Frequently asked questions"
+        intro="Common questions about moving to Port Moody and choosing a neighbourhood."
+        tone="mist"
+      >
+        <FAQAccordion items={faqItems} />
+      </Section>
     </>
   );
 }
