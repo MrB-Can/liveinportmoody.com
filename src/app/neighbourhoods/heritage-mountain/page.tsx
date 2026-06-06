@@ -316,10 +316,11 @@ export default function HeritageM() {
         <section className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Looking for a home in Heritage Mountain?</h2>
           <p className="text-slateText mb-6">View active listings or ask for local guidance.</p>
-          <div className="grid gap-4 md:grid-cols-2 mb-6">
-            <a href="/listings" className="flex items-center justify-center px-6 py-3 bg-emphasis text-white rounded-lg font-semibold hover:opacity-90">
+          <div className="mb-6">
+            <a href="/listings" className="inline-flex items-center justify-center px-6 py-3 bg-emphasis text-white rounded-lg font-semibold hover:opacity-90">
               View active listings
             </a>
+            <p className="mt-3 text-xs text-slateText">Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.</p>
           </div>
         </section>
 

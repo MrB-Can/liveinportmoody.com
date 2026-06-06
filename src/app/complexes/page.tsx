@@ -310,7 +310,8 @@ export default function ComplexesPage() {
             <p className="mt-3 text-sm leading-6 text-slateText">
               Use listings as the starting point, then compare the complex, strata, layout, location, and resale context before making a decision.
             </p>
-            <div className="mt-5">
+            <p className="mt-3 text-xs text-slateText">Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.</p>
+            <div className="mt-4">
               <CTAButton href="/listings">View townhouse listings</CTAButton>
             </div>
           </div>

@@ -214,7 +214,8 @@ export default function BuildingsPage() {
             <p className="mt-3 text-sm leading-6 text-slateText">
               A condo listing is only part of the decision. The building, strata documents, parking, exposure, noise, fees, and planned work can change the risk profile.
             </p>
-            <div className="mt-5">
+            <p className="mt-3 text-xs text-slateText">Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.</p>
+            <div className="mt-4">
               <CTAButton href="/listings" variant="secondary">View active listings</CTAButton>
             </div>
           </div>
