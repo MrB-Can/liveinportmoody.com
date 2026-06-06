@@ -39,6 +39,12 @@ export function Footer() {
             <p>Paul Bennett</p>
             <p>{siteConfig.publicPhone}</p>
             <p>{siteConfig.publicEmail}</p>
+            <p>
+              Leilani also lists at{" "}
+              <a href="https://leilanihomes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+                leilanihomes.com
+              </a>
+            </p>
           </div>
           <div className="mt-6">
             {socialLinks.some((s) => !s.disabled) && (

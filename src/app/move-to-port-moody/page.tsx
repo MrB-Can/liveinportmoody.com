@@ -180,6 +180,12 @@ export default function MoveToPortMoodyPage() {
             <CTAButton href="/neighbourhoods" variant="secondary">Compare neighbourhoods</CTAButton>
             <CTAButton href="/contact" variant="ghost">Ask a local question</CTAButton>
           </div>
+          <p className="mt-6 text-xs text-slateText">
+            Listing inquiries are handled by Leilani Fong through{" "}
+            <a href="https://leilanihomes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-deepInlet">
+              leilanihomes.com
+            </a>.
+          </p>
         </div>
       </section>
 
