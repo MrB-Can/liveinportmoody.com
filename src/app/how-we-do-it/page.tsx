@@ -51,7 +51,7 @@ const processSteps = [
   {
     step: 1,
     title: "Strategy consultation",
-    description: "Understand your home&apos;s position in the Port Moody market",
+    description: "Understand your home's position in the Port Moody market",
     details: [
       "Review your property type, condition, and neighbourhood",
       "Assess current active competition and recent sales context",
@@ -67,9 +67,9 @@ const processSteps = [
     details: [
       "Compare your property against current competition, not broad averages",
       "Review recent sales in your building, complex, or neighbourhood",
-      "Assess your home&apos;s condition against comparable properties",
+      "Assess your home's condition against comparable properties",
       "Develop a pricing strategy that balances market conditions and your timeline",
-      "Create a positioning statement that explains your home&apos;s value to buyers",
+      "Create a positioning statement that explains your home's value to buyers",
     ],
   },
   {
