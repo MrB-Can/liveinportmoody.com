@@ -74,7 +74,7 @@ const processSteps = [
   },
   {
     step: 3,
-    title: "Prep and staging",
+    title: "Preparation and staging",
     description: "Prepare the property and create strong visual presentation",
     details: [
       "Identify repairs and maintenance that have the highest ROI",
@@ -134,7 +134,7 @@ const processSteps = [
   },
   {
     step: 8,
-    title: "Closing and handoff",
+    title: "Closing and possession",
     description: "Finalize the transaction and complete the sale",
     details: [
       "Coordinate with buyer, lawyer, and lender through final steps",
