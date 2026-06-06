@@ -25,6 +25,8 @@ export type NavGroup = { title?: string; items: NavDropdownItem[] };
 export type NavItem = {
   label: string;
   href: string;
+  /** When true the label itself is a link to href in addition to opening the dropdown */
+  linkedLabel?: boolean;
   submenu?: boolean;
   groups?: NavGroup[];
 };
@@ -80,10 +82,30 @@ export const navItems: NavItem[] = [
   {
     label: "Neighbourhoods",
     href: "/neighbourhoods",
+    linkedLabel: true,
     groups: [
       {
         items: [
-          { label: "Port Moody Neighbourhoods", href: "/neighbourhoods" },
+          { label: "Heritage Mountain", href: "/neighbourhoods/heritage-mountain" },
+          { label: "Heritage Woods", href: "/neighbourhoods/heritage-woods" },
+          { label: "North Shore Port Moody", href: "/neighbourhoods/north-shore-port-moody" },
+          { label: "Moody Centre", href: "/neighbourhoods/moody-centre" },
+          { label: "Glenayre", href: "/neighbourhoods/glenayre" },
+          { label: "College Park", href: "/neighbourhoods/college-park" },
+          { label: "Anmore", href: "/neighbourhoods/anmore" },
+          { label: "Barber Street", href: "/neighbourhoods/barber-street" },
+          { label: "Belcarra", href: "/neighbourhoods/belcarra" },
+          { label: "Mountain Meadows", href: "/neighbourhoods/mountain-meadows" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Buildings & Complexes",
+    href: "/buildings",
+    groups: [
+      {
+        items: [
           { label: "Condo Buildings", href: "/buildings" },
           { label: "Townhouse Complexes", href: "/complexes" },
           { label: "Presales & New Builds", href: "/presales" },

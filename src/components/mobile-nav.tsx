@@ -74,6 +74,29 @@ export function MobileNav() {
                   </>
                 ) : item.groups ? (
                   <>
+                    {item.linkedLabel ? (
+                      <div className="flex items-center justify-between rounded-md px-3 py-3">
+                        <Link
+                          href={item.href}
+                          className="flex-1 text-base font-medium text-charcoal"
+                          onClick={closeAll}
+                        >
+                          {item.label}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => toggle(item.label)}
+                          aria-expanded={openMenu === item.label}
+                          aria-haspopup="true"
+                          aria-label={`${item.label} submenu`}
+                          className="ml-2 flex items-center text-charcoal hover:bg-mist rounded-md p-1"
+                        >
+                          <svg className={`h-4 w-4 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                          </svg>
+                        </button>
+                      </div>
+                    ) : (
                     <button
                       type="button"
                       onClick={() => toggle(item.label)}
@@ -86,6 +109,7 @@ export function MobileNav() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
                       </svg>
                     </button>
+                    )}
                     {openMenu === item.label && (
                       <div className="ml-2 border-l border-softBorder py-2">
                         {item.groups.map((group, gi) => (

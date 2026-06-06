@@ -84,6 +84,29 @@ export function Header() {
                 </>
               ) : item.groups ? (
                 <>
+                  {item.linkedLabel ? (
+                    <div className="flex items-center">
+                      <Link
+                        href={item.href}
+                        className="whitespace-nowrap text-sm font-medium text-charcoal hover:text-forest"
+                        onClick={close}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggle(item.label)}
+                        className="ml-0.5 flex items-center text-charcoal hover:text-forest"
+                        aria-expanded={openMenu === item.label}
+                        aria-haspopup="true"
+                        aria-label={`${item.label} submenu`}
+                      >
+                        <svg className={`h-3 w-3 flex-shrink-0 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
                   <button
                     type="button"
                     onClick={() => toggle(item.label)}
@@ -96,6 +119,7 @@ export function Header() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
                     </svg>
                   </button>
+                  )}
                   {openMenu === item.label && (
                     <div className="absolute left-0 top-full z-50 mt-4 rounded-lg border border-softBorder bg-white p-4 shadow-soft" style={{ minWidth: "220px" }}>
                       <div className={`grid gap-4 ${item.groups.length > 1 ? "sm:grid-cols-2" : ""}`}>
