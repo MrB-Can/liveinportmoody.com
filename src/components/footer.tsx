@@ -32,11 +32,11 @@ export function Footer() {
         <div>
           <Wordmark variant="light" />
           <p className="mt-4 max-w-md text-sm leading-6 text-mist">
-            A Port Moody real estate and lifestyle resource from Leilani Fong, Personal Real Estate Corporation and Paul Bennett.
+            A Port Moody real estate and lifestyle resource from Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada.
           </p>
           <div className="mt-6 space-y-2 text-sm text-mist">
-            <p>Leilani Fong, Personal Real Estate Corporation</p>
-            <p>Paul Bennett</p>
+            <p>Leilani Fong PREC · eXp Realty Canada</p>
+            <p>Paul Bennett · eXp Realty Canada</p>
             <p>{siteConfig.publicPhone}</p>
             <p>{siteConfig.publicEmail}</p>
             <p>

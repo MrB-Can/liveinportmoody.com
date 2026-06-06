@@ -14,7 +14,7 @@ export const metadata = createMetadata({
 const aboutCards = [
   {
     title: "Meet Us",
-    body: "Learn how Leilani and Paul combine licensed real estate representation, local research, data, media, and property intelligence.",
+    body: "Learn how Leilani and Paul, both licensed REALTORS with eXp Realty Canada, bring real estate representation, local research, data, media, and property intelligence together.",
     href: "/meet-us",
     cta: "Meet Leilani and Paul",
   },

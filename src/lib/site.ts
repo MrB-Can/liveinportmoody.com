@@ -3,7 +3,7 @@ export const siteConfig = {
   domain: "liveinportmoody.com",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.liveinportmoody.com",
   description:
-    "A local real estate and lifestyle resource from Leilani Fong, Personal Real Estate Corporation and Paul Bennett for buyers, sellers, and homeowners in Port Moody, BC.",
+    "A local real estate and lifestyle resource from Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada, for buyers, sellers, and homeowners in Port Moody, BC.",
   publicEmail: process.env.NEXT_PUBLIC_PUBLIC_EMAIL || "team@liveinportmoody.com",
   publicPhone: process.env.NEXT_PUBLIC_PUBLIC_PHONE || "604-757-1553",
   brokerageName: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "eXp Realty",
@@ -11,7 +11,7 @@ export const siteConfig = {
   ogImage: "/images/social/live-in-port-moody-og.png",
   privacyContactName: "Live in Port Moody",
   legalBusinessName: "Live in Port Moody",
-  realtors: "Leilani Fong, Personal Real Estate Corporation and Paul Bennett",
+  realtors: "Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada",
 };
 
 export const headerAssetTodo = {

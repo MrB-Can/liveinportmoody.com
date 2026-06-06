@@ -14,14 +14,14 @@ export const metadata = createMetadata({
 
 const roleCards = [
   {
-    name: "Leilani Fong",
-    role: "Licensed real estate expertise",
-    body: "Leilani leads real estate representation, pricing strategy, negotiation, listing preparation, buyer guidance, offer strategy, and client decision support.",
+    name: "Leilani Fong PREC",
+    role: "Licensed listing agent, established credentials",
+    body: "Leilani leads listing strategy, pricing, negotiation, transaction guidance, and client representation. She holds a Personal Real Estate Corporation and brings established real estate credentials and experience to every transaction.",
   },
   {
     name: "Paul Bennett",
-    role: "Local research and property intelligence",
-    body: "Paul supports local research, data, analysis, media planning, renovation context, property due diligence, and Port Moody neighbourhood intelligence.",
+    role: "Licensed REALTOR, buyer support, and local intelligence",
+    body: "Paul is a licensed REALTOR with eXp Realty Canada, focused on client outreach, buyer support, and lead management alongside local research, neighbourhood context, and property due diligence.",
   },
 ];
 
