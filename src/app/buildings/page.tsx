@@ -57,7 +57,7 @@ const standardVerificationNote =
 const howToUseCards = [
   {
     heading: "Compare by area",
-    body: "Start with the neighbourhood — Suter Brook, Newport Village, Klahanie, or Moody Centre — before comparing buildings.",
+    body: "Start with the neighbourhood (Suter Brook, Newport Village, Klahanie, or Moody Centre) before comparing buildings.",
   },
   {
     heading: "Compare lifestyle fit",

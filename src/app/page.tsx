@@ -24,7 +24,7 @@ const decisionCards = [
   },
   {
     title: "Sell in Port Moody",
-    copy: "Position your home around what buyers actually value here — pricing, preparation, and local market context.",
+    copy: "Position your home around what buyers actually value here: pricing, preparation, and local market context.",
     cta: "Selling guidance",
     href: "/sell",
   },
@@ -467,7 +467,7 @@ export default function HomePage() {
 
       <Section
         title="Community and local life"
-        intro="Local business features, community events, client stories, and professional recognition — built with verified content only."
+        intro="Local business features, community events, client stories, and professional recognition, built with verified content only."
         tone="white"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -508,7 +508,7 @@ export default function HomePage() {
         <div id="ask" className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
           <div>
             <p className="text-base leading-7 text-slateText">
-              Ask about a property, neighbourhood, listing, building, or decision you are weighing. Paul and Leilani respond with local context — not a sales pitch.
+              Ask about a property, neighbourhood, listing, building, or decision you are weighing. Paul and Leilani respond with local context, not a sales pitch.
             </p>
             <dl className="mt-8 grid gap-5 text-sm">
               <div>

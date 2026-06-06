@@ -857,7 +857,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Walkable village area near Rocky Point with condos, townhomes, and central Port Moody access.",
-    intro: "Suter Brook is one of Port Moody's most central and walkable areas, clustered near Rocky Point Park and the inlet. It offers a mix of condo buildings and townhomes with access to shops, cafes, and transit. It's popular with first-time buyers, commuters, and buyers prioritizing walkability. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Suter Brook is one of Port Moody's most central and walkable areas, clustered near Rocky Point Park and the inlet. It offers a mix of condo buildings and townhomes with access to shops, cafes, and transit. It's popular with first-time buyers, commuters, and buyers prioritizing walkability. This guide is a neighbourhood preview, information is being expanded.",
 
     bestFor: ["Walkability", "First-time buyers", "Commuters", "Lock-and-leave lifestyle"],
     housingTypes: ["Condos", "Townhomes", "Mixed-use residential"],
@@ -954,7 +954,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Port Moody's most walkable area, adjacent to Rocky Point Park with condos, restaurants, and inlet views.",
-    intro: "Newport Village is Port Moody's most walkable and lifestyle-focused neighbourhood, set along the inlet near Rocky Point Park. It offers condos and some older townhomes with easy access to restaurants, shops, the waterfront, and transit. It tends to carry premium pricing relative to other Port Moody areas. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Newport Village is Port Moody's most walkable and lifestyle-focused neighbourhood, set along the inlet near Rocky Point Park. It offers condos and some older townhomes with easy access to restaurants, shops, the waterfront, and transit. It tends to carry premium pricing relative to other Port Moody areas. This guide is a neighbourhood preview, information is being expanded.",
 
     bestFor: ["Walkability", "Waterfront lifestyle", "Downsizers", "Urban convenience"],
     housingTypes: ["Condos", "Mixed-use residential", "Some older townhomes"],
@@ -997,7 +997,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     ],
 
     sellerNotes: [
-      "Highlight walkability, waterfront access, and lifestyle appeal — this is the strongest sell",
+      "Highlight walkability, waterfront access, and lifestyle appeal: this is the strongest sell",
       "Emphasize Rocky Point Park proximity and restaurants within walking distance",
       "Feature building condition and any recent upgrades to justify pricing",
       "Market to lifestyle-focused buyers, downsizers, and urban professionals",
@@ -1051,7 +1051,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Established Port Moody community with condos, townhomes, parks, and access to the waterfront.",
-    intro: "Klahanie is an established Port Moody neighbourhood with a mix of condos and townhomes, good access to parks, trails, and the waterfront, and moderate walkability. It offers a balanced option between central village areas and quieter hillside neighbourhoods. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Klahanie is an established Port Moody neighbourhood with a mix of condos and townhomes, good access to parks, trails, and the waterfront, and moderate walkability. It offers a balanced option between central village areas and quieter hillside neighbourhoods. This guide is a neighbourhood preview, information is being expanded.",
 
     bestFor: ["Condos and townhomes", "Waterfront and trail access", "Established community feel", "Moderate walkability"],
     housingTypes: ["Condos", "Townhomes", "Some detached homes"],
@@ -1088,7 +1088,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       "Building age varies; some condos and townhomes are older and require careful strata review",
       "Review depreciation report, reserve fund balance, strata fees, bylaws, and pending levies",
       "Parking and storage allocation vary by unit; confirm for the specific property",
-      "Compare buildings and complexes carefully — strata health varies significantly",
+      "Compare buildings and complexes carefully. Strata health varies significantly",
       "Verify school assignment with SD43 for the specific address"
     ],
 
@@ -1147,7 +1147,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "A distinctive waterfront area on Port Moody's north shore with scenic Inlet views and a quiet, car-dependent character.",
-    intro: "The Ioco and north shore area is one of Port Moody's most distinctive and scenic pockets, with winding roads, Burrard Inlet views, detached homes, and a strong sense of separation from the more urban core. It appeals to buyers who value privacy, character, and a quieter lifestyle over daily walkability and transit access. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "The Ioco and north shore area is one of Port Moody's most distinctive and scenic pockets, with winding roads, Burrard Inlet views, detached homes, and a strong sense of separation from the more urban core. It appeals to buyers who value privacy, character, and a quieter lifestyle over daily walkability and transit access. This guide is a neighbourhood preview, information is being expanded.",
 
     bestFor: ["Privacy seekers", "Waterfront character", "Quiet residential living", "Nature-oriented buyers"],
     housingTypes: ["Detached homes", "Established residential properties"],
@@ -1362,7 +1362,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Quiet north-shore Port Moody neighbourhood with detached homes, forest access, and a very car-dependent character.",
-    intro: "Seaview is one of Port Moody's quietest and most car-dependent neighbourhoods, situated on the north shore with access to Sasamat Lake, forest trails, and a peaceful residential setting. It appeals to buyers who strongly value nature access, privacy, and quiet over urban convenience. This guide is a neighbourhood preview — information is being expanded.",
+    intro: "Seaview is one of Port Moody's quietest and most car-dependent neighbourhoods, situated on the north shore with access to Sasamat Lake, forest trails, and a peaceful residential setting. It appeals to buyers who strongly value nature access, privacy, and quiet over urban convenience. This guide is a neighbourhood preview, information is being expanded.",
 
     bestFor: ["Nature-oriented buyers", "Privacy", "Forest trail access", "Quiet residential living"],
     housingTypes: ["Detached homes"],
@@ -1394,7 +1394,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     ],
 
     transitAndAccess: "Very limited transit access. Car essential for all daily errands, shopping, and services. Distance from SkyTrain stations requires driving or a long bus connection.",
-    walkabilityNotes: "Not walkable for daily needs. The area's appeal is nature access, Sasamat Lake, forest trails, and privacy — not urban convenience. All residents drive for errands.",
+    walkabilityNotes: "Not walkable for daily needs. The area's appeal is nature access, Sasamat Lake, forest trails, and privacy, not urban convenience. All residents drive for errands.",
 
     buyerNotes: [
       "Review home condition: roof, foundation, drainage, exterior, and any renovation history",
@@ -1557,7 +1557,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     longitude: -122.876
   },
 
-  // Keep this draft — slug does not match any active sprint target route
+  // Keep this draft (slug does not match any active sprint target route)
   {
     name: "North Shore / Ioco / Pleasantside",
     slug: "north-shore-ioco-pleasantside",
@@ -1615,7 +1615,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     bestFor: ["Estate-style properties", "Privacy seekers", "Nature and trail access", "Larger lots"],
     housingTypes: ["Detached homes on larger lots", "Some acreage properties"],
     tradeOffs: [
-      "Separate municipality — taxes, bylaws, and services differ from Port Moody",
+      "Separate municipality: taxes, bylaws, and services differ from Port Moody",
       "Very car-dependent; no transit and no walkable services",
       "School district may differ from Port Moody SD43; verify for your address",
       "Longer commute to Port Moody core, SkyTrain, and regional services",
@@ -1626,7 +1626,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
       {
         name: "Anmore Elementary School",
         type: "elementary",
-        assignmentNote: "Verify exact address assignment — Anmore is a separate municipality, school district may differ from SD43",
+        assignmentNote: "Verify exact address assignment. Anmore is a separate municipality, school district may differ from SD43",
         district: "School District 43 (Coquitlam)",
         verificationLink: "https://www.sd43.bc.ca"
       },
@@ -1665,7 +1665,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     walkabilityNotes: "Not walkable. Anmore has no local shops, services, or transit. All residents drive for everything. This is a rural setting where the appeal is land, privacy, and nature rather than any form of urban convenience.",
 
     buyerNotes: [
-      "Anmore is a separate municipality — verify taxes, bylaws, and applicable regulations separately from Port Moody",
+      "Anmore is a separate municipality. Verify taxes, bylaws, and applicable regulations separately from Port Moody",
       "School assignment may differ from Port Moody SD43; verify for your specific address",
       "Assess daily travel routes carefully given distance from SkyTrain and Port Moody core",
       "Review property access, road conditions, septic or sewer status, and utility services",
@@ -1691,7 +1691,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     photoStatus: "not_started",
     mapLabel: "Anmore",
     seoTitle: "Anmore Nearby Community Guide",
-    seoDescription: "Anmore nearby community guide preview — a rural municipality adjacent to Port Moody with larger lots, acreage, and forest setting.",
+    seoDescription: "Anmore nearby community guide preview: a rural municipality adjacent to Port Moody with larger lots, acreage, and forest setting.",
 
     faq: [
       {
@@ -1734,7 +1734,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     bestFor: ["Coastal and nature lifestyle", "Privacy seekers", "Belcarra Regional Park access", "Outdoor recreation"],
     housingTypes: ["Detached homes", "Some waterfront properties"],
     tradeOffs: [
-      "Separate and very small municipality — minimal local services",
+      "Separate and very small municipality, minimal local services",
       "Extremely car-dependent; no transit",
       "No local shops, restaurants, or daily services within Belcarra",
       "School district differs from Port Moody SD43; verify for your address",
@@ -1764,7 +1764,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     walkabilityNotes: "Not walkable. There are no local services within Belcarra. All residents drive for everything. The appeal is nature, Belcarra Regional Park, and privacy.",
 
     buyerNotes: [
-      "Belcarra is a separate municipality — verify taxes, bylaws, and regulations independently",
+      "Belcarra is a separate municipality. Verify taxes, bylaws, and regulations independently",
       "School assignment differs from Port Moody SD43; verify for your specific address",
       "Assess daily travel routes carefully; SkyTrain and urban services require significant driving",
       "Review property access, utilities, septic status, and road conditions for the specific property",
@@ -1790,7 +1790,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     photoStatus: "not_started",
     mapLabel: "Belcarra",
     seoTitle: "Belcarra Nearby Community Guide",
-    seoDescription: "Belcarra nearby community guide preview — a remote municipality adjacent to Port Moody near Belcarra Regional Park with waterfront character.",
+    seoDescription: "Belcarra nearby community guide preview: a remote municipality adjacent to Port Moody near Belcarra Regional Park with waterfront character.",
 
     faq: [
       {

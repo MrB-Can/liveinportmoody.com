@@ -23,7 +23,7 @@ const principleCards: PrincipleCard[] = [
   {
     icon: Home,
     heading: "Property-specific",
-    body: "Your home competes against real alternatives. We compare you to the same building, complex, or neighbourhood type — not broad city averages.",
+    body: "Your home competes against real alternatives. We compare you to the same building, complex, or neighbourhood type, not broad city averages.",
   },
   {
     icon: Lightbulb,
@@ -38,7 +38,7 @@ const principleCards: PrincipleCard[] = [
   {
     icon: BarChart2,
     heading: "Feedback-driven",
-    body: "We collect buyer feedback, market response, and competing activity — then adjust strategy based on what the market tells us.",
+    body: "We collect buyer feedback, market response, and competing activity, then adjust strategy based on what the market tells us.",
   },
   {
     icon: Handshake,

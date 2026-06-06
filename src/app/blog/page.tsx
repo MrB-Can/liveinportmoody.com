@@ -37,7 +37,7 @@ export default function BlogPage() {
       <ImageHero
         eyebrow="Port Moody Real Estate"
         title="Local insight worth reading."
-        subtitle="Neighbourhood guides, buying strategy, seller education, and market context — written for people making real decisions about Port Moody real estate."
+        subtitle="Neighbourhood guides, buying strategy, seller education, and market context, written for people making real decisions about Port Moody real estate."
       />
 
       <div className="mx-auto max-w-6xl px-5 py-12">

@@ -51,7 +51,7 @@ export default function ContactPage() {
           ))}
         </div>
         <p className="mt-4 text-sm text-slateText">
-          Not sure which category fits? Just send your question — we will route it to the right person.
+          Not sure which category fits? Just send your question. We will route it to the right person.
         </p>
       </Section>
 
@@ -73,7 +73,7 @@ export default function ContactPage() {
           {[
             { step: 1, Icon: MessageCircle, label: "Send your question", body: "Describe the area, building, property, or decision you are weighing." },
             { step: 2, Icon: Search, label: "We review context", body: "Your question is matched to local neighbourhood, building, and market context." },
-            { step: 3, Icon: CheckCircle2, label: "Practical next step", body: "You receive a focused, personally written response — not a form email." },
+            { step: 3, Icon: CheckCircle2, label: "Practical next step", body: "You receive a focused, personally written response, not a form email." },
           ].map(({ step, Icon, label, body }, i, arr) => (
             <div key={step} className="relative flex flex-1 flex-col items-start gap-3 rounded-lg border border-softBorder bg-mist p-6 sm:rounded-none sm:border-r-0 last:sm:border-r sm:first:rounded-l-lg sm:last:rounded-r-lg">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-white text-sm font-bold">

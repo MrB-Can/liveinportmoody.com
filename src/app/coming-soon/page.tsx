@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata = createMetadata({
   title: "Coming Soon",
-  description: "LiveInPortMoody.com is becoming Port Moody's complete city guide — neighbourhoods, buildings, complexes, local businesses, events, and real estate.",
+  description: "LiveInPortMoody.com is becoming Port Moody's complete city guide: neighbourhoods, buildings, complexes, local businesses, events, and real estate.",
   path: "/coming-soon",
 });
 
@@ -28,12 +28,12 @@ export default function ComingSoonPage() {
               Port Moody&apos;s complete city guide is on its way.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-mist">
-              We&apos;re building something bigger: a full resource for anyone who lives, works, or wants to put down roots in Port Moody — built by local agents who know this city.
+              We&apos;re building something bigger: a full resource for anyone who lives, works, or wants to put down roots in Port Moody, built by local agents who know this city.
             </p>
             <ul className="mt-6 space-y-2 text-base text-mist/90">
               <li className="flex items-start gap-2">
                 <span className="mt-1 shrink-0 text-seaGlass">&#10003;</span>
-                A Port Moody city and community guide — neighbourhoods, parks, schools, transit, and lifestyle
+                A Port Moody city and community guide: neighbourhoods, parks, schools, transit, and lifestyle
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 shrink-0 text-seaGlass">&#10003;</span>
@@ -45,7 +45,7 @@ export default function ComingSoonPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 shrink-0 text-seaGlass">&#10003;</span>
-                A real estate decision hub — for buyers, sellers, and everyone in between
+                A real estate decision hub for buyers, sellers, and everyone in between
               </li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-4">

@@ -213,7 +213,7 @@ export function ComplexPreviewTemplate({
               formType="complex-inquiry"
               leadType="buyer"
               ctaLabel={`Ask about ${name}`}
-              description={`Send a question about ${name} — location, strata, layout, buyer or seller considerations, or what to verify before making a decision.`}
+              description={`Send a question about ${name}: location, strata, layout, buyer or seller considerations, or what to verify before making a decision.`}
               messageLabel="What are you trying to figure out?"
               messagePlaceholder={`Complex name, listing, or question about ${name}...`}
               resourceName={`${name} complex inquiry`}

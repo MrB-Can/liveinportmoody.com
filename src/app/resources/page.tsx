@@ -24,7 +24,7 @@ const buyingResources: ResourceCard[] = [
   },
   {
     title: "First-Time Buyers",
-    description: "Step-by-step guidance for first-time home buyers in Port Moody — process, closing costs, strata basics, and area fit.",
+    description: "Step-by-step guidance for first-time home buyers in Port Moody: process, closing costs, strata basics, and area fit.",
     cta: "Start here",
     href: "/first-time-home-buyers",
   },
@@ -99,7 +99,7 @@ const localLifeResources: ResourceCard[] = [
   },
   {
     title: "Events",
-    description: "Community, seasonal, family, and real estate events in Port Moody — added only after dates and details are verified.",
+    description: "Community, seasonal, family, and real estate events in Port Moody, added only after dates and details are verified.",
     cta: "View events",
     href: "/events",
   },
@@ -117,7 +117,7 @@ const localLifeResources: ResourceCard[] = [
   },
   {
     title: "Generational Wealth",
-    description: "Long-term real estate thinking — family help, rental decisions, cash flow, taxes, leverage, and planning for future generations.",
+    description: "Long-term real estate thinking: family help, rental decisions, cash flow, taxes, leverage, and planning for future generations.",
     cta: "Learn more",
     href: "/generational-wealth-real-estate",
   },
@@ -330,11 +330,11 @@ export default function ResourcesPage() {
           </div>
           <div>
             <h3 className="font-semibold text-deepInlet mb-2">Assessment vs. Market Value</h3>
-            <p className="text-sm text-slateText">Assessment value is used for property tax (set by provincial assessor). Market value is what buyers actually pay. These can differ significantly — market value typically higher.</p>
+            <p className="text-sm text-slateText">Assessment value is used for property tax (set by provincial assessor). Market value is what buyers actually pay. These can differ significantly, with market value typically higher.</p>
           </div>
           <div>
             <h3 className="font-semibold text-deepInlet mb-2">Appraisal</h3>
-            <p className="text-sm text-slateText">Professional estimate of property value, usually required by lenders. Different from market value — appraisals can be lower if the property doesn&apos;t support the purchase price.</p>
+            <p className="text-sm text-slateText">Professional estimate of property value, usually required by lenders. Different from market value. Appraisals can be lower if the property doesn&apos;t support the purchase price.</p>
           </div>
         </div>
       </Section>

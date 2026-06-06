@@ -84,7 +84,7 @@ export default function GetStartedPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Not sure where to start?</p>
             <h2 className="mt-3 font-heading text-3xl text-deepInlet">Ask a question directly.</h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-slateText">
-              If you are still orienting — comparing areas, unsure what property type fits your situation, or weighing a timing decision — you can send a question directly. Paul and Leilani will respond with local context, not a sales pitch.
+              If you are still orienting (comparing areas, unsure what property type fits your situation, or weighing a timing decision), you can send a question directly. Paul and Leilani will respond with local context, not a sales pitch.
             </p>
             <div className="mt-6">
               <Link

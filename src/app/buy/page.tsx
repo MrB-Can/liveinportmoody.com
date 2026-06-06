@@ -102,7 +102,7 @@ const areas = [
     name: "Newport Village",
     bestFor: "Village lifestyle, walkable restaurants, services, and Rocky Point Park access.",
     housing: "Condos and older townhomes.",
-    tradeOff: "Some buildings are older — review mechanical and exterior condition carefully.",
+    tradeOff: "Some buildings are older. Review mechanical and exterior condition carefully.",
     href: "/neighbourhoods",
   },
   {
@@ -405,7 +405,7 @@ export default function BuyPage() {
       <Section
         eyebrow="Port Moody area guide"
         title="Choose your Port Moody area."
-        intro="Each part of Port Moody solves different problems. Use these summaries for orientation — then verify current details before making a decision."
+        intro="Each part of Port Moody solves different problems. Use these summaries for orientation, then verify current details before making a decision."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {areas.map((area) => (

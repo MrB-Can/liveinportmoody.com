@@ -288,7 +288,7 @@ export const trustItems: TrustItem[] = [
   },
   {
     title: "Port Moody focused",
-    description: "We live and work here — this is our local market.",
+    description: "We live and work here. This is our local market.",
     verified: true,
   },
   {

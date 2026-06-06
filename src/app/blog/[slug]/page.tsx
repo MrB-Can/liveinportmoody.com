@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Lead CTA */}
       <div className="mt-12 rounded-lg border border-softBorder bg-mist p-6">
         <h2 className="mb-1 font-heading text-2xl text-deepInlet">Have a Port Moody question?</h2>
-        <p className="mb-6 text-sm text-slateText">Ask about a specific complex, neighbourhood, or situation — we&apos;ll respond personally.</p>
+        <p className="mb-6 text-sm text-slateText">Ask about a specific complex, neighbourhood, or situation, and we&apos;ll respond personally.</p>
         <LeadForm
           formType="ask-question"
           leadType="local-question"

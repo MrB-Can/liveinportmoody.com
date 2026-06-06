@@ -181,7 +181,7 @@ const mediaCards: { label: string; body: string; icon: LucideIcon }[] = [
 const complexOwnerCards = [
   {
     label: "Own in a condo building?",
-    copy: "Your value is shaped by building reputation, strata health, fees, amenities, and unit position — not just market averages.",
+    copy: "Your value is shaped by building reputation, strata health, fees, amenities, and unit position, not just market averages.",
     href: "/buildings",
     cta: "Research condo buildings",
   },
@@ -209,12 +209,12 @@ const faqs = [
   {
     question: "What should I do before selling in Port Moody?",
     answer:
-      "Before listing, address obvious repairs, gather strata documents (for condos and townhouses), prepare a disclosure statement, and get a practical value opinion that considers your specific neighbourhood and property type — not just broad market averages.",
+      "Before listing, address obvious repairs, gather strata documents (for condos and townhouses), prepare a disclosure statement, and get a practical value opinion that considers your specific neighbourhood and property type, not just broad market averages.",
   },
   {
     question: "How do I know what my Port Moody property is worth?",
     answer:
-      "A useful value opinion looks at current active competition, recent sales context, your property type and condition, strata situation if applicable, and how buyers in your neighbourhood are making decisions. We don't publish automated valuations — ask for a practical human opinion.",
+      "A useful value opinion looks at current active competition, recent sales context, your property type and condition, strata situation if applicable, and how buyers in your neighbourhood are making decisions. We don't publish automated valuations. Ask for a practical human opinion.",
   },
   {
     question: "Should I prepare strata documents before listing?",

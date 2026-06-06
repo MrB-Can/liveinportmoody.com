@@ -81,7 +81,7 @@ const faqs = [
   {
     question: "Are these active listings?",
     answer:
-      "Active listings are provided through MLS Reciprocity when the search connection is active. Only active listings are shown — sold and expired listings are not included.",
+      "Active listings are provided through MLS Reciprocity when the search connection is active. Only active listings are shown. Sold and expired listings are not included.",
   },
   {
     question: "Can I see sold listings here?",

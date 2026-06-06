@@ -330,7 +330,7 @@ export default function MoveToPortMoodyPage() {
           </Link>
           <Link href="/first-time-home-buyers" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
             <p className="font-semibold text-deepInlet">First-time buyers</p>
-            <p className="mt-2 text-sm text-slateText">Step-by-step guidance for first-time home buyers in Port Moody — process, costs, strata basics, and area fit.</p>
+            <p className="mt-2 text-sm text-slateText">Step-by-step guidance for first-time home buyers in Port Moody: process, costs, strata basics, and area fit.</p>
             <p className="mt-3 text-xs font-semibold text-forest">Start here →</p>
           </Link>
           <Link href="/presales" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
@@ -345,7 +345,7 @@ export default function MoveToPortMoodyPage() {
           </Link>
           <Link href="/events" className="rounded-lg border border-softBorder bg-white p-5 transition hover:border-seaGlass hover:bg-mist">
             <p className="font-semibold text-deepInlet">Events</p>
-            <p className="mt-2 text-sm text-slateText">Community, seasonal, family, and real estate events in Port Moody — added when dates and details are verified.</p>
+            <p className="mt-2 text-sm text-slateText">Community, seasonal, family, and real estate events in Port Moody, added when dates and details are verified.</p>
             <p className="mt-3 text-xs font-semibold text-forest">View events →</p>
           </Link>
           <Link href="/contact" className="rounded-lg border border-softBorder bg-deepInlet p-5 text-white transition hover:bg-forest">

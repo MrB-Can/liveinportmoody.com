@@ -32,15 +32,15 @@ const mustVerify = [
 ];
 
 const buyerNotes = [
-  "Compare with Treetops at 101 Parkside Drive for Heritage Mountain buyers — both are established townhouse communities in similar green settings.",
+  "Compare with Treetops at 101 Parkside Drive for Heritage Mountain buyers. Both are established townhouse communities in similar green settings.",
   "Review exterior maintenance history, roof condition, and any recent or planned capital projects before writing an offer.",
   "Verify strata documents thoroughly: Form B, meeting minutes, depreciation report, insurance policy, and reserve fund balance.",
-  "Heritage Mountain is car-oriented — confirm your transit and commute needs match the location before committing.",
-  "Unit condition varies in established complexes — arrange a proper home inspection and review renovation permit history.",
+  "Heritage Mountain is car-oriented. Confirm your transit and commute needs match the location before committing.",
+  "Unit condition varies in established complexes. Arrange a proper home inspection and review renovation permit history.",
 ];
 
 const sellerNotes = [
-  "Prepare the strata package early — buyers comparing Heritage Mountain townhomes expect complete and current documentation.",
+  "Prepare the strata package early. Buyers comparing Heritage Mountain townhomes expect complete and current documentation.",
   "Green surroundings, established character, and proximity to Heritage Mountain trails and schools are strong positioning points for family buyers.",
   "Highlight layout, parking, outdoor space, and renovation quality since units vary significantly in established complexes.",
 ];
@@ -53,7 +53,7 @@ export default function DiscoveryRidgePage() {
       area="Heritage Mountain"
       summary="Established Heritage Mountain townhouse community with green space and a residential hillside setting."
       bestFor="Buyers wanting established townhomes and green surroundings in Heritage Mountain"
-      setting="Residential Heritage Mountain — green surroundings, established character, close to trails"
+      setting="Residential Heritage Mountain, green surroundings, established character, close to trails"
       knownFacts={knownFacts}
       mustVerify={mustVerify}
       locationContext="Discovery Ridge is located in Heritage Mountain, a hillside residential neighbourhood in Port Moody. The setting is green and established, closer to trails and schools than to SkyTrain and daily walkable amenities. Buyers who want urban convenience, cafe access, or transit-first commuting should compare Heritage Mountain against Klahanie, Suter Brook, Newport Village, or Moody Centre. For Heritage Mountain buyers specifically, compare Discovery Ridge with Treetops at 101 Parkside Drive on strata health, layout, parking, condition, and setting."
