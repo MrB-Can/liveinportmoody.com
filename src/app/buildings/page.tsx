@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "How do I compare two condo buildings in Port Moody?",
     answer:
-      "Compare location, walkability, construction type, age, strata history, fees, amenities, parking, storage, layout, exposure, and resale demand. Then verify current documents for each specific building.",
+      "Compare location, walkability, construction type, age, strata history, fees, amenities, parking, storage, layout, exposure, and resale demand. Then review current documents for each specific building.",
   },
   {
     question: "Are older condo buildings a problem?",
@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Can I ask about a specific building or listing?",
     answer:
-      "Yes. Send the building name or listing and we can help you understand the local context, strata questions to ask, pricing trade-offs, and what needs verification.",
+      "Yes. Send the building name or listing and we can help you understand the local context, strata questions to ask, pricing trade-offs, and key due diligence.",
   },
 ];
 
@@ -60,7 +60,7 @@ const howToUseCards = [
     body: "Walkability, transit, noise, views, commute, and daily convenience vary significantly between buildings and areas.",
   },
   {
-    heading: "Verify strata documents",
+    heading: "Review strata documents",
     body: "Every building decision needs current strata documents: Form B, depreciation report, minutes, insurance, and financials.",
   },
   {
@@ -112,7 +112,7 @@ export default function BuildingsPage() {
         </div>
       </section>
 
-      <Section title="How to use this guide" intro="Port Moody condo building research works best when you start broad and verify specific details before making a decision." tone="white">
+      <Section title="How to use this guide" intro="Port Moody condo building research works best when you start broad and review specific details before making a decision." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
           {howToUseCards.map((card) => (
             <div key={card.heading} className="p-5">
@@ -123,7 +123,7 @@ export default function BuildingsPage() {
         </div>
       </Section>
 
-      <Section title="Research shortcuts" intro="Start with the area and lifestyle fit, then verify each building against current strata documents and active listing context.">
+      <Section title="Research shortcuts" intro="Start with the area and lifestyle fit, then review each building against current strata documents and active listing context.">
         <BuildingFilterChips />
       </Section>
 
@@ -133,7 +133,7 @@ export default function BuildingsPage() {
             <h2 className="font-heading text-2xl text-deepInlet">Mobile map orientation</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Port Moody condo buildings are concentrated around Suter Brook, Newport Village, Klahanie, and Moody Centre.
-              Use the desktop map for visual orientation, then verify exact building and listing details before making decisions.
+              Use the desktop map for visual orientation, then review exact building and listing details before making decisions.
             </p>
             <div className="mt-5 grid gap-3">
               {buildingDisplayGroups.map((group) => {

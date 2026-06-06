@@ -6,7 +6,7 @@ import { Map, Building2, Leaf, DollarSign, HelpCircle, CheckCircle2, AlertCircle
 export const metadata = createMetadata({
   title: "Port Moody Local Insights",
   description:
-    "Local Port Moody insights for real estate decisions, including neighbourhood fit, buildings, complexes, local life, and verification-first research.",
+    "Local Port Moody insights for real estate decisions, including neighbourhood fit, buildings, complexes, local life, and research to support better decisions.",
   path: "/local-insights",
 });
 
@@ -20,14 +20,14 @@ const insightCards = [
   },
   {
     title: "Buildings and complexes",
-    body: "Use preview guides to frame strata questions, location trade-offs, buyer fit, and what to verify before writing.",
+    body: "Use preview guides to frame strata questions, location trade-offs, and buyer fit before writing.",
     href: "/buildings",
     cta: "Compare buildings",
     icon: Building2,
   },
   {
     title: "Local life",
-    body: "Use parks, schools, trails, activities, events, and businesses as context, then verify exact address-specific details.",
+    body: "Use parks, schools, trails, activities, events, and businesses as context alongside address-specific details.",
     href: "/local-life",
     cta: "Explore local life",
     icon: Leaf,
@@ -41,9 +41,9 @@ const insightCards = [
   },
 ];
 
-const verificationPrompts = [
+const decisionPrompts = [
   { text: "What does this change about the shortlist?", icon: HelpCircle },
-  { text: "Which detail must be verified by exact address?", icon: CheckCircle2 },
+  { text: "Which detail is address-specific?", icon: CheckCircle2 },
   { text: "What trade-off is easy to miss online?", icon: AlertCircle },
   { text: "Who should confirm the technical or professional detail?", icon: Users },
 ];
@@ -58,7 +58,7 @@ export default function LocalInsightsPage() {
             Local Port Moody context for better real estate decisions.
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slateText">
-            Local insight should help you choose, compare, and verify. This page connects neighbourhoods,
+            Local insight should help you choose, compare, and decide. This page connects neighbourhoods,
             buildings, complexes, local life, and real estate guidance without adding unverified claims.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -85,9 +85,9 @@ export default function LocalInsightsPage() {
         </div>
       </Section>
 
-      <Section title="How to use local insight safely">
+      <Section title="How to use local insight">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-          {verificationPrompts.map(({ text, icon: Icon }) => (
+          {decisionPrompts.map(({ text, icon: Icon }) => (
             <div key={text} className="p-5 flex items-start gap-3">
               <Icon className="w-5 h-5 text-forest flex-shrink-0 mt-0.5" />
               <p className="text-sm font-semibold text-deepInlet">{text}</p>

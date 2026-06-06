@@ -78,7 +78,7 @@ const faqs = [
   {
     question: "Are Port Moody townhouses good for families?",
     answer:
-      "Many buyers consider townhouses because they can offer more functional space than a condo without the cost or upkeep of a detached home. Always verify stairs, bedrooms, storage, parking, outdoor space, school catchment, and strata rules for the specific unit.",
+      "Many buyers consider townhouses because they can offer more functional space than a condo without the cost or upkeep of a detached home. Always review stairs, bedrooms, storage, parking, outdoor space, school catchment, and strata rules for the specific unit.",
   },
   {
     question: "How do I compare two townhouse complexes?",
@@ -110,8 +110,8 @@ const howToUseCards = [
     body: "Use the inquiry form to ask about active listings in a specific complex through approved MLS Reciprocity sources.",
   },
   {
-    heading: "Verify details before buying",
-    body: "Guides are for orientation. Verify strata documents, bylaws, fees, and unit-specific details with a professional before deciding.",
+    heading: "Review details before buying",
+    body: "Guides are for orientation. Review strata documents, bylaws, fees, and unit-specific details with a professional before deciding.",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function ComplexesPage() {
         </div>
       </section>
 
-      <Section title="How to use this guide" intro="Port Moody townhouse research works best when you start with the area and lifestyle, then verify strata details before deciding." tone="white">
+      <Section title="How to use this guide" intro="Port Moody townhouse research works best when you start with the area and lifestyle, then review strata details before deciding." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
           {howToUseCards.map((card) => (
             <div key={card.heading} className="p-5">
@@ -192,7 +192,7 @@ export default function ComplexesPage() {
           <div>
             <h2 className="font-heading text-3xl text-deepInlet">Complex comparison table</h2>
             <p className="mt-2 text-sm text-slateText">
-              Preview rows use cautious orientation notes only. Verify current listing, strata, and property-specific details.
+              Preview rows use cautious orientation notes only. Review current listing, strata, and property-specific details.
             </p>
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function ComplexesPage() {
                 <th className="px-4 py-3">Complex</th>
                 <th className="px-4 py-3">Area</th>
                 <th className="px-4 py-3">Best for</th>
-                <th className="px-4 py-3">What to verify</th>
+                <th className="px-4 py-3">Due diligence</th>
                 <th className="px-4 py-3">Guide</th>
                 <th className="px-4 py-3">Preview</th>
               </tr>
@@ -260,7 +260,7 @@ export default function ComplexesPage() {
                           <p className="mt-2 text-sm leading-6 text-slateText">{complex.bestFor}</p>
                         </div>
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-forest">What to verify</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-forest">Due diligence</p>
                           <p className="mt-2 text-sm leading-6 text-slateText">{complex.whatToVerify}</p>
                         </div>
                       </div>

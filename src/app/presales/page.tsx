@@ -8,14 +8,14 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Port Moody Presales and New Developments",
   description:
-    "A Port Moody presales and new developments hub for buyers researching deposits, completion timing, GST, assignments, disclosure documents, and verification steps.",
+    "A Port Moody presales and new developments hub for buyers researching deposits, completion timing, GST, assignments, disclosure documents, and due diligence steps.",
   path: "/presales",
 });
 
 const buyerNotes = [
   "Presales are contract decisions before the home is finished, so timing, financing, disclosure documents, and developer history matter.",
   "Completion dates can move. Buyers should plan for financing, rate changes, deposit timing, and temporary housing risk.",
-  "Project availability and pricing must be verified from current developer, disclosure, or listing sources before relying on it.",
+  "Project availability and pricing should come from current developer, disclosure, or listing sources before relying on it.",
 ];
 
 const considerationCards: { title: string; body: string; icon: LucideIcon }[] = [
@@ -51,7 +51,7 @@ const presaleQuestions = [
   "Who holds the deposit funds, and what happens if timelines or financing conditions change?",
   "What are the estimated completion date, outside date, amendment history, and delay rights?",
   "What GST, assignment, legal, financing, and insurance questions should be reviewed before signing?",
-  "What parking, storage, strata budget, estimated fees, bylaws, amenities, and disclosure amendments need verification?",
+  "What parking, storage, strata budget, estimated fees, bylaws, amenities, and disclosure amendments should be reviewed before signing?",
   "How does the project compare with active resale options for size, timing, neighbourhood fit, and future resale audience?",
 ];
 
@@ -82,9 +82,9 @@ const faqs = [
       "No. This page is general real estate orientation. Buyers should use qualified legal, tax, lending, and insurance advice before signing or relying on specific terms.",
   },
   {
-    question: "What should I verify before writing on a presale?",
+    question: "What should I review before writing on a presale?",
     answer:
-      "Verify disclosure documents, amendments, deposit schedule, completion timing, GST treatment, assignment rules, developer history, strata assumptions, and financing conditions.",
+      "Review disclosure documents, amendments, deposit schedule, completion timing, GST treatment, assignment rules, developer history, strata assumptions, and financing conditions.",
   },
   {
     question: "Can you send updates when new projects are verified?",
@@ -143,7 +143,7 @@ export default function PresalesPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emphasis">Current and new developments</p>
           <h2 className="mt-3 font-heading text-3xl text-deepInlet">Request verified project updates</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-            Ask us to verify current Port Moody presale and new development details before you rely on pricing, incentives, timelines, or availability.
+            Ask us about current Port Moody presale and new development details before you rely on pricing, incentives, timelines, or availability.
           </p>
           <div className="mt-5">
             <CTAButton href="/contact" variant="secondary">Ask about a presale project</CTAButton>
@@ -164,7 +164,7 @@ export default function PresalesPage() {
         </div>
       </section>
 
-      <Section title="Before relying on presale details" intro="Use this framework to verify and compare before making a commitment.">
+      <Section title="Before relying on presale details" intro="Use this framework to compare and assess before making a commitment.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { item: "Project Details", detail: "Specifications, features, layouts, appliances, parking, storage" },
@@ -186,7 +186,7 @@ export default function PresalesPage() {
           <h2 className="font-heading text-3xl text-deepInlet">Compare presales with resale before you commit</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
             A presale can be the right fit for some buyers, but it should be compared with active resale options, timing risk,
-            total cost, neighbourhood fit, and the type of home you can verify today.
+            total cost, neighbourhood fit, and the type of home you can assess today.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {comparisonCards.map((card) => (
@@ -222,7 +222,7 @@ export default function PresalesPage() {
               formType="ask-question"
               leadType="buyer"
               title="Ask about Port Moody presales"
-              description="Share the project, timing, or question you want to verify."
+              description="Share the project, timing, or question you want to ask about."
               ctaLabel="Send presale question"
               resourceName="Port Moody presales"
               messageLabel="What presale question should we help with?"

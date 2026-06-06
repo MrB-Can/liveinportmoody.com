@@ -11,7 +11,7 @@ import { neighbourhoodMapPoints, complexMapPoints } from "@/data/mapPoints";
 export const metadata = createMetadata({
   title: "Treetops 101 Parkside Drive Port Moody | Townhouse Complex Guide",
   description:
-    "A local guide to Treetops at 101 Parkside Drive in Port Moody’s Heritage Mountain area, including homes, amenities, location, buyer notes, seller notes, schools, trails, transit, and what to verify before buying.",
+    "A local guide to Treetops at 101 Parkside Drive in Port Moody’s Heritage Mountain area, including homes, amenities, location, buyer notes, seller notes, schools, trails, transit, and strata due diligence.",
   path: "/complexes/treetops-101-parkside-drive",
 });
 
@@ -49,8 +49,8 @@ const knownFacts: [React.ComponentType<{ className?: string }>, string, string][
   [MapPin, "Address", "101 Parkside Drive"],
   [Map, "Area", "Heritage Mountain"],
   [Home, "Property type", "Townhouse strata"],
-  [Building2, "Approx. units", "Approximately 172, verify"],
-  [Calendar, "Built", "Early 1990s, verify"],
+  [Building2, "Approx. units", "Approximately 172 (confirm with strata)"],
+  [Calendar, "Built", "Early 1990s (confirm with strata)"],
   [Leaf, "Setting", "Forested, mature landscaping"],
 ];
 
@@ -96,7 +96,7 @@ const amenities: [React.ComponentType<{ className?: string }>, string, string][]
   [
     Dumbbell,
     "Recreation facilities",
-    "Potential lifestyle benefit, but verify availability, condition, fees, rules, and planned maintenance.",
+    "Potential lifestyle benefit. Confirm availability, condition, fees, rules, and planned maintenance in the strata documents.",
   ],
 ];
 
@@ -142,7 +142,7 @@ const externalResources = [
   ["GVR MLS Reciprocity", "https://www.gvreb.com/", "Search current MLS listings through approved reciprocity sources."],
   ["City of Port Moody Parks", "https://www.portmoody.ca/parks-trails-recreation", "Official parks and recreation information."],
   ["City of Port Moody Trails & Paths", "https://www.portmoody.ca/parks-trails-recreation", "Official trail and path information."],
-  ["SD43 School Locator", "https://www.sd43.bc.ca/", "Verify current catchments by exact property address."],
+  ["SD43 School Locator", "https://www.sd43.bc.ca/", "Find school assignment by exact property address."],
   ["Heritage Mountain Elementary", "https://www.sd43.bc.ca/", "Confirm school details directly with SD43."],
   ["Heritage Woods Secondary", "https://www.sd43.bc.ca/", "Confirm school details directly with SD43."],
   ["City of Port Moody Transit", "https://www.portmoody.ca/", "Review local transit and city transportation resources."],
@@ -173,7 +173,7 @@ const faqs = [
   ],
   [
     "Is Treetops a good fit for families?",
-    "It may be, especially for buyers who value space, greenery, schools, and a quieter residential setting. Verify the specific layout, stairs, outdoor space, parking, and current school catchment.",
+    "It may be, especially for buyers who value space, greenery, schools, and a quieter residential setting. Review the specific layout, stairs, outdoor space, parking, and school catchment before deciding.",
   ],
   [
     "Is Treetops better for buyers who want walkability or green space?",
@@ -338,7 +338,7 @@ export default function TreetopsPage() {
                 </dl>
               </div>
               <div className="rounded-lg border border-softBorder bg-mist p-6">
-                <h3 className="font-heading text-xl text-deepInlet">Must verify before purchase</h3>
+                <h3 className="font-heading text-xl text-deepInlet">Before you buy</h3>
                 <ul className="mt-5 grid gap-2 text-sm text-slateText sm:grid-cols-2">
                   {mustVerify.map((item) => (
                     <li key={item} className="flex items-start gap-2">
@@ -436,7 +436,7 @@ export default function TreetopsPage() {
 
           <Section id="schools" title="Schools and catchment">
             <p className="text-sm leading-6 text-slateText">
-              School catchment is assigned by exact property address, not neighbourhood name. Verify with SD43 before relying on any school assumption.
+              School catchment is assigned by exact property address, not neighbourhood name. Use the SD43 School Locator for the specific address you are considering.
             </p>
           </Section>
 
@@ -457,7 +457,7 @@ export default function TreetopsPage() {
             </div>
           </Section>
 
-          <Section id="checklist" title="Verification checklist">
+          <Section id="checklist" title="Due diligence checklist">
             <div className="grid gap-5 md:grid-cols-3">
               {verificationGroups.map((group) => (
                 <article key={group.title} className="rounded-lg border border-softBorder bg-white p-5">
@@ -562,9 +562,6 @@ export default function TreetopsPage() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg bg-blue-50 border border-blue-200 p-5">
-                <p className="text-xs text-blue-800"><span className="font-semibold">SD43 Verification:</span> School assignments vary by exact address and can change. Always verify the assigned elementary, middle, and secondary schools through the <a href="https://www.sd43.bc.ca/Schools/FindSchool" target="_blank" rel="noopener noreferrer" className="underline font-semibold">SD43 School Locator</a> before relying on school catchment information.</p>
-              </div>
             </div>
           </Section>
 
@@ -579,7 +576,7 @@ export default function TreetopsPage() {
             </div>
           </Section>
 
-          <Section id="resources" title="Verify details before you buy">
+          <Section id="resources" title="External resources">
             <div className="grid gap-4 md:grid-cols-2">
               {externalResources.map(([title, url, description]) => (
                 <a

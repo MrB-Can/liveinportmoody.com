@@ -86,7 +86,7 @@ export default function HeritageM() {
             { label: "Walkability", value: "Limited for daily errands" },
             { label: "Transit", value: "Bus access, car helpful" },
             { label: "Buyer fit", value: "Families, townhouse buyers, outdoor-focused" },
-            { label: "Watch-out", value: "Hills, strata due diligence, catchment verification" },
+            { label: "Watch-out", value: "Hills, strata due diligence, school catchment by address" },
           ]}
           scoringBars={[
             { label: "Walkability", score: 35 },
@@ -225,7 +225,7 @@ export default function HeritageM() {
         <section>
           <h2 className="font-heading text-2xl text-deepInlet mb-4 flex items-center gap-2">
             <GraduationCap className="h-6 w-6 text-forest" />
-            Schools & catchment verification
+            Schools & catchment
           </h2>
           <div className="space-y-4">
             {[

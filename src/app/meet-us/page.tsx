@@ -28,14 +28,14 @@ const roleCards = [
 const approachCards = [
   { Icon: Target, text: "Start with the decision, not just the listing." },
   { Icon: MapPin, text: "Compare neighbourhood, building, complex, and lifestyle fit." },
-  { Icon: FileSearch, text: "Verify school, strata, trail, listing, and property-specific details before relying on them." },
+  { Icon: FileSearch, text: "Review school, strata, trail, listing, and property-specific details as part of the decision." },
   { Icon: BarChart2, text: "Use local context to support buying, selling, moving, and long-term planning." },
 ];
 
 const nextStepCards = [
   {
     title: "Buying",
-    body: "Ask about neighbourhood fit, buildings, complexes, listings, and what to verify before writing.",
+    body: "Ask about neighbourhood fit, buildings, complexes, listings, and key due diligence before writing.",
     href: "/buy",
     cta: "Buyer resources",
   },

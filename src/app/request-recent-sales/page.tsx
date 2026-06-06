@@ -59,7 +59,7 @@ export default function RequestRecentSalesPage() {
         </div>
         <p className="mt-5 max-w-3xl text-sm leading-6 text-slateText">
           We can help you understand comparable sales where permitted, explain how active listings fit the local context,
-          and identify what should be verified before relying on a pricing assumption.
+          and identify what matters before relying on a pricing assumption.
         </p>
       </Section>
 

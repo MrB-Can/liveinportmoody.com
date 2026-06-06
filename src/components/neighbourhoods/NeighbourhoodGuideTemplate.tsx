@@ -14,7 +14,7 @@ interface NeighbourhoodGuideTemplateProps {
 }
 
 const previewNote =
-  "This guide is being expanded. Use it for orientation, then verify property-specific details, school assignment, strata information, and listing details before making a decision.";
+  "This guide is being expanded. Use it for orientation alongside current listing details, strata documents, and professional advice before making a decision.";
 
 export function NeighbourhoodGuideTemplate({
   guide,
@@ -144,23 +144,13 @@ export function NeighbourhoodGuideTemplate({
                   {school.assignmentNote && (
                     <p className="text-sm text-slate-600 mt-2 italic">{school.assignmentNote}</p>
                   )}
-                  {school.verificationLink && (
-                    <a
-                      href={school.verificationLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-forest hover:text-deepInlet mt-2 inline-block"
-                    >
-                      Verify with {school.district} →
-                    </a>
-                  )}
                 </div>
               ))}
             </div>
           ) : (
             <div className="rounded-lg border border-softBorder bg-white p-4">
               <p className="text-sm leading-6 text-slateText">
-                Specific school references are not listed for this preview. Verify school assignment by exact address with the applicable district or official school locator before relying on any school assumption.
+                Specific school references are not listed for this preview. School assignment is based on exact property address through the applicable district.
               </p>
             </div>
           )}
@@ -173,9 +163,6 @@ export function NeighbourhoodGuideTemplate({
               <Trees className="w-5 h-5 text-forest" />
               <h2 className="font-heading text-2xl text-deepInlet">Parks & Trails</h2>
             </div>
-            <p className="text-sm text-slate-600">
-              Park, trail, amenity, and access details can change. Verify current details through the applicable municipal or regional source before relying on park or trail assumptions.
-            </p>
             <div className="grid gap-4">
               {guide.parks.map((park, i) => (
                 <div key={`park-${i}`} className="rounded-lg border border-softBorder p-4">

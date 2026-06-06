@@ -13,7 +13,7 @@ export function ComplexSchools({ schools }: ComplexSchoolsProps) {
   return (
     <div>
       <h2 className="font-heading text-2xl text-deepInlet">Schools and Catchment</h2>
-      <p className="mt-2 text-sm text-slateText">Verify current catchment boundaries with School District 43.</p>
+      <p className="mt-2 text-sm text-slateText">School catchment is assigned by exact property address through School District 43.</p>
 
       <div className="mt-6 space-y-4">
         {schools.map((school) => (

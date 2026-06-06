@@ -83,7 +83,7 @@ export function ComplexPreviewTemplate({
       <div className="mx-auto max-w-6xl space-y-10 px-5 py-10 md:py-12">
         {/* Preview notice */}
         <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
-          This is a guide preview. Information is being expanded. Verify all details in current strata documents and with a qualified professional before making any decision.
+          This is a guide preview. Information is being expanded. Use current strata documents and professional advice before making any decision.
         </p>
 
         {/* Quick summary */}
@@ -117,7 +117,7 @@ export function ComplexPreviewTemplate({
               </dl>
             </div>
             <div className="rounded-lg border border-softBorder bg-mist p-6">
-              <h3 className="mb-4 font-heading text-xl text-deepInlet">What must be verified</h3>
+              <h3 className="mb-4 font-heading text-xl text-deepInlet">Due diligence checklist</h3>
               <ul className="grid gap-2 text-sm text-slateText sm:grid-cols-2">
                 {mustVerify.map((item) => (
                   <li key={item} className="flex gap-2">
@@ -205,7 +205,7 @@ export function ComplexPreviewTemplate({
               formType="complex-inquiry"
               leadType="buyer"
               ctaLabel={`Ask about ${name}`}
-              description={`Send a question about ${name}: location, strata, layout, buyer or seller considerations, or what to verify before making a decision.`}
+              description={`Send a question about ${name}: location, strata, layout, buyer or seller considerations, or key due diligence before making a decision.`}
               messageLabel="What are you trying to figure out?"
               messagePlaceholder={`Complex name, listing, or question about ${name}...`}
               resourceName={`${name} complex inquiry`}

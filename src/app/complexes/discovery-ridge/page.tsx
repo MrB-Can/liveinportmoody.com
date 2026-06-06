@@ -5,7 +5,7 @@ export const metadata = createMetadata(
   {
     title: "Discovery Ridge Heritage Mountain | Townhouse Complex Preview",
     description:
-      "A preview guide to Discovery Ridge townhomes in Heritage Mountain, Port Moody, including setting, buyer notes, seller notes, and what to verify in strata documents.",
+      "A preview guide to Discovery Ridge townhomes in Heritage Mountain, Port Moody, including setting, buyer notes, seller notes, and strata due diligence questions.",
     path: "/complexes/discovery-ridge",
   },
   { robots: { index: false, follow: true } }
@@ -13,7 +13,7 @@ export const metadata = createMetadata(
 
 const knownFacts: [string, string][] = [
   ["Area", "Heritage Mountain"],
-  ["Address", "Forest Park Way area (verify)"],
+  ["Address", "Forest Park Way area (confirm with listing)"],
   ["Type", "Townhouse strata"],
   ["Setting", "Established residential, green surroundings"],
 ];
@@ -34,7 +34,7 @@ const mustVerify = [
 const buyerNotes = [
   "Compare with Treetops at 101 Parkside Drive for Heritage Mountain buyers. Both are established townhouse communities in similar green settings.",
   "Review exterior maintenance history, roof condition, and any recent or planned capital projects before writing an offer.",
-  "Verify strata documents thoroughly: Form B, meeting minutes, depreciation report, insurance policy, and reserve fund balance.",
+  "Review strata documents thoroughly: Form B, meeting minutes, depreciation report, insurance policy, and reserve fund balance.",
   "Heritage Mountain is car-oriented. Confirm your transit and commute needs match the location before committing.",
   "Unit condition varies in established complexes. Arrange a proper home inspection and review renovation permit history.",
 ];

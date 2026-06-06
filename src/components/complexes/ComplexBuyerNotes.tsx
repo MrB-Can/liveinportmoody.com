@@ -41,7 +41,7 @@ export function ComplexBuyerNotes({ notes }: ComplexBuyerNotesProps) {
       </div>
 
       <div>
-        <h3 className="font-heading text-xl text-deepInlet">What to Verify Before Buying</h3>
+        <h3 className="font-heading text-xl text-deepInlet">Due Diligence Before Buying</h3>
         <ul className="mt-4 space-y-3">
           {notes.whatToVerifyBeforeBuying.map((item) => (
             <li key={item} className="flex gap-3 text-slateText">

@@ -80,7 +80,7 @@ const commuteCards = [
 ];
 
 const schoolCards = [
-  "Catchment verification",
+  "School catchment by address",
   "Elementary and secondary fit",
   "Parks and sports",
   "Walkability to school",
@@ -280,7 +280,7 @@ export default function MoveToPortMoodyPage() {
       <Section
         id="schools"
         title="Schools and family considerations"
-        intro="School fit is address-specific. Always verify the exact property address with SD43 before relying on catchment assumptions."
+        intro="School fit is address-specific. School catchment is assigned by exact property address through SD43."
         tone="mist"
       >
         <div className="grid gap-4 md:grid-cols-2">

@@ -94,7 +94,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
         </div>
       </Section>
 
-      <Section title="What to verify before buying" intro="Use this checklist alongside current listing details, strata documents, professional advice, and direct verification." tone="white">
+      <Section title="Before you buy" intro="Use this checklist alongside current listing details, strata documents, and professional advice." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-mist md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {verificationItems(building).map((item) => (
             <div key={item} className="p-5 text-sm leading-6 text-slateText">
@@ -113,7 +113,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
             {building.name} is shown with this area context: {building.neighbourhood}. Use this page to frame the location, then check the exact listing, building documents, property disclosure materials, and strata records before making decisions.
           </p>
           <p className="mt-3 text-sm leading-6 text-slateText">
-            Neighbourhood boundaries, building names, address labels, and buyer search behaviour can overlap in Port Moody. If the exact fit matters, verify it against the property address and current listing materials.
+            Neighbourhood boundaries, building names, address labels, and buyer search behaviour can overlap in Port Moody. Confirm exact fit against the property address and current listing materials.
           </p>
         </div>
       </Section>
@@ -183,7 +183,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
           <div className="rounded-lg border border-softBorder bg-deepInlet p-6 text-white">
             <h2 className="font-heading text-2xl">Have a question?</h2>
             <p className="mt-3 text-sm leading-6 text-mist">
-              Send the building name, unit, or listing link. We can help you understand location, strata documents, layout, exposure, fees, parking, and what to verify before relying on the listing.
+              Send the building name, unit, or listing link. We can help you understand location, strata documents, layout, exposure, fees, parking, and key due diligence before relying on the listing.
             </p>
             <div className="mt-5">
               <Link href="/contact" className="text-sm font-semibold text-white underline underline-offset-4">

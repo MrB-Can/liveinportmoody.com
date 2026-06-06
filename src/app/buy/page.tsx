@@ -24,7 +24,7 @@ const decisionCards = [
   { label: "Condo, townhouse, or detached?", href: "/buy#property-type" },
   { label: "Which building or complex should I research?", href: "/complexes" },
   { label: "Is this listing worth writing on?", href: "/listings" },
-  { label: "What should I verify first?", href: "/buy#buyer-due-diligence" },
+  { label: "What due diligence should I start with?", href: "/buy#buyer-due-diligence" },
 ];
 
 const pathCards = [
@@ -238,7 +238,7 @@ const detachedChecklist = [
 ];
 
 const allBuyersChecklist = [
-  "School catchment verification",
+  "School catchment by exact address",
   "Commute test at peak hours",
   "Noise during the day and evening",
   "Privacy from neighbours",
@@ -289,7 +289,7 @@ const faqs = [
   {
     question: "Can I ask about a specific listing?",
     answer:
-      "Yes. Send the address or MLS number and we can help you understand the neighbourhood, building or complex context, strata questions, layout trade-offs, document review priorities, and what to verify before writing.",
+      "Yes. Send the address or MLS number and we can help you understand the neighbourhood, building or complex context, strata questions, layout trade-offs, document review priorities, and key due diligence before writing.",
   },
   {
     question: "Can you help compare neighbourhoods or buildings?",
@@ -404,7 +404,7 @@ export default function BuyPage() {
       <Section
         eyebrow="Port Moody area guide"
         title="Choose your Port Moody area."
-        intro="Each part of Port Moody solves different problems. Use these summaries for orientation, then verify current details before making a decision."
+        intro="Each part of Port Moody solves different problems. Use these summaries for orientation alongside current details before making a decision."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {areas.map((area) => (
@@ -474,7 +474,7 @@ export default function BuyPage() {
       {/* 7. Due diligence */}
       <Section
         eyebrow="Before you write an offer"
-        title="What to verify before buying."
+        title="Before you buy."
       >
         <div id="buyer-due-diligence" className="grid gap-8 md:grid-cols-3">
           <ChecklistPanel title="Condos and townhouses" items={strataChecklist.map((label) => ({ label }))} color="forest" />

@@ -70,7 +70,7 @@ const guideFocusCards = [
   },
   {
     title: "Community and daily life",
-    copy: "Use local-business, event, school-verification, trail, commute, and village-context pages to understand what living here actually feels like.",
+    copy: "Use local-business, event, school-catchment, trail, commute, and village-context pages to understand what living here actually feels like.",
   },
   {
     title: "Decisions over time",
@@ -279,7 +279,7 @@ export default function HomePage() {
 
       <Section
         title="A Port Moody guide, not just a listing search"
-        intro="LiveInPortMoody.com is a local decision guide for people comparing where to live, what to buy, when to sell, and which questions to verify before they commit."
+        intro="LiveInPortMoody.com is a local decision guide for people comparing where to live, what to buy, when to sell, and which questions to ask before they commit."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {guideFocusCards.map((card) => (

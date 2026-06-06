@@ -248,7 +248,7 @@ export default function ResourcesPage() {
         id="strata-section"
         eyebrow="Strata documents"
         title="Strata documents buyers should understand"
-        intro="For condos and townhouses, the strata can matter as much as the unit. Always verify current documents for the specific property."
+        intro="For condos and townhouses, the strata can matter as much as the unit. Review current documents for the specific property before making a decision."
         tone="white"
       >
         <div className="grid gap-3 md:grid-cols-3">

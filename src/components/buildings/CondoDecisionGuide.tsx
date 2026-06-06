@@ -17,15 +17,15 @@ const guideCards = [
   },
   {
     title: "Parking and storage",
-    copy: "Verify parking stall assignment, storage locker, visitor parking, EV charging rules, and bike storage.",
+    copy: "Confirm parking stall assignment, storage locker, visitor parking, EV charging rules, and bike storage in the strata documents.",
   },
   {
     title: "Noise, views, exposure, and elevators",
     copy: "Consider road noise, train noise, exposure, outlook, privacy, elevator dependence, and floor level.",
   },
   {
-    title: "Rental, pet, and bylaw verification",
-    copy: "Rules can change and must be verified against current strata bylaws and provincial rules.",
+    title: "Rental, pet, and bylaw rules",
+    copy: "Rules can change. Review current strata bylaws and provincial rules before relying on any assumption.",
   },
   {
     title: "Resale demand",

@@ -60,7 +60,7 @@ const processSteps = [
   },
   {
     title: "Write with context",
-    body: "Use local context, professional advice, and property-specific verification so the offer matches your budget, timeline, and risk tolerance.",
+    body: "Use local context, professional advice, and property-specific review so the offer matches your budget, timeline, and risk tolerance.",
   },
 ];
 
@@ -88,7 +88,7 @@ const faqItems = [
   {
     question: "Can I ask about a specific first-time buyer option?",
     answer:
-      "Yes. Send the listing, building, complex, or neighbourhood you are comparing and we can help you identify what should be verified before you make a decision.",
+      "Yes. Send the listing, building, complex, or neighbourhood you are comparing and we can help you identify what matters most before making a decision.",
   },
 ];
 
@@ -178,7 +178,7 @@ export default function FirstTimeHomeBuyersPage() {
 
       <Section title="Port Moody neighbourhood fit">
         <p className="max-w-3xl text-sm leading-6 text-slateText">
-          Suter Brook, Newport Village, Moody Centre, Klahanie, Heritage Mountain, Glenayre, College Park, and other Port Moody areas solve different problems. Compare commute, walkability, property type, strata profile, school verification needs, parks, trails, and resale audience before choosing only by price.
+          Suter Brook, Newport Village, Moody Centre, Klahanie, Heritage Mountain, Glenayre, College Park, and other Port Moody areas solve different problems. Compare commute, walkability, property type, strata profile, school catchment, parks, trails, and resale audience before choosing only by price.
         </p>
         <div className="mt-5">
           <CTAButton href="/neighbourhoods" variant="secondary">Compare neighbourhoods</CTAButton>

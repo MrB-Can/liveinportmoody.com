@@ -5,7 +5,7 @@ export const metadata = createMetadata(
   {
     title: "Klahanie Townhomes Port Moody | Complex Preview",
     description:
-      "A preview guide to Klahanie townhomes in Port Moody, including setting, buyer notes, seller notes, and what to verify in strata documents.",
+      "A preview guide to Klahanie townhomes in Port Moody, including setting, buyer notes, seller notes, and strata due diligence questions.",
     path: "/complexes/klahanie-townhomes",
   },
   { robots: { index: false, follow: true } }
@@ -15,7 +15,7 @@ const knownFacts: [string, string][] = [
   ["Area", "Klahanie"],
   ["Type", "Townhouse strata"],
   ["Setting", "Central Port Moody, walkable, near Rocky Point and Newport Village"],
-  ["Transit", "Good transit access (verify routes and frequency)"],
+  ["Transit", "Good transit access (confirm routes and frequency with TransLink)"],
 ];
 
 const mustVerify = [
@@ -34,8 +34,8 @@ const mustVerify = [
 const buyerNotes = [
   "More central and walkable than Heritage Mountain options: Rocky Point Park, Newport Village, and SkyTrain access are within reasonable reach.",
   "Klahanie has varied strata inventory with different ages and conditions; compare strata fees, exterior condition, and building age across specific units.",
-  "Verify parking, storage, and visitor parking allocation carefully. Established areas can have varied and sometimes constrained parking arrangements.",
-  "Verify strata documents thoroughly: Form B, minutes, depreciation report, insurance certificate, bylaws, and contingency reserve fund balance.",
+  "Review parking, storage, and visitor parking allocation carefully. Established areas can have varied and sometimes constrained parking arrangements.",
+  "Review strata documents thoroughly: Form B, minutes, depreciation report, insurance certificate, bylaws, and contingency reserve fund balance.",
   "Compare against Suter Brook and Newport Village condo options on price, strata fees, private entry, outdoor space, and resale demand.",
 ];
 

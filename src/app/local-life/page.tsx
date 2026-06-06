@@ -65,7 +65,7 @@ const officialSources = [
 const decisionCards = [
   {
     title: "For buyers",
-    body: "Use local life context to compare daily routines, commute patterns, walkability, and what you may want to verify before writing.",
+    body: "Use local life context to compare daily routines, commute patterns, walkability, and lifestyle fit before writing.",
   },
   {
     title: "For sellers",
@@ -98,7 +98,7 @@ export default function LocalLifePage() {
         </div>
       </section>
 
-      <Section title="What shapes daily life here" intro="Start with lifestyle fit, then verify exact details for the property, address, school, trail, or event you care about." tone="white">
+      <Section title="What shapes daily life here" intro="Start with lifestyle fit. Use local research to understand the property, address, school, trail, or event before making a decision." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
           {localLifeSections.map(({ title, body, icon: Icon }) => (
             <article key={title} className="p-6">
@@ -112,7 +112,7 @@ export default function LocalLifePage() {
         </div>
       </Section>
 
-      <Section title="Verification-first local context">
+      <Section title="Official local context">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
           {officialSources.map(({ title, body, icon: Icon }) => (
             <div key={title} className="p-5">

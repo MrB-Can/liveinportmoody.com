@@ -17,7 +17,7 @@ const faqCategories = [
       {
         question: "What should buyers compare before choosing a Port Moody property?",
         answer:
-          "Compare neighbourhood fit, property type, condition, strata documents if applicable, commute, walkability, parking, storage, active alternatives, and what must be verified before writing.",
+          "Compare neighbourhood fit, property type, condition, strata documents if applicable, commute, walkability, parking, storage, and active alternatives before writing.",
       },
       {
         question: "Should I start with listings or neighbourhoods?",
@@ -45,9 +45,9 @@ const faqCategories = [
     title: "First-time buyers",
     items: [
       {
-        question: "What should first-time buyers verify first?",
+        question: "Where should first-time buyers start?",
         answer:
-          "Confirm financing assumptions with a lender, understand closing costs with the right professionals, and verify building, strata, and property details before relying on a listing.",
+          "Confirm financing assumptions with a lender, understand closing costs with the right professionals, and review building, strata, and property details before relying on a listing.",
       },
       {
         question: "Are Port Moody condos a good first purchase?",
@@ -67,7 +67,7 @@ const faqCategories = [
       {
         question: "Are school assignments guaranteed by neighbourhood?",
         answer:
-          "No. School assignment should be verified by exact address with SD43. Neighbourhood guides should not be treated as catchment confirmation.",
+          "No. School assignment is based on exact address with SD43. Neighbourhood guides should not be treated as catchment confirmation.",
       },
     ],
   },
@@ -75,14 +75,14 @@ const faqCategories = [
     title: "Buildings and complexes",
     items: [
       {
-        question: "What should I verify in a condo building or townhouse complex?",
+        question: "What should I review in a condo building or townhouse complex?",
         answer:
           "Review current strata documents, Form B, depreciation report, insurance, bylaws, fees, parking, storage, planned work, special levies, and property-specific details.",
       },
       {
         question: "Are preview building pages complete guides?",
         answer:
-          "No. Preview pages are early research pages. They are noindex and should be used as prompts for verification, not as complete building due diligence.",
+          "No. Preview pages are early research pages. They are noindex and should be used as prompts for further research, not as complete building due diligence.",
       },
     ],
   },
@@ -120,14 +120,14 @@ const faqCategories = [
     title: "Schools",
     items: [
       {
-        question: "How should buyers verify schools?",
+        question: "How should buyers find school catchment?",
         answer:
-          "Use SD43 exact-address verification and contact the district where needed. School references on this site are general prompts, not assignment guarantees.",
+          "Use the SD43 school locator for the exact property address and contact the district where needed. School references on this site are general prompts, not assignment guarantees.",
       },
       {
         question: "Can school boundaries change?",
         answer:
-          "Programs, boundaries, capacity, and placement rules can change. Verify before relying on a school assumption.",
+          "Programs, boundaries, capacity, and placement rules can change. Confirm the current assignment for the specific address before relying on a school assumption.",
       },
     ],
   },

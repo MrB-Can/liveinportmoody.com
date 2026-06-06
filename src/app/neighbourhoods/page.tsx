@@ -89,7 +89,7 @@ const frameworkCards: FrameworkCard[] = [
   {
     icon: School,
     heading: "Schools & Families",
-    body: "All neighbourhoods have school access. Verify your exact address for catchment. Heritage Mountain, College Park, and Klahanie are popular with families.",
+    body: "All neighbourhoods have school access. School catchment is assigned by exact property address. Heritage Mountain, College Park, and Klahanie are popular with families.",
   },
 ];
 
@@ -109,7 +109,7 @@ export default function NeighbourhoodsPage() {
           <p className="mt-4 text-lg text-slateText mb-2">
             Port Moody is small, but its neighbourhoods are very different. Walkable condo areas, family townhouse communities, hillside detached homes, and quiet established streets all attract different buyers and come with different trade-offs.
           </p>
-          <p className="text-slateText">Use this guide to compare lifestyle, housing type, walkability, transit, trails, and buyer fit. School assumptions should always be verified by exact address before relying on them.</p>
+          <p className="text-slateText">Use this guide to compare lifestyle, housing type, walkability, transit, trails, and buyer fit. School catchment is assigned by exact property address through SD43.</p>
           <div className="mt-8 flex gap-3 flex-col sm:flex-row sm:flex-wrap">
             <CTAButton href="#neighbourhood-guidance">Find my best-fit area</CTAButton>
             <CTAButton href="/listings" variant="secondary">View Port Moody listings</CTAButton>

@@ -5,7 +5,7 @@ export const metadata = createMetadata(
   {
     title: "Aria Townhomes Moody Centre Port Moody | Complex Preview",
     description:
-      "A preview guide to Aria Townhomes near Brewers Row in Moody Centre, Port Moody, including setting, buyer notes, seller notes, and what to verify in strata documents.",
+      "A preview guide to Aria Townhomes near Brewers Row in Moody Centre, Port Moody, including setting, buyer notes, seller notes, and strata due diligence questions.",
     path: "/complexes/aria-townhomes",
   },
   { robots: { index: false, follow: true } }
@@ -13,7 +13,7 @@ export const metadata = createMetadata(
 
 const knownFacts: [string, string][] = [
   ["Area", "Moody Centre / Brewers Row"],
-  ["Address", "Brew Street area (verify)"],
+  ["Address", "Brew Street area (confirm with listing)"],
   ["Type", "Townhouse strata"],
   ["Setting", "Urban Port Moody, near SkyTrain and Brewers Row"],
 ];
@@ -33,9 +33,9 @@ const mustVerify = [
 
 const buyerNotes = [
   "More urban and transit-connected than Heritage Mountain options. Compare walkability, noise, and lifestyle trade-offs before deciding.",
-  "Newer construction context; verify current strata health, reserve fund status, and any early maintenance or capital considerations.",
+  "Newer construction context. Review current strata health, reserve fund status, and any early maintenance or capital considerations.",
   "Review parking and storage carefully. Urban townhomes in central Port Moody often have constrained or structured parking arrangements.",
-  "Verify strata documents thoroughly: Form B, meeting minutes, depreciation report, bylaws, and unit-specific entitlements.",
+  "Review strata documents thoroughly: Form B, meeting minutes, depreciation report, bylaws, and unit-specific entitlements.",
   "Compare against Moody Centre condo options on price per square foot, strata fees, private entry value, and outdoor space.",
 ];
 

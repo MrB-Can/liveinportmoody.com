@@ -5,7 +5,7 @@ export const metadata = createMetadata(
   {
     title: "College Park Townhomes Port Moody | Complex Preview",
     description:
-      "A preview guide to College Park townhomes in Port Moody, including setting, buyer notes, seller notes, and what to verify in strata documents.",
+      "A preview guide to College Park townhomes in Port Moody, including setting, buyer notes, seller notes, and strata due diligence questions.",
     path: "/complexes/college-park-townhomes",
   },
   { robots: { index: false, follow: true } }
@@ -15,7 +15,7 @@ const knownFacts: [string, string][] = [
   ["Area", "College Park"],
   ["Type", "Townhouse strata"],
   ["Setting", "Established residential, quieter than central Port Moody"],
-  ["Walkability", "Car-dependent for most errands (verify)"],
+  ["Walkability", "Car-dependent for most errands (confirm with current transit)"],
 ];
 
 const mustVerify = [
@@ -34,8 +34,8 @@ const mustVerify = [
 const buyerNotes = [
   "Established residential area. Review age, exterior condition, envelope history, and maintenance record carefully before committing.",
   "Quieter alternative to Klahanie or Moody Centre; well-suited to buyers who prioritise space and residential character over daily walkability.",
-  "College Park has limited daily walkability. Verify transit, commute fit, and driving distances before making a neighbourhood decision.",
-  "Verify strata documents thoroughly: Form B, minutes, depreciation report, insurance, bylaws, and any past or planned special levies.",
+  "College Park has limited daily walkability. Review transit, commute fit, and driving distances before making a neighbourhood decision.",
+  "Review strata documents thoroughly: Form B, minutes, depreciation report, insurance, bylaws, and any past or planned special levies.",
   "Compare against Heritage Mountain options on green setting and trail access, and against Klahanie on central location and transit access.",
 ];
 

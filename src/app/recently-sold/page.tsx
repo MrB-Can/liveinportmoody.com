@@ -42,7 +42,7 @@ export default function RecentlySoldPage() {
                 "Property type and neighbourhood context",
                 "Building or complex comparison prompts",
                 "Current active competition",
-                "Questions to verify before relying on sales context",
+                "Questions to ask before relying on sales context",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-slateText">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-seaGlass" />
@@ -88,7 +88,7 @@ export default function RecentlySoldPage() {
                     "Comparable-sales context where permitted",
                     "Current active competition",
                     "Market positioning for your property type",
-                    "Questions to verify for your neighbourhood",
+                    "Questions to ask for your neighbourhood",
                   ].map((item) => (
                     <li key={item} className="text-xs text-slateText">• {item}</li>
                   ))}

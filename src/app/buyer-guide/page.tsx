@@ -15,7 +15,7 @@ export const metadata = createMetadata(
 const guideCovers = [
   "How to compare Port Moody neighbourhoods by lifestyle, commute, property type, and trade-offs",
   "How condos, townhouses, and detached homes differ in risk, documents, and resale considerations",
-  "What to verify before relying on a listing",
+  "How to assess a listing before relying on it",
   "How to approach strata documents, building history, parking, storage, bylaws, and fees",
   "How to prepare questions before writing an offer",
 ];

@@ -31,7 +31,7 @@ const propertyTypeCards = [
   },
   {
     title: "Land and redevelopment context",
-    description: "Neighbourhood planning, transit access, lot characteristics, zoning context, and redevelopment potential can affect buyer interest, but should be verified before relying on it.",
+    description: "Neighbourhood planning, transit access, lot characteristics, zoning context, and redevelopment potential can affect buyer interest. Confirm details against current sources.",
   },
 ];
 
