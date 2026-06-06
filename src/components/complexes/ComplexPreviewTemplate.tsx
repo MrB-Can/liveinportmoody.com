@@ -5,9 +5,6 @@ import { LeadForm } from "@/components/lead-form";
 const MLS_DISCLOSURE =
   "Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.";
 
-const VERIFICATION_NOTE =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
-
 type RelatedLink = { label: string; href: string };
 
 type Props = {
@@ -87,11 +84,6 @@ export function ComplexPreviewTemplate({
         {/* Preview notice */}
         <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
           This is a guide preview. Information is being expanded. Verify all details in current strata documents and with a qualified professional before making any decision.
-        </p>
-
-        {/* Verification note */}
-        <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
-          {VERIFICATION_NOTE}
         </p>
 
         {/* Quick summary */}

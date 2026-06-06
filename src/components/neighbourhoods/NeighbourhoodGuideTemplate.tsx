@@ -13,9 +13,6 @@ interface NeighbourhoodGuideTemplateProps {
   showBackLink?: boolean;
 }
 
-const standardVerificationNote =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school assignment, measurements, and strata documents should be verified for the specific property before making a decision.";
-
 const previewNote =
   "This guide is being expanded. Use it for orientation, then verify property-specific details, school assignment, strata information, and listing details before making a decision.";
 
@@ -71,11 +68,6 @@ export function NeighbourhoodGuideTemplate({
             {previewNote}
           </p>
         )}
-
-        {/* Verification note */}
-        <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
-          {standardVerificationNote}
-        </p>
 
         {/* Quick facts and scoring bars - to be populated */}
         <QuickFactsWithBars
@@ -143,11 +135,6 @@ export function NeighbourhoodGuideTemplate({
             <GraduationCap className="w-5 h-5 text-forest" />
             <h2 className="font-heading text-2xl text-deepInlet">Schools</h2>
           </div>
-          {guide.schoolVerificationNote && (
-            <p className="border-l-4 border-blue-300 bg-blue-50/70 px-4 py-3 text-sm leading-6 text-blue-950">
-              {guide.schoolVerificationNote}
-            </p>
-          )}
           {guide.schools.length > 0 ? (
             <div className="grid gap-4">
               {guide.schools.map((school, i) => (

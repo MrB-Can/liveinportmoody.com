@@ -6,7 +6,6 @@ import { LeadForm } from "@/components/lead-form";
 import { ProcessStep } from "@/components/process-step";
 import { Section } from "@/components/section";
 import { FAQSection } from "@/components/ui/faq-section";
-import { VerificationNote } from "@/components/ui/verification-note";
 import { TrustStrip } from "@/components/trust-strip";
 import { ChecklistPanel } from "@/components/visual-elements/ChecklistPanel";
 import { createMetadata } from "@/lib/seo";
@@ -369,9 +368,6 @@ export default function SellPage() {
           <ChecklistPanel title="All properties" items={allSellerChecklist.map((label) => ({ label }))} color="forest" />
           <ChecklistPanel title="Condos and townhouses" items={strataSellerChecklist.map((label) => ({ label }))} color="forest" />
           <ChecklistPanel title="Detached homes" items={detachedSellerChecklist.map((label) => ({ label }))} color="forest" />
-        </div>
-        <div className="mt-8">
-          <VerificationNote note="This checklist is for general orientation. Consult qualified professionals for legal, financial, and inspection-related matters specific to your property." />
         </div>
       </Section>
 

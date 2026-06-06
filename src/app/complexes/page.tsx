@@ -92,9 +92,6 @@ const faqs = [
   },
 ];
 
-const standardVerificationNote =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
-
 const howToUseCards = [
   {
     heading: "Compare by neighbourhood",
@@ -234,9 +231,6 @@ export default function ComplexesPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-5 border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
-          {standardVerificationNote}
-        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-12">
@@ -315,9 +309,6 @@ export default function ComplexesPage() {
             <h2 className="font-heading text-3xl text-deepInlet">Active townhouse listings</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               Use listings as the starting point, then compare the complex, strata, layout, location, and resale context before making a decision.
-            </p>
-            <p className="mt-3 text-xs leading-5 text-slateText">
-              Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
             </p>
             <div className="mt-5">
               <CTAButton href="/listings">View townhouse listings</CTAButton>

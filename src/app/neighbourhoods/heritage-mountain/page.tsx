@@ -44,8 +44,6 @@ const faqItems = [
   },
 ];
 
-const standardVerificationNote =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
 
 export default function HeritageM() {
   const heritageMountainComplexes = complexes.filter((c) => c.neighbourhoodSlug === "heritage-mountain");
@@ -100,10 +98,6 @@ export default function HeritageM() {
             { label: "Detached homes", score: 70 },
           ]}
         />
-
-        <p className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-          {standardVerificationNote}
-        </p>
 
         {/* May fit / May not fit */}
         <FitCards
@@ -233,11 +227,6 @@ export default function HeritageM() {
             <GraduationCap className="h-6 w-6 text-forest" />
             Schools & catchment verification
           </h2>
-          <div className="rounded-lg border border-softBorder bg-warmSand p-6 mb-6">
-            <p className="text-sm text-slateText">
-              <span className="font-semibold">Important:</span> School catchments can change. Verify current boundaries directly with School District 43 (SD43) and the specific schools listed below.
-            </p>
-          </div>
           <div className="space-y-4">
             {[
               { name: "Heritage Mountain Elementary School", type: "Elementary", catchment: "Check with SD43 for current catchment" },
@@ -331,11 +320,6 @@ export default function HeritageM() {
             <a href="/listings" className="flex items-center justify-center px-6 py-3 bg-emphasis text-white rounded-lg font-semibold hover:opacity-90">
               View active listings
             </a>
-            <div>
-              <p className="text-xs text-slateText">
-                <span className="font-semibold">Compliance:</span> Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
-              </p>
-            </div>
           </div>
         </section>
 

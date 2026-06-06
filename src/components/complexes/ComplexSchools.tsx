@@ -28,11 +28,6 @@ export function ComplexSchools({ schools }: ComplexSchoolsProps) {
         ))}
       </div>
 
-      <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-5">
-        <p className="text-sm text-amber-900">
-          <strong>Note:</strong> Catchment boundaries can change. Always verify the current catchment for the specific address with SD43 before making a decision.
-        </p>
-      </div>
     </div>
   );
 }

@@ -6,7 +6,6 @@ import type { MapCategory } from "@/components/maps/mapTypes";
 import { LeadForm } from "@/components/lead-form";
 import { CTAButton } from "@/components/cta-button";
 import { Badge } from "@/components/ui/badge";
-import { VerificationNote } from "@/components/ui/verification-note";
 import { StartWithWhatMatters } from "@/components/neighbourhoods/start-with-what-matters";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { neighbourhoodMapPoints } from "@/data/mapPoints";
@@ -94,9 +93,6 @@ const frameworkCards: FrameworkCard[] = [
   },
 ];
 
-const standardVerificationNote =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
-
 export default function NeighbourhoodsPage() {
   const liveNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "live");
   const previewNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "preview");
@@ -141,10 +137,6 @@ export default function NeighbourhoodsPage() {
 
       {/* Comparison table */}
       <NeighbourhoodComparisonTable />
-
-      <section className="mx-auto max-w-4xl px-5">
-        <VerificationNote note={standardVerificationNote} />
-      </section>
 
       {/* Filter chips */}
       <FilterChips />

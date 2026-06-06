@@ -102,11 +102,6 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
             </div>
           ))}
         </div>
-        <div className="mt-6">
-          <p className="border-l-4 border-amber-300 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
-            No unit counts, strata fees, amenities, bylaws, pet rules, rental rules, school claims, or active listing counts are assumed on this page. Confirm building and unit details before relying on them.
-          </p>
-        </div>
       </Section>
 
       <Section

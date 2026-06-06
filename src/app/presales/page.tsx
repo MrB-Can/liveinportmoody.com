@@ -3,7 +3,6 @@ import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
-import { VerificationNote } from "@/components/ui/verification-note";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -135,12 +134,6 @@ export default function PresalesPage() {
                 <p className="mt-2 text-sm leading-6 text-slateText">{card.body}</p>
               </article>
             ))}
-          </div>
-          <div className="mt-6">
-            <VerificationNote
-              title="Verify before relying on presale information"
-              note="Availability, pricing, incentives, completion dates, disclosure documents, tax treatment, and assignment terms can change."
-            />
           </div>
         </div>
       </section>

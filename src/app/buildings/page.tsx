@@ -7,7 +7,6 @@ import { buildingMapPoints, neighbourhoodMapPoints } from "@/data/mapPoints";
 import { CondoDecisionGuide } from "@/components/buildings/CondoDecisionGuide";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
-import { VerificationNote } from "@/components/ui/verification-note";
 import { buildings, buildingDisplayGroups } from "@/data/buildings";
 import { createMetadata } from "@/lib/seo";
 
@@ -50,9 +49,6 @@ const faqs = [
       "Yes. Send the building name or listing and we can help you understand the local context, strata questions to ask, pricing trade-offs, and what needs verification.",
   },
 ];
-
-const standardVerificationNote =
-  "This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking, storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.";
 
 const howToUseCards = [
   {
@@ -192,9 +188,6 @@ export default function BuildingsPage() {
             </article>
           ))}
         </div>
-        <div className="mt-5">
-          <VerificationNote note={standardVerificationNote} />
-        </div>
       </Section>
 
       <Section
@@ -220,9 +213,6 @@ export default function BuildingsPage() {
             <h2 className="font-heading text-2xl text-deepInlet">Use listings with building research</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
               A condo listing is only part of the decision. The building, strata documents, parking, exposure, noise, fees, and planned work can change the risk profile.
-            </p>
-            <p className="mt-3 text-xs leading-5 text-slateText">
-              Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
             </p>
             <div className="mt-5">
               <CTAButton href="/listings" variant="secondary">View active listings</CTAButton>

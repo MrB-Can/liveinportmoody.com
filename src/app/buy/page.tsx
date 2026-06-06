@@ -5,7 +5,6 @@ import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { FAQSection } from "@/components/ui/faq-section";
-import { VerificationNote } from "@/components/ui/verification-note";
 import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
 import { ProcessStep } from "@/components/process-step";
@@ -481,9 +480,6 @@ export default function BuyPage() {
           <ChecklistPanel title="Condos and townhouses" items={strataChecklist.map((label) => ({ label }))} color="forest" />
           <ChecklistPanel title="Detached homes" items={detachedChecklist.map((label) => ({ label }))} color="forest" />
           <ChecklistPanel title="All buyers" items={allBuyersChecklist.map((label) => ({ label }))} color="forest" />
-        </div>
-        <div className="mt-8">
-          <VerificationNote note="This guide is for general orientation. Property-specific details should be verified with a qualified professional before making a decision." />
         </div>
       </Section>
 

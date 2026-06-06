@@ -248,9 +248,6 @@ export default function TreetopsPage() {
                 Request value opinion
               </Link>
             </div>
-            <p className="mt-4 max-w-2xl text-xs leading-5 text-slateText">
-              Active listings are provided through MLS Reciprocity. Only active listings are shown. Sold and expired listings are not included.
-            </p>
           </div>
         </div>
       </section>
@@ -352,10 +349,6 @@ export default function TreetopsPage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-              This guide is for general orientation. Unit details, bylaws, strata fees, rental rules, pet rules, parking,
-              storage, school catchments, measurements, and strata documents should be verified for the specific property before making a decision.
-            </p>
           </Section>
 
           <Section id="location" title="Location and context">
@@ -442,12 +435,9 @@ export default function TreetopsPage() {
           </Section>
 
           <Section id="schools" title="Schools and catchment">
-            <div className="rounded-lg border border-amber-200 bg-amber-50 p-5">
-              <p className="text-sm leading-6 text-amber-950">
-                Do not rely on neighbourhood name alone for school assignment. Always verify the exact property address.
-                Check the current SD43 catchment for the Treetops address before making a decision.
-              </p>
-            </div>
+            <p className="text-sm leading-6 text-slateText">
+              School catchment is assigned by exact property address, not neighbourhood name. Verify with SD43 before relying on any school assumption.
+            </p>
           </Section>
 
           <Section id="buying" title="Buyer notes">
