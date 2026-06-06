@@ -110,7 +110,7 @@ export function LeadForm({
 
       <div className="mt-5 grid gap-4">
         <label htmlFor="name" className="grid gap-2 text-sm font-medium text-charcoal">
-          Name
+          Your name
           <input id="name" className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" {...register("name")} />
           {errors.name ? <span className="text-sm text-red-700">{errors.name.message}</span> : null}
         </label>
