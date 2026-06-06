@@ -13,7 +13,7 @@ export function Wordmark({ variant = "dark" }: WordmarkProps) {
         width={120}
         height={80}
         priority
-        className="h-14 w-auto"
+        className="h-16 w-auto"
       />
     );
   }
@@ -25,7 +25,7 @@ export function Wordmark({ variant = "dark" }: WordmarkProps) {
       width={180}
       height={44}
       priority
-      className="h-12 w-auto"
+      className="h-14 w-auto"
     />
   );
 }
