@@ -312,7 +312,7 @@ export default function TreetopsPage() {
         <div className="mt-12 space-y-12">
           <Section id="overview" title="Overview">
             <p className="max-w-4xl text-base leading-8 text-slateText">
-              Treetops is one of the larger established townhouse communities in Heritage Mountain. Its appeal is less
+              Treetops is the largest established townhouse community in Heritage Mountain. Its appeal is less
               about urban walkability and more about space, greenery, internal pathways, recreation amenities, and a
               mature residential setting. Buyers often compare it against detached homes, other Heritage Mountain
               townhomes, and more central Port Moody condo or townhome options.
