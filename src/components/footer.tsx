@@ -2,6 +2,29 @@ import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
 import { footerGroups, socialLinks, siteConfig } from "@/lib/site";
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+
+const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  instagram: InstagramIcon,
+  facebook: FacebookIcon,
+};
+
 export function Footer() {
   return (
     <footer className="bg-deepInlet text-white">
@@ -26,10 +49,15 @@ export function Footer() {
                     <Link
                       key={social.platform}
                       href={social.href}
-                      className="font-semibold text-seaGlass hover:text-white transition-colors"
+                      className="text-seaGlass hover:text-white transition-colors"
                       aria-label={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      {social.label}
+                      {(() => {
+                        const Icon = socialIcons[social.platform];
+                        return Icon ? <Icon className="h-5 w-5" /> : social.label;
+                      })()}
                     </Link>
                   ))}
               </div>
