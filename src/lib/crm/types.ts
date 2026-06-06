@@ -12,7 +12,16 @@ export const formTypes = [
   "complex-inquiry",
   "complex-value-opinion",
   "home-evaluation",
+  "nominate-a-business",
+  "suggest-event",
+  "suggest-local-life",
 ] as const;
+
+export const communityFormTypes = new Set<(typeof formTypes)[number]>([
+  "nominate-a-business",
+  "suggest-event",
+  "suggest-local-life",
+]);
 
 export const leadInputSchema = z.object({
   formType: z.enum(formTypes),

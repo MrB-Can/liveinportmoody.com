@@ -140,14 +140,14 @@ export default function LocalLifePage() {
       <Section id="suggest-local-life" title="Suggest local context" tone="sand" intro="Send a park, trail, activity, business, or event idea for review. Submissions are checked before anything is published.">
         <div className="max-w-2xl">
           <LeadForm
-            formType="ask-question"
+            formType="suggest-local-life"
             leadType="local-question"
             title="Suggest something local"
             description="Tell us what should be reviewed and where the public verification source can be found."
             ctaLabel="Send suggestion"
             messageLabel="Local life suggestion"
             messagePlaceholder="Share the park, trail, business, activity, event, or source to review."
-            tags={["source:liveinportmoody", "intent:local-life-suggestion", "area:port-moody"]}
+            tags={["source:liveinportmoody", "intent:local-life-suggestion", "community-contribution-no-opportunity", "area:port-moody"]}
           />
         </div>
       </Section>

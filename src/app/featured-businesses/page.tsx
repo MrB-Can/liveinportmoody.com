@@ -73,14 +73,14 @@ export default function FeaturedBusinessesPage() {
       <Section id="suggest-feature" title="Suggest a featured business" tone="sand" intro="Use this request form to nominate a business, organization, or local activity for review. Suggestions are evaluated before any public feature is created.">
         <div className="max-w-2xl">
           <LeadForm
-            formType="ask-question"
+            formType="nominate-a-business"
             leadType="local-question"
             title="Nominate a business"
             description="Send the business name, public source, category, and why it matters to Port Moody residents or real estate decisions."
             ctaLabel="Send business suggestion"
             messageLabel="Business nomination"
             messagePlaceholder="Business name, website or public source, category, Port Moody area, and why it should be reviewed."
-            tags={["source:liveinportmoody", "intent:featured_business_suggestion", "area:port-moody"]}
+            tags={["source:liveinportmoody", "intent:featured_business_suggestion", "community-contribution-no-opportunity", "area:port-moody"]}
           />
         </div>
       </Section>

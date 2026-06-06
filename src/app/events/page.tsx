@@ -119,13 +119,13 @@ export default function EventsPage() {
           </div>
         </div>
         <LeadForm
-          formType="ask-question"
+          formType="suggest-event"
           leadType="local-question"
           title="Submit or suggest an event"
           description="Events are reviewed before being added."
           ctaLabel="Send event suggestion"
           messageLabel="Event details and verification source"
-          tags={["source:liveinportmoody", "intent:event-suggestion", "area:port-moody"]}
+          tags={["source:liveinportmoody", "intent:event-suggestion", "community-contribution-no-opportunity", "area:port-moody"]}
         />
       </section>
     </>

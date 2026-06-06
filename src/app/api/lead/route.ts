@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCRMAdapter } from "@/lib/crm";
-import { leadInputSchema } from "@/lib/crm/types";
+import { leadInputSchema, communityFormTypes } from "@/lib/crm/types";
 
 const intentTagMap = {
   buyer: "intent:buyer",
@@ -11,7 +11,7 @@ const intentTagMap = {
   resource: "intent:local-question",
 };
 
-// Sliding-window rate limiter — persists within a warm Vercel instance.
+// Sliding-window rate limiter; persists within a warm Vercel instance.
 // Limit: 3 submissions per IP per 15 minutes.
 const WINDOW_MS = 15 * 60 * 1000;
 const MAX_PER_WINDOW = 3;
@@ -71,10 +71,14 @@ export async function POST(request: Request) {
     ]),
   );
 
+  const isCommunityContribution = communityFormTypes.has(input.formType);
+
   try {
     const crm = getCRMAdapter();
     const { contactId } = await crm.upsertContact({ ...input, tags });
-    await crm.createOrUpdateOpportunity({ ...input, tags, contactId });
+    if (!isCommunityContribution) {
+      await crm.createOrUpdateOpportunity({ ...input, tags, contactId });
+    }
     await crm.applyTags(contactId, tags);
 
     return NextResponse.json({ ok: true });
