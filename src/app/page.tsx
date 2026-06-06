@@ -261,7 +261,7 @@ export default function HomePage() {
 
       <TrustStrip />
 
-      <Section eyebrow="Buy, sell, or relocate" title="What are you trying to figure out?" tone="white">
+      <Section title="Start with the decision" tone="white">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
             <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
