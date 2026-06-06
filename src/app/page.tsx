@@ -294,7 +294,7 @@ export default function HomePage() {
       <Section
         eyebrow="Guides and requests"
         title="Start with the right next question"
-        intro="Request a guide, ask for help, get notified, or ask for compliant market context. These pages use request language for guide assets and verified data."
+        intro="Request a guide, ask for help, get notified, or ask for compliant market context."
         tone="white"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
