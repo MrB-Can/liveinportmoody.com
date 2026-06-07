@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MessageCircle, Search, CheckCircle2 } from "lucide-react";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
+import { ReviewProof } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
 import { siteConfig } from "@/lib/site";
 import { TrustStrip } from "@/components/trust-strip";
@@ -114,17 +115,12 @@ export default function ContactPage() {
       </Section>
 
       <Section title="Why ask us" tone="sand">
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            "Licensed BC real estate guidance through eXp Realty.",
-            "Port Moody-focused local research for neighbourhood, building, and complex questions.",
-            "Verified-only public proof: no invented reviews, rankings, awards, or sold data.",
-          ].map((item) => (
-            <div key={item} className="rounded-lg border border-softBorder bg-white p-5 text-sm font-semibold leading-6 text-deepInlet">
-              {item}
-            </div>
-          ))}
-        </div>
+        <ReviewProof
+          title="Public proof is handled with the same care as your question."
+          intro="Contact-page proof is limited to approved Google excerpts, verified public sources, and client-approved stories."
+          tags={["general", "buyer", "seller", "port-moody"]}
+          ctaLabel="View review standards"
+        />
       </Section>
 
       <Section title="How your question is handled" intro="Your message is reviewed by context so the right follow-up can focus on buying, selling, relocation, market questions, listings, or local Port Moody guidance.">

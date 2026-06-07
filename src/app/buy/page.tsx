@@ -4,6 +4,7 @@ import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
+import { ReviewProof } from "@/components/reviews/review-proof";
 import { FAQSection } from "@/components/ui/faq-section";
 import { TrustStrip } from "@/components/trust-strip";
 import { createMetadata } from "@/lib/seo";
@@ -398,6 +399,15 @@ export default function BuyPage() {
             );
           })}
         </div>
+      </Section>
+
+      <Section tone="white">
+        <ReviewProof
+          title="Buyer reviews belong beside buyer decisions."
+          intro="Approved Google review excerpts from buyers can appear here when the exact wording and public source are confirmed."
+          tags={["buyer", "listing", "relocation"]}
+          ctaLabel="Review buyer proof"
+        />
       </Section>
 
       {/* 5. Choose your area */}

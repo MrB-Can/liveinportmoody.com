@@ -2,6 +2,7 @@ import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucid
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
+import { ReviewProof } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
 import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
 import { TrustStrip } from "@/components/trust-strip";
@@ -261,6 +262,15 @@ export default function HomePage() {
 
       <TrustStrip />
 
+      <Section tone="white">
+        <ReviewProof
+          title="Google reviews and client stories, used carefully."
+          intro="Reviews belong where they help people decide. This site is wired for approved Google excerpts and client stories without unsupported ratings, counts, or rankings."
+          tags={["general", "buyer", "seller", "port-moody"]}
+          ctaLabel="View review standards"
+        />
+      </Section>
+
       <Section title="Start with the decision" tone="white">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
@@ -486,22 +496,12 @@ export default function HomePage() {
       </Section>
 
       <Section title="Client stories and recognition" tone="sand">
-        <div className="rounded-lg border border-softBorder bg-white p-6 md:p-8">
-          <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Trust</p>
-              <h2 className="mt-3 font-heading text-3xl text-deepInlet">Client stories and verified recognition.</h2>
-            </div>
-            <div>
-              <p className="text-sm leading-6 text-slateText">
-                Testimonials, client stories, Google reviews, and professional recognition are published from verified public sources or with client approval. No invented reviews, rankings, or awards.
-              </p>
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <CTAButton href="/raving-fans" variant="secondary">View client stories</CTAButton>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ReviewProof
+          title="Client proof stays source-backed."
+          intro="Testimonials, client stories, Google reviews, and professional recognition are published from verified public sources or with client approval. No invented reviews, rankings, or awards."
+          tags={["general", "buyer", "seller", "relocation"]}
+          ctaLabel="View client stories"
+        />
       </Section>
 
       <Section title="Ask a local question" tone="sand">

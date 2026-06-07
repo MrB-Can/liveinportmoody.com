@@ -4,6 +4,7 @@ import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { ProcessStep } from "@/components/process-step";
+import { ReviewProof } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
 import { FAQSection } from "@/components/ui/faq-section";
 import { TrustStrip } from "@/components/trust-strip";
@@ -333,6 +334,15 @@ export default function SellPage() {
             );
           })}
         </div>
+      </Section>
+
+      <Section tone="white">
+        <ReviewProof
+          title="Seller proof belongs near listing decisions."
+          intro="Approved Google review excerpts from sellers can support evaluation, preparation, pricing, and launch conversations once the public source is confirmed."
+          tags={["seller", "home-evaluation"]}
+          ctaLabel="Review seller proof"
+        />
       </Section>
 
       {/* 5. What buyers value by property type */}

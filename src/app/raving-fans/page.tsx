@@ -1,4 +1,5 @@
 import { CTAButton } from "@/components/cta-button";
+import { ApprovedReviewGrid } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
 import { MessageSquareCheck, Clock, Verified, Lock } from "lucide-react";
@@ -55,6 +56,14 @@ export default function RavingFansPage() {
             <p className="text-sm leading-6 text-slateText">Buyer, seller, relocation, or long-term planning stories require client approval for public use.</p>
           </article>
         </div>
+      </Section>
+
+      <Section
+        title="Approved review excerpts"
+        intro="The site is ready to display approved Google excerpts and client stories here, then reuse them in buyer, seller, contact, and evaluation pages."
+        tone="white"
+      >
+        <ApprovedReviewGrid />
       </Section>
 
       <Section title="Trust content rules">

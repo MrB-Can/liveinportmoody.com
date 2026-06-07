@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { HomeEvaluationForm } from "@/components/home-evaluation-form";
+import { ReviewProof } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
 
@@ -141,6 +142,15 @@ export default function HomeEvaluationPage() {
 
           <HomeEvaluationForm />
         </div>
+      </Section>
+
+      <Section tone="sand">
+        <ReviewProof
+          title="Home-evaluation proof should be source-backed."
+          intro="Approved Google review excerpts from sellers can support this page once the exact source and public wording are confirmed."
+          tags={["seller", "home-evaluation"]}
+          ctaLabel="View review standards"
+        />
       </Section>
 
       {/* 5. Next steps section */}
