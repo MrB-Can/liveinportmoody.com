@@ -1,4 +1,5 @@
 import type { CRMAdapter, LeadInput } from "@/lib/crm/types";
+import { flattenAttribution } from "@/lib/crm/types";
 import { getSecretValue } from "@/lib/server/secrets";
 
 const ghlBaseUrl = "https://services.leadconnectorhq.com";
@@ -64,7 +65,15 @@ export class GHLAdapter implements CRMAdapter {
         { key: "page_path", field_value: input.pagePath || "" },
         { key: "cta_label", field_value: input.ctaLabel || "" },
         { key: "message", field_value: input.message || "" },
+        // Full attribution as a JSON fallback (always works, even if the discrete
+        // custom fields below have not been created in GHL yet).
         { key: "attribution", field_value: JSON.stringify(input.attribution || {}) },
+        // Discrete attribution fields for filtering/reporting in GHL. Each `key`
+        // must exist as a contact custom field in GHL; unmatched keys are ignored.
+        ...Object.entries(flattenAttribution(input.attribution)).map(([key, value]) => ({
+          key,
+          field_value: value,
+        })),
       ],
     };
 

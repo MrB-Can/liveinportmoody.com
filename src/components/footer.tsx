@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactLink } from "@/components/contact-link";
 import { Wordmark } from "@/components/wordmark";
 import { footerGroups, socialLinks, siteConfig } from "@/lib/site";
 
@@ -37,8 +38,8 @@ export function Footer() {
           <div className="mt-6 space-y-2 text-sm text-mist">
             <p>Leilani Fong PREC · eXp Realty Canada</p>
             <p>Paul Bennett · eXp Realty Canada</p>
-            <p>{siteConfig.publicPhone}</p>
-            <p>{siteConfig.publicEmail}</p>
+            <p><ContactLink type="phone" value={siteConfig.publicPhone} location="footer" className="hover:text-white" /></p>
+            <p><ContactLink type="email" value={siteConfig.publicEmail} location="footer" className="hover:text-white" /></p>
             <p>
               Leilani also lists at{" "}
               <a href="https://leilanihomes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
