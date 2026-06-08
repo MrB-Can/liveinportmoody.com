@@ -265,7 +265,7 @@ export default function HomePage() {
       <Section tone="white">
         <ReviewProof
           title="Google reviews and client stories, used carefully."
-          intro="Reviews belong where they help people decide. This site is wired for approved Google excerpts and client stories without unsupported ratings, counts, or rankings."
+          intro="Reviews belong where they help people decide. Verified Google excerpts and client stories appear here, without unsupported ratings, counts, or rankings."
           tags={["general", "buyer", "seller", "port-moody"]}
           ctaLabel="View review standards"
         />

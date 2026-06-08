@@ -14,12 +14,6 @@ export const siteConfig = {
   realtors: "Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada",
 };
 
-export const headerAssetTodo = {
-  item: "Facebook-aligned logo/header asset",
-  status: "needs_approved_asset",
-  note: "Do not replace the current header or logo artwork until an approved Facebook-aligned asset is available.",
-} as const;
-
 export type NavDropdownItem = { label: string; href: string; badge?: string };
 export type NavGroup = { title?: string; items: NavDropdownItem[] };
 export type NavItem = {

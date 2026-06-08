@@ -79,7 +79,7 @@ export function ReviewProof({
         </div>
       ) : (
         <div className="mt-6 rounded-lg border border-softBorder bg-mist p-5">
-          <p className="text-sm font-semibold text-deepInlet">Google review excerpts are ready to display once approved.</p>
+          <p className="text-sm font-semibold text-deepInlet">Verified Google reviews appear here once confirmed.</p>
           <p className="mt-2 text-sm leading-6 text-slateText">
             No review excerpt, star rating, count, ranking, or award is shown unless it is source-backed and approved for public use.
           </p>
@@ -95,8 +95,8 @@ export function ApprovedReviewGrid({ tags = [], limit = 9 }: { tags?: ReviewTag[
   if (reviews.length === 0) {
     return (
       <ReviewProof
-        title="Approved review excerpts will live here."
-        intro="The page is wired for Google reviews and client-approved stories, but it does not publish unverified review text."
+        title="Client reviews and stories."
+        intro="Verified Google reviews and client-approved stories appear here. Nothing is shown unless it is source-backed and approved for public use."
       />
     );
   }

@@ -16,7 +16,7 @@ const commonVerificationItems = [
 
 function formatStatus(status: PortMoodyBuilding["guideStatus"]) {
   if (status === "guide-live") return "Guide live";
-  if (status === "full-guide-in-progress") return "Information is being expanded";
+  if (status === "full-guide-in-progress") return "Guide in progress";
   return "Building guide preview";
 }
 
@@ -53,7 +53,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
           <p className="mt-3 text-base font-semibold text-forest">{building.neighbourhood}</p>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slateText">{building.summary}</p>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-slateText">
-            This preview is being expanded. Use it to compare location, building fit, and key due-diligence questions. Confirm strata documents, bylaws, fees, parking, storage, and unit-specific details before making decisions.
+            Compare location, building fit, and key due-diligence questions here. Confirm strata documents, bylaws, fees, parking, storage, and unit-specific details before making decisions.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton href="/contact">Ask about this building</CTAButton>
@@ -63,7 +63,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
         </div>
       </section>
 
-      <Section title="Quick summary" intro="Use this as orientation for comparing building fit, then confirm building-specific and unit-specific details before making a purchase or sale decision." tone="white">
+      <Section title="Quick summary" intro="Orientation for comparing building fit. Confirm building-specific and unit-specific details before making a purchase or sale decision." tone="white">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-lg border border-softBorder bg-white p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-emphasis">Type</p>
@@ -94,7 +94,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
         </div>
       </Section>
 
-      <Section title="Before you buy" intro="Use this checklist alongside current listing details, strata documents, and professional advice." tone="white">
+      <Section title="Before you buy" intro="A checklist to review alongside current listing details, strata documents, and professional advice." tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-mist md:grid md:grid-cols-2 md:divide-x md:divide-y-0">
           {verificationItems(building).map((item) => (
             <div key={item} className="p-5 text-sm leading-6 text-slateText">
@@ -106,11 +106,11 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
 
       <Section
         title="Location and context"
-        intro={isGroup ? "Use this building-group preview to compare fit across an area, then confirm specific buildings, addresses, and strata details individually." : "Use this local context with the exact address, strata package, and unit details for the property you are considering."}
+        intro={isGroup ? "A building-group preview for comparing fit across an area. Confirm specific buildings, addresses, and strata details individually." : "Pair this local context with the exact address, strata package, and unit details for the property you are considering."}
       >
         <div className="rounded-lg border border-softBorder bg-white p-6">
           <p className="text-sm leading-6 text-slateText">
-            {building.name} is shown with this area context: {building.neighbourhood}. Use this page to frame the location, then check the exact listing, building documents, property disclosure materials, and strata records before making decisions.
+            {building.name} is shown with this area context: {building.neighbourhood}. It frames the location; check the exact listing, building documents, property disclosure materials, and strata records before making decisions.
           </p>
           <p className="mt-3 text-sm leading-6 text-slateText">
             Neighbourhood boundaries, building names, address labels, and buyer search behaviour can overlap in Port Moody. Confirm exact fit against the property address and current listing materials.
@@ -172,7 +172,7 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
           <div className="rounded-lg border border-softBorder bg-white p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Use listings with building research</h2>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              Use this preview to frame the building and location, then start with an active listing for unit-specific details. Ask about the building if you want help sorting what matters before writing an offer.
+              This preview frames the building and location; start with an active listing for unit-specific details. Ask about the building if you want help sorting what matters before writing an offer.
             </p>
             <p className="mt-3 text-xs leading-5 text-slateText">{disclosure}</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

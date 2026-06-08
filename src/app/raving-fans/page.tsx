@@ -60,7 +60,7 @@ export default function RavingFansPage() {
 
       <Section
         title="Approved review excerpts"
-        intro="The site is ready to display approved Google excerpts and client stories here, then reuse them in buyer, seller, contact, and evaluation pages."
+        intro="Verified Google review excerpts and client-approved stories appear here, and across the buyer, seller, contact, and evaluation pages."
         tone="white"
       >
         <ApprovedReviewGrid />

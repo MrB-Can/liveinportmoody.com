@@ -23,9 +23,7 @@ export type ApprovedReview = {
 
 export const googleReviewProfileUrl = "";
 
-export const approvedReviews: ApprovedReview[] = [
-  // Add exact owner-approved Google review excerpts here after the public source URL is confirmed.
-];
+export const approvedReviews: ApprovedReview[] = [];
 
 export function getApprovedReviews(tags: ReviewTag[] = [], limit = 3) {
   const selected = approvedReviews.filter((review) => {

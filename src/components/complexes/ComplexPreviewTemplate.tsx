@@ -83,7 +83,7 @@ export function ComplexPreviewTemplate({
       <div className="mx-auto max-w-6xl space-y-10 px-5 py-10 md:py-12">
         {/* Preview notice */}
         <p className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
-          This is a guide preview. Information is being expanded. Use current strata documents and professional advice before making any decision.
+          This is a guide preview. Review current strata documents and professional advice before making any decision.
         </p>
 
         {/* Quick summary */}

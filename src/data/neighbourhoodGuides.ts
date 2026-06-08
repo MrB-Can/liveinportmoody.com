@@ -857,7 +857,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Walkable village area near Rocky Point with condos, townhomes, and central Port Moody access.",
-    intro: "Suter Brook is one of Port Moody's most central and walkable areas, clustered near Rocky Point Park and the inlet. It offers a mix of condo buildings and townhomes with access to shops, cafes, and transit. It's popular with first-time buyers, commuters, and buyers prioritizing walkability. This guide is a neighbourhood preview, information is being expanded.",
+    intro: "Suter Brook is one of Port Moody's most central and walkable areas, clustered near Rocky Point Park and the inlet. It offers a mix of condo buildings and townhomes with access to shops, cafes, and transit. It's popular with first-time buyers, commuters, and buyers prioritizing walkability.",
 
     bestFor: ["Walkability", "First-time buyers", "Commuters", "Lock-and-leave lifestyle"],
     housingTypes: ["Condos", "Townhomes", "Mixed-use residential"],
@@ -954,7 +954,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Port Moody's most walkable area, adjacent to Rocky Point Park with condos, restaurants, and inlet views.",
-    intro: "Newport Village is Port Moody's most walkable and lifestyle-focused neighbourhood, set along the inlet near Rocky Point Park. It offers condos and some older townhomes with easy access to restaurants, shops, the waterfront, and transit. It tends to carry premium pricing relative to other Port Moody areas. This guide is a neighbourhood preview, information is being expanded.",
+    intro: "Newport Village is Port Moody's most walkable and lifestyle-focused neighbourhood, set along the inlet near Rocky Point Park. It offers condos and some older townhomes with easy access to restaurants, shops, the waterfront, and transit. It tends to carry premium pricing relative to other Port Moody areas.",
 
     bestFor: ["Walkability", "Waterfront lifestyle", "Downsizers", "Urban convenience"],
     housingTypes: ["Condos", "Mixed-use residential", "Some older townhomes"],
@@ -1051,7 +1051,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Established Port Moody community with condos, townhomes, parks, and access to the waterfront.",
-    intro: "Klahanie is an established Port Moody neighbourhood with a mix of condos and townhomes, good access to parks, trails, and the waterfront, and moderate walkability. It offers a balanced option between central village areas and quieter hillside neighbourhoods. This guide is a neighbourhood preview, information is being expanded.",
+    intro: "Klahanie is an established Port Moody neighbourhood with a mix of condos and townhomes, good access to parks, trails, and the waterfront, and moderate walkability. It offers a balanced option between central village areas and quieter hillside neighbourhoods.",
 
     bestFor: ["Condos and townhomes", "Waterfront and trail access", "Established community feel", "Moderate walkability"],
     housingTypes: ["Condos", "Townhomes", "Some detached homes"],
@@ -1147,7 +1147,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "A distinctive waterfront area on Port Moody's north shore with scenic Inlet views and a quiet, car-dependent character.",
-    intro: "The Ioco and north shore area is one of Port Moody's most distinctive and scenic pockets, with winding roads, Burrard Inlet views, detached homes, and a strong sense of separation from the more urban core. It appeals to buyers who value privacy, character, and a quieter lifestyle over daily walkability and transit access. This guide is a neighbourhood preview, information is being expanded.",
+    intro: "The Ioco and north shore area is one of Port Moody's most distinctive and scenic pockets, with winding roads, Burrard Inlet views, detached homes, and a strong sense of separation from the more urban core. It appeals to buyers who value privacy, character, and a quieter lifestyle over daily walkability and transit access.",
 
     bestFor: ["Privacy seekers", "Waterfront character", "Quiet residential living", "Nature-oriented buyers"],
     housingTypes: ["Detached homes", "Established residential properties"],
@@ -1362,7 +1362,7 @@ export const neighbourhoodGuides: NeighbourhoodGuide[] = [
     status: "preview",
 
     shortSummary: "Quiet north-shore Port Moody neighbourhood with detached homes, forest access, and a very car-dependent character.",
-    intro: "Seaview is one of Port Moody's quietest and most car-dependent neighbourhoods, situated on the north shore with access to Sasamat Lake, forest trails, and a peaceful residential setting. It appeals to buyers who strongly value nature access, privacy, and quiet over urban convenience. This guide is a neighbourhood preview, information is being expanded.",
+    intro: "Seaview is one of Port Moody's quietest and most car-dependent neighbourhoods, situated on the north shore with access to Sasamat Lake, forest trails, and a peaceful residential setting. It appeals to buyers who strongly value nature access, privacy, and quiet over urban convenience.",
 
     bestFor: ["Nature-oriented buyers", "Privacy", "Forest trail access", "Quiet residential living"],
     housingTypes: ["Detached homes"],

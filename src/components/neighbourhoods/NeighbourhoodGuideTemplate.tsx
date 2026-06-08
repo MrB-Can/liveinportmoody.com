@@ -8,13 +8,13 @@ import { AlertCircle, Trees, GraduationCap, TrainFront } from "lucide-react";
 
 interface NeighbourhoodGuideTemplateProps {
   guide: NeighbourhoodGuide;
-  complexes?: Array<{ name: string; slug: string }>;
-  buildings?: Array<{ name: string; slug: string }>;
+  complexes?: Array<{ name: string; href: string }>;
+  buildings?: Array<{ name: string; href: string }>;
   showBackLink?: boolean;
 }
 
 const previewNote =
-  "This guide is being expanded. Use it for orientation alongside current listing details, strata documents, and professional advice before making a decision.";
+  "An orientation to this area. Confirm current listing details, strata documents, and professional advice before making a decision.";
 
 export function NeighbourhoodGuideTemplate({
   guide,
@@ -69,7 +69,7 @@ export function NeighbourhoodGuideTemplate({
           </p>
         )}
 
-        {/* Quick facts and scoring bars - to be populated */}
+        {/* Quick facts and scoring bars */}
         <QuickFactsWithBars
           neighbourhoodName={guide.name}
           facts={[
@@ -252,19 +252,43 @@ export function NeighbourhoodGuideTemplate({
           </section>
         )}
 
-        {/* Related Complexes - Placeholder for future wiring */}
+        {/* Featured complexes in this neighbourhood */}
         {complexes.length > 0 && (
           <section className="space-y-4">
             <h2 className="font-heading text-2xl text-deepInlet">Featured Complexes</h2>
-            <p className="text-sm text-slate-600 italic">Complex details to be rendered here</p>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {complexes.map((complex) => (
+                <li key={complex.href}>
+                  <Link
+                    href={complex.href}
+                    className="flex items-center justify-between rounded-lg border border-softBorder bg-white px-4 py-3 text-sm font-semibold text-deepInlet hover:border-forest"
+                  >
+                    {complex.name}
+                    <span aria-hidden="true" className="text-forest">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 
-        {/* Related Buildings - Placeholder for future wiring */}
+        {/* Featured buildings in this neighbourhood */}
         {buildings.length > 0 && (
           <section className="space-y-4">
             <h2 className="font-heading text-2xl text-deepInlet">Featured Buildings</h2>
-            <p className="text-sm text-slate-600 italic">Building details to be rendered here</p>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {buildings.map((building) => (
+                <li key={building.href}>
+                  <Link
+                    href={building.href}
+                    className="flex items-center justify-between rounded-lg border border-softBorder bg-white px-4 py-3 text-sm font-semibold text-deepInlet hover:border-forest"
+                  >
+                    {building.name}
+                    <span aria-hidden="true" className="text-forest">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 
