@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { AnalyticsProvider } from "@/app/analytics-provider";
+import { ClarityInit } from "@/components/clarity-init";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -33,13 +34,7 @@ gtag('js',new Date());gtag('config','${gaId}',{send_page_view:false});`}
             </Script>
           </>
         ) : null}
-        {clarityId ? (
-          <Script id="clarity" strategy="afterInteractive">
-            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityId}");`}
-          </Script>
-        ) : null}
+        {clarityId ? <ClarityInit projectId={clarityId} /> : null}
         <Script
           id="organization-schema"
           type="application/ld+json"
