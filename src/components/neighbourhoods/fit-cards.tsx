@@ -1,12 +1,13 @@
 type FitCardsProps = {
   mayFit: string[];
   mayNotFit: string[];
+  neighbourhoodName?: string;
 };
 
-export function FitCards({ mayFit, mayNotFit }: FitCardsProps) {
+export function FitCards({ mayFit, mayNotFit, neighbourhoodName = "this neighbourhood" }: FitCardsProps) {
   return (
     <section>
-      <h2 className="font-heading text-2xl text-deepInlet mb-6">Is Heritage Mountain right for you?</h2>
+      <h2 className="font-heading text-2xl text-deepInlet mb-6">Is {neighbourhoodName} right for you?</h2>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-lg border-l-4 border-forest bg-white p-6">

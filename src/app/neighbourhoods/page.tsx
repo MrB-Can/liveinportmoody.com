@@ -1,24 +1,13 @@
-import Link from "next/link";
 import { type LucideIcon, Navigation, Train, Home, Trees, Volume2, School } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
-import { neighbourhoods } from "@/data/neighbourhoods";
-import type { MapCategory } from "@/components/maps/mapTypes";
 import { LeadForm } from "@/components/lead-form";
 import { CTAButton } from "@/components/cta-button";
-import { Badge } from "@/components/ui/badge";
 import { StartWithWhatMatters } from "@/components/neighbourhoods/start-with-what-matters";
+import { NeighbourhoodCards } from "@/components/neighbourhoods/neighbourhood-cards";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { neighbourhoodMapPoints } from "@/data/mapPoints";
 import { NeighbourhoodComparisonTable } from "@/components/neighbourhoods/neighbourhood-comparison-table";
-import { FilterChips } from "@/components/neighbourhoods/filter-chips";
 import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
-
-const CATEGORY_BADGE: Record<MapCategory, { tone: "forest" | "blue" | "sea" | "sand"; label: string }> = {
-  residential: { tone: "forest", label: "Residential / hillside" },
-  village: { tone: "blue", label: "Village / walkable centre" },
-  waterfront: { tone: "sea", label: "Waterfront / north shore" },
-  nearby: { tone: "sand", label: "Nearby community" },
-};
 
 export const metadata = createMetadata({
   title: "Port Moody Neighbourhoods and Communities Guide",
@@ -94,10 +83,6 @@ const frameworkCards: FrameworkCard[] = [
 ];
 
 export default function NeighbourhoodsPage() {
-  const liveNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "live");
-  const previewNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "preview");
-  const comingSoonNeighbourhoods = neighbourhoods.filter((n) => n.guideStatus === "coming-soon");
-
   return (
     <>
       {/* Hero */}
@@ -117,6 +102,9 @@ export default function NeighbourhoodsPage() {
           </div>
         </div>
       </section>
+
+      {/* Visual neighbourhood chooser */}
+      <NeighbourhoodCards />
 
       {/* Start with what matters */}
       <StartWithWhatMatters />
@@ -138,111 +126,8 @@ export default function NeighbourhoodsPage() {
       {/* Comparison table */}
       <NeighbourhoodComparisonTable />
 
-      {/* Filter chips */}
-      <FilterChips />
-
-      {/* Neighbourhood card grid */}
-      <section id="neighbourhood-guidance" className="mx-auto max-w-4xl px-5 py-12">
-        <h2 className="font-heading text-2xl text-deepInlet mb-6">Explore all neighbourhoods</h2>
-        <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
-          {liveNeighbourhoods.map((neighbourhood) => (
-            <Link
-              key={neighbourhood.slug}
-              href={`/neighbourhoods/${neighbourhood.slug}`}
-              className="block p-6 transition-colors hover:bg-mist/60"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
-                    <Badge tone="forest">Guide live</Badge>
-                    {neighbourhood.category && (
-                      <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
-                        {CATEGORY_BADGE[neighbourhood.category].label}
-                      </Badge>
-                    )}
-                  </div>
-                  <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
-                  <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText mb-3">
-                    <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
-                    <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
-                  </div>
-                  <p className="text-xs text-forest font-medium">{neighbourhood.developmentChange}</p>
-                </div>
-                <svg className="w-5 h-5 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          ))}
-
-          {previewNeighbourhoods.length > 0 && (
-            <>
-              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">More Port Moody neighbourhood snapshots</h2>
-              {previewNeighbourhoods.map((neighbourhood) => (
-                <Link
-                  key={neighbourhood.slug}
-                  href={`/neighbourhoods/${neighbourhood.slug}`}
-                  className="block p-6 transition-colors hover:bg-mist/60"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
-                        <Badge tone="blue">Area snapshot</Badge>
-                        {neighbourhood.category && (
-                          <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
-                            {CATEGORY_BADGE[neighbourhood.category].label}
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
-                      <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText">
-                        <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
-                        <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
-                      </div>
-                    </div>
-                    <svg className="w-5 h-5 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
-            </>
-          )}
-
-          {comingSoonNeighbourhoods.length > 0 && (
-            <>
-              <h2 className="px-6 pb-3 pt-8 font-heading text-2xl text-deepInlet">Nearby areas to consider</h2>
-              {comingSoonNeighbourhoods.map((neighbourhood) => (
-                <div key={neighbourhood.slug} className="bg-mist/60 p-6 opacity-75">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <h3 className="font-heading text-xl text-deepInlet">{neighbourhood.name}</h3>
-                        <Badge tone="slate">Nearby area</Badge>
-                        {neighbourhood.category && (
-                          <Badge tone={CATEGORY_BADGE[neighbourhood.category].tone}>
-                            {CATEGORY_BADGE[neighbourhood.category].label}
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-sm text-slateText mb-3">{neighbourhood.summary}</p>
-                      <div className="grid gap-2 md:grid-cols-2 text-xs text-slateText">
-                        <p><span className="font-semibold">Best for:</span> {neighbourhood.bestFor.join(", ")}</p>
-                        <p><span className="font-semibold">Housing:</span> {neighbourhood.housingTypes.join(", ")}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </>
-          )}
-        </div>
-      </section>
-
       {/* Guidance CTA */}
-      <section className="mx-auto max-w-4xl px-5 py-12">
+      <section id="neighbourhood-guidance" className="mx-auto max-w-4xl px-5 py-12">
         <div className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure which neighbourhood fits you?</h2>
           <p className="text-slateText mb-6">

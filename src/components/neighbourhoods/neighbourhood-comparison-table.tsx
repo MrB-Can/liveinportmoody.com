@@ -1,73 +1,24 @@
 import Link from "next/link";
+import { neighbourhoodGuides, type NeighbourhoodGuide } from "@/data/neighbourhoodGuides";
 
-const neighbourhoods = [
-  {
-    name: "Heritage Mountain",
-    bestFor: "Families, townhomes, trails",
-    housing: "Detached, townhomes",
-    walkability: "Low",
-    transit: "Bus access",
-    feel: "Quiet, residential",
-    tradeoff: "Less walkable than central areas",
-    href: "/neighbourhoods/heritage-mountain",
-    status: "live",
-  },
-  {
-    name: "Suter Brook",
-    bestFor: "First-time buyers, walkability",
-    housing: "Condos, townhomes",
-    walkability: "High",
-    transit: "Good",
-    feel: "Growing, mixed-use",
-    tradeoff: "Active development",
-    href: "/neighbourhoods",
-    status: "preview",
-  },
-  {
-    name: "Newport Village",
-    bestFor: "Condo lifestyle, waterfront",
-    housing: "Condos, townhomes",
-    walkability: "High",
-    transit: "Excellent",
-    feel: "Modern, walkable",
-    tradeoff: "Higher price point",
-    href: "/neighbourhoods",
-    status: "preview",
-  },
-  {
-    name: "Klahanie",
-    bestFor: "Families, central location",
-    housing: "Detached, townhomes, condos",
-    walkability: "Moderate",
-    transit: "Good",
-    feel: "Established, family-oriented",
-    tradeoff: "Mixed housing types",
-    href: "/neighbourhoods",
-    status: "preview",
-  },
-  {
-    name: "Moody Centre",
-    bestFor: "Urban living, walkability",
-    housing: "Condos, townhomes",
-    walkability: "Very high",
-    transit: "Excellent",
-    feel: "Downtown, mixed-use",
-    tradeoff: "Less residential quiet",
-    href: "/neighbourhoods",
-    status: "preview",
-  },
-  {
-    name: "College Park",
-    bestFor: "Families, value",
-    housing: "Detached, townhomes",
-    walkability: "Moderate",
-    transit: "Good",
-    feel: "Established, quiet",
-    tradeoff: "Less trail access",
-    href: "/neighbourhoods",
-    status: "preview",
-  },
-];
+// Short value from a guide's quickFacts (which hold concise, table-ready strings),
+// falling back to a trimmed verbose field when the fact isn't present.
+function fact(guide: NeighbourhoodGuide, label: string, fallback: string): string {
+  return guide.quickFacts?.find((f) => f.label === label)?.value ?? fallback;
+}
+
+const rows = neighbourhoodGuides
+  .filter((g) => g.areaType === "port_moody_neighbourhood" && g.status === "published")
+  .map((g) => ({
+    name: g.name,
+    href: `/neighbourhoods/${g.slug}`,
+    bestFor: g.bestFor.slice(0, 2).join(", "),
+    housing: fact(g, "Main housing", g.housingTypes.slice(0, 2).join(", ")),
+    walkability: fact(g, "Walkability", g.walkabilityNotes),
+    transit: fact(g, "Transit", g.transitAndAccess),
+    feel: fact(g, "Lifestyle", ""),
+    tradeoff: fact(g, "Watch-out", g.tradeOffs[0] ?? ""),
+  }));
 
 export function NeighbourhoodComparisonTable() {
   return (
@@ -91,9 +42,13 @@ export function NeighbourhoodComparisonTable() {
             </tr>
           </thead>
           <tbody>
-            {neighbourhoods.map((area) => (
+            {rows.map((area) => (
               <tr key={area.name} className="border-b border-softBorder hover:bg-mist">
-                <td className="py-3 px-3 font-semibold text-deepInlet">{area.name}</td>
+                <td className="py-3 px-3 font-semibold">
+                  <Link href={area.href} className="text-forest hover:text-deepInlet hover:underline">
+                    {area.name}
+                  </Link>
+                </td>
                 <td className="py-3 px-3 text-slateText text-xs">{area.bestFor}</td>
                 <td className="py-3 px-3 text-slateText text-xs">{area.housing}</td>
                 <td className="py-3 px-3 text-slateText text-xs">{area.walkability}</td>
@@ -101,13 +56,9 @@ export function NeighbourhoodComparisonTable() {
                 <td className="py-3 px-3 text-slateText text-xs">{area.feel}</td>
                 <td className="py-3 px-3 text-slateText text-xs">{area.tradeoff}</td>
                 <td className="py-3 px-3">
-                  {area.status === "live" ? (
-                    <Link href={area.href} className="text-xs font-semibold text-forest hover:text-deepInlet">
-                      Explore →
-                    </Link>
-                  ) : (
-                    <span className="text-xs text-slateText">—</span>
-                  )}
+                  <Link href={area.href} className="text-xs font-semibold text-forest hover:text-deepInlet whitespace-nowrap">
+                    Explore →
+                  </Link>
                 </td>
               </tr>
             ))}

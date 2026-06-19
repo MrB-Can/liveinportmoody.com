@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { LeadForm } from "@/components/lead-form";
-import { NeighbourhoodGuide } from "@/data/neighbourhoodGuides";
+import { NeighbourhoodGuide, neighbourhoodGuides } from "@/data/neighbourhoodGuides";
 import { Badge } from "@/components/ui/badge";
 import { QuickFactsWithBars } from "@/components/neighbourhoods/quick-facts-with-bars";
+import { FitCards } from "@/components/neighbourhoods/fit-cards";
 import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { neighbourhoodMapPoints, complexMapPoints } from "@/data/mapPoints";
+import { complexes as allComplexes } from "@/data/complexes";
 import { AlertCircle, Trees, GraduationCap, TrainFront } from "lucide-react";
 
 interface NeighbourhoodGuideTemplateProps {
@@ -16,6 +20,15 @@ interface NeighbourhoodGuideTemplateProps {
 const previewNote =
   "An orientation to this area. Confirm current listing details, strata documents, and professional advice before making a decision.";
 
+// Map a comparison area label to its guide slug, so "How X compares" can link to
+// real neighbourhoods (and leave non-neighbourhood labels like "Coquitlam (Burke
+// Mountain)" as plain text).
+const slugByName: Record<string, string> = Object.fromEntries(
+  neighbourhoodGuides
+    .filter((g) => g.status === "published")
+    .map((g) => [g.name, g.slug])
+);
+
 export function NeighbourhoodGuideTemplate({
   guide,
   complexes = [],
@@ -25,6 +38,30 @@ export function NeighbourhoodGuideTemplate({
   const statusBadgeColor = guide.status === "published" ? "forest" : "slate";
   const statusText = guide.status === "published" ? "Guide live" : "Neighbourhood guide preview";
   const areaLabel = guide.areaType === "nearby_community" ? "Nearby community" : "Port Moody neighbourhood";
+
+  // Quick facts: use authored facts when present, otherwise derive from the
+  // narrative fields (no truncation, full values read as finished content).
+  const quickFacts =
+    guide.quickFacts && guide.quickFacts.length > 0
+      ? guide.quickFacts
+      : [
+          { label: "Best for", value: guide.bestFor.join(", ") },
+          { label: "Housing types", value: guide.housingTypes.join(", ") },
+          { label: "Walkability", value: guide.walkabilityNotes },
+          { label: "Transit", value: guide.transitAndAccess },
+        ];
+
+  // Map markers: the neighbourhood's own point plus any complexes located in it.
+  const ownMapPoint = neighbourhoodMapPoints.find(
+    (p) => p.href === `/neighbourhoods/${guide.slug}`
+  );
+  const complexNames = new Set(
+    allComplexes.filter((c) => c.neighbourhoodSlug === guide.slug).map((c) => c.name)
+  );
+  const guideMapPoints = [
+    ...(ownMapPoint ? [ownMapPoint] : []),
+    ...complexMapPoints.filter((p) => complexNames.has(p.label)),
+  ];
 
   return (
     <>
@@ -72,14 +109,28 @@ export function NeighbourhoodGuideTemplate({
         {/* Quick facts and scoring bars */}
         <QuickFactsWithBars
           neighbourhoodName={guide.name}
-          facts={[
-            { label: "Best for", value: guide.bestFor.join(", ") },
-            { label: "Housing types", value: guide.housingTypes.join(", ") },
-            { label: "Walkability", value: guide.walkabilityNotes.substring(0, 40) + "..." },
-            { label: "Transit", value: guide.transitAndAccess.substring(0, 40) + "..." },
-          ]}
-          scoringBars={[]}
+          facts={quickFacts}
+          scoringBars={guide.scoringBars ?? []}
         />
+
+        {/* May fit / May not fit */}
+        {guide.mayFit && guide.mayNotFit && guide.mayFit.length > 0 && guide.mayNotFit.length > 0 && (
+          <FitCards mayFit={guide.mayFit} mayNotFit={guide.mayNotFit} neighbourhoodName={guide.name} />
+        )}
+
+        {/* Where it is */}
+        {guideMapPoints.length > 0 && (
+          <section>
+            <h2 className="font-heading text-2xl text-deepInlet mb-4">Where {guide.name} is</h2>
+            {guide.locationBlurb && <p className="text-slateText mb-8">{guide.locationBlurb}</p>}
+            <PortMoodyMap
+              points={guideMapPoints}
+              initialCenter={[guide.longitude, guide.latitude]}
+              initialZoom={13}
+              showLegend={true}
+            />
+          </section>
+        )}
 
         {/* Best For */}
         {guide.bestFor.length > 0 && (
@@ -99,17 +150,36 @@ export function NeighbourhoodGuideTemplate({
         )}
 
         {/* Housing Types */}
-        {guide.housingTypes.length > 0 && (
+        {guide.housingTypeDetails && guide.housingTypeDetails.length > 0 ? (
           <section className="space-y-4">
-            <h2 className="font-heading text-2xl text-deepInlet">Housing Types</h2>
-            <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
-              {guide.housingTypes.map((type, i) => (
-                <div key={i} className="p-3 text-sm text-slateText">
-                  {type}
+            <h2 className="font-heading text-2xl text-deepInlet">Housing types</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {guide.housingTypeDetails.map((type, i) => (
+                <div key={i} className="rounded-lg border border-softBorder bg-white p-6">
+                  <h3 className="font-semibold text-deepInlet mb-2">{type.name}</h3>
+                  <p className="text-sm text-slateText mb-3">{type.description}</p>
+                  <ul className="text-sm text-slateText space-y-1">
+                    {type.bullets.map((bullet, j) => (
+                      <li key={j}>• {bullet}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </section>
+        ) : (
+          guide.housingTypes.length > 0 && (
+            <section className="space-y-4">
+              <h2 className="font-heading text-2xl text-deepInlet">Housing Types</h2>
+              <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white">
+                {guide.housingTypes.map((type, i) => (
+                  <div key={i} className="p-3 text-sm text-slateText">
+                    {type}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
         )}
 
         {/* Trade-offs */}
@@ -150,10 +220,23 @@ export function NeighbourhoodGuideTemplate({
           ) : (
             <div className="rounded-lg border border-softBorder bg-white p-4">
               <p className="text-sm leading-6 text-slateText">
-                Specific school references are not listed for this preview. School assignment is based on exact property address through the applicable district.
+                School assignment is based on exact property address through the applicable district. Confirm catchment for a specific home with School District 43.
               </p>
             </div>
           )}
+          {guide.schoolVerificationNote && (
+            <p className="text-sm text-slate-600 italic">{guide.schoolVerificationNote}</p>
+          )}
+          <div>
+            <a
+              href="https://www.sd43.bc.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-forest hover:text-deepInlet"
+            >
+              School District 43 official catchment maps →
+            </a>
+          </div>
         </section>
 
         {/* Parks & Trails */}
@@ -222,6 +305,24 @@ export function NeighbourhoodGuideTemplate({
             <h3 className="font-heading text-xl text-deepInlet mb-3">Walkability</h3>
             <p className="text-slateText">{guide.walkabilityNotes}</p>
           </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a
+              href="https://www.translink.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-forest hover:text-deepInlet"
+            >
+              TransLink trip planner →
+            </a>
+            <a
+              href="https://www.walkscore.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-forest hover:text-deepInlet"
+            >
+              Walk Score explorer →
+            </a>
+          </div>
         </section>
 
         {/* Buyer Notes */}
@@ -248,6 +349,33 @@ export function NeighbourhoodGuideTemplate({
                   <p className="text-slateText">{note}</p>
                 </div>
               ))}
+            </div>
+          </section>
+        )}
+
+        {/* How it compares */}
+        {guide.comparisons && guide.comparisons.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="font-heading text-2xl text-deepInlet">How {guide.name} compares</h2>
+            <div className="rounded-lg border border-softBorder bg-white p-6 space-y-4">
+              {guide.comparisons.map((comparison, i) => {
+                const slug = slugByName[comparison.area];
+                return (
+                  <div key={i} className="text-sm text-slateText">
+                    {slug ? (
+                      <Link
+                        href={`/neighbourhoods/${slug}`}
+                        className="font-semibold text-forest hover:text-deepInlet hover:underline"
+                      >
+                        {comparison.area}:
+                      </Link>
+                    ) : (
+                      <span className="font-semibold text-deepInlet">{comparison.area}:</span>
+                    )}{" "}
+                    {comparison.text}
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}
