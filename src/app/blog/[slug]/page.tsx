@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getPostBySlug, generateStaticParams as getParams } from "@/lib/blog";
 import { LeadForm } from "@/components/lead-form";
+import { mdxComponents } from "@/components/mdx-components";
 import { createMetadata } from "@/lib/seo";
 
 export { getParams as generateStaticParams };
@@ -61,7 +62,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         prose-strong:text-charcoal
         prose-li:text-slateText prose-p:text-slateText
         prose-table:text-sm">
-        <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+        {/* blockJS:false lets first-party MDX pass data props (e.g. chart/stat arrays)
+            to components; blockDangerousJS still strips dangerous calls. All blog
+            content is authored in-repo, not user-generated. */}
+        <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] }, blockJS: false }} />
       </article>
 
       {/* Tags */}
