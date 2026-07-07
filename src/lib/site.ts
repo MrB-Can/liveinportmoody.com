@@ -114,6 +114,7 @@ export const navItems: NavItem[] = [
       {
         items: [
           { label: "Local Life", href: "/local-life" },
+          { label: "Blog", href: "/blog" },
           { label: "Featured Businesses", href: "/featured-businesses" },
           { label: "Events", href: "/events" },
           { label: "Parks, Trails & Schools", href: "/local-life" },
@@ -272,6 +273,7 @@ export const footerGroups: FooterGroup[] = [
     title: "Local Life",
     links: [
       { label: "Local Life", href: "/local-life" },
+      { label: "Blog", href: "/blog" },
       { label: "Featured Businesses", href: "/featured-businesses" },
       { label: "Events", href: "/events" },
     ],
