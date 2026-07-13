@@ -3,7 +3,7 @@ import { trustItems } from "@/lib/site";
 
 export function TrustStrip() {
   return (
-    <section className="border-b border-softBorder bg-white px-5 py-8">
+    <section className="border-b border-softBorder bg-mist px-5 py-8">
       <div className="mx-auto max-w-5xl">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trustItems.map((item) => (

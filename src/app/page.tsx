@@ -1,4 +1,5 @@
 import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucide-react";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -271,7 +272,7 @@ export default function HomePage() {
         />
       </Section>
 
-      <Section title="Start with the decision" tone="white">
+      <Section title="Start with the decision" tone="sand">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
             <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
@@ -390,6 +391,14 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <CTABand
+        eyebrow="Start here"
+        title="Not sure where to start?"
+        body="Tell us what you are weighing (buying, selling, or comparing areas) and we will point you to the right next step with local context, not a sales pitch."
+        cta={{ label: "Get started", href: "/get-started" }}
+        secondaryLink={{ label: "Ask a local question", href: "#ask" }}
+      />
+
       <Section
         title="Research homes"
         intro="Use neighbourhood context, building notes, complex research, and active listing conversations together. The goal is to understand what you are buying before the offer deadline."
@@ -453,6 +462,7 @@ export default function HomePage() {
       <Section
         title="Local real estate advice from Leilani and Paul"
         intro="Live in Port Moody combines licensed real estate guidance, local research, property analysis, media, and market context to help buyers and sellers make clearer decisions in Port Moody."
+        tone="sand"
       >
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <TeamImagePlaceholder />
@@ -504,7 +514,7 @@ export default function HomePage() {
         />
       </Section>
 
-      <Section title="Ask a local question" tone="sand">
+      <Section title="Ask a local question" tone="white">
         <div id="ask" className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
           <div>
             <p className="text-base leading-7 text-slateText">

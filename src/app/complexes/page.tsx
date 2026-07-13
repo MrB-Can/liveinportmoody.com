@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
@@ -187,7 +188,8 @@ export default function ComplexesPage() {
         </div>
       </section>
 
-      <section id="comparison" className="mx-auto max-w-6xl px-5 py-12">
+      <section id="comparison" className="bg-white px-5 py-12">
+        <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="font-heading text-3xl text-deepInlet">Complex comparison table</h2>
@@ -230,6 +232,7 @@ export default function ComplexesPage() {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       </section>
 
@@ -279,7 +282,15 @@ export default function ComplexesPage() {
         </div>
       </section>
 
-      <section className="bg-mist px-5 py-12">
+      <CTABand
+        eyebrow="Complex research"
+        title="Comparing townhouse complexes?"
+        body="Send us the complexes or listings you are weighing. We will help you compare location, strata context, layout, parking, and resale considerations."
+        cta={{ label: "Ask about a complex", href: "#ask-about-a-complex" }}
+        secondaryLink={{ label: "View townhouse listings", href: "/listings" }}
+      />
+
+      <section className="bg-white px-5 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-heading text-3xl text-deepInlet">How to compare Port Moody townhouse complexes</h2>
           <div className="mt-6 divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">

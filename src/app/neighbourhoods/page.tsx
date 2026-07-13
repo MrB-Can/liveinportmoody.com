@@ -1,6 +1,7 @@
 import { type LucideIcon, Navigation, Train, Home, Trees, Volume2, School } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { LeadForm } from "@/components/lead-form";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { StartWithWhatMatters } from "@/components/neighbourhoods/start-with-what-matters";
 import { NeighbourhoodCards } from "@/components/neighbourhoods/neighbourhood-cards";
@@ -104,30 +105,35 @@ export default function NeighbourhoodsPage() {
       </section>
 
       {/* Visual neighbourhood chooser */}
-      <NeighbourhoodCards />
+      <div className="bg-white">
+        <NeighbourhoodCards />
+      </div>
 
       {/* Start with what matters */}
       <StartWithWhatMatters />
 
       {/* Map section */}
-      <section className="mx-auto max-w-5xl px-5 py-10">
-        <h2 className="mb-4 font-heading text-2xl text-deepInlet">Port Moody neighbourhood map</h2>
-        <PortMoodyMap
-          points={neighbourhoodMapPoints}
-          showLegend={false}
-          showCategoryLegend={true}
-          className="h-[320px] rounded-lg md:h-[420px]"
-        />
-        <p className="mt-2 text-xs text-slateText/70">
-          Map locations are approximate and intended for orientation only.
-        </p>
+      <section className="bg-white px-5 py-10">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-4 font-heading text-2xl text-deepInlet">Port Moody neighbourhood map</h2>
+          <PortMoodyMap
+            points={neighbourhoodMapPoints}
+            showLegend={false}
+            showCategoryLegend={true}
+            className="h-[320px] rounded-lg md:h-[420px]"
+          />
+          <p className="mt-2 text-xs text-slateText/70">
+            Map locations are approximate and intended for orientation only.
+          </p>
+        </div>
       </section>
 
       {/* Comparison table */}
       <NeighbourhoodComparisonTable />
 
       {/* Guidance CTA */}
-      <section id="neighbourhood-guidance" className="mx-auto max-w-4xl px-5 py-12">
+      <section id="neighbourhood-guidance" className="bg-white px-5 py-12">
+        <div className="mx-auto max-w-4xl">
         <div className="rounded-lg border border-softBorder bg-warmSand p-8">
           <h2 className="font-heading text-2xl text-deepInlet mb-3">Not sure which neighbourhood fits you?</h2>
           <p className="text-slateText mb-6">
@@ -152,6 +158,7 @@ export default function NeighbourhoodsPage() {
             />
           </div>
         </div>
+        </div>
       </section>
 
       {/* Neighbourhood Decision Framework */}
@@ -169,8 +176,18 @@ export default function NeighbourhoodsPage() {
         </div>
       </section>
 
+      <CTABand
+        eyebrow="Neighbourhood fit"
+        title="Want a shortlist for your situation?"
+        body="Tell us about your lifestyle, commute, budget, and must-haves. We will point you toward the Port Moody areas that make the most sense for you."
+        cta={{ label: "Get neighbourhood guidance", href: "#neighbourhood-guidance" }}
+        secondaryLink={{ label: "View Port Moody listings", href: "/listings" }}
+      />
+
       {/* FAQ */}
-      <NeighbourhoodFAQ items={faqItems} />
+      <div className="bg-white">
+        <NeighbourhoodFAQ items={faqItems} />
+      </div>
     </>
   );
 }

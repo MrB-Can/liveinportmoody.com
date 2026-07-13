@@ -2,6 +2,8 @@ import Link from "next/link";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { ListingSupportForm } from "@/components/listings/ListingSupportForm";
 import { CTAButton } from "@/components/cta-button";
+import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
+import { neighbourhoodMapPoints } from "@/data/mapPoints";
 import { Section } from "@/components/section";
 import { ExternalLink } from "@/lib/icons";
 import { type LucideIcon, MapPin, Building2, FileSearch, BarChart2, Scale } from "lucide-react";
@@ -153,16 +155,29 @@ export default function ListingsPage() {
             </div>
           ) : (
             <div>
-              <h2 className="font-heading text-2xl text-deepInlet">Current Port Moody listings with local context</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Listing search launching soon</p>
+              <h2 className="mt-3 font-heading text-2xl text-deepInlet">MLS Reciprocity search is being connected</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slateText">
-                Ask us about current Port Moody listings and we can help you compare the property, building, neighbourhood, pricing context, and buyer trade-offs before you write.
+                Direct MLS search is on its way to this page. In the meantime, tell us what you are looking for and we will send matching active Port Moody listings, usually the same day, along with the local context that does not show up in a listing.
               </p>
               <p className="mt-3 text-xs text-slateText">Active listings are provided through MLS Reciprocity where available. Sold and expired listings are not included.</p>
               <div className="mt-4">
-                <CTAButton href="#ask-listing" variant="secondary">Ask about current listings</CTAButton>
+                <CTAButton href="#ask-listing">Tell us what you&apos;re looking for</CTAButton>
               </div>
             </div>
           )}
+        </div>
+        <div className="mt-6">
+          <div className="rounded-lg border border-softBorder bg-white p-5 md:hidden">
+            <h3 className="font-heading text-xl text-deepInlet">Port Moody at a glance</h3>
+            <p className="mt-2 text-sm leading-6 text-slateText">
+              Listings cluster around Suter Brook, Newport Village, Klahanie, and Moody Centre. Use the desktop map for orientation, then ask us about active listings in the areas that fit.
+            </p>
+          </div>
+          <div className="hidden md:block">
+            <PortMoodyMap points={neighbourhoodMapPoints} showLegend={true} className="h-[400px] rounded-lg" />
+            <p className="mt-2 text-xs text-slateText">Map locations are approximate and intended for orientation.</p>
+          </div>
         </div>
       </Section>
 
@@ -181,7 +196,7 @@ export default function ListingsPage() {
         </div>
       </Section>
 
-      <Section title="Before writing an offer" intro="Use this framework to think through what matters for this specific property and your decision.">
+      <Section title="Before writing an offer" intro="Use this framework to think through what matters for this specific property and your decision." tone="sand">
         <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { item: "Property", detail: "Age, condition, renovations, defects, inspections" },

@@ -5,6 +5,7 @@ import { BuildingInquiryForm } from "@/components/buildings/BuildingInquiryForm"
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { buildingMapPoints, neighbourhoodMapPoints } from "@/data/mapPoints";
 import { CondoDecisionGuide } from "@/components/buildings/CondoDecisionGuide";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { buildings, buildingDisplayGroups } from "@/data/buildings";
@@ -127,7 +128,7 @@ export default function BuildingsPage() {
         <BuildingFilterChips />
       </Section>
 
-      <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation.">
+      <Section title="Port Moody condo building map" intro="Map locations are approximate and intended for orientation." tone="sand">
         <div className="md:hidden">
           <div className="rounded-lg border border-softBorder bg-white p-5">
             <h2 className="font-heading text-2xl text-deepInlet">Mobile map orientation</h2>
@@ -154,7 +155,7 @@ export default function BuildingsPage() {
         </div>
       </Section>
 
-      <Section id="buildings-by-area" title="Buildings by area" intro="Port Moody condo buildings are concentrated in Suter Brook, Moody Centre, Newport Village, and Klahanie. Each area has different trade-offs around walkability, transit, building age, and lifestyle.">
+      <Section id="buildings-by-area" title="Buildings by area" intro="Port Moody condo buildings are concentrated in Suter Brook, Moody Centre, Newport Village, and Klahanie. Each area has different trade-offs around walkability, transit, building age, and lifestyle." tone="white">
         <div className="space-y-5">
           {buildingDisplayGroups.map((group) => {
             const groupBuildings = buildings.filter((b) => b.displayGroup === group);
@@ -190,6 +191,14 @@ export default function BuildingsPage() {
         </div>
       </Section>
 
+      <CTABand
+        eyebrow="Building research"
+        title="Looking at a specific building?"
+        body="Send the building name or listing and we will help with strata questions, pricing context, and the trade-offs that are not obvious online."
+        cta={{ label: "Ask about a building", href: "#ask-building" }}
+        secondaryLink={{ label: "View active listings", href: "/listings" }}
+      />
+
       <Section
         title="How to compare Port Moody condo buildings"
         intro="A strong condo decision combines local fit, unit quality, building condition, strata documents, and resale context. This is general guidance, not legal or financial advice."
@@ -207,7 +216,7 @@ export default function BuildingsPage() {
         </div>
       </Section>
 
-      <Section title="Listings and building context">
+      <Section title="Listings and building context" tone="sand">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <div className="rounded-lg border border-softBorder bg-white p-6">
             <h2 className="font-heading text-2xl text-deepInlet">Use listings with building research</h2>
@@ -233,13 +242,13 @@ export default function BuildingsPage() {
         </div>
       </Section>
 
-      <Section title="Ask about a building" tone="white">
+      <Section title="Ask about a building">
         <div className="max-w-2xl">
           <BuildingInquiryForm buildings={buildings} />
         </div>
       </Section>
 
-      <Section title="Building FAQ">
+      <Section title="Building FAQ" tone="white">
         <FAQAccordion items={faqs} />
       </Section>
     </>

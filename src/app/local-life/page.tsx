@@ -1,3 +1,4 @@
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
@@ -125,6 +126,14 @@ export default function LocalLifePage() {
           ))}
         </div>
       </Section>
+
+      <CTABand
+        eyebrow="Live here"
+        title="Thinking about living in Port Moody?"
+        body="Compare neighbourhoods by lifestyle, walkability, trails, schools, and commute, then narrow to the areas that actually fit your day-to-day."
+        cta={{ label: "Compare neighbourhoods", href: "/neighbourhoods" }}
+        secondaryLink={{ label: "Get started", href: "/get-started" }}
+      />
 
       <Section title="Use local life with a real estate lens" tone="white">
         <div className="divide-y divide-softBorder rounded-lg border border-softBorder bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">

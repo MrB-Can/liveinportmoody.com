@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Home, FileCheck, Eye, Handshake, Building2, FileSearch, Phone, LucideIcon } from "lucide-react";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -378,7 +379,7 @@ export default function BuyPage() {
       </Section>
 
       {/* 4b. Buyer decision framework */}
-      <Section title="Buyer decision framework" intro="Use these five stages to structure your buying journey. No two buyers prioritize the same way, so focus on what matters most to you.">
+      <Section title="Buyer decision framework" intro="Use these five stages to structure your buying journey. No two buyers prioritize the same way, so focus on what matters most to you." tone="sand">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { stage: "Area fit", detail: "Neighbourhood walkability, schools, transit, trails, quiet, commute, and lifestyle match", icon: MapPin },
@@ -480,6 +481,14 @@ export default function BuyPage() {
           ))}
         </div>
       </Section>
+
+      <CTABand
+        eyebrow="Listing review"
+        title="Found a listing you're weighing?"
+        body="Send it before you write. We will help you understand the building, strata documents, pricing context, and the trade-offs that are not obvious online."
+        cta={{ label: "Ask about a listing", href: "#ask-about-a-listing" }}
+        secondaryLink={{ label: "Request the buyer guide", href: "/buyer-guide" }}
+      />
 
       {/* 7. Due diligence */}
       <Section

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { type LucideIcon, DollarSign, Hammer, Rocket, Lightbulb, GraduationCap, Camera, Video, LayoutList, FileText } from "lucide-react";
+import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
@@ -313,7 +314,7 @@ export default function SellPage() {
       </Section>
 
       {/* 4b. Seller preparation framework */}
-      <Section title="Seller preparation framework" intro="Structure your launch around five key decision points. Each stage builds on the previous one.">
+      <Section title="Seller preparation framework" intro="Structure your launch around five key decision points. Each stage builds on the previous one." tone="sand">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { stage: "Pricing context", detail: "Recent sales, active competition, strata situation, property condition, and micro-market comparables", icon: DollarSign },
@@ -446,6 +447,14 @@ export default function SellPage() {
         </div>
       </Section>
 
+      <CTABand
+        eyebrow="Home evaluation"
+        title="Wondering what your place is worth?"
+        body="Get a property assessment grounded in your building, complex, and micro-market, not just the Port Moody average."
+        cta={{ label: "Request a home evaluation", href: "/home-evaluation" }}
+        secondaryLink={{ label: "Request a value opinion", href: "#value-opinion" }}
+      />
+
       {/* 9b. Seller resources section */}
       <Section
         eyebrow="Next steps"
@@ -511,7 +520,7 @@ export default function SellPage() {
       </Section>
 
       {/* 10. FAQ */}
-      <Section tone="white">
+      <Section tone="mist">
         <FAQSection
           title="Seller questions"
           intro="Common questions from Port Moody sellers."
