@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navItems, exploreItems } from "@/lib/site";
-
-const exploreGroups = ["Places", "Property Search", "Local Life", "Resources"];
+import { navItems } from "@/lib/site";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -28,51 +26,8 @@ export function MobileNav() {
         <div className="absolute left-0 right-0 top-full border-y border-softBorder bg-white px-5 py-4 shadow-soft">
           <nav className="grid gap-1">
             {navItems.map((item) => (
-              <div key={item.href}>
-                {item.submenu ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => toggle(item.label)}
-                      aria-expanded={openMenu === item.label}
-                      aria-haspopup="true"
-                      className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-base font-medium text-charcoal hover:bg-mist"
-                    >
-                      <span>{item.label}</span>
-                      <svg className={`h-4 w-4 transition-transform ${openMenu === item.label ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
-                      </svg>
-                    </button>
-                    {openMenu === item.label && (
-                      <div className="ml-2 border-l border-softBorder py-2">
-                        <Link
-                          href="/explore"
-                          className="block rounded-md px-3 py-2 text-sm font-semibold text-deepInlet hover:bg-mist"
-                          onClick={closeAll}
-                        >
-                          Explore landing page
-                        </Link>
-                        {exploreGroups.map((group) => (
-                          <div key={group} className="mt-3">
-                            <p className="px-3 text-xs font-semibold uppercase tracking-[0.12em] text-slateText">
-                              {group}
-                            </p>
-                            {exploreItems.filter((subitem) => subitem.group === group).map((subitem) => (
-                              <Link
-                                key={`${subitem.href}-${subitem.label}`}
-                                href={subitem.href}
-                                className="block rounded-md px-3 py-2 text-sm font-medium text-charcoal hover:bg-mist"
-                                onClick={closeAll}
-                              >
-                                {subitem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : item.groups ? (
+              <div key={item.label}>
+                {item.groups ? (
                   <>
                     {item.linkedLabel ? (
                       <div className="flex items-center justify-between rounded-md px-3 py-3">
@@ -121,7 +76,7 @@ export function MobileNav() {
                             )}
                             {group.items.map((subitem) => (
                               <Link
-                                key={subitem.href}
+                                key={`${subitem.href}-${subitem.label}`}
                                 href={subitem.href}
                                 className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-charcoal hover:bg-mist"
                                 onClick={closeAll}

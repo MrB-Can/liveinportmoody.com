@@ -21,7 +21,6 @@ export type NavItem = {
   href: string;
   /** When true the label itself is a link to href in addition to opening the dropdown */
   linkedLabel?: boolean;
-  submenu?: boolean;
   groups?: NavGroup[];
 };
 
@@ -35,6 +34,7 @@ export const navItems: NavItem[] = [
           { label: "Search Listings", href: "/listings" },
           { label: "Buyer Guide", href: "/buyer-guide" },
           { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+          { label: "Market Data", href: "/market" },
           { label: "Neighbourhoods", href: "/neighbourhoods" },
           { label: "Buildings", href: "/buildings" },
           { label: "Complexes", href: "/complexes" },
@@ -59,37 +59,32 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Relocate",
-    href: "/local-life",
-    groups: [
-      {
-        items: [
-          { label: "Local Life", href: "/local-life" },
-          { label: "Neighbourhoods", href: "/neighbourhoods" },
-          { label: "Schools, Parks & Trails", href: "/local-life" },
-          { label: "Local Insights", href: "/local-insights" },
-          { label: "Ask a Local Question", href: "/contact" },
-        ],
-      },
-    ],
-  },
-  {
     label: "Neighbourhoods",
     href: "/neighbourhoods",
     linkedLabel: true,
     groups: [
       {
+        title: "Walkable & condo areas",
+        items: [
+          { label: "Suter Brook", href: "/neighbourhoods/suter-brook" },
+          { label: "Newport Village", href: "/neighbourhoods/newport-village" },
+          { label: "Klahanie", href: "/neighbourhoods/klahanie" },
+          { label: "Moody Centre", href: "/neighbourhoods/moody-centre" },
+          { label: "Seaview", href: "/neighbourhoods/seaview" },
+          { label: "Ioco / North Shore", href: "/neighbourhoods/ioco-north-shore" },
+        ],
+      },
+      {
+        title: "Hillside & nearby",
         items: [
           { label: "Heritage Mountain", href: "/neighbourhoods/heritage-mountain" },
           { label: "Heritage Woods", href: "/neighbourhoods/heritage-woods" },
-          { label: "North Shore Port Moody", href: "/neighbourhoods/north-shore-port-moody" },
-          { label: "Moody Centre", href: "/neighbourhoods/moody-centre" },
-          { label: "Glenayre", href: "/neighbourhoods/glenayre" },
           { label: "College Park", href: "/neighbourhoods/college-park" },
-          { label: "Anmore", href: "/neighbourhoods/anmore" },
-          { label: "Barber Street", href: "/neighbourhoods/barber-street" },
-          { label: "Belcarra", href: "/neighbourhoods/belcarra" },
+          { label: "Glenayre", href: "/neighbourhoods/glenayre" },
           { label: "Mountain Meadows", href: "/neighbourhoods/mountain-meadows" },
+          { label: "Barber Street", href: "/neighbourhoods/barber-street" },
+          { label: "Anmore", href: "/neighbourhoods/anmore" },
+          { label: "Belcarra", href: "/neighbourhoods/belcarra" },
         ],
       },
     ],
@@ -114,22 +109,26 @@ export const navItems: NavItem[] = [
       {
         items: [
           { label: "Local Life", href: "/local-life" },
+          { label: "Move to Port Moody", href: "/move-to-port-moody" },
           { label: "Blog", href: "/blog" },
           { label: "Featured Businesses", href: "/featured-businesses" },
           { label: "Events", href: "/events" },
-          { label: "Parks, Trails & Schools", href: "/local-life" },
+          { label: "Local Insights", href: "/local-insights" },
         ],
       },
     ],
   },
   {
     label: "About",
-    href: "/meet-us",
+    href: "/about",
+    linkedLabel: true,
     groups: [
       {
         items: [
           { label: "Meet Us", href: "/meet-us" },
+          { label: "Raving Fans", href: "/raving-fans" },
           { label: "Contact", href: "/contact" },
+          { label: "FAQ", href: "/faq" },
         ],
       },
     ],
@@ -239,6 +238,7 @@ export const footerGroups: FooterGroup[] = [
       { label: "Search Listings", href: "/listings" },
       { label: "Buyer Guide", href: "/buyer-guide" },
       { label: "First-Time Buyers", href: "/first-time-home-buyers" },
+      { label: "Market Data", href: "/market" },
       { label: "Buildings & Complexes", href: "/buildings" },
       { label: "Request Recent Sales", href: "/request-recent-sales" },
     ],
@@ -267,6 +267,7 @@ export const footerGroups: FooterGroup[] = [
       { label: "Condo Buildings", href: "/buildings" },
       { label: "Townhouse Complexes", href: "/complexes" },
       { label: "Presales", href: "/presales" },
+      { label: "Explore Port Moody", href: "/explore" },
     ],
   },
   {
@@ -283,6 +284,8 @@ export const footerGroups: FooterGroup[] = [
     links: [
       { label: "Meet Us", href: "/meet-us" },
       { label: "Contact", href: "/contact" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Resources", href: "/resources" },
     ],
   },
 ];
