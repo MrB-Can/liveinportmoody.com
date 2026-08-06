@@ -86,7 +86,8 @@ export function PriceLadderChart() {
       </svg>
       <figcaption className="mt-3 text-xs leading-relaxed text-slateText">
         Median sold price by home type in Port Moody. Based on 130 and 148 condo sales, 74 and 64 townhouse sales, and
-        62 and 56 detached sales across the two periods. Source: Tri-Cities MLS records.
+        62 and 56 detached sales across the two periods. Comparison figures for Coquitlam and Port Coquitlam combined
+        are drawn from 1,252 condo, 642 townhouse and 783 detached sales. Source: Tri-Cities MLS records.
       </figcaption>
     </figure>
   );

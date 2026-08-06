@@ -80,9 +80,9 @@ export function NeighbourhoodSpreadChart() {
         </span>
       </div>
       <figcaption className="mt-3 text-xs leading-relaxed text-slateText">
-        Median sold price, first half 2025 compared with first half 2026. Segments shown had at least ten sales in each
-        period. Smaller segments move more on a single unusual sale, so treat Heritage Woods as directional rather than
-        precise. Source: Tri-Cities MLS records.
+        Median sold price within Port Moody, first half 2025 compared with first half 2026. Segments shown had at
+        least ten sales in each period. Smaller segments move more on a single unusual sale, so treat Heritage Woods
+        as directional rather than precise. Source: Tri-Cities MLS records.
       </figcaption>
     </figure>
   );
