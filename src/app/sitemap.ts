@@ -3,6 +3,7 @@ import { phaseOneRoutes, siteConfig } from "@/lib/site";
 import { buildings } from "@/data/buildings";
 import { complexes } from "@/data/complexes";
 import { neighbourhoodGuides } from "@/data/neighbourhoodGuides";
+import { ourListings } from "@/data/ourListings";
 import { getAllPosts } from "@/lib/blog";
 
 const additionalRoutes = [
@@ -69,6 +70,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
+  const listingEntries: MetadataRoute.Sitemap = ourListings
+    .filter((listing) => listing.status === "active" || listing.status === "coming-soon")
+    .map((listing) => ({
+      url: new URL(`/listings/${listing.slug}`, siteConfig.url).toString(),
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
+
   return [
     ...phaseOneEntries,
     ...additionalEntries,
@@ -76,5 +86,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...neighbourhoodEntries,
     ...buildingEntries,
     ...complexEntries,
+    ...listingEntries,
   ];
 }

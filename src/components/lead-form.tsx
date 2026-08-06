@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { trackFormStart, trackFormSubmit } from "@/lib/analytics";
@@ -33,7 +33,19 @@ type LeadFormProps = {
   messagePlaceholder?: string;
   phoneOptional?: boolean;
   tags?: string[];
+  /**
+   * "full" (default, unchanged): name, email, phone, message, both consent checkboxes above the button.
+   * "compact": name + email visible by default; phone/message revealed by a toggle; consent moves below the button.
+   * "minimal": email only  -  name is derived from the address; a single consent line below the button.
+   */
+  variant?: "full" | "compact" | "minimal";
 };
+
+function deriveNameFromEmail(email: string): string {
+  const local = email.split("@")[0] ?? "";
+  const cleaned = local.replace(/[._-]+/g, " ").trim();
+  return cleaned || "Newsletter subscriber";
+}
 
 export function LeadForm({
   formType,
@@ -46,19 +58,31 @@ export function LeadForm({
   messagePlaceholder = "Share the property type, area, timeline, or question you have.",
   phoneOptional = true,
   tags,
+  variant = "full",
 }: LeadFormProps) {
   const pathname = usePathname();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [started, setStarted] = useState(false);
+  const [expanded, setExpanded] = useState(variant !== "compact");
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<LeadFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { consentToContact: true },
   });
+
+  const emailValue = watch("email");
+
+  useEffect(() => {
+    if (variant === "minimal") {
+      setValue("name", deriveNameFromEmail(emailValue ?? ""), { shouldValidate: false });
+    }
+  }, [variant, emailValue, setValue]);
 
   function onFocus() {
     if (!started) {
@@ -89,6 +113,7 @@ export function LeadForm({
         trackFormSubmit(formType);
         setStatus("success");
         reset();
+        setExpanded(variant !== "compact");
         return;
       }
 
@@ -97,6 +122,32 @@ export function LeadForm({
       setStatus("error");
     }
   }
+
+  const showName = variant !== "minimal";
+  const showPhoneAndMessage = variant === "full" || (variant === "compact" && expanded);
+  const consentBelowButton = variant !== "full";
+
+  const contactConsentFullText = `I consent to ${siteConfig.name} contacting me about this request by email or phone using the information I provided. I can withdraw consent at any time.`;
+  const smsConsentFullText =
+    "I consent to SMS follow-up if I provided a phone number. Message and data rates may apply. Reply STOP to opt out.";
+
+  const contactConsent = (
+    <label className="flex gap-3 text-sm leading-6 text-slateText">
+      <input className="mt-1 h-4 w-4 shrink-0" type="checkbox" {...register("consentToContact")} />
+      <span title={consentBelowButton ? contactConsentFullText : undefined}>
+        {consentBelowButton ? "I consent to being contacted about this request." : contactConsentFullText}
+      </span>
+    </label>
+  );
+
+  const smsConsent = (
+    <label className="flex gap-3 text-sm leading-6 text-slateText">
+      <input className="mt-1 h-4 w-4 shrink-0" type="checkbox" {...register("consentToSms")} />
+      <span title={consentBelowButton ? smsConsentFullText : undefined}>
+        {consentBelowButton ? "I consent to SMS follow-up if a phone number is provided." : smsConsentFullText}
+      </span>
+    </label>
+  );
 
   return (
     <form
@@ -109,36 +160,56 @@ export function LeadForm({
       {description ? <p className="mt-2 text-sm leading-6 text-slateText">{description}</p> : null}
 
       <div className="mt-5 grid gap-4">
-        <label htmlFor="name" className="grid gap-2 text-sm font-medium text-charcoal">
-          Your name
-          <input id="name" className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" {...register("name")} />
-          {errors.name ? <span className="text-sm text-red-700">{errors.name.message}</span> : null}
-        </label>
+        {showName ? (
+          <label htmlFor="name" className="grid gap-2 text-sm font-medium text-charcoal">
+            Your name
+            <input id="name" className="min-h-11 rounded-md border border-softBorder px-3" autoComplete="name" {...register("name")} />
+            {errors.name ? <span className="text-sm text-red-700">{errors.name.message}</span> : null}
+          </label>
+        ) : (
+          <input type="hidden" {...register("name")} />
+        )}
         <label htmlFor="email" className="grid gap-2 text-sm font-medium text-charcoal">
           Email
           <input id="email" className="min-h-11 rounded-md border border-softBorder px-3" type="email" autoComplete="email" {...register("email")} />
           {errors.email ? <span className="text-sm text-red-700">{errors.email.message}</span> : null}
         </label>
-        <label htmlFor="phone" className="grid gap-2 text-sm font-medium text-charcoal">
-          Phone {phoneOptional ? <span className="font-normal text-slateText">optional</span> : null}
-          <input id="phone" className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" {...register("phone")} />
-        </label>
-        <label htmlFor="message" className="grid gap-2 text-sm font-medium text-charcoal">
-          {messageLabel}
-          <textarea id="message" className="min-h-24 rounded-md border border-softBorder px-3 py-3" placeholder={messagePlaceholder} {...register("message")} />
-        </label>
+        {showPhoneAndMessage ? (
+          <>
+            <label htmlFor="phone" className="grid gap-2 text-sm font-medium text-charcoal">
+              Phone {phoneOptional ? <span className="font-normal text-slateText">optional</span> : null}
+              <input id="phone" className="min-h-11 rounded-md border border-softBorder px-3" type="tel" autoComplete="tel" {...register("phone")} />
+            </label>
+            <label htmlFor="message" className="grid gap-2 text-sm font-medium text-charcoal">
+              {messageLabel}
+              <textarea
+                id="message"
+                className="min-h-24 rounded-md border border-softBorder px-3 py-3"
+                placeholder={messagePlaceholder}
+                {...register("message")}
+              />
+            </label>
+          </>
+        ) : null}
+        {variant === "compact" && !expanded ? (
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            className="justify-self-start text-sm font-semibold text-forest hover:text-deepInlet"
+          >
+            + Add phone or a message
+          </button>
+        ) : null}
         <label htmlFor="honeypot" className="hidden">
           Leave this field blank
           <input id="honeypot" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
         </label>
-        <label className="flex gap-3 text-sm leading-6 text-slateText">
-          <input className="mt-1 h-4 w-4" type="checkbox" {...register("consentToContact")} />
-          I consent to {siteConfig.name} contacting me about this request by email or phone using the information I provided. I can withdraw consent at any time.
-        </label>
-        <label className="flex gap-3 text-sm leading-6 text-slateText">
-          <input className="mt-1 h-4 w-4" type="checkbox" {...register("consentToSms")} />
-          I consent to SMS follow-up if I provided a phone number. Message and data rates may apply. Reply STOP to opt out.
-        </label>
+        {!consentBelowButton ? (
+          <>
+            {contactConsent}
+            {smsConsent}
+          </>
+        ) : null}
       </div>
 
       <button
@@ -148,6 +219,14 @@ export function LeadForm({
       >
         {isSubmitting ? "Sending..." : ctaLabel}
       </button>
+
+      {consentBelowButton ? (
+        <div className="mt-4 grid gap-2">
+          {contactConsent}
+          {variant === "compact" ? smsConsent : null}
+        </div>
+      ) : null}
+
       {status === "success" ? <p className="mt-4 text-sm font-medium text-forest">Thanks. Your request was sent.</p> : null}
       {status === "error" ? <p className="mt-4 text-sm font-medium text-red-700">Something went wrong. Please try again.</p> : null}
     </form>

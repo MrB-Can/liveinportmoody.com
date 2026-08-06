@@ -12,6 +12,7 @@ export const formTypes = [
   "complex-inquiry",
   "complex-value-opinion",
   "home-evaluation",
+  "listing-inquiry",
   "nominate-a-business",
   "suggest-event",
   "suggest-local-life",

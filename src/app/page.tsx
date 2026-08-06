@@ -1,6 +1,8 @@
 import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucide-react";
 import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
+import { getActiveOurListings } from "@/data/ourListings";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { ReviewProof } from "@/components/reviews/review-proof";
@@ -262,6 +264,16 @@ export default function HomePage() {
       />
 
       <TrustStrip />
+
+      {getActiveOurListings().length > 0 && (
+        <Section title="Featured listing" tone="sand">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getActiveOurListings().map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section tone="white">
         <ReviewProof

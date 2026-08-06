@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { ListingSupportForm } from "@/components/listings/ListingSupportForm";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
 import { CTAButton } from "@/components/cta-button";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { neighbourhoodMapPoints } from "@/data/mapPoints";
+import { getActiveOurListings } from "@/data/ourListings";
 import { Section } from "@/components/section";
 import { ExternalLink } from "@/lib/icons";
 import { type LucideIcon, MapPin, Building2, FileSearch, BarChart2, Scale } from "lucide-react";
@@ -132,6 +134,16 @@ export default function ListingsPage() {
           </div>
         </div>
       </section>
+
+      {getActiveOurListings().length > 0 && (
+        <Section eyebrow="Our listings" title="Listed by Paul and Leilani" tone="sand">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getActiveOurListings().map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section title="Search active Port Moody listings" tone="white">
         <div id="search-active-listings" className="rounded-lg border border-softBorder bg-mist p-6">

@@ -26,6 +26,8 @@
     "@hookform/resolvers": "^3.10.0",
     "@microsoft/clarity": "^1.0.2",
     "@tailwindcss/typography": "^0.5.19",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.16.0",
     "maplibre-gl": "^5.24.0",

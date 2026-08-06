@@ -2,6 +2,12 @@
 
 Phase 1 release for LiveInPortMoody.com, built with Next.js App Router, TypeScript, Tailwind CSS, custom React components, a lead API, attribution capture, and a mock-or-real GoHighLevel adapter.
 
+## Current Deployment State
+
+The repository is connected to the Vercel project `liveinportmoody.com` and the GitHub repository [`MrB-Can/liveinportmoody.com`](https://github.com/MrB-Can/liveinportmoody.com). Vercel Web Analytics and Speed Insights are mounted in `src/app/layout.tsx`; enable both products in the Vercel project dashboard after deployment.
+
+The original Phase 1 scope below is historical. The current working tree also contains listings, neighbourhood, map, and visual-review work. Treat the current local Git status and the project documentation under `docs/` as authoritative until that work is committed or discarded.
+
 ## Run Locally
 
 Use Node 22 LTS or newer.
@@ -34,7 +40,7 @@ For production, store the GHL token in AWS Secrets Manager and set `GHL_API_TOKE
 
 `COMING_SOON_ENABLED=true` gates public pages behind `/coming-soon`. Set it to `false` only when the full site should be publicly visible.
 
-## Phase 1 Scope
+## Initial Phase 1 Scope
 
 Routes included:
 

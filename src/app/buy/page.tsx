@@ -3,6 +3,8 @@ import { MapPin, Home, FileCheck, Eye, Handshake, Building2, FileSearch, Phone, 
 import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
+import { getActiveOurListings } from "@/data/ourListings";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
 import { ReviewProof } from "@/components/reviews/review-proof";
@@ -318,6 +320,16 @@ export default function BuyPage() {
       />
 
       <TrustStrip />
+
+      {getActiveOurListings().length > 0 && (
+        <Section title="Currently listed by Paul and Leilani" tone="sand">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getActiveOurListings().map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       {/* 2. Start with the decision */}
       <Section

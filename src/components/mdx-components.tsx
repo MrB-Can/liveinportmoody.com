@@ -7,6 +7,12 @@ import {
   PullQuote,
   BottomLine,
   AuthorCard,
+  KeyPoint,
+  InlineCTA,
+  NeighbourhoodSpreadChart,
+  PricePerSqftChart,
+  PriceLadderChart,
+  SalesRatioChart,
 } from '@/components/visual-elements';
 
 // Components made available to MDX blog posts. Register new rich elements here
@@ -20,4 +26,10 @@ export const mdxComponents = {
   PullQuote,
   BottomLine,
   AuthorCard,
+  KeyPoint,
+  InlineCTA,
+  NeighbourhoodSpreadChart,
+  PricePerSqftChart,
+  PriceLadderChart,
+  SalesRatioChart,
 };

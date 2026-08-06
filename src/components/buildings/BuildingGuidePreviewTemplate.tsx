@@ -2,6 +2,8 @@ import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { Section } from "@/components/section";
 import { Badge } from "@/components/ui/badge";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
+import { getOurListingsForBuilding } from "@/data/ourListings";
 import type { PortMoodyBuilding } from "@/data/buildings";
 
 const disclosure =
@@ -37,6 +39,7 @@ function verificationItems(building: PortMoodyBuilding) {
 }
 
 export function BuildingGuidePreviewTemplate({ building }: { building: PortMoodyBuilding }) {
+  const ourListingsHere = getOurListingsForBuilding(building.slug);
   const isGroup = building.type.toLowerCase().includes("group");
 
   return (
@@ -166,6 +169,16 @@ export function BuildingGuidePreviewTemplate({ building }: { building: PortMoody
           </div>
         </div>
       </Section>
+
+      {ourListingsHere.length > 0 && (
+        <Section title={`Currently listed at ${building.name}`}>
+          <div className="grid gap-4 md:grid-cols-2">
+            {ourListingsHere.map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section title="Active listings" tone="white">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">

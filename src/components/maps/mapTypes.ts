@@ -1,4 +1,4 @@
-export type MapPointKind = "neighbourhood" | "complex" | "building";
+export type MapPointKind = "neighbourhood" | "complex" | "building" | "listing";
 export type MapCategory = "residential" | "village" | "waterfront" | "nearby";
 
 export type MapPoint = {

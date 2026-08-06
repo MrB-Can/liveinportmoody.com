@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
+import { sectionHeadingClass } from "@/lib/typography";
 
 const hiddenPaths = new Set([
   "/coming-soon",
@@ -22,7 +23,7 @@ export function NewsletterSignup() {
       <div className="mx-auto grid max-w-6xl gap-6 px-5 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emphasis">Local updates</p>
-          <h2 className="mt-3 font-heading text-3xl leading-tight text-deepInlet">
+          <h2 className={`mt-3 leading-tight ${sectionHeadingClass}`}>
             Get Port Moody real estate and local life updates
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slateText">
@@ -36,9 +37,8 @@ export function NewsletterSignup() {
           ctaLabel="Get updates"
           title=""
           description="Tell us where to send Port Moody updates."
-          messageLabel="Anything you want us to focus on?"
-          messagePlaceholder="Neighbourhoods, listings, presales, local life, or selling strategy."
           tags={["newsletter_signup"]}
+          variant="minimal"
         />
       </div>
     </section>

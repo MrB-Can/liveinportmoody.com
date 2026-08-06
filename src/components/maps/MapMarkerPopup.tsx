@@ -5,6 +5,7 @@ export function buildPopupHTML(point: MapPoint): string {
     neighbourhood: "Neighbourhood",
     complex: "Complex",
     building: "Building",
+    listing: "Listing",
   }[point.kind];
 
   let html = `<div style="min-width:180px;max-width:240px;font-family:system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#1a1a1a;">`;

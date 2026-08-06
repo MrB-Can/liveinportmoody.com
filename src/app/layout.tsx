@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { NewsletterSignup } from "@/components/newsletter-signup";
@@ -23,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
   return (
-    <html lang="en-CA">
+    <html lang="en-CA" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
         {gaId ? (
           <>
@@ -50,6 +65,8 @@ gtag('js',new Date());gtag('config','${gaId}',{send_page_view:false});`}
         <main>{children}</main>
         <NewsletterSignup />
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

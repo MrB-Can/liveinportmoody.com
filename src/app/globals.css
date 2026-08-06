@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --font-heading: Fraunces, Georgia, serif;
-  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
   --background: #f7f8f6;
   --foreground: #1f2423;
 }
@@ -40,6 +38,16 @@ textarea {
 ::selection {
   background: #7faea3;
   color: #12302f;
+}
+
+/* Hides the scrollbar on an overflow-x-auto container while keeping it scrollable
+   (e.g. single-line tab strips that shouldn't show a visible scroll track). */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* MapLibre GL overrides */

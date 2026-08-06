@@ -29,6 +29,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   outputFileTracingRoot: process.cwd(),
+  devIndicators: false,
   async headers() {
     return [
       {

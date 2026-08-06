@@ -8,6 +8,8 @@ import { NeighbourhoodFAQ } from "@/components/neighbourhoods/neighbourhood-faq"
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { neighbourhoodMapPoints, complexMapPoints } from "@/data/mapPoints";
 import { complexes as allComplexes } from "@/data/complexes";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
+import { getOurListingsForNeighbourhood } from "@/data/ourListings";
 import { AlertCircle, Trees, GraduationCap, TrainFront } from "lucide-react";
 
 interface NeighbourhoodGuideTemplateProps {
@@ -58,6 +60,7 @@ export function NeighbourhoodGuideTemplate({
   const complexNames = new Set(
     allComplexes.filter((c) => c.neighbourhoodSlug === guide.slug).map((c) => c.name)
   );
+  const ourListingsHere = getOurListingsForNeighbourhood(guide.slug);
   const guideMapPoints = [
     ...(ownMapPoint ? [ownMapPoint] : []),
     ...complexMapPoints.filter((p) => complexNames.has(p.label)),
@@ -417,6 +420,17 @@ export function NeighbourhoodGuideTemplate({
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {ourListingsHere.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="font-heading text-2xl text-deepInlet">Currently listed in {guide.name}</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {ourListingsHere.map((listing) => (
+                <FeaturedListingCard key={listing.slug} listing={listing} />
+              ))}
+            </div>
           </section>
         )}
 

@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Script from "next/script";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getPostBySlug, generateStaticParams as getParams } from "@/lib/blog";
 import { LeadForm } from "@/components/lead-form";
 import { mdxComponents } from "@/components/mdx-components";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, articleSchema } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export { getParams as generateStaticParams };
 
@@ -35,6 +37,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleSchema({
+              title: post.title,
+              description: post.excerpt,
+              path: `/blog/${post.slug}`,
+              datePublished: post.date,
+              authorName: post.author ?? siteConfig.realtors,
+            })
+          ),
+        }}
+      />
       {/* Back */}
       <Link href="/blog" className="mb-8 inline-flex items-center gap-1 text-sm font-medium text-slateText hover:text-forest">
         ← All articles

@@ -55,3 +55,35 @@ export function websiteSchema() {
     inLanguage: "en-CA",
   };
 }
+
+type ArticleSchemaOptions = {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName: string;
+};
+
+export function articleSchema({ title, description, path, datePublished, dateModified, authorName }: ArticleSchemaOptions) {
+  const url = new URL(path, siteConfig.url).toString();
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    author: { "@type": "Person", name: authorName },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: { "@type": "ImageObject", url: new URL(siteConfig.ogImage, siteConfig.url).toString() },
+    },
+    image: [new URL(siteConfig.ogImage, siteConfig.url).toString()],
+    inLanguage: "en-CA",
+  };
+}

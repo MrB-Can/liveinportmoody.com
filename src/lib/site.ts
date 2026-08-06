@@ -1,3 +1,5 @@
+import { getActiveOurListings } from "@/data/ourListings";
+
 export const siteConfig = {
   name: "Live in Port Moody",
   domain: "liveinportmoody.com",
@@ -24,6 +26,8 @@ export type NavItem = {
   groups?: NavGroup[];
 };
 
+const hasActiveOurListings = getActiveOurListings().length > 0;
+
 export const navItems: NavItem[] = [
   {
     label: "Buy",
@@ -31,7 +35,7 @@ export const navItems: NavItem[] = [
     groups: [
       {
         items: [
-          { label: "Search Listings", href: "/listings" },
+          { label: "Search Listings", href: "/listings", badge: hasActiveOurListings ? "New listing" : undefined },
           { label: "Buyer Guide", href: "/buyer-guide" },
           { label: "First-Time Buyers", href: "/first-time-home-buyers" },
           { label: "Market Data", href: "/market" },

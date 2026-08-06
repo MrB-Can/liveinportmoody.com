@@ -9,7 +9,7 @@ import { buildPopupHTML } from "./MapMarkerPopup";
 import type { MapConfig, MapPoint } from "@/components/maps/mapTypes";
 
 // Root element is owned by MapLibre for transform-based positioning.
-// Never set transform on the root — use an inner child for all hover/visual effects.
+// Never set transform on the root  -  use an inner child for all hover/visual effects.
 
 const CATEGORY_STYLES = {
   residential: {
@@ -138,6 +138,52 @@ function createComplexMarker(label: string): HTMLDivElement {
   return root;
 }
 
+function createListingMarker(priceLabel: string): HTMLDivElement {
+  const root = document.createElement("div");
+  root.style.cssText = "display:flex;flex-direction:column;align-items:center;cursor:pointer;gap:4px;z-index:10";
+
+  const dot = document.createElement("div");
+  dot.style.cssText = [
+    "width:22px",
+    "height:22px",
+    "border-radius:50%",
+    "background:#1F4A3D",
+    "border:4px solid white",
+    "box-shadow:0 3px 10px rgba(0,0,0,0.45),0 0 0 3px rgba(31,74,61,0.25)",
+    "flex-shrink:0",
+    "transition:box-shadow 0.15s",
+  ].join(";");
+
+  const priceEl = document.createElement("div");
+  priceEl.style.cssText = [
+    "font-size:13px",
+    "font-weight:700",
+    "font-family:system-ui,-apple-system,sans-serif",
+    "color:white",
+    "background:#1F4A3D",
+    "padding:4px 10px",
+    "border-radius:5px",
+    "white-space:nowrap",
+    "box-shadow:0 2px 6px rgba(0,0,0,0.35)",
+    "line-height:1.5",
+    "transition:opacity 0.15s",
+  ].join(";");
+  priceEl.textContent = priceLabel;
+
+  root.addEventListener("mouseenter", () => {
+    dot.style.boxShadow = "0 4px 12px rgba(31,74,61,0.6),0 0 0 3px rgba(31,74,61,0.35)";
+    priceEl.style.opacity = "0.85";
+  });
+  root.addEventListener("mouseleave", () => {
+    dot.style.boxShadow = "0 3px 10px rgba(0,0,0,0.45),0 0 0 3px rgba(31,74,61,0.25)";
+    priceEl.style.opacity = "1";
+  });
+
+  root.appendChild(dot);
+  root.appendChild(priceEl);
+  return root;
+}
+
 function createBuildingMarker(): HTMLDivElement {
   const root = document.createElement("div");
   root.style.cssText = "width:8px;height:8px;cursor:pointer";
@@ -202,6 +248,10 @@ export function InteractiveMap(config: MapConfig) {
           markerEl = createComplexMarker(point.label);
           markerEl.setAttribute("role", "button");
           markerEl.setAttribute("aria-label", `${point.label} complex marker`);
+        } else if (point.kind === "listing") {
+          markerEl = createListingMarker(point.label);
+          markerEl.setAttribute("role", "button");
+          markerEl.setAttribute("aria-label", `Listing at ${point.label}`);
         } else {
           markerEl = createBuildingMarker();
           markerEl.setAttribute("role", "button");

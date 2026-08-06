@@ -20,12 +20,16 @@ export {
   // Real estate & property
   Home,
   MapPin,
+  Building,
   Building2,
   Trees,
   Ruler,
   DollarSign,
   TrendingUp,
   TrendingDown,
+  Layers,
+  Receipt,
+  Calendar,
 
   // People & contact
   User,
@@ -44,10 +48,22 @@ export {
   Car,
   Bus,
   Train,
+  TrainFront,
   Footprints,
 
   // Nature & environment
   Leaf,
   Sun,
+  Umbrella,
   Mountain,
+
+  // Interior & amenities
+  ChefHat,
+  Sofa,
+  Utensils,
+  Flame,
+  Thermometer,
+  Sparkles,
+  Bed,
+  Bath,
 } from "lucide-react";

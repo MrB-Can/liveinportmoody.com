@@ -18,6 +18,9 @@ export type PortMoodyBuilding = {
   latitude: number | null;
   longitude: number | null;
   guideStatus: BuildingGuideStatus;
+  // Optional building logo/crest shown alongside the building name on listing detail
+  // pages. Most buildings won't have one  -  render the name alone when absent.
+  logoImage?: { src: string; alt: string };
 };
 
 export const buildings: PortMoodyBuilding[] = [
