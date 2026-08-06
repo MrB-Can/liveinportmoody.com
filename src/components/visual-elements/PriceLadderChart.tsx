@@ -53,21 +53,27 @@ export function PriceLadderChart() {
           Condos fell from 765,000 to 702,500. Townhouses fell from 1,052,500 to 959,500. Detached was flat at about
           1.86 million.
         </desc>
-        {GROUPS.map((group) => (
-          <g key={group.label}>
-            <rect x={group.before.x} y={group.before.y} width={BAR_W} height={group.before.height} rx={3} fill={BEFORE_COLOR} />
-            <text x={group.before.x + BAR_W / 2} y={group.before.y - 8} textAnchor="middle" fontSize={13} fontWeight={500} fill="#1F2423">
-              {group.before.value}
-            </text>
-            <rect x={group.after.x} y={group.after.y} width={BAR_W} height={group.after.height} rx={3} fill={AFTER_COLOR} />
-            <text x={group.after.x + BAR_W / 2} y={group.after.y - 8} textAnchor="middle" fontSize={13} fontWeight={500} fill="#1F2423">
-              {group.after.value}
-            </text>
-            <text x={group.labelX} y={274} textAnchor="middle" fontSize={14} fill="#1F2423">
-              {group.label}
-            </text>
-          </g>
-        ))}
+        {GROUPS.map((group) => {
+          // Value labels diverge outward from the seam between the paired bars
+          // rather than centering over each narrow 52px bar, so a long dollar
+          // figure (e.g. the Detached group) never collides with its pair.
+          const seamX = group.before.x + BAR_W + (group.after.x - (group.before.x + BAR_W)) / 2;
+          return (
+            <g key={group.label}>
+              <rect x={group.before.x} y={group.before.y} width={BAR_W} height={group.before.height} rx={3} fill={BEFORE_COLOR} />
+              <text x={seamX - 2} y={group.before.y - 8} textAnchor="end" fontSize={13} fontWeight={500} fill="#1F2423">
+                {group.before.value}
+              </text>
+              <rect x={group.after.x} y={group.after.y} width={BAR_W} height={group.after.height} rx={3} fill={AFTER_COLOR} />
+              <text x={seamX + 2} y={group.after.y - 8} textAnchor="start" fontSize={13} fontWeight={500} fill="#1F2423">
+                {group.after.value}
+              </text>
+              <text x={group.labelX} y={274} textAnchor="middle" fontSize={14} fill="#1F2423">
+                {group.label}
+              </text>
+            </g>
+          );
+        })}
         <line x1={40} y1={BASE_Y} x2={680} y2={BASE_Y} stroke="#D9DED8" strokeWidth={1} />
         <rect x={60} y={290} width={12} height={12} rx={2} fill={BEFORE_COLOR} />
         <text x={78} y={301} fontSize={13} fill="#4E5A57">
