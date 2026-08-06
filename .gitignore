@@ -59,3 +59,14 @@ visual-review-screenshots.zip
 # Agent work scratch and cache (never commit)
 agent-work/tmp/
 agent-work/.cache/
+
+# Content intake staging - source material dropped here for listings/blog
+# posts (photos, feature sheets, competitor reference screenshots) gets
+# copied into public/ or src/content/ deliberately; the drop folder itself
+# is never meant to be committed.
+/~drop here/
+
+# Ad hoc local capture/debug scripts and screenshots left at the repo root
+# (leading slash scopes these to the root only, not public/ or src/ assets)
+/capture-*.js
+/*.png
