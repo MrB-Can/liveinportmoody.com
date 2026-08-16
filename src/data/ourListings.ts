@@ -49,7 +49,7 @@ export const ourListings: OurListing[] = [
   {
     slug: "326-55-klahanie-drive",
     mlsNumber: "R3144061",
-    status: "active",
+    status: "sold",
     address: "55 Klahanie Drive",
     unit: "326",
     neighbourhoodSlug: "klahanie",
