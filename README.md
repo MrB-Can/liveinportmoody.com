@@ -40,6 +40,10 @@ For production, store the GHL token in AWS Secrets Manager and set `GHL_API_TOKE
 
 `COMING_SOON_ENABLED=true` gates public pages behind `/coming-soon`. Set it to `false` only when the full site should be publicly visible.
 
+## Monitoring
+
+`GET /api/health` is the liveness endpoint Route 53 health checks hit (the lead endpoint is POST-only, so it can't be used for uptime monitoring). It constructs the CRM adapter to validate required env vars (no network call, no side effects). A `503` means the CRM adapter is misconfigured (e.g. a missing `GHL_LOCATION_ID`), not that the site is down.
+
 ## Initial Phase 1 Scope
 
 Routes included:

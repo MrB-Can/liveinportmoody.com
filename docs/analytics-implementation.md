@@ -69,8 +69,8 @@ so there is one place to maintain and the two tools never drift apart.
 | `trackFormStart(formType)` | `form_start` | `form_type`, `page_path`, `page_type` | `form_start`, tag `form_type` |
 | `trackFormSubmit(formType)` | `form_submit` **+ a specific Key Event** (see below) | `form_type`, `page_path`, `page_type`, first/last UTM source/medium/campaign, landing pages, referrers | `form_submit`, tag `lead=true`, `identify(lead-…)`, `upgrade("lead_submit")` |
 | `trackDownload(resource)` | `resource_download` | `download_resource`, `page_path`, `page_type` | `resource_download`, tag `download` |
-| `trackCall(location)` | `click_call` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` | `click_call` |
-| `trackEmail(location)` | `click_email` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` | `click_email` |
+| `trackCall(location)` | `click_call` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` + full attribution subset (both events) | `click_call` |
+| `trackEmail(location)` | `click_email` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` + full attribution subset (both events) | `click_email` |
 
 On a lead submission the session is tagged `lead=true`, identified, and **upgraded** so
 high-value sessions are always recorded in full - useful for reviewing exactly what a

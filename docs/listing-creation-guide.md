@@ -95,12 +95,15 @@ notes, in the order they appear in the `OurListing` type:
 - **`slug`**  -  URL segment. Kebab-case, matches the `public/images/listings/<slug>/`
   folder name exactly.
 - **`mlsNumber`**  -  pass through exactly as given (e.g. `"R3144061"`).
-- **`status`**  -  `"active" | "coming-soon" | "pending" | "sold"`. **Only `"active"` and
-  `"coming-soon"` currently do anything**  -  they're the only values that make the page
-  render and appear on any site surface. `"pending"`/`"sold"` are valid on the type but
-  there is no "past sales" or "sold" showcase built yet; setting either of those values
-  today just makes the listing disappear everywhere (404 on its own page). Don't assume
-  more behavior exists than this.
+- **`status`**  -  `"active" | "coming-soon" | "pending" | "sold"`. `"active"` and
+  `"coming-soon"` render normally on all the usual surfaces. `"sold"` now has real
+  behavior: the listing renders on `/recently-sold` (via `getSoldOurListings()`), in the
+  homepage "Just sold" section within 30 days of `soldDate` (`getJustSoldListings()`),
+  and on its own detail page (included in `generateStaticParams` and the not-found
+  guard). Set `soldPrice`/`soldDate` to drive those surfaces  -  with `soldPrice` unset
+  it falls back to the list price with a "Listed at" note. `"pending"` is still valid on
+  the type but has no built surface  -  setting it today just makes the listing disappear
+  everywhere (404 on its own page). Don't assume more behavior exists than this.
 - **`address`** / **`unit`**  -  rendered together as `"{unit} - {address}, {neighbourhood
   name}"` in the page's `<h1>`. Keep the combined string reasonably short  -  see
   "Address heading length" below.
@@ -130,9 +133,10 @@ notes, in the order they appear in the `OurListing` type:
 - **`summary`**  -  the descriptive paragraph, shown once, directly under the price block
   (not duplicated anywhere else  -  don't add it again further down the page).
 - **`highlights`**  -  array of `{ text, icon }`. `icon` is a **closed enum**:
-  `"chef-hat" | "umbrella" | "sparkles" | "train-front"` (kitchen/appliance feature,
-  outdoor/patio feature, "new/renovated" freshness, transit/location proximity,
-  respectively). If a listing's best highlights don't fit these four themes, add a new
+  `"chef-hat" | "umbrella" | "sparkles" | "train-front" | "martini"` (kitchen/appliance
+  feature, outdoor/patio feature, "new/renovated" freshness, transit/location proximity,
+  and wet bar/entertaining feature, respectively). If a listing's best highlights don't
+  fit these themes, add a new
   icon key to `OurListingHighlightIcon` in `ourListings.ts` **and** wire it into the
   `highlightIcons` map in `ListingDetailTemplate.tsx`  -  don't force-fit the wrong icon
   onto a highlight it doesn't match.
