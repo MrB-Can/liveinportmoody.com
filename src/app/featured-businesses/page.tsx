@@ -106,8 +106,8 @@ export default function FeaturedBusinessesPage() {
                   <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest" aria-hidden="true" />
                   <span>
                     <span className="font-semibold text-deepInlet">Phone:</span>{" "}
-                    <ContactLink type="phone" value="+17789999511" location="featured_businesses_page" className="text-forest hover:underline">
-                      778-999-9511
+                    <ContactLink type="phone" value="+16046589437" location="featured_businesses_page" className="text-forest hover:underline">
+                      604-658-9437
                     </ContactLink>
                   </span>
                 </div>

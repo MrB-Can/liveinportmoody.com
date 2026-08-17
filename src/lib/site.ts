@@ -7,7 +7,7 @@ export const siteConfig = {
   description:
     "A local real estate and lifestyle resource from Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada, for buyers, sellers, and homeowners in Port Moody, BC.",
   publicEmail: process.env.NEXT_PUBLIC_PUBLIC_EMAIL || "team@liveinportmoody.com",
-  publicPhone: process.env.NEXT_PUBLIC_PUBLIC_PHONE || "604-757-1553",
+  publicPhone: process.env.NEXT_PUBLIC_PUBLIC_PHONE || "604-658-9450",
   brokerageName: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "eXp Realty",
   brokerageAddress: process.env.NEXT_PUBLIC_BROKERAGE_ADDRESS || "#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5",
   ogImage: "/images/social/live-in-port-moody-og.png",
