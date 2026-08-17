@@ -8,7 +8,7 @@ export type OurListingDetailTab = { label: string; rows: OurListingDetailRow[] }
 
 // Curated icon keys for listing highlights  -  kept as a closed set (rather than
 // guessing an icon from free-text) so each bullet gets a deliberately chosen icon.
-export type OurListingHighlightIcon = "chef-hat" | "umbrella" | "sparkles" | "train-front";
+export type OurListingHighlightIcon = "chef-hat" | "umbrella" | "sparkles" | "train-front" | "martini";
 export type OurListingHighlight = { text: string; icon: OurListingHighlightIcon };
 
 export type OurListing = {
@@ -329,6 +329,226 @@ export const ourListings: OurListing[] = [
     latitude: 49.2744788,
     longitude: -122.7585901,
     parkingSummary: "5 open (driveway, lane access)",
+  },
+  {
+    slug: "3225-pinda-drive",
+    mlsNumber: "R3150684",
+    status: "active",
+    address: "3225 Pinda Drive",
+    neighbourhoodSlug: "moody-centre",
+    price: 1498800,
+    beds: 3,
+    baths: 2,
+    sqft: 2283,
+    lotSqft: 6137,
+    yearBuilt: 1974,
+    propertyType: "House/Single Family",
+    listingAgent: "paul",
+    heroImage: {
+      src: "/images/listings/3225-pinda-drive/01.jpg",
+      alt: "Front exterior of the rancher at 3225 Pinda Drive, Port Moody",
+    },
+    galleryImages: [
+      { src: "/images/listings/3225-pinda-drive/02.jpg", alt: "Retro walk-out basement rec room with wet bar and brick archways" },
+      { src: "/images/listings/3225-pinda-drive/03.jpg", alt: "Family room with brick fireplace and mountain-view windows" },
+      { src: "/images/listings/3225-pinda-drive/04.jpg", alt: "Primary bedroom with a view toward the trees and mountains" },
+      { src: "/images/listings/3225-pinda-drive/05.jpg", alt: "Covered patio under the deck, opening onto the fenced backyard" },
+      { src: "/images/listings/3225-pinda-drive/06.jpg", alt: "Living room in original condition" },
+      { src: "/images/listings/3225-pinda-drive/07.jpg", alt: "Family room with a view through to the dining room" },
+      { src: "/images/listings/3225-pinda-drive/08.jpg", alt: "Formal dining room" },
+      { src: "/images/listings/3225-pinda-drive/09.jpg", alt: "Original oak kitchen" },
+      { src: "/images/listings/3225-pinda-drive/10.jpg", alt: "Kitchen sink with a view over the wooded backyard" },
+      { src: "/images/listings/3225-pinda-drive/11.jpg", alt: "Second bedroom" },
+      { src: "/images/listings/3225-pinda-drive/12.jpg", alt: "Third bedroom set up as a home office" },
+      { src: "/images/listings/3225-pinda-drive/13.jpg", alt: "Main bathroom" },
+      { src: "/images/listings/3225-pinda-drive/14.jpg", alt: "Laundry room with side door to the yard" },
+      { src: "/images/listings/3225-pinda-drive/15.jpg", alt: "Covered upper balcony with seating" },
+      { src: "/images/listings/3225-pinda-drive/16.jpg", alt: "View toward Port Moody Centre and the mountains from an upper window" },
+      { src: "/images/listings/3225-pinda-drive/17.jpg", alt: "Wet bar in the basement rec room" },
+      { src: "/images/listings/3225-pinda-drive/18.jpg", alt: "Unfinished basement workshop and storage area" },
+      { src: "/images/listings/3225-pinda-drive/19.jpg", alt: "Basement mechanical and storage area" },
+      { src: "/images/listings/3225-pinda-drive/20.jpg", alt: "Rear exterior showing the covered patio and deck above" },
+    ],
+    summary:
+      "First time on the market in 48 years! Lovingly owned by the same family for nearly five decades, this rancher with a walk out basement is filled with character, history and incredible potential. Mostly in its original condition, it offers the perfect opportunity to renovate, personalize or create the home you have always envisioned. All of this is set in a highly desirable location  -  an exciting opportunity for first time home buyers, renovators, or anyone looking for a special property to make their own.",
+    highlights: [
+      { text: "Retro walk-out basement rec room with a full wet bar", icon: "martini" },
+      { text: "Fenced backyard with a covered patio and upper balcony", icon: "umbrella" },
+      { text: "Central Port Moody Centre location", icon: "train-front" },
+    ],
+    details: [
+      {
+        label: "Interior",
+        rows: [
+          { label: "Bedrooms", value: "3" },
+          { label: "Bathrooms", value: "2 full, 0 half" },
+          { label: "Kitchens", value: "1" },
+          { label: "Fireplaces", value: "Natural gas (insert)" },
+          { label: "Floor finish", value: "Concrete, Vinyl/Linoleum, Carpet" },
+          { label: "Heating", value: "Forced Air" },
+        ],
+      },
+      {
+        label: "Exterior",
+        rows: [
+          { label: "Style", value: "Rancher/Bungalow w/ Bsmt." },
+          { label: "Construction", value: "Frame - Wood" },
+          { label: "Exterior finish", value: "Stucco" },
+          { label: "Foundation", value: "Concrete Perimeter" },
+          { label: "Roof", value: "Asphalt" },
+          { label: "Outdoor area", value: "Balcony(s), Fenced Yard, Patio(s)" },
+          { label: "Parking", value: "4 total, 2 covered, Carport, multiple, front access" },
+          { label: "Lot size", value: "6,137 sq ft (0.14 acres)" },
+          { label: "Basement", value: "Partly finished  -  697 sq ft finished, 825 sq ft unfinished" },
+        ],
+      },
+      {
+        label: "Community",
+        rows: [{ label: "Water supply", value: "Community" }],
+      },
+      {
+        label: "Taxes & Fees",
+        rows: [
+          { label: "Gross taxes", value: "$6,700.25/yr" },
+          { label: "Zoning", value: "RS1" },
+        ],
+      },
+      {
+        label: "Other",
+        rows: [
+          { label: "Title to land", value: "Freehold NonStrata" },
+          { label: "Legal description", value: "Lot 124, Plan NWP45114, District Lot 233, Group 1, New Westminster Land District" },
+          { label: "Features", value: "Air Conditioning, Fireplace Insert, Washer, Dryer, Fridge, Stove, Dishwasher" },
+        ],
+      },
+    ],
+    rooms: [
+      { name: "Foyer", dimensions: "13'10 x 7'10", floor: "Main" },
+      { name: "Living Room", dimensions: "17'10 x 14'3", floor: "Main" },
+      { name: "Family Room", dimensions: "11'0 x 10'10", floor: "Main" },
+      { name: "Kitchen", dimensions: "10'4 x 9'1", floor: "Main" },
+      { name: "Dining Room", dimensions: "10'3 x 8'10", floor: "Main" },
+      { name: "Laundry", dimensions: "7'4 x 5'8", floor: "Main" },
+      { name: "Primary Bedroom", dimensions: "13'5 x 13'4", floor: "Main" },
+      { name: "Bedroom", dimensions: "10'9 x 9'10", floor: "Main" },
+      { name: "Bedroom", dimensions: "13'4 x 9'6", floor: "Main" },
+      { name: "Recreation Room", dimensions: "33'7 x 14'4", floor: "Below" },
+      { name: "Bar Room", dimensions: "14'4 x 7'6", floor: "Below" },
+    ],
+    latitude: 49.2750016,
+    longitude: -122.8335539,
+    parkingSummary: "2 covered (carport)",
+  },
+  {
+    slug: "413-3038-st-george-street",
+    mlsNumber: "R3150195",
+    status: "active",
+    address: "3038 St George Street",
+    unit: "413",
+    neighbourhoodSlug: "moody-centre",
+    buildingSlug: "george",
+    price: 559000,
+    beds: 1,
+    baths: 1,
+    sqft: 665,
+    yearBuilt: 2020,
+    propertyType: "Apartment/Condo",
+    listingAgent: "leilani",
+    heroImage: {
+      src: "/images/listings/413-3038-st-george-street/01.jpg",
+      alt: "Living room with balcony access and wall-mounted TV at 413-3038 St George Street, Port Moody",
+    },
+    galleryImages: [
+      { src: "/images/listings/413-3038-st-george-street/02.jpg", alt: "L-shaped kitchen with island, stainless appliances, and subway tile backsplash" },
+      { src: "/images/listings/413-3038-st-george-street/03.jpg", alt: "Bathroom with black vanity and brass sconces" },
+      { src: "/images/listings/413-3038-st-george-street/04.jpg", alt: "West-facing balcony with a mountain view" },
+      { src: "/images/listings/413-3038-st-george-street/05.jpg", alt: "Open-concept living, dining, and kitchen space" },
+      { src: "/images/listings/413-3038-st-george-street/06.jpg", alt: "Open-concept living space, alternate angle" },
+      { src: "/images/listings/413-3038-st-george-street/07.jpg", alt: "Kitchen island with a view through to the living room" },
+      { src: "/images/listings/413-3038-st-george-street/08.jpg", alt: "Kitchen pantry cabinet with a glimpse of the primary bedroom" },
+      { src: "/images/listings/413-3038-st-george-street/09.jpg", alt: "Kitchen detail with subway tile backsplash" },
+      { src: "/images/listings/413-3038-st-george-street/10.jpg", alt: "Kitchen stove and sink detail" },
+      { src: "/images/listings/413-3038-st-george-street/11.jpg", alt: "View toward the forested hillside and neighbouring townhomes" },
+      { src: "/images/listings/413-3038-st-george-street/12.jpg", alt: "Building courtyard patio and pergola" },
+    ],
+    summary:
+      "The George by Marcon. This bright 1 bedroom + large den home features mountain views, high ceilings, an open-concept layout, and a modern kitchen with stainless-steel appliances. The spacious den is large enough to function as a bedroom, office, or flex space. Enjoy a west-facing balcony, 1 parking stall, 1 storage locker, and a pet-friendly building with great amenities including an outdoor patio, BBQ/fire pit area, playground, bike room, dog wash/car wash station and EV charging.",
+    highlights: [
+      { text: "Modern kitchen with stainless-steel appliances", icon: "chef-hat" },
+      { text: "West-facing balcony with mountain views", icon: "umbrella" },
+      { text: "Built in 2020  -  like new", icon: "sparkles" },
+      { text: "Central Port Moody Centre location", icon: "train-front" },
+    ],
+    details: [
+      {
+        label: "Interior",
+        rows: [
+          { label: "Bedrooms", value: "1 + den" },
+          { label: "Bathrooms", value: "1 full, 0 half" },
+          { label: "Kitchens", value: "1" },
+          { label: "Heating", value: "Baseboard" },
+        ],
+      },
+      {
+        label: "Exterior",
+        rows: [
+          { label: "Construction", value: "Frame - Wood" },
+          { label: "Exterior finish", value: "Mixed, Wood" },
+          { label: "Foundation", value: "Concrete Perimeter" },
+          { label: "Roof", value: "Asphalt" },
+          { label: "Outdoor area", value: "Balcony(s)" },
+          { label: "Parking", value: "1 total, 1 covered, Garage/Underground, front/side access" },
+          { label: "Locker", value: "Yes" },
+        ],
+      },
+      {
+        label: "Building",
+        rows: [
+          { label: "Units in development", value: "176" },
+          { label: "Total units in strata", value: "176" },
+          { label: "Storeys in building", value: "6" },
+          { label: "Management company", value: "First Service Residential" },
+          {
+            label: "Amenities",
+            value: "Bike Room, Elevator, In Suite Laundry, Playground, Storage, outdoor patio, BBQ/fire pit area, dog wash/car wash station, EV charging",
+          },
+        ],
+      },
+      {
+        label: "Community",
+        rows: [{ label: "Water supply", value: "City/Municipal" }],
+      },
+      {
+        label: "Taxes & Fees",
+        rows: [
+          { label: "Gross taxes", value: "$2,426.42/yr" },
+          { label: "Maintenance fee", value: "$285.72/mo" },
+          { label: "Maint fee includes", value: "Caretaker, Garbage Pickup, Gardening, Hot Water, Management, Sewer, Snow removal" },
+          { label: "Zoning", value: "CD" },
+        ],
+      },
+      {
+        label: "Other",
+        rows: [
+          { label: "Pets", value: "Allowed w/ restrictions (2 pets; cats & dogs OK)" },
+          { label: "Rentals", value: "Allowed" },
+          { label: "Short-term rental (<1yr)", value: "Not allowed" },
+          { label: "Title to land", value: "Freehold Strata" },
+        ],
+      },
+    ],
+    rooms: [
+      { name: "Living Room", dimensions: "12'3 x 11'10", floor: "Main" },
+      { name: "Kitchen", dimensions: "11'6 x 6'8", floor: "Main" },
+      { name: "Dining Room", dimensions: "11'6 x 6'2", floor: "Main" },
+      { name: "Den", dimensions: "7'5 x 6'8", floor: "Main" },
+      { name: "Primary Bedroom", dimensions: "11'4 x 9'7", floor: "Main" },
+      { name: "Walk-In Closet", dimensions: "7'9 x 4'1", floor: "Main" },
+      { name: "Foyer", dimensions: "6'4 x 3'5", floor: "Main" },
+    ],
+    latitude: 49.2758603,
+    longitude: -122.8438031,
+    parkingSummary: "1 covered (garage)",
   },
 ];
 

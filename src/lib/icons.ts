@@ -66,4 +66,5 @@ export {
   Sparkles,
   Bed,
   Bath,
+  Martini,
 } from "lucide-react";
