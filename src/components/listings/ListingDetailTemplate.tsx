@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import type { ComponentType } from "react";
 import { Bed, Bath, Ruler, Phone, ChefHat, Umbrella, Sparkles, TrainFront, Martini, Receipt, Building, Car, Calendar } from "@/lib/icons";
-import { ContactLink } from "@/components/contact-link";
 import { LeadForm } from "@/components/lead-form";
 import { ListingHeroGallery } from "@/components/listings/ListingHeroGallery";
 import { ListingPropertyDetailsTabs } from "@/components/listings/ListingPropertyDetailsTabs";
@@ -245,24 +244,21 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
               <p className="text-xs font-semibold uppercase tracking-wide text-slateText">Listing agent</p>
               <p className="mt-2 font-heading text-lg text-deepInlet">{agentNames[listing.listingAgent]}</p>
               <p className="mt-1 text-sm text-slateText">{siteConfig.brokerageName}</p>
-              <ContactLink
-                type="phone"
-                value={siteConfig.publicPhone}
-                location="listing_detail_agent"
+              <a
+                href={`tel:${siteConfig.publicPhone.replace(/[^\d+]/g, "")}`}
                 className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-forest hover:text-deepInlet"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {siteConfig.publicPhone}
-              </ContactLink>
-              <ContactLink
-                type="email"
-                value={siteConfig.publicEmail}
-                location="listing_detail_agent"
-                subject={`Question about ${listing.address}${listing.unit ? `, ${listing.unit}` : ""}`}
+              </a>
+              <a
+                href={`mailto:${siteConfig.publicEmail}?subject=${encodeURIComponent(
+                  `Question about ${listing.address}${listing.unit ? `, ${listing.unit}` : ""}`,
+                )}`}
                 className="mt-4 flex items-center justify-center rounded-md border border-softBorder px-4 py-2 text-sm font-semibold text-charcoal hover:bg-mist"
               >
                 Ask a question
-              </ContactLink>
+              </a>
             </div>
 
             <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-softBorder pt-5 text-sm">
