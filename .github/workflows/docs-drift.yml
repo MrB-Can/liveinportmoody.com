@@ -1,0 +1,55 @@
+name: Docs drift
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: the skill needs the merge base
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run docs drift audit
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          claude -p "Use the docs-drift skill. Audit window is $BASE_SHA..$HEAD_SHA. \
+          This is an unattended CI run: report only, make no edits. \
+          Write the report to docs-drift-report.md. \
+          If there are any blocking findings, end your final message with the exact \
+          line DOCS_DRIFT_BLOCKING; otherwise end it with DOCS_DRIFT_CLEAN." \
+            --allowedTools "Bash,Read,Grep,Glob,Write" \
+            | tee claude-output.txt
+
+      - name: Post report as PR comment
+        if: github.event_name == 'pull_request' && hashFiles('docs-drift-report.md') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment "${{ github.event.pull_request.number }}" \
+            --body-file docs-drift-report.md --edit-last --create-if-none
+
+      - name: Fail on blocking findings
+        run: |
+          if grep -q 'DOCS_DRIFT_BLOCKING' claude-output.txt; then
+            echo "::error::Documentation is out of date with this change. See the PR comment."
+            exit 1
+          fi
+          echo "No blocking docs drift."

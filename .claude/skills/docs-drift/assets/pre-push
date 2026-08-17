@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# docs-drift pre-push hook: advisory, never blocks.
+#
+# Install:
+#   cp assets/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# Skip once:
+#   SKIP_DOCS_DRIFT=1 git push
+# Make it blocking (not recommended locally):
+#   set DOCS_DRIFT_BLOCK=1 in your environment
+
+set -uo pipefail
+
+[ "${SKIP_DOCS_DRIFT:-0}" = "1" ] && exit 0
+command -v claude >/dev/null 2>&1 || exit 0
+
+# Compare against the upstream tracking branch; nothing to do if there isn't one.
+UPSTREAM=$(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>/dev/null) || exit 0
+BASE=$(git merge-base "$UPSTREAM" HEAD 2>/dev/null) || exit 0
+[ "$BASE" = "$(git rev-parse HEAD)" ] && exit 0
+
+# Cheap gate: only spend a model call if code changed but docs did not.
+CODE_CHANGED=$(git diff --name-only "$BASE..HEAD" | grep -vc -E '\.(md|mdx|rst|txt)$' || true)
+DOCS_CHANGED=$(git diff --name-only "$BASE..HEAD" | grep -c -E '\.(md|mdx|rst|txt)$' || true)
+if [ "$CODE_CHANGED" -eq 0 ] || [ "$DOCS_CHANGED" -gt 0 ]; then
+  exit 0
+fi
+
+echo "docs-drift: checking documentation against $BASE..HEAD ..."
+
+OUT=$(claude -p "Use the docs-drift skill. Audit window is $BASE..HEAD. \
+Unattended run: report only, make no edits, do not write a report file. \
+Print only blocking findings, at most five, one line each as 'path:line, problem'. \
+If there are none print exactly: DOCS_DRIFT_CLEAN" \
+  --allowedTools "Bash,Read,Grep,Glob" 2>/dev/null)
+
+if printf '%s' "$OUT" | grep -q 'DOCS_DRIFT_CLEAN'; then
+  echo "docs-drift: docs look current."
+  exit 0
+fi
+
+echo
+echo "docs-drift: documentation may be out of date:"
+printf '%s\n' "$OUT" | sed 's/^/  /'
+echo
+echo "  Push proceeding. Run /docs-drift for the full report, or"
+echo "  SKIP_DOCS_DRIFT=1 git push to silence this."
+echo
+
+[ "${DOCS_DRIFT_BLOCK:-0}" = "1" ] && exit 1
+exit 0
