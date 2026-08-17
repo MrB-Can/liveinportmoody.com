@@ -2,7 +2,7 @@ import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucid
 import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
 import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
-import { getActiveOurListings } from "@/data/ourListings";
+import { getActiveOurListings, getJustSoldListings } from "@/data/ourListings";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
 import { ReviewProof } from "@/components/reviews/review-proof";
@@ -269,6 +269,19 @@ export default function HomePage() {
         <Section title="Featured listing" tone="sand">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {getActiveOurListings().map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {getJustSoldListings().length > 0 && (
+        <Section eyebrow="Just sold" title="Just sold by Paul and Leilani" tone="white">
+          <p className="mb-6 max-w-2xl text-sm text-slateText">
+            Closed in the last 30 days - not available inventory, just a recent result.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getJustSoldListings().map((listing) => (
               <FeaturedListingCard key={listing.slug} listing={listing} />
             ))}
           </div>

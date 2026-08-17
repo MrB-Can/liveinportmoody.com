@@ -79,6 +79,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }));
 
+  // Sold listings stay indexable as track-record content, but the page
+  // doesn't change once closed, so a lower priority/frequency than active fits.
+  const soldListingEntries: MetadataRoute.Sitemap = ourListings
+    .filter((listing) => listing.status === "sold")
+    .map((listing) => ({
+      url: new URL(`/listings/${listing.slug}`, siteConfig.url).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
+    }));
+
   return [
     ...phaseOneEntries,
     ...additionalEntries,
@@ -87,5 +98,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...buildingEntries,
     ...complexEntries,
     ...listingEntries,
+    ...soldListingEntries,
   ];
 }

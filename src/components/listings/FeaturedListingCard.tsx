@@ -17,6 +17,11 @@ export function FeaturedListingCard({ listing }: FeaturedListingCardProps) {
   const neighbourhoodName = listing.neighbourhoodSlug
     ? getNeighbourhoodGuide(listing.neighbourhoodSlug)?.name
     : undefined;
+  const isSold = listing.status === "sold";
+  // Only claim a "Sold - $X" figure when the actual closed price is known -
+  // falling back to the list price would misrepresent it as the sold price.
+  const knownSoldPrice = isSold && listing.soldPrice ? listing.soldPrice : null;
+  const displayPrice = knownSoldPrice ?? listing.price;
 
   return (
     <article className="flex flex-col overflow-hidden rounded-lg border border-softBorder bg-white shadow-sm">
@@ -29,13 +34,20 @@ export function FeaturedListingCard({ listing }: FeaturedListingCardProps) {
           className="object-cover"
         />
         <div className="absolute left-3 top-3">
-          <Badge tone={listing.status === "active" ? "forest" : "amber"}>
-            {listing.status === "active" ? "For Sale" : "Coming soon"}
+          <Badge tone={isSold ? "slate" : listing.status === "active" ? "forest" : "amber"}>
+            {isSold ? "Sold" : listing.status === "active" ? "For Sale" : "Coming soon"}
           </Badge>
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="font-heading text-2xl font-semibold text-deepInlet">{priceFormatter.format(listing.price)}</p>
+        <p className="font-heading text-2xl font-semibold text-deepInlet">
+          {isSold ? "Sold" : ""}
+          {isSold && knownSoldPrice ? " - " : ""}
+          {isSold && !knownSoldPrice ? "" : priceFormatter.format(displayPrice)}
+        </p>
+        {isSold && !knownSoldPrice ? (
+          <p className="text-xs text-slateText">Listed at {priceFormatter.format(listing.price)}</p>
+        ) : null}
         <p className="mt-1 text-sm text-slateText">
           {listing.address}
           {listing.unit ? `, ${listing.unit}` : ""}

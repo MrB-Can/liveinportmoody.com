@@ -9,7 +9,7 @@ interface OurListingPageProps {
 
 export async function generateStaticParams() {
   return ourListings
-    .filter((listing) => listing.status === "active" || listing.status === "coming-soon")
+    .filter((listing) => listing.status === "active" || listing.status === "coming-soon" || listing.status === "sold")
     .map((listing) => ({ slug: listing.slug }));
 }
 
@@ -36,7 +36,7 @@ export default async function OurListingPage({ params }: OurListingPageProps) {
   const { slug } = await params;
   const listing = ourListings.find((item) => item.slug === slug);
 
-  if (!listing || (listing.status !== "active" && listing.status !== "coming-soon")) {
+  if (!listing || (listing.status !== "active" && listing.status !== "coming-soon" && listing.status !== "sold")) {
     notFound();
   }
 

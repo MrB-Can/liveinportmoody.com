@@ -107,7 +107,7 @@ const faqCategories = [
       {
         question: "Does LiveInPortMoody.com show sold listings?",
         answer:
-          "No. Sold and expired listings are not published as listing inventory on the site. Active listings are handled through approved MLS Reciprocity paths where available.",
+          "Recently sold listings from Paul and Leilani are shown on the site. Third-party sold/comparable data for other agents' listings isn't published - ask us directly for that context. Active listings are handled through approved MLS Reciprocity paths where available.",
       },
       {
         question: "Why do some pages use listing fallback CTAs?",

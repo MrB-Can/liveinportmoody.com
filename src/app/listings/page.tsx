@@ -5,7 +5,7 @@ import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
 import { CTAButton } from "@/components/cta-button";
 import { PortMoodyMap } from "@/components/maps/PortMoodyMap";
 import { neighbourhoodMapPoints } from "@/data/mapPoints";
-import { getActiveOurListings } from "@/data/ourListings";
+import { getActiveOurListings, getSoldOurListings } from "@/data/ourListings";
 import { Section } from "@/components/section";
 import { ExternalLink } from "@/lib/icons";
 import { type LucideIcon, MapPin, Building2, FileSearch, BarChart2, Scale } from "lucide-react";
@@ -38,7 +38,7 @@ const contextCards: { title: string; copy: string; icon: LucideIcon }[] = [
   },
   {
     title: "Pricing context",
-    copy: "Ask for current context before relying on list price alone. Sold data is not published here unless approved.",
+    copy: "Ask for current market context before relying on list price alone. We don't publish third-party comparable sold data, but our own recently sold listings are shown below.",
     icon: BarChart2,
   },
   {
@@ -90,7 +90,7 @@ const faqs = [
   {
     question: "Can I see sold listings here?",
     answer:
-      "Sold and expired listings are not published here. Ask for current context before relying on list price alone.",
+      "Recently sold listings from Paul and Leilani are shown on this page. Third-party comparable sold data isn't published here - ask for current market context before relying on list price alone.",
   },
   {
     question: "Can I ask about a specific listing?",
@@ -139,6 +139,16 @@ export default function ListingsPage() {
         <Section eyebrow="Our listings" title="Listed by Paul and Leilani" tone="sand">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {getActiveOurListings().map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {getSoldOurListings().length > 0 && (
+        <Section eyebrow="Track record" title="Recently sold by Paul and Leilani" tone="white">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {getSoldOurListings().map((listing) => (
               <FeaturedListingCard key={listing.slug} listing={listing} />
             ))}
           </div>
@@ -233,8 +243,7 @@ export default function ListingsPage() {
               Send the listing URL or address. We can help you think through neighbourhood fit, building or complex risk, strata documents, pricing context, and the trade-offs that are not obvious online.
             </p>
             <ul className="mt-5 space-y-2 text-sm leading-6 text-mist">
-              <li>• Active listing questions only</li>
-              <li>• No sold or expired listings shown here</li>
+              <li>• Active listing questions</li>
               <li>• Local context before writing or removing subjects</li>
             </ul>
           </div>

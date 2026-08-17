@@ -20,6 +20,14 @@ export type OurListing = {
   neighbourhoodSlug?: string;
   buildingSlug?: string;
   price: number;
+  // Set when status is "sold": the actual closed price and close date. Shown
+  // in place of the list price wherever the listing surfaces once sold, and
+  // soldDate drives both the "Recently sold" sort order and the 30-day
+  // "Just Sold" homepage window. Left unset for a sold listing whose real
+  // sold price/date isn't known - display code falls back to the list price
+  // and omits date-specific copy rather than inventing either.
+  soldPrice?: number;
+  soldDate?: string;
   beds: number;
   baths: number;
   sqft: number;
@@ -554,6 +562,31 @@ export const ourListings: OurListing[] = [
 
 export function getActiveOurListings(): OurListing[] {
   return ourListings.filter((l) => l.status === "active" || l.status === "coming-soon");
+}
+
+// Most-recently-sold first. Listings with no known soldDate (an older sale
+// whose exact close date wasn't captured) sort to the end rather than being
+// dropped, so they still show up as portfolio proof.
+export function getSoldOurListings(): OurListing[] {
+  return ourListings
+    .filter((l) => l.status === "sold")
+    .sort((a, b) => {
+      if (!a.soldDate && !b.soldDate) return 0;
+      if (!a.soldDate) return 1;
+      if (!b.soldDate) return -1;
+      return new Date(b.soldDate).getTime() - new Date(a.soldDate).getTime();
+    });
+}
+
+const JUST_SOLD_WINDOW_DAYS = 30;
+
+// Sold listings closed within the last 30 days - the "prominent for a
+// while, then it settles into the regular Recently Sold list" placement.
+// Only includes listings with a known soldDate, since the window can't be
+// computed otherwise.
+export function getJustSoldListings(): OurListing[] {
+  const cutoff = Date.now() - JUST_SOLD_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+  return getSoldOurListings().filter((l) => l.soldDate && new Date(l.soldDate).getTime() >= cutoff);
 }
 
 export function getOurListingsForNeighbourhood(slug: string): OurListing[] {

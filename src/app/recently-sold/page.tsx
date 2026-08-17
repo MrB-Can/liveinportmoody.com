@@ -2,40 +2,60 @@ import Link from "next/link";
 import { CTAButton } from "@/components/cta-button";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
+import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
+import { getSoldOurListings } from "@/data/ourListings";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "Recently Sold Context | Port Moody",
+  title: "Recently Sold | Port Moody",
   description:
-    "Request recent Port Moody sales context where permitted. No public sold data or sold prices are displayed.",
+    "Recently sold listings from Paul Bennett and Leilani Fong in Port Moody, plus a way to request comparable-sales context for your own property.",
   path: "/recently-sold",
 });
 
 export default function RecentlySoldPage() {
+  const soldListings = getSoldOurListings();
+
   return (
     <>
       {/* 1. Hero */}
       <ImageHero
         eyebrow="Recently sold"
-        title="Request recent Port Moody sales context."
-        subtitle="Request comparable-sales context where it can be shared appropriately. Public sold listings and sold prices are not displayed here."
-        primaryCta={{ label: "Request sales context", href: "#ask-comparable" }}
-        secondaryCta={{ label: "Request evaluation", href: "/home-evaluation" }}
+        title="Recently sold by Paul and Leilani."
+        subtitle="A look at what we've recently sold in Port Moody, plus a way to request comparable-sales context for your own property where it can be shared appropriately."
+        primaryCta={{ label: "Get a home evaluation", href: "/home-evaluation" }}
+        secondaryCta={{ label: "Ask about comparable sales", href: "#ask-comparable" }}
         imageSrc="/hero-sell.webp"
         imageAlt="Port Moody residential homes surrounded by mature trees."
       />
 
-      {/* 2. Information section */}
+      {/* 2. Our sold listings */}
+      <Section eyebrow="Track record" title="Recently sold" tone="white">
+        {soldListings.length > 0 ? (
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {soldListings.map((listing) => (
+              <FeaturedListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-lg border border-softBorder bg-white p-6">
+            <p className="text-sm leading-6 text-slateText">
+              Nothing to show here yet. If you want to understand how a property might position in the Port Moody market, request a home evaluation and we will respond directly.
+            </p>
+          </div>
+        )}
+      </Section>
+
+      {/* 3. Third-party comparable sales - a separate, more sensitive category */}
       <Section
         eyebrow="Compliance-first"
-        title="How recent sales context is handled."
-        tone="white"
+        title="Asking about other sold properties"
+        tone="sand"
       >
         <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
           <div>
-            <h3 className="font-heading text-xl text-deepInlet">What you can request</h3>
-            <p className="mt-3 text-sm leading-6 text-slateText">
-              Send the property type, area, building, complex, or address and we can respond with appropriate context for your situation.
+            <p className="text-sm leading-6 text-slateText">
+              Comparable-sales data for properties we didn&apos;t list is handled differently than our own track record above - it&apos;s not published on this site, but we can respond with appropriate context for your specific situation.
             </p>
             <ul className="mt-5 space-y-2">
               {[
@@ -52,24 +72,12 @@ export default function RecentlySoldPage() {
             </ul>
           </div>
 
-          <div className="rounded-lg border border-softBorder bg-mist p-5">
+          <div className="rounded-lg border border-softBorder bg-white p-5">
             <h3 className="font-heading text-xl text-deepInlet">Why this is handled carefully</h3>
             <p className="mt-3 text-sm leading-6 text-slateText">
-              Recent-sales context can be useful, but it should be handled with the right permissions, professional context, and property-specific review.
-            </p>
-            <p className="mt-4 text-sm leading-6 text-slateText">
-              This page is a request path. It does not publish public sold prices, fake results, or invented proof points.
+              Comparable-sales context for other agents&apos; listings can be useful, but it should be handled with the right permissions, professional context, and property-specific review rather than published in bulk.
             </p>
           </div>
-        </div>
-      </Section>
-
-      {/* 3. Current sold stories */}
-      <Section eyebrow="Current status" title="Sales context is available by request">
-        <div className="rounded-lg border border-softBorder bg-white p-6">
-          <p className="text-sm leading-6 text-slateText">
-            Sold data availability depends on applicable rules and professional context. If you want to understand how a property might position in the Port Moody market, request a home evaluation or recent-sales context and we will respond directly.
-          </p>
         </div>
       </Section>
 

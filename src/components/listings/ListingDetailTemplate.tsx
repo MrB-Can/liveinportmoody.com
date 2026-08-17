@@ -25,12 +25,19 @@ const agentNames: Record<OurListing["listingAgent"], string> = {
   both: "Paul Bennett and Leilani Fong",
 };
 
-const anchorLinks = [
+const activeAnchorLinks = [
   ["Photos", "#photos"],
   ["Overview", "#overview"],
   ["Facts & Features", "#facts"],
   ["Location", "#location"],
   ["Schedule a tour", "#schedule-a-tour"],
+];
+
+const soldAnchorLinks = [
+  ["Photos", "#photos"],
+  ["Overview", "#overview"],
+  ["Facts & Features", "#facts"],
+  ["Location", "#location"],
 ];
 
 type IconComponent = ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
@@ -63,6 +70,17 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
     ?.rows.find((row) => row.label === "Maintenance fee")?.value;
   const pricePerSqft = listing.sqft > 0 ? Math.round(listing.price / listing.sqft) : null;
 
+  const isSold = listing.status === "sold";
+  // Only claim a "Sold - $X" figure when the actual closed price is known.
+  // Falling back to the list price here would misrepresent it as the sold price.
+  const knownSoldPrice = isSold && listing.soldPrice ? listing.soldPrice : null;
+  const displayPrice = knownSoldPrice ?? listing.price;
+  const showListPriceAsSecondary = isSold && (!knownSoldPrice || knownSoldPrice !== listing.price);
+  const soldDateLabel = listing.soldDate
+    ? new Date(listing.soldDate).toLocaleDateString("en-CA", { month: "long", year: "numeric" })
+    : null;
+  const anchorLinks = isSold ? soldAnchorLinks : activeAnchorLinks;
+
   return (
     <>
       <div className="sticky top-20 z-30 w-full max-w-full overflow-hidden border-y border-softBorder bg-white/95 py-3 backdrop-blur">
@@ -74,19 +92,28 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
               </Link>
             ))}
           </nav>
-          <Link
-            href="#schedule-a-tour"
-            className="whitespace-nowrap rounded-full bg-forest px-4 py-1.5 text-sm font-semibold text-white hover:bg-deepInlet"
-          >
-            Request a showing
-          </Link>
+          {isSold ? (
+            <Link
+              href="/listings"
+              className="whitespace-nowrap rounded-full bg-forest px-4 py-1.5 text-sm font-semibold text-white hover:bg-deepInlet"
+            >
+              See active listings
+            </Link>
+          ) : (
+            <Link
+              href="#schedule-a-tour"
+              className="whitespace-nowrap rounded-full bg-forest px-4 py-1.5 text-sm font-semibold text-white hover:bg-deepInlet"
+            >
+              Request a showing
+            </Link>
+          )}
         </div>
       </div>
 
       <div className="mx-auto max-w-6xl px-5 pt-12">
         <section id="photos" className="relative scroll-mt-28">
           <div className="absolute left-4 top-4 z-10">
-            <ListingStatusBadge status={listing.status === "active" ? "active" : "coming-soon"} />
+            <ListingStatusBadge status={isSold ? "sold" : listing.status === "active" ? "active" : "coming-soon"} />
           </div>
           <ListingHeroGallery images={[listing.heroImage, ...listing.galleryImages]} />
         </section>
@@ -110,7 +137,15 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
                   {building.name}
                 </Link>
               ) : null}
-              <p className="mt-3 text-lg font-semibold text-forest sm:text-xl lg:text-2xl">{priceFormatter.format(listing.price)}</p>
+              <p className={`mt-3 text-lg font-semibold sm:text-xl lg:text-2xl ${isSold ? "text-charcoal" : "text-forest"}`}>
+                {isSold ? "Sold" : ""}
+                {isSold && knownSoldPrice ? " - " : ""}
+                {isSold && !knownSoldPrice ? "" : priceFormatter.format(displayPrice)}
+                {soldDateLabel ? ` · ${soldDateLabel}` : ""}
+              </p>
+              {showListPriceAsSecondary ? (
+                <p className="mt-1 text-sm text-slateText">Listed at {priceFormatter.format(listing.price)}</p>
+              ) : null}
               <p className="mt-1 text-sm text-slateText">
                 MLS® {listing.mlsNumber} · {listing.propertyType}
               </p>
@@ -133,12 +168,21 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
               </div>
 
               <div className="mt-4">
-                <Link
-                  href="#schedule-a-tour"
-                  className="inline-flex rounded-lg border border-softBorder px-5 py-2.5 text-sm font-semibold text-charcoal hover:bg-mist"
-                >
-                  Request a showing
-                </Link>
+                {isSold ? (
+                  <Link
+                    href="/listings"
+                    className="inline-flex rounded-lg border border-softBorder px-5 py-2.5 text-sm font-semibold text-charcoal hover:bg-mist"
+                  >
+                    See active listings
+                  </Link>
+                ) : (
+                  <Link
+                    href="#schedule-a-tour"
+                    className="inline-flex rounded-lg border border-softBorder px-5 py-2.5 text-sm font-semibold text-charcoal hover:bg-mist"
+                  >
+                    Request a showing
+                  </Link>
+                )}
               </div>
 
               {listing.summary ? <p className="mt-6 max-w-3xl text-base leading-8 text-slateText">{listing.summary}</p> : null}
@@ -212,32 +256,65 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
 
           <aside id="schedule-a-tour" className="scroll-mt-28 mt-10 lg:sticky lg:top-36 lg:mt-0 lg:self-start">
             <div className="rounded-lg border border-softBorder bg-white p-6 shadow-sm">
-              <p className="font-heading text-2xl font-semibold text-deepInlet">{priceFormatter.format(listing.price)}</p>
+              <p className={`font-heading text-2xl font-semibold ${isSold ? "text-charcoal" : "text-deepInlet"}`}>
+                {isSold ? "Sold" : ""}
+                {isSold && knownSoldPrice ? " - " : ""}
+                {isSold && !knownSoldPrice ? "" : priceFormatter.format(displayPrice)}
+              </p>
+              {showListPriceAsSecondary ? (
+                <p className="mt-1 text-sm text-slateText">Listed at {priceFormatter.format(listing.price)}</p>
+              ) : null}
               <p className="mt-1 text-sm text-slateText">
                 {listing.beds} beds · {listing.baths} baths · {listing.sqft.toLocaleString()} sqft
               </p>
-              <h2 className="mt-6 font-heading text-xl text-deepInlet">Request a showing</h2>
-              <p className="mt-2 text-sm leading-6 text-slateText">
-                Ask {agentNames[listing.listingAgent]} about {listing.address} or book a time to see it in person.
-              </p>
-              <div className="mt-4">
-                <LeadForm
-                  formType="listing-inquiry"
-                  leadType="buyer"
-                  ctaLabel="Request a showing"
-                  resourceName={listing.address}
-                  messageLabel="What would you like to know, or when works for a showing?"
-                  tags={[
-                    "source:liveinportmoody",
-                    "intent:buyer",
-                    "intent:listing-inquiry",
-                    `mls:${listing.mlsNumber}`,
-                    `listing_slug:${listing.slug}`,
-                    "area:port-moody",
-                  ]}
-                  variant="compact"
-                />
-              </div>
+              {isSold ? (
+                <>
+                  <h2 className="mt-6 font-heading text-xl text-deepInlet">This home has sold</h2>
+                  <p className="mt-2 text-sm leading-6 text-slateText">
+                    Represented by {agentNames[listing.listingAgent]}. Thinking of selling something similar, or
+                    looking for what&apos;s active nearby?
+                  </p>
+                  <div className="mt-4 flex flex-col gap-2">
+                    <Link
+                      href="/home-evaluation"
+                      className="flex items-center justify-center rounded-md bg-forest px-4 py-2.5 text-sm font-semibold text-white hover:bg-deepInlet"
+                    >
+                      Get a home evaluation
+                    </Link>
+                    <Link
+                      href="/listings"
+                      className="flex items-center justify-center rounded-md border border-softBorder px-4 py-2.5 text-sm font-semibold text-charcoal hover:bg-mist"
+                    >
+                      See active listings
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="mt-6 font-heading text-xl text-deepInlet">Request a showing</h2>
+                  <p className="mt-2 text-sm leading-6 text-slateText">
+                    Ask {agentNames[listing.listingAgent]} about {listing.address} or book a time to see it in person.
+                  </p>
+                  <div className="mt-4">
+                    <LeadForm
+                      formType="listing-inquiry"
+                      leadType="buyer"
+                      ctaLabel="Request a showing"
+                      resourceName={listing.address}
+                      messageLabel="What would you like to know, or when works for a showing?"
+                      tags={[
+                        "source:liveinportmoody",
+                        "intent:buyer",
+                        "intent:listing-inquiry",
+                        `mls:${listing.mlsNumber}`,
+                        `listing_slug:${listing.slug}`,
+                        "area:port-moody",
+                      ]}
+                      variant="compact"
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             <div className="mt-6 rounded-lg border border-softBorder bg-white p-5">
@@ -337,7 +414,7 @@ export function ListingDetailTemplate({ listing }: { listing: OurListing }) {
             points={[
               {
                 id: listing.slug,
-                label: priceFormatter.format(listing.price),
+                label: priceFormatter.format(displayPrice),
                 kind: "listing",
                 latitude: listing.latitude,
                 longitude: listing.longitude,
