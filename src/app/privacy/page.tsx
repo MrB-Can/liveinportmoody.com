@@ -1,3 +1,4 @@
+import { ContactLink } from "@/components/contact-link";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
@@ -56,7 +57,7 @@ export default function PrivacyPage() {
           <div className="space-y-3">
             <h2 className="font-heading text-2xl text-deepInlet">Access, correction, and deletion requests</h2>
             <p>You may request access to, correction of, or deletion of your personal information, subject to legal, regulatory, brokerage, and business-record obligations. We may need to verify your identity before acting on a request.</p>
-            <p>Contact us at <a className="font-semibold text-deepInlet underline" href={`mailto:${siteConfig.publicEmail}`}>{siteConfig.publicEmail}</a> or {siteConfig.publicPhone} for privacy questions or requests.</p>
+            <p>Contact us at <ContactLink type="email" value={siteConfig.publicEmail} location="privacy_page" className="font-semibold text-deepInlet underline" /> or {siteConfig.publicPhone} for privacy questions or requests.</p>
           </div>
 
           <div className="space-y-3">

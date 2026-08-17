@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ContactLink } from "@/components/contact-link";
 import { CTAButton } from "@/components/cta-button";
 import { LeadForm } from "@/components/lead-form";
 import { Section } from "@/components/section";
@@ -105,14 +106,16 @@ export default function FeaturedBusinessesPage() {
                   <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest" aria-hidden="true" />
                   <span>
                     <span className="font-semibold text-deepInlet">Phone:</span>{" "}
-                    <a href="tel:+17789999511" className="text-forest hover:underline">778-999-9511</a>
+                    <ContactLink type="phone" value="+17789999511" location="featured_businesses_page" className="text-forest hover:underline">
+                      778-999-9511
+                    </ContactLink>
                   </span>
                 </div>
                 <div className="flex gap-3">
                   <Mail className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest" aria-hidden="true" />
                   <span>
                     <span className="font-semibold text-deepInlet">Email:</span>{" "}
-                    <a href="mailto:paul@rdtc.ca" className="text-forest hover:underline">paul@rdtc.ca</a>
+                    <ContactLink type="email" value="paul@rdtc.ca" location="featured_businesses_page" className="text-forest hover:underline" />
                   </span>
                 </div>
                 <div className="flex gap-3">

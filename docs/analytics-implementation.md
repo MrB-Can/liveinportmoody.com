@@ -2,7 +2,7 @@
 
 **Site:** liveinportmoody.com
 **Stack:** Next.js 15 (App Router) on Vercel
-**Last updated:** 2026-06-08
+**Last updated:** 2026-08-12
 
 This document describes how Google Analytics 4 (GA4) and Microsoft Clarity are wired
 into the site: where the tags load, what events and tags are emitted, and the
@@ -69,12 +69,51 @@ so there is one place to maintain and the two tools never drift apart.
 | `trackFormStart(formType)` | `form_start` | `form_type`, `page_path`, `page_type` | `form_start`, tag `form_type` |
 | `trackFormSubmit(formType)` | `form_submit` **+ a specific Key Event** (see below) | `form_type`, `page_path`, `page_type`, first/last UTM source/medium/campaign, landing pages, referrers | `form_submit`, tag `lead=true`, `identify(lead-…)`, `upgrade("lead_submit")` |
 | `trackDownload(resource)` | `resource_download` | `download_resource`, `page_path`, `page_type` | `resource_download`, tag `download` |
-| `trackCall(location)` | `click_call` | `cta_location`, `page_path`, `page_type` | `click_call` |
-| `trackEmail(location)` | `click_email` | `cta_location`, `page_path`, `page_type` | `click_email` |
+| `trackCall(location)` | `click_call` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` | `click_call` |
+| `trackEmail(location)` | `click_email` **+ `generate_lead`** | `cta_location`, `page_path`, `page_type` | `click_email` |
 
 On a lead submission the session is tagged `lead=true`, identified, and **upgraded** so
 high-value sessions are always recorded in full - useful for reviewing exactly what a
 lead did before converting.
+
+### `generate_lead` (GA4 recommended event)
+
+`trackFormSubmit`, `trackCall`, and `trackEmail` each also fire GA4's standard
+`generate_lead` event, alongside the events already described above - this is
+what should be starred as GA4's Key Event / conversion, replacing `cta_click`.
+
+Params: `form_type` (the same value used for `form_submit`/key events, or
+`phone_click` / `email_click` for `ContactLink`), `page_type`, `page_path`,
+`cta_location` (`` `${page_type}-page` `` for form submits, e.g. `contact-page`;
+the click's `location` string for phone/email, e.g. `footer`), plus the full
+low-cardinality attribution subset (`first_utm_source`, `last_utm_source`, etc.
+- see §5). Attribution is attached to `generate_lead` itself, not just to
+`page_view`, because event-scoped custom dimensions only join to a conversion
+if they're on that specific event. No PII in any param, same guarantee as
+every other event on this page.
+
+`ContactLink` (`src/components/contact-link.tsx`) now also renders in the
+listing-detail agent card, the `/featured-businesses` advertiser block, and
+the `/privacy` and `/terms` compliance links - previously only the footer.
+Two optional props (`subject` for a mailto `?subject=`, `children` to override
+the displayed content) let it cover placements with an icon or a custom
+subject line without duplicating the tel/mailto + tracking logic.
+
+**Note on GA4's own automatic events:** GA4 Enhanced Measurement automatically
+collects its own `form_start` and `form_submit` events site-wide (form-field
+`gtm.formInteract`/`gtm.formSubmit` heuristics), using the **same event names**
+as this site's custom `trackFormStart`/`trackFormSubmit` calls. Both sources
+report under one event name in GA4 Admin - if `form_submit` volume ever looks
+inflated versus known submissions, this is why. `generate_lead` and the
+per-form key events (`contact_form_submit`, etc.) are custom to this codebase
+and don't have this collision.
+
+**Event batching:** gtag.js batches multiple `gtag('event', ...)` calls fired
+within the same tick into a single outgoing POST (rather than one GET per
+event). A form submit fires `form_submit` + a key event + `generate_lead`
+together, so they typically arrive as one batched network request several
+seconds after the click - this is normal gtag.js behavior, not a delay in the
+app. It's still well within GA4 Realtime's "within a minute" window.
 
 **Specific Key Events** fire alongside the generic `form_submit`, mapped by form type, so
 reporting can be done per business action:
@@ -94,7 +133,9 @@ are sent to the GHL contact record, **not** GA4 - to avoid dimension bloat.
 - `src/components/cta-button.tsx` - the shared `CTAButton` fires `trackCTA` on every CTA
   site-wide (incl. the header "Get Started")
 - `src/components/contact-link.tsx` - tracked `tel:`/`mailto:` links fire
-  `trackCall` / `trackEmail` (wired in the footer)
+  `trackCall` / `trackEmail`. Wired in the footer, the listing-detail agent card
+  (`src/components/listings/ListingDetailTemplate.tsx`), the advertiser contact
+  block on `/featured-businesses`, and the `mailto:` links on `/privacy` and `/terms`.
 
 ---
 
@@ -192,8 +233,16 @@ img-src     'self' data: blob: https:   (covers the Clarity/Bing pixel)
   correlate recordings with GA4 sessions.
 - **Clarity masking** - review under Settings → Masking; relax for marketing content while
   keeping form fields masked.
-- **GA4 conversions** - mark `form_submit` (and any other key events) as Key Events/
-  conversions in the GA4 Admin.
+- **GA4 Key Events (pending)** - once `generate_lead` has been observed at least once in
+  Admin → Events, star it as the primary Key Event; unstar `cta_click` (too broad on its
+  own); delete `purchase` and `qualify_lead` (unused custom events, no code path sends
+  them).
+- **GA4 custom dimensions (pending)** - `form_type` and `cta_location` already exist and
+  match the code's parameter names, no action needed. `last_referrer` is currently
+  registered under the typo'd name `orlast_referrer` - delete and recreate as
+  `last_referrer`; the code has always sent the correct name.
+- **GA4 annotation (pending)** - add one on the `generate_lead` ship date so the
+  resulting step change in Key Events isn't misread later as a traffic event.
 
 ---
 

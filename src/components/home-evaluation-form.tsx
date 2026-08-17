@@ -14,8 +14,14 @@ const formSchema = z.object({
   email: z.string().trim().email("Enter a valid email address."),
   phone: z.string().trim().min(10, "Enter a valid phone number."),
   propertyAddress: z.string().trim().min(5, "Enter your property address."),
-  propertyType: z.enum(["condo", "townhouse", "detached", "other"]).optional(),
-  sellingTimeline: z.enum(["now", "1-3-months", "3-6-months", "6-12-months", "1-2-years", "unsure"]).optional(),
+  // .optional() alone rejects "" - the <select> default is an empty-string option,
+  // so an untouched (valid, since these are optional) dropdown would otherwise fail
+  // validation with no visible error, silently blocking submission.
+  propertyType: z.enum(["condo", "townhouse", "detached", "other"]).optional().or(z.literal("")),
+  sellingTimeline: z
+    .enum(["now", "1-3-months", "3-6-months", "6-12-months", "1-2-years", "unsure"])
+    .optional()
+    .or(z.literal("")),
   message: z.string().trim().optional(),
   consentToContact: z.boolean().optional(),
   consentToSms: z.boolean().optional(),

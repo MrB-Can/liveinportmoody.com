@@ -1,3 +1,4 @@
+import { ContactLink } from "@/components/contact-link";
 import { ImageHero } from "@/components/image-hero";
 import { Section } from "@/components/section";
 import { createMetadata } from "@/lib/seo";
@@ -57,7 +58,7 @@ export default function TermsPage() {
 
           <div className="space-y-3">
             <h2 className="font-heading text-2xl text-deepInlet">Brokerage and contact</h2>
-            <p>{siteConfig.realtors} are licensed with {siteConfig.brokerageName}, {siteConfig.brokerageAddress}. Questions can be sent to <a className="font-semibold text-deepInlet underline" href={`mailto:${siteConfig.publicEmail}`}>{siteConfig.publicEmail}</a> or {siteConfig.publicPhone}.</p>
+            <p>{siteConfig.realtors} are licensed with {siteConfig.brokerageName}, {siteConfig.brokerageAddress}. Questions can be sent to <ContactLink type="email" value={siteConfig.publicEmail} location="terms_page" className="font-semibold text-deepInlet underline" /> or {siteConfig.publicPhone}.</p>
           </div>
         </div>
       </Section>

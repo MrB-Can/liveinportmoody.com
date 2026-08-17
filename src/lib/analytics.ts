@@ -91,10 +91,16 @@ export function trackFormStart(formType: string) {
 }
 
 export function trackFormSubmit(formType: string) {
-  const params: EventPayload = { form_type: formType, ...pageContext(), ...ga4Attribution() };
+  const context = pageContext();
+  const params: EventPayload = { form_type: formType, ...context, ...ga4Attribution() };
   track("form_submit", params);
   const keyEvent = keyEventByForm[formType];
   if (keyEvent) track(keyEvent, params);
+
+  // GA4 recommended event. Carries the same attribution subset as form_submit -
+  // form_type/cta_location/UTMs are event-scoped dimensions, so they only join
+  // to a conversion if they're attached to this specific event, not page_view.
+  track("generate_lead", { ...params, cta_location: `${context.page_type}-page` });
 
   clarityEvent("form_submit");
   claritySet("lead", "true");
@@ -109,11 +115,15 @@ export function trackDownload(resource: string) {
 }
 
 export function trackCall(location: string) {
-  track("click_call", { cta_location: location, ...pageContext() });
+  const params = { cta_location: location, ...pageContext(), ...ga4Attribution() };
+  track("click_call", params);
+  track("generate_lead", { form_type: "phone_click", ...params });
   clarityEvent("click_call");
 }
 
 export function trackEmail(location: string) {
-  track("click_email", { cta_location: location, ...pageContext() });
+  const params = { cta_location: location, ...pageContext(), ...ga4Attribution() };
+  track("click_email", params);
+  track("generate_lead", { form_type: "email_click", ...params });
   clarityEvent("click_email");
 }
