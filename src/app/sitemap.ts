@@ -19,11 +19,14 @@ const additionalRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Blog posts carry a real date; everything else falls back to the reviewed date.
+  const contentUpdated = new Date(siteConfig.contentUpdated);
+
   const phaseOneEntries: MetadataRoute.Sitemap = phaseOneRoutes.map((route) => {
     const changeFrequency: "weekly" | "monthly" = route === "/" ? "weekly" : "monthly";
     return {
       url: new URL(route, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency,
       priority: route === "/" ? 1 : 0.7,
     };
@@ -31,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const additionalEntries: MetadataRoute.Sitemap = additionalRoutes.map((route) => ({
     url: new URL(route, siteConfig.url).toString(),
-    lastModified: new Date(),
+    lastModified: contentUpdated,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -47,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((guide) => guide.status === "published")
     .map((guide) => ({
       url: new URL(`/neighbourhoods/${guide.slug}`, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     }));
@@ -56,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((building) => building.guideStatus === "guide-live")
     .map((building) => ({
       url: new URL(`/buildings/${building.slug}`, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
@@ -65,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((complex) => complex.guideStatusLabel === "Guide live" && complex.detailPageUrl)
     .map((complex) => ({
       url: new URL(complex.detailPageUrl as string, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
@@ -74,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((listing) => listing.status === "active" || listing.status === "coming-soon")
     .map((listing) => ({
       url: new URL(`/listings/${listing.slug}`, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     }));
@@ -85,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((listing) => listing.status === "sold")
     .map((listing) => ({
       url: new URL(`/listings/${listing.slug}`, siteConfig.url).toString(),
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.4,
     }));

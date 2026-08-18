@@ -23,6 +23,12 @@ const config: Config = {
       boxShadow: {
         soft: "0 18px 45px rgba(18, 48, 47, 0.10)",
       },
+      // `py-18` is used in ~10 places but is not part of Tailwind v3's default
+      // scale, so those rules were silently dropped and every section stayed at
+      // py-14. 18 * 0.25rem keeps it on the standard spacing rhythm.
+      spacing: {
+        18: "4.5rem",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

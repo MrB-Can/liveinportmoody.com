@@ -1,19 +1,24 @@
 import { Home, MapPin, Train, Trees, type LucideIcon, Users, Waves } from "lucide-react";
 import { CTABand } from "@/components/cta-band";
 import { CTAButton } from "@/components/cta-button";
+import { ContactLink } from "@/components/contact-link";
 import { FeaturedListingCard } from "@/components/listings/FeaturedListingCard";
 import { getActiveOurListings, getJustSoldListings } from "@/data/ourListings";
 import { ImageHero } from "@/components/image-hero";
 import { LeadForm } from "@/components/lead-form";
+import { getApprovedReviews } from "@/data/reviews";
 import { ReviewProof } from "@/components/reviews/review-proof";
 import { Section } from "@/components/section";
+import { StatStrip } from "@/components/visual-elements/StatStrip";
 import { TeamImagePlaceholder } from "@/components/team-image-placeholder";
 import { TrustStrip } from "@/components/trust-strip";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, realEstateAgentSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata = createMetadata({
-  title: "Port Moody Real Estate Decision Engine",
+  // The root layout's title template does not apply to app/page.tsx (same route
+  // segment), so the brand has to be spelled out here.
+  title: "Port Moody Real Estate Guides & Listings | Live in Port Moody",
   description:
     "Local guides, market context, listings, and practical real estate advice for buying, selling, and comparing homes in Port Moody.",
   path: "/",
@@ -29,8 +34,8 @@ const decisionCards = [
   {
     title: "Sell in Port Moody",
     copy: "Position your home around what buyers actually value here: pricing, preparation, and local market context.",
-    cta: "Selling guidance",
-    href: "/sell",
+    cta: "Get a home evaluation",
+    href: "/home-evaluation",
   },
   {
     title: "Relocate to Port Moody",
@@ -151,60 +156,70 @@ const communityCards = [
 const areaCards = [
   {
     name: "Suter Brook",
+    slug: "suter-brook",
     bestFor: "Walkable condo living",
     housing: "Condos and townhomes",
     tradeoff: "More density and strata review required",
   },
   {
     name: "Newport Village",
+    slug: "newport-village",
     bestFor: "Village convenience",
     housing: "Condos and nearby townhomes",
     tradeoff: "Older buildings vary by strata health",
   },
   {
     name: "Klahanie",
+    slug: "klahanie",
     bestFor: "Amenities and inlet access",
     housing: "Condos and townhomes",
     tradeoff: "Buyer demand can be competitive",
   },
   {
     name: "Moody Centre",
+    slug: "moody-centre",
     bestFor: "Transit and redevelopment context",
     housing: "Condos, townhomes, and detached pockets",
     tradeoff: "Change and construction need watching",
   },
   {
     name: "Heritage Mountain",
+    slug: "heritage-mountain",
     bestFor: "Space and family streets",
     housing: "Detached homes and townhomes",
     tradeoff: "Less walkable to daily retail",
   },
   {
     name: "College Park",
+    slug: "college-park",
     bestFor: "Access to SFU and commuter routes",
     housing: "Detached homes and townhomes",
     tradeoff: "Slope and renovation needs vary",
   },
   {
     name: "Glenayre",
+    slug: "glenayre",
     bestFor: "Quiet residential feel",
     housing: "Detached homes",
     tradeoff: "Inventory is often limited",
   },
   {
     name: "Pleasantside",
+    slug: null,
     bestFor: "North shore lifestyle",
     housing: "Detached homes and townhomes",
     tradeoff: "Fewer services within a short walk",
   },
   {
     name: "Ioco / North Shore",
+    slug: "ioco-north-shore",
     bestFor: "Privacy and nature access",
     housing: "Detached homes",
     tradeoff: "Longer drive times to SkyTrain",
   },
   {
     name: "Barber Street",
+    slug: "barber-street",
     bestFor: "Waterfront and character streets",
     housing: "Detached homes",
     tradeoff: "Lot, slope, and condition matter heavily",
@@ -252,6 +267,10 @@ function StepList({ title, steps }: { title: string; steps: string[] }) {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema()) }}
+      />
       <ImageHero
         eyebrow="Live in Port Moody"
         title="Make clearer Port Moody real estate decisions."
@@ -288,20 +307,49 @@ export default function HomePage() {
         </Section>
       )}
 
-      <Section tone="white">
-        <ReviewProof
-          title="Google reviews and client stories, used carefully."
-          intro="Reviews belong where they help people decide. Verified Google excerpts and client stories appear here, without unsupported ratings, counts, or rankings."
-          tags={["general", "buyer", "seller", "port-moody"]}
-          ctaLabel="View review standards"
+      <Section
+        eyebrow="Local market data"
+        title="Port Moody prices, by neighbourhood and home type."
+        intro="We pulled every Port Moody MLS sale from January 2025 through June 2026 and broke the city down by neighbourhood and home type. The segments moved in opposite directions."
+        tone="sand"
+      >
+        <StatStrip
+          stats={[
+            { num: "+9% / -10%", label: "H1 2026 segment spread", sub: "Best vs weakest Port Moody segment" },
+            { num: "$806", label: "Condo, median per sq ft", sub: "vs $766 in Coquitlam and PoCo" },
+            { num: "$614", label: "Detached, median per sq ft", sub: "vs $559 in Coquitlam and PoCo" },
+            { num: "12.4%", label: "Sales to active listings", sub: "Below the region's 14.6%", trend: "down" as const },
+          ]}
         />
+        <p className="mt-2 text-xs leading-5 text-slateText">
+          Source: Tri-Cities MLS sales, January 2025 to June 2026. Figures are medians for the period shown and are not a valuation of any specific property.
+        </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <CTAButton href="/blog/port-moody-neighbourhood-market-analysis-2026" variant="primary">
+            Read the full breakdown
+          </CTAButton>
+          <CTAButton href="/request-recent-sales" variant="secondary">
+            Get your neighbourhood numbers
+          </CTAButton>
+        </div>
       </Section>
+
+      {getApprovedReviews(["general", "buyer", "seller", "port-moody"]).length > 0 && (
+        <Section tone="white">
+          <ReviewProof
+            title="Google reviews and client stories, used carefully."
+            intro="Reviews belong where they help people decide. Verified Google excerpts and client stories appear here, without unsupported ratings, counts, or rankings."
+            tags={["general", "buyer", "seller", "port-moody"]}
+            ctaLabel="View review standards"
+          />
+        </Section>
+      )}
 
       <Section title="Start with the decision" tone="sand">
         <div id="decision-hub" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {decisionCards.map((card) => (
             <article key={card.title} className="flex min-h-64 flex-col rounded-lg border border-softBorder bg-mist p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <h3 className="font-heading text-2xl text-deepInlet">{card.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
               <div className="mt-5">
                 <CTAButton href={card.href} variant="secondary">
@@ -320,7 +368,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {guideFocusCards.map((card) => (
             <article key={card.title} className="rounded-lg border border-softBorder bg-white p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <h3 className="font-heading text-2xl text-deepInlet">{card.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slateText">{card.copy}</p>
             </article>
           ))}
@@ -336,7 +384,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {leadMagnetCards.map((card) => (
             <article key={card.title} className="flex min-h-56 flex-col rounded-lg border border-softBorder bg-mist p-6">
-              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <h3 className="font-heading text-2xl text-deepInlet">{card.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
               <div className="mt-5">
                 <CTAButton href={card.href} variant="secondary">
@@ -407,7 +455,7 @@ export default function HomePage() {
                 </div>
               </dl>
               <div className="mt-5">
-                <CTAButton href="/neighbourhoods" variant="ghost">
+                <CTAButton href={area.slug ? `/neighbourhoods/${area.slug}` : "/neighbourhoods"} variant="ghost">
                   View area guide
                 </CTAButton>
               </div>
@@ -421,7 +469,7 @@ export default function HomePage() {
         title="Not sure where to start?"
         body="Tell us what you are weighing (buying, selling, or comparing areas) and we will point you to the right next step with local context, not a sales pitch."
         cta={{ label: "Get started", href: "/get-started" }}
-        secondaryLink={{ label: "Ask a local question", href: "#ask" }}
+        secondaryLink={{ label: "Get a home evaluation", href: "/home-evaluation" }}
       />
 
       <Section
@@ -481,6 +529,7 @@ export default function HomePage() {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <CTAButton href="/buy" variant="secondary">Buying guidance</CTAButton>
           <CTAButton href="/sell" variant="secondary">Selling guidance</CTAButton>
+          <CTAButton href="/home-evaluation" variant="secondary">Get a home evaluation</CTAButton>
         </div>
       </Section>
 
@@ -518,7 +567,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {communityCards.map((card) => (
             <article key={card.title} className="flex min-h-56 flex-col rounded-lg border border-softBorder bg-mist p-5">
-              <h2 className="font-heading text-2xl text-deepInlet">{card.title}</h2>
+              <h3 className="font-heading text-2xl text-deepInlet">{card.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-6 text-slateText">{card.copy}</p>
               <div className="mt-5">
                 <CTAButton href={card.href} variant="secondary">
@@ -530,15 +579,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section title="Client stories and recognition" tone="sand">
-        <ReviewProof
-          title="Client proof stays source-backed."
-          intro="Testimonials, client stories, Google reviews, and professional recognition are published from verified public sources or with client approval. No invented reviews, rankings, or awards."
-          tags={["general", "buyer", "seller", "relocation"]}
-          ctaLabel="View client stories"
-        />
-      </Section>
-
       <Section title="Ask a local question" tone="white">
         <div id="ask" className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
           <div>
@@ -548,11 +588,25 @@ export default function HomePage() {
             <dl className="mt-8 grid gap-5 text-sm">
               <div>
                 <dt className="font-semibold text-deepInlet">Phone</dt>
-                <dd className="mt-1 text-slateText">{siteConfig.publicPhone}</dd>
+                <dd className="mt-1 text-slateText">
+                  <ContactLink
+                    type="phone"
+                    value={siteConfig.publicPhone}
+                    location="home-ask-section"
+                    className="underline underline-offset-4 hover:text-deepInlet"
+                  />
+                </dd>
               </div>
               <div>
                 <dt className="font-semibold text-deepInlet">Email</dt>
-                <dd className="mt-1 text-slateText">{siteConfig.publicEmail}</dd>
+                <dd className="mt-1 text-slateText">
+                  <ContactLink
+                    type="email"
+                    value={siteConfig.publicEmail}
+                    location="home-ask-section"
+                    className="underline underline-offset-4 hover:text-deepInlet"
+                  />
+                </dd>
               </div>
               <div>
                 <dt className="font-semibold text-deepInlet">Office</dt>

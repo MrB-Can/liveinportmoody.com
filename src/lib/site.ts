@@ -12,6 +12,11 @@ export const siteConfig = {
   brokerageAddress: process.env.NEXT_PUBLIC_BROKERAGE_ADDRESS || "#1500 - 701 West Georgia Street, Vancouver BC V7Y 1G5",
   ogImage: "/images/social/live-in-port-moody-og.png",
   privacyContactName: "Live in Port Moody",
+  // Date the site's hand-written content was last reviewed. Used as the sitemap
+  // lastmod for entries that have no per-item date of their own. Bump this when
+  // page copy or the guide/building/complex data changes - a lastmod of "now" on
+  // every deploy tells Google nothing.
+  contentUpdated: "2026-08-17",
   legalBusinessName: "Live in Port Moody",
   realtors: "Leilani Fong PREC and Paul Bennett, licensed REALTORS with eXp Realty Canada",
 };
@@ -336,6 +341,7 @@ export const phaseOneRoutes = [
   "/local-life",
   "/market",
   "/contact",
+  "/get-started",
   "/privacy",
   "/terms",
   "/buyer-guide",
